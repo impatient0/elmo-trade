@@ -1,16 +1,15 @@
 ---
-
+import BaseLayout from "../layouts/BaseLayout.astro";
+import Carousel from "../components/Carousel";
+const pageTitle = "Элмо Трейд";
+const images = ["/img/carousel1/izmeron.png", "/img/carousel1/noremzi.png", "/img/carousel1/izmeron.png", "/img/carousel1/noremzi.png"];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<style>
+	h2 {
+		background: magenta;
+	}
+</style>
+<BaseLayout pageTitle={pageTitle}>
+  <Carousel client:load images={images}/>
+</BaseLayout>
