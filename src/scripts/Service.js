@@ -14,6 +14,8 @@ serviceContainers.forEach(serviceContainer => {
     function slideDown(object) {
         if (!isExpanded) {
             document.querySelector('#srv_'+object.id).classList.remove('expanded');
+            document.querySelector('#dsc_'+object.id).style.display="none";
+            document.querySelector('#btn_'+object.id).style.display="none";
         }
     }
     
@@ -22,6 +24,8 @@ serviceContainers.forEach(serviceContainer => {
         document.querySelector('#srv_'+this.id).classList.add('expanded');
         document.querySelector('#hdr_'+this.id).style.color="white";
         document.querySelector('#dsc_'+this.id).style.color="white";
+        document.querySelector('#dsc_'+this.id).style.display="block";
+        document.querySelector('#btn_'+this.id).style.display="block";
         setTimeout(() => fadeIn(this), 200);
     });
     

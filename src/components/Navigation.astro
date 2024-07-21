@@ -1,9 +1,31 @@
 ---
+import DropdownBtn from "./DropdownBtn";
+const btnText1 = "Услуги";
+const btnLink1 = "/services";
+const menuTexts1 = ["электромонтажные работы", "СИСТЕМЫ ПРОТИВОПОЖАРНОЙ ЗАЩИТЫ И Автоматики", "системы контроля и управления доступом", "структурированные кабельные сети", "системы отопления и теплоснабжения", "системы вентиляции и кондиционирование воздуха", "система охранного телевидения", "водоснабжение и канализация", "системы сигнализаций и охраны периметра"];
+const menuLinks1 = ["#", "#", "#", "#", "#", "#", "#", "#", "#"];
+const btnText2 = "Партнёры";
+const btnLink2 = "/partners";
+const menuTexts2 = ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"];
+const menuLinks2 = ["#", "#", "#", "#", "#", "#"];
+const btnText3 = "Проекты";
+const btnLink3 = "/projects";
+const menuTexts3 = ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"];
+const menuLinks3 = ["#", "#", "#", "#", "#", "#"];
+const btnText4 = "Отзывы";
+const btnLink4 = "/reviews";
+const menuTexts4 = ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"];
+const menuLinks4 = ["#", "#", "#", "#", "#", "#"];
+const btnText5 = "Контакты";
+const btnLink5 = "/projects";
+const menuTexts5 = ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"];
+const menuLinks5 = ["#", "#", "#", "#", "#", "#"];
 ---
+
 <div class="nav-links">
-    <a href="/services">Услуги</a>
-    <a href="/partners">Партнёры</a>
-    <a href="/projects">Проекты</a>
-    <a href="/licenses">Отзывы</a>
-    <a href="/contact">Контакты</a>
+    <DropdownBtn client:load btnText={btnText1} btnLink={btnLink1} menuTexts={menuTexts1} menuLinks={menuLinks1}/>
+    <DropdownBtn client:load btnText={btnText2} btnLink={btnLink2} menuTexts={menuTexts2} menuLinks={menuLinks2}/>
+    <DropdownBtn client:load btnText={btnText3} btnLink={btnLink3} menuTexts={menuTexts3} menuLinks={menuLinks3}/>
+    <DropdownBtn client:load btnText={btnText4} btnLink={btnLink4} menuTexts={menuTexts4} menuLinks={menuLinks4}/>
+    <DropdownBtn client:load btnText={btnText5} btnLink={btnLink5} menuTexts={menuTexts5} menuLinks={menuLinks5}/>
 </div>

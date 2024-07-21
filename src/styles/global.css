@@ -49,6 +49,7 @@ nav {
 }
 
 .nav-links {
+    position: relative;
     width: 100%;
     top: 5rem;
     left: 48px;
@@ -57,7 +58,7 @@ nav {
     margin: 0;
 }
 
-.nav-links a {
+/* .nav-links a {
     display: block;
     text-align: center;
     padding: 10px 0px;
@@ -74,7 +75,7 @@ nav {
     transition: 700ms;
     background-color: #0D7EE1;
     opacity: 75%;
-}
+} */
 
 .expanded {
     display: unset;
