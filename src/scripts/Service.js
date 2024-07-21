@@ -22,12 +22,12 @@ serviceContainers.forEach(serviceContainer => {
         document.querySelector('#srv_'+this.id).classList.add('expanded');
         document.querySelector('#hdr_'+this.id).style.color="white";
         document.querySelector('#dsc_'+this.id).style.color="white";
-        setTimeout(() => fadeIn(this), 150);
+        setTimeout(() => fadeIn(this), 200);
     });
     
     serviceContainer.addEventListener('mouseleave', function() {
         isExpanded = false;
-        setTimeout(() => slideDown(this), 150);
+        setTimeout(() => slideDown(this), 200);
         document.querySelector('#hdr_'+this.id).style.color="black";
         document.querySelector('#dsc_'+this.id).style.color="black";
         document.querySelector('#dsc_'+this.id).style.opacity="0";

@@ -19,7 +19,7 @@ export default function Carousel({ images }) {
                 {
                     images.map((image, index) => (
                         <div class="slide fade" style={index == slideIndex ? "display:block" : "display:none"}>
-                            <div class="numbertext">{index + 1} / {images.length}</div>
+                            {/* <div class="numbertext">{index + 1} / {images.length}</div> */}
                             <img src={image} style="width:100%" />
                         </div>
                     ))
