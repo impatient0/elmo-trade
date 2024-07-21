@@ -10,7 +10,11 @@ body {
     width: 100%;
     max-width: 1280px;
     min-height: 100%;
-    line-height: 1.5;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    font-family: 'Montserrat', sans-serif;
 }
 
 * {
@@ -23,6 +27,7 @@ nav {
     align-items: center;
     padding: 0px 65px;
     height: 149px;
+    min-width: 100%;
 }
 
 .elmo {
@@ -36,7 +41,6 @@ nav {
     padding: 8px;
     color: #0D7EE1;
     font-size: 24px;
-    font-family: 'Montserrat', sans-serif;
     text-decoration: none;
 }
 
@@ -95,4 +99,63 @@ nav {
     .hamburger {
         display: none;
     }
+}
+
+.cover {
+    display: block;
+    position: relative;
+}
+
+
+#izmeron_title {
+    position: absolute;
+    top: 8%;
+    bottom: 52.5%;
+    grid-column: 1;
+    grid-row: 1;
+    color: white;
+    z-index: 1;
+    background-color: #0D7EE1;
+    left: 0%;
+    right: 52.5%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#izmeron_title a {
+    font-weight: 400;
+    font-size: 20px;
+    padding-left: 12.5%;
+}
+
+#izmeron_title b {
+    font-weight: 500;
+    font-size: 48px;
+}
+
+#about {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-bottom: 113px;
+}
+
+#about a {
+    text-align: center;
+    max-width: 775px;
+    font-size: 16px;
+}
+
+#logos {
+    padding-top: 64px;
+    display: flex;
+    justify-content: space-between;
+    min-width: 1103px;
+}
+
+#logos img {
+    align-self: center;
+    object-fit: contain;
 }

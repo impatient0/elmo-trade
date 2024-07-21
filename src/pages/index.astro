@@ -1,15 +1,35 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
 import Carousel from "../components/Carousel";
+import Services from "../components/Services.astro"
 const pageTitle = "Элмо Трейд";
-const images = ["/img/carousel1/izmeron.png", "/img/carousel1/noremzi.png", "/img/carousel1/izmeron.png", "/img/carousel1/noremzi.png"];
+const images = [
+	"/img/carousel1/izmeron.png",
+	"/img/carousel1/noremzi.png",
+	"/img/carousel1/izmeron.png",
+	"/img/carousel1/noremzi.png",
+];
 ---
 
-<style>
-	h2 {
-		background: magenta;
-	}
-</style>
 <BaseLayout pageTitle={pageTitle}>
-  <Carousel client:load images={images}/>
+	<div class="cover">
+		<Carousel client:load images={images} />
+		<div id="izmeron_title">
+			<a><b>ЗАВОД ИЗМЕРОН</b></a>
+			<a>Заказчик: ОАО "Банк ВТБ Северо-Запад"</a>
+		</div>
+	</div>
+	<div id="about">
+		<a>ЗАО Научно-производственное предприятие «ЭЛМО трейд» предлагает полный спектр работ по проектированию электрических сетей, выполнению электромонтажных и пусконаладочных работ в промышленном и гражданском строительстве города Санкт-Петербурга и его ближайшем пригороде.</a>
+		<br>
+		<a>Работаем с 2001 года.</a>
+		<div id="logos">
+			<img src="/img/about/spb.png">
+			<img src="/img/about/spbgu.png">
+			<img src="/img/about/arteks.png">
+			<img src="/img/about/mts.png">
+			<img src="/img/about/vtb.png">
+		</div>
+	</div>
+	<Services />
 </BaseLayout>

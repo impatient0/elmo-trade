@@ -15,18 +15,20 @@ export default function Carousel({ images }) {
 
     return (
         <div class="carousel">
-            {
-                images.map((image, index) => (
-                    <div class="slide fade" style={index == slideIndex ? "display:block" : "display:none"}>
-                        <div class="numbertext">{index + 1} / {images.length}</div>
-                        <img src={image} style="width:100%" />
-                    </div>
-                ))
-            }
+            <div>
+                {
+                    images.map((image, index) => (
+                        <div class="slide fade" style={index == slideIndex ? "display:block" : "display:none"}>
+                            <div class="numbertext">{index + 1} / {images.length}</div>
+                            <img src={image} style="width:100%" />
+                        </div>
+                    ))
+                }
 
-            <a class="prev" onClick={() => setSlideIndex((slideIndex - 1) % images.length)}>&#10094;</a>
-            <a class="next" onClick={() => setSlideIndex((slideIndex + 1) % images.length)}>&#10095;</a>
-
+                <a class="prev" onClick={() => setSlideIndex((slideIndex - 1) % images.length)}>&#10094;</a>
+                <a class="next" onClick={() => setSlideIndex((slideIndex + 1) % images.length)}>&#10095;</a>
+            </div>
+            
             <div style="text-align:center">
                 {
                     images.map((image, index) => (
