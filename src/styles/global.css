@@ -21,6 +21,10 @@ body {
     box-sizing: border-box;
 }
 
+button {
+    font-family: 'Montserrat', sans-serif;    
+}
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -159,4 +163,34 @@ nav {
 #logos img {
     align-self: center;
     object-fit: contain;
+}
+
+#projects {
+    padding: 100px 72px 100px 72px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.show-all-btn {
+    width: auto;
+    align-self: center;
+    background-color: #0D7EE1;
+    border: none;
+    padding: 8px 16px;
+    color: white;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    &:hover{
+        filter: brightness(85%);
+    }
+}
+
+#show_all_objects {
+    margin-top: 42px;
+    text-transform: uppercase;
+    font-size: 16px;
 }

@@ -12,13 +12,26 @@
     font-size: 16px;
     font-weight: 500;
     text-transform: uppercase;
-    transition: all 700ms ease;
+    transition: all .5s ease;
+}
+
+.dropdown-btn {
+    position: relative;
+    z-index: 3;
 }
 
 .nav-links a:hover,
 .nav-links a:focus {
     background-color: #0D7EE1;
     opacity: 75%;
+}
+
+.dropdown-container {
+    position: relative;
+}
+
+.dropdown-container>ul>li {
+    transition: all .5s ease;
 }
 
 .dropdown-item {
@@ -30,22 +43,18 @@
     text-transform: uppercase;
     white-space: nowrap;
     font-size: 12px;
-}
-
-.dropdown-container {
-    position: relative;
+    font-weight: 600;
 }
 
 ul {
-    padding: 0;
     z-index: 2;
+    padding: 0;
     background: white;
     height: 0;
     left: 0;
     opacity: 0;
     position: absolute;
     transition: all .5s ease;
-    top: 33px;
     width: auto;
     min-width: 100%;
     list-style: none;

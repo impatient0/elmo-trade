@@ -24,6 +24,7 @@
     position: relative;
     width: 360px;
     height: 220px;
+    overflow: hidden;
 }
 
 .service {
@@ -32,7 +33,7 @@
     bottom: 0%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-start;
     width: 360px;
     height: 102px;
     padding: 20px 30px 25px 30px;
@@ -46,10 +47,11 @@
     position: absolute;
     top: 0;
     left: 0;
+    transition: all .5s ease;
 }
 
 .expanded {
-    justify-content: space-between;
+    justify-content: space-evenly;
     height: 220px;
     background-color: #0D7EE1;
 }
@@ -91,23 +93,6 @@
 .service button:hover {
     background-color: #d3eaff;
     scale: 1.05;
-}
-
-.show-all-btn {
-    width: auto;
-    align-self: center;
-    background-color: #0D7EE1;
-    border: none;
-    padding: 8px 16px 8px 16px;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 12px;
-    font-weight: 500;
-    cursor: pointer;
-    transition: all 0.25s ease;
-    &:hover{
-        filter: brightness(85%);
-    }
 }
 
 .hidden {

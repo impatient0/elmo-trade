@@ -1,0 +1,42 @@
+.project-gallery {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.project-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    margin: 11px 0 11px 0;
+    transition: all .5s ease;
+    cursor: pointer;
+    text-rendering: optimizeLegibility;
+    &:hover {
+        /* transform: scale(1.05);
+        transform-origin: center; */
+        filter: brightness(80%);
+    }
+}
+
+.project-year {
+    position: absolute;
+    top: 16px;
+    left: 20px;
+    margin: 0;
+    background-color: white;
+    padding: 8px 16px 8px 16px;
+    border-radius: 47px;
+    font-weight: 600;
+    font-size: 12px;
+    text-rendering: optimizeLegibility;
+    backface-visibility: hidden;
+}
+
+.project-title {
+    margin: 12px 0 0 0;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 500;
+}
