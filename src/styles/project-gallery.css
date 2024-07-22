@@ -9,10 +9,11 @@
     position: relative;
     display: flex;
     flex-direction: column;
-    margin: 11px 0 11px 0;
+    margin: 11px 9px 11px 9px;
     transition: all .5s ease;
     cursor: pointer;
     text-rendering: optimizeLegibility;
+
     &:hover {
         /* transform: scale(1.05);
         transform-origin: center; */

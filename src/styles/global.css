@@ -157,7 +157,8 @@ nav {
     padding-top: 64px;
     display: flex;
     justify-content: space-between;
-    min-width: 1103px;
+    width: 90%;
+    flex-wrap: wrap;
 }
 
 #logos img {

@@ -1,0 +1,17 @@
+---
+import "../styles/letters.css";
+const letters = [
+    "/img/letters/letter1.png",
+    "/img/letters/letter1.png",
+    "/img/letters/letter1.png",
+    "/img/letters/letter1.png",
+    "/img/letters/letter1.png",
+    "/img/letters/letter1.png",
+    "/img/letters/letter1.png",
+    "/img/letters/letter1.png",
+];
+---
+
+<div class="letters">
+    {letters.map((letter) => <img src={letter} class="letter-img" onclick="window.location.href='#'"/>)}
+</div>

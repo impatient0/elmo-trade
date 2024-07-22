@@ -1,0 +1,51 @@
+---
+const { width, height } = Astro.props;
+import "../styles/map.css";
+const info = [
+    {
+        text: ["9:00 - 22:00"],
+        icon: { path: "/icons/clock-solid.svg", width: 21, height: 28 },
+    },
+    {
+        text: ["Санкт-Петербург, Ленинский пр., 168, оф. 331"],
+        icon: { path: "/icons/location-dot-solid.svg", width: 21, height: 28 },
+    },
+    {
+        text: ["+7 (812) 370-14-10", "+7 (812) 370-22-61"],
+        icon: { path: "/icons/phone-solid.svg", width: 21, height: 28 },
+    },
+    {
+        text: ["elmotreid@mail.ru"],
+        icon: { path: "/icons/envelope-solid.svg", width: 21, height: 21 },
+    },
+];
+---
+
+<div class="map">
+    <div class="contact-info-banner">
+        {
+            info.map((info) => (
+                <div class="contact-info-line">
+                    <img
+                        class="icon"
+                        src={info.icon.path}
+                        alt="Icon"
+                        width={info.icon.width}
+                        height={info.icon.height}
+                    />
+                    <div>
+                        {info.text.map((text) => (
+                            <p>{text}</p>
+                        ))}
+                    </div>
+                </div>
+            ))
+        }
+    </div>
+    <script
+        type="text/javascript"
+        charset="utf-8"
+        async
+        src=`https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A753e8d8930b6b9ee79e78edc836c09ac776e3db1c768918e6a782f24fcbdaf32&width=${width}&height=${height}&lang=ru_RU&scroll=true`
+    ></script>
+</div>

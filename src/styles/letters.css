@@ -1,0 +1,17 @@
+.letters {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 40px 8%;
+}
+
+.letter-img {
+    margin: .5% .5%;
+    cursor: pointer;
+    transition: all .5s ease;
+    &:hover {
+        filter: brightness(85%);
+        scale: 1.05;
+    }
+}
