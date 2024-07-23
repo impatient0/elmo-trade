@@ -25,17 +25,17 @@ export default function Carousel({ images }) {
                     ))
                 }
 
-                <a class="prev" onClick={() => setSlideIndex((slideIndex - 1) % images.length)}>&#10094;</a>
-                <a class="next" onClick={() => setSlideIndex((slideIndex + 1) % images.length)}>&#10095;</a>
+                {/* <a class="prev" onClick={() => setSlideIndex((slideIndex - 1) % images.length)}>&#10094;</a>
+                <a class="next" onClick={() => setSlideIndex((slideIndex + 1) % images.length)}>&#10095;</a> */}
             </div>
             
-            <div style="text-align:center">
+            {/* <div style="text-align:center">
                 {
                     images.map((image, index) => (
                         <span class={"dot" + (index == slideIndex ? " active" : "")} onClick={() => setSlideIndex(index)}></span>
                     ))
                 }
-            </div>
+            </div> */}
         </div>
     )
 }

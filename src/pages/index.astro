@@ -5,39 +5,44 @@ import Services from "../components/Services.astro";
 import Projects from "../components/Projects.astro";
 import Letters from "../components/Letters.astro";
 import Map from "../components/Map.astro";
-import Footer from "../components/Footer.astro";
 const pageTitle = "Элмо Трейд";
 const images = [
-	"/img/carousel1/izmeron.png",
-	"/img/carousel1/noremzi.png",
-	"/img/carousel1/izmeron.png",
-	"/img/carousel1/noremzi.png",
+	"/img/carousel1/carousel1.png",
+	"/img/carousel1/carousel2.png",
+	"/img/carousel1/carousel1.png",
+	"/img/carousel1/carousel2.png",
 ];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<div class="cover">
 		<Carousel client:load images={images} />
-		<div id="izmeron_title">
-			<a><b>ЗАВОД ИЗМЕРОН</b></a>
-			<a>Заказчик: ОАО "Банк ВТБ Северо-Запад"</a>
+		<div class="carousel-banner">
+			<p class="title2">2019-2022</p>
+			<p class="headline2">завод Измерон</p>
+			<p class="subbody2">г. Санкт-Петербург, ул. Броневая, д. 5</p>
+			<p class="body2">Выполнен комплекс строительно-монтажных работ по реконструкции административно-бытового здания Корпус № 1, №2. </p>
 		</div>
 	</div>
-	<div id="about">
-		<a>ЗАО Научно-производственное предприятие «ЭЛМО трейд» предлагает полный спектр работ по проектированию электрических сетей, выполнению электромонтажных и пусконаладочных работ в промышленном и гражданском строительстве города Санкт-Петербурга и его ближайшем пригороде.</a>
-		<br>
-		<a>Работаем с 2001 года.</a>
-		<div id="logos">
+	<div class="about" id="about_home">
+		<p class="title1">Выполняем широкий спектр работ</p>
+		<p class="headline1">с 2001 года</p>
+		<p class="body1">ООО НПП «ЭЛМО трейд» занимается проектированием, монтажом и техническим обслуживанием инженерных систем и систем обеспечения противопожарной безопасности любой сложности с применением как отечественного так и импортного оборудования в городе Санкт-Петербурге и его ближайшем пригороде.</p>
+		<!-- <div id="logos">
 			<img src="/img/about/spb.png">
 			<img src="/img/about/spbgu.png">
 			<img src="/img/about/arteks.png">
 			<img src="/img/about/mts.png">
 			<img src="/img/about/vtb.png">
-		</div>
+		</div> -->
 	</div>
 	<Services />
+	<div class="about" id="about_home_2">
+		<p class="title1">Проекты</p>
+		<p class="headline1">ознакомьтесь с нашей работой</p>
+		<p class="body1">За более чем 20-ти летний период мы оборудовали инженерными системами большие количество объектов.</p>
+	</div>
 	<Projects />
 	<Letters />
 	<Map width="1280" height="400"/>
-	<Footer />
 </BaseLayout>

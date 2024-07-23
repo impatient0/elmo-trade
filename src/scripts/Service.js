@@ -4,40 +4,34 @@ serviceContainers.forEach(serviceContainer => {
 
     let isExpanded = false;
     
-    function fadeIn(object) {
+    function slideUp(object) {
         if (isExpanded) {
-            document.querySelector('#dsc_'+object.id).style.opacity="1";
-            document.querySelector('#btn_'+object.id).style.opacity="1";
+            document.querySelector('#bgi_'+object.id).style.filter="blur(1px) brightness(80%)";
+            document.querySelector('#bgi_'+object.id).style.filter="blur(1px) brightness(80%)";
+            document.querySelector('#srv_'+object.id).classList.add('expanded');
+            // document.querySelector('#dsc_'+object.id).style.opacity="1";
+            // document.querySelector('#btn_'+object.id).style.opacity="1";
         }
     }
     
     function slideDown(object) {
         if (!isExpanded) {
             document.querySelector('#bgi_'+object.id).style.filter="blur(0px) brightness(100%)";
+            document.querySelector('#hdr_'+object.id).style.filter="blur(0px) brightness(100%)";
             document.querySelector('#srv_'+object.id).classList.remove('expanded');
-            // document.querySelector('#dsc_'+object.id).style.display="none";
-            // document.querySelector('#btn_'+object.id).style.display="none";
         }
     }
     
     serviceContainer.addEventListener('mouseenter', function() {
         isExpanded = true;
-        document.querySelector('#bgi_'+this.id).style.filter="blur(1px) brightness(80%)";
-        document.querySelector('#srv_'+this.id).classList.add('expanded');
-        document.querySelector('#hdr_'+this.id).style.color="white";
-        document.querySelector('#dsc_'+this.id).style.color="white";
-        // document.querySelector('#dsc_'+this.id).style.display="block";
-        // document.querySelector('#btn_'+this.id).style.display="block";
-        setTimeout(() => fadeIn(this), 200);
+        slideUp(this);
     });
     
     serviceContainer.addEventListener('mouseleave', function() {
         isExpanded = false;
         setTimeout(() => slideDown(this), 200);
-        document.querySelector('#hdr_'+this.id).style.color="black";
-        document.querySelector('#dsc_'+this.id).style.color="black";
-        document.querySelector('#dsc_'+this.id).style.opacity="0";
-        document.querySelector('#btn_'+this.id).style.opacity="0";
+        // document.querySelector('#dsc_'+this.id).style.opacity="0";
+        // document.querySelector('#btn_'+this.id).style.opacity="0";
     });
 
 });

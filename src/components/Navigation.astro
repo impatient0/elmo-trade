@@ -1,31 +1,55 @@
 ---
+import { map } from "astro/zod";
 import DropdownBtn from "./DropdownBtn";
-const btnText1 = "Услуги";
-const btnLink1 = "/services";
-const menuTexts1 = ["электромонтажные работы", "СИСТЕМЫ ПРОТИВОПОЖАРНОЙ ЗАЩИТЫ И Автоматики", "системы контроля и управления доступом", "структурированные кабельные сети", "системы отопления и теплоснабжения", "системы вентиляции и кондиционирование воздуха", "система охранного телевидения", "водоснабжение и канализация", "системы сигнализаций и охраны периметра"];
-const menuLinks1 = ["#", "#", "#", "#", "#", "#", "#", "#", "#"];
-const btnText2 = "Партнёры";
-const btnLink2 = "/partners";
-const menuTexts2 = ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"];
-const menuLinks2 = ["#", "#", "#", "#", "#", "#"];
-const btnText3 = "Проекты";
-const btnLink3 = "/projects";
-const menuTexts3 = ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"];
-const menuLinks3 = ["#", "#", "#", "#", "#", "#"];
-const btnText4 = "Отзывы";
-const btnLink4 = "/reviews";
-const menuTexts4 = ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"];
-const menuLinks4 = ["#", "#", "#", "#", "#", "#"];
-const btnText5 = "Контакты";
-const btnLink5 = "/projects";
-const menuTexts5 = ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"];
-const menuLinks5 = ["#", "#", "#", "#", "#", "#"];
+
+const menu = [
+    {
+        btnText: "Услуги",
+        btnLink: "/services",
+        menuTexts: [
+            "электромонтажные работы",
+            "СИСТЕМЫ ПРОТИВОПОЖАРНОЙ ЗАЩИТЫ И Автоматики",
+            "системы контроля и управления доступом",
+            "структурированные кабельные сети",
+            "системы отопления и теплоснабжения",
+            "системы вентиляции и кондиционирование воздуха",
+            "система охранного телевидения",
+            "водоснабжение и канализация",
+            "системы сигнализаций и охраны периметра",
+        ],
+        menuLinks: ["#", "#", "#", "#", "#", "#", "#", "#", "#"],
+    },
+    {
+        btnText: "Проекты",
+        btnLink: "/projects",
+        menuTexts: ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"],
+        menuLinks: ["#", "#", "#", "#", "#", "#"],
+    },
+    {
+        btnText: "Партнёры",
+        btnLink: "/partners",
+        menuTexts: ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"],
+        menuLinks: ["#", "#", "#", "#", "#", "#"],
+    },
+    {
+        btnText: "Контакты",
+        btnLink: "/contacts",
+        menuTexts: ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"],
+        menuLinks: ["#", "#", "#", "#", "#", "#"],
+    },
+];
 ---
 
 <div class="nav-links">
-    <DropdownBtn client:load btnText={btnText1} btnLink={btnLink1} menuTexts={menuTexts1} menuLinks={menuLinks1}/>
-    <DropdownBtn client:load btnText={btnText2} btnLink={btnLink2} menuTexts={menuTexts2} menuLinks={menuLinks2}/>
-    <DropdownBtn client:load btnText={btnText3} btnLink={btnLink3} menuTexts={menuTexts3} menuLinks={menuLinks3}/>
-    <DropdownBtn client:load btnText={btnText4} btnLink={btnLink4} menuTexts={menuTexts4} menuLinks={menuLinks4}/>
-    <DropdownBtn client:load btnText={btnText5} btnLink={btnLink5} menuTexts={menuTexts5} menuLinks={menuLinks5}/>
+    {
+        menu.map((menu) => (
+            <DropdownBtn
+                client:load
+                btnText={menu.btnText}
+                btnLink={menu.btnLink}
+                menuTexts={menu.menuTexts}
+                menuLinks={menu.menuLinks}
+            />
+        ))
+    }
 </div>

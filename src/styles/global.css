@@ -8,7 +8,7 @@ body {
     background-color: #ffffff;
     margin: 0 auto;
     width: 100%;
-    max-width: 1280px;
+    max-width: 1440px;
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -22,16 +22,7 @@ body {
 }
 
 button {
-    font-family: 'Montserrat', sans-serif;    
-}
-
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0px 65px;
-    height: 149px;
-    min-width: 100%;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .elmo {
@@ -40,26 +31,20 @@ nav {
     cursor: pointer;
 }
 
-.elmo a {
-    margin-left: 8px;
-    padding: 8px;
-    color: #0D7EE1;
-    font-size: 24px;
-    text-decoration: none;
-}
-
-.elmo a b {
-    font-weight: 600;
-}
-
-.nav-links {
-    position: relative;
-    width: 100%;
-    top: 5rem;
-    left: 48px;
-    background-color: #ff9776;
-    display: none;
+.elmo p {
     margin: 0;
+    color: #5E5E5E;
+    font-size: 12px;
+    font-weight: 500;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.vertical-line {
+    width: 1px;
+    height: 68px;
+    background-color: #5E5E5E;
+    margin: 0 19px;
 }
 
 /* .nav-links a {
@@ -81,7 +66,7 @@ nav {
     opacity: 75%;
 } */
 
-.expanded {
+/* .expanded {
     display: unset;
 }
 
@@ -104,53 +89,101 @@ nav {
     .hamburger {
         display: none;
     }
-}
+} */
 
 .cover {
-    display: block;
+    display: flex;
+    flex-direction: column;
     position: relative;
+    height: 600px;
 }
 
 
-#izmeron_title {
+.carousel-banner {
     position: absolute;
-    top: 8%;
-    bottom: 52.5%;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
     grid-column: 1;
     grid-row: 1;
+    width: 47.5%;
+    padding: 52px 4% 52px 8.5%;
     color: white;
     z-index: 1;
     background-color: #0D7EE1;
-    left: 0%;
-    right: 52.5%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
 }
 
-#izmeron_title a {
-    font-weight: 400;
-    font-size: 20px;
-    padding-left: 12.5%;
+.carousel-banner>p {
+    margin: 4px 0;
+    max-width: 420px;
 }
 
-#izmeron_title b {
+.carousel-banner>.subbody2 {
+    margin-bottom: 12px;
+}
+
+.title1 {
+    font-size: 16px;
     font-weight: 500;
-    font-size: 48px;
 }
 
-#about {
+.title2 {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.headline1 {
+    text-transform: uppercase;
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.headline2 {
+    text-transform: uppercase;
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.body1 {
+    font-size: 16px;
+    font-weight: 400;
+}
+
+.body2 {
+    font-size: 14px;
+    font-weight: 400;
+}
+
+.subbody2 {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.about {
+    margin: 74px 0;
+    width: 100%;
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     align-items: center;
-    padding-bottom: 113px;
 }
 
-#about a {
+.about p {
     text-align: center;
-    max-width: 775px;
-    font-size: 16px;
+    max-width: 60%;
+    margin: 8px 0;
+}
+
+#about_home {
+    margin: 74px 0;
+}
+
+#about_home_2>p {
+    max-width: 55%;
 }
 
 #logos {
@@ -185,7 +218,8 @@ nav {
     font-weight: 500;
     cursor: pointer;
     transition: all 0.25s ease;
-    &:hover{
+
+    &:hover {
         filter: brightness(85%);
     }
 }

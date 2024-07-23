@@ -2,6 +2,48 @@
     box-sizing: border-box;
 }
 
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0;
+    height: 120px;
+    margin: 0 8.5%;
+}
+
+.nav-links {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    position: static;
+    width: auto;
+    background: none;
+}
+
+.nav-links a {
+    display: inline-block;
+    padding: 15px 17px;
+}
+
+.nav-contact {
+    text-align: right;
+    margin-left: 2.5%;
+}
+
+.nav-contact>p {
+    color: #0095E0;
+    font-style: italic;
+    font-size: 16px;
+    font-weight: 300;
+    margin: 0 1px;
+}
+
+.nav-contact>p>b{
+    color: #259DDA;
+    font-size: 20px;
+    font-weight: 500;
+}
+
 .dropdown-btn, .dropdown-item {
     display: block;
     text-align: center;
