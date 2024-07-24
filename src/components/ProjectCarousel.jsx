@@ -17,6 +17,13 @@ export default function ProjectCarousel({ slides }) {
 
     const [activeSlide, setActiveSlide] = useState(0);
 
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setActiveSlide((activeSlide + 1) % slides.length);
+        }, 5000);
+        return () => clearTimeout(timer);
+    }, [activeSlide]);
+
     return (
         <div class="project-carousel">
             {slides.map((project, index) => (
