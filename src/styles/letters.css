@@ -10,8 +10,27 @@
     margin: .5% .5%;
     cursor: pointer;
     transition: all .5s ease;
+
     &:hover {
         filter: brightness(85%);
         scale: 1.05;
+    }
+}
+
+#letter_1 {
+    filter: brightness(50%);
+}
+
+#letter_1:hover {
+    animation: change-order 5s linear;
+}
+
+@keyframes change-order {
+    from {
+        order: 1;
+    }
+
+    to {
+        order: 10;
     }
 }

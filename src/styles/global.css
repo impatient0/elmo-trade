@@ -200,7 +200,7 @@ button {
 }
 
 #projects {
-    padding: 100px 72px 100px 72px;
+    padding: 0;
     display: flex;
     flex-direction: column;
     align-items: center;

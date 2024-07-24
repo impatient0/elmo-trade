@@ -70,17 +70,19 @@ const services = [
 
 <div class="services">
     <div class="services-gallery">
-        {services.map((service, index) => (
-            <Service
-                title={service.title}
-                description={service.description}
-                image={service.image}
-                link = {service.link}
-                id={"service-" + index}
-            />
-        ))}
+        {
+            services.map((service, index) => (
+                <Service
+                    title={service.title}
+                    description={service.description}
+                    image={service.image}
+                    link={service.link}
+                    id={"service-" + index}
+                />
+            ))
+        }
     </div>
 </div>
 <script>
-    import "../scripts/Service";
+    import '../scripts/Service';
 </script>

@@ -1,4 +1,3 @@
-
 import '../styles/services.css';
 export default function Service({ title, description, image, link, id }) {
 
@@ -12,7 +11,7 @@ export default function Service({ title, description, image, link, id }) {
                 <img class="service-icon" src='/icons/lightning.svg' width="115" height="191" />
                 <p id={"dsc_" + id}>{description}</p>
                 <div id={"btn_" + id} class="service-button" onclick={"window.location.href='" + link + "';"}>
-                    <img src='/icons/service-button.svg' width="7.5" height="15" />
+                    <img src='/icons/buttons/service-button.svg' width="7.5" height="15" />
                 </div>
             </div>
         </div>

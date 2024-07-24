@@ -1,0 +1,99 @@
+.project-carousel {
+    background-color: #EFEFEF;
+    display: flex;
+    width: 100%;
+    min-height: 448px;
+    position: relative;
+    overflow: hidden;
+}
+
+.project-container {
+    width: 588px;
+    height: 360px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    align-self: center;
+    transition: all .75s ease;
+    &:hover {
+        filter: brightness(85%);
+    }
+}
+
+.project-footer {
+    background-color: white;
+    padding: 20px;
+    &>p{
+        margin: 2px;
+    }
+}
+
+.project-title {
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.project-year {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 13px 20px;
+    background-color: white;
+    max-width: 120px;
+    text-align: right;
+    &>p{
+        margin: 0;
+    }
+}
+
+.left-slide {
+    left: 50%;
+    transform: translateX(-100%) translateX(-10px);
+}
+
+.right-slide {
+    left: 50%;
+    transform: translateX(0%) translateX(10px);
+}
+
+.hide-right {
+    opacity: 0;
+    left: 101%;
+    transform: translateX(100%);
+}
+
+.hide-left {
+    opacity: 0;
+    left: -1%;
+    transform: translateX(-100%);
+}
+
+.next-btn {
+    background-image: url("/icons/buttons/next-btn.svg");
+    width: 10px;
+    height: 18px;
+    position: absolute;
+    align-self: center;
+    right: 4%;
+    cursor: pointer;
+    transition: all .5s ease;
+    &:hover {
+        scale: 1.1;
+    }
+}
+
+.prev-btn {
+    background-image: url("/icons/buttons/prev-btn.svg");
+    width: 10px;
+    height: 18px;
+    position: absolute;
+    align-self: center;
+    left: 4%;
+    cursor: pointer;
+    transition: all .5s ease;
+    &:hover {
+        scale: 1.1;
+    }
+}

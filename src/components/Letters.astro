@@ -13,5 +13,5 @@ const letters = [
 ---
 
 <div class="letters">
-    {letters.map((letter) => <img src={letter} class="letter-img" onclick="window.location.href='#'"/>)}
+    {letters.map((letter, index) => <img src={letter} id={"letter_" + index} style={"order: " + index} class="letter-img" onclick="window.location.href='#'"/>)}
 </div>

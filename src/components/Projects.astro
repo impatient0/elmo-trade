@@ -1,46 +1,65 @@
 ---
-import ProjectGallery from "./ProjectGallery";
+// import ProjectGallery from "./ProjectGallery";
+import ProjectCarousel from "./ProjectCarousel"
 const slides = [
     {
-        image: "/img/projects/project1.png",
+        image: "/img/projects/project-1.png",
         title: "завод Измерон",
-        year: "2022",
+        year: ["2022"],
         link: "/",
+        address:
+            "Ленинградская область,  массив «Федоровское», уч. Восточный № 43/44-3/18",
     },
     {
-        image: "/img/projects/project1.png",
+        image: "/img/projects/project-2.png",
         title: "завод Измерон",
-        year: "2022",
+        year: ["2016-2018", "2020, 2022"],
         link: "/",
+        address:
+            "Ленинградская область,  массив «Федоровское», уч. Восточный № 43/44-3/18",
     },
     {
-        image: "/img/projects/project1.png",
+        image: "/img/projects/project-1.png",
         title: "завод Измерон",
-        year: "2022",
+        year: ["2022"],
         link: "/",
+        address:
+            "Ленинградская область,  массив «Федоровское», уч. Восточный № 43/44-3/18",
     },
     {
-        image: "/img/projects/project1.png",
+        image: "/img/projects/project-2.png",
         title: "завод Измерон",
-        year: "2022",
+        year: ["2016-2018", "2020, 2022"],
         link: "/",
+        address:
+            "Ленинградская область,  массив «Федоровское», уч. Восточный № 43/44-3/18",
     },
     {
-        image: "/img/projects/project1.png",
+        image: "/img/projects/project-1.png",
         title: "завод Измерон",
-        year: "2022",
+        year: ["2022"],
         link: "/",
+        address:
+            "Ленинградская область,  массив «Федоровское», уч. Восточный № 43/44-3/18",
     },
     {
-        image: "/img/projects/project1.png",
+        image: "/img/projects/project-2.png",
         title: "завод Измерон",
-        year: "2022",
+        year: ["2016-2018", "2020, 2022"],
         link: "/",
+        address:
+            "Ленинградская область,  массив «Федоровское», уч. Восточный № 43/44-3/18",
     },
 ];
 ---
 
 <div id="projects">
-    <ProjectGallery client:load slides={slides} />
-    <button class="show-all-btn" id="show_all_objects" onclick="window.location.href='/projects'">Посмотреть все объекты</button>
+    <!-- <ProjectGallery client:load slides={slides} />
+    <button
+        class="show-all-btn"
+        id="show_all_objects"
+        onclick="window.location.href='/projects'"
+        >Посмотреть все объекты</button
+    > -->
+    <ProjectCarousel client:load slides={slides}/>
 </div>
