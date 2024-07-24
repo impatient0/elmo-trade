@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'preact/hooks';
+import { useState, useEffect, useLayoutEffect } from 'preact/hooks';
 import '../styles/project-carousel.css'
 
 function getClass(slide_index, active_slide, length) {
@@ -17,17 +17,29 @@ export default function ProjectCarousel({ slides }) {
 
     const [activeSlide, setActiveSlide] = useState(0);
 
-    useEffect(() => {
+    const [timerTicking, setTimerTicking] = useState(false);
+
+    const startTimer = () => {
+        setTimerTicking(true);
+    };
+
+    const stopTimer = () => {
+        setTimerTicking(false);
+    };
+
+    useLayoutEffect(() => {
+        if (timerTicking) {
         const timer = setTimeout(() => {
             setActiveSlide((activeSlide + 1) % slides.length);
-        }, 5000);
+        }, 4000);
         return () => clearTimeout(timer);
-    }, [activeSlide]);
+    }
+    }, [timerTicking, activeSlide]);
 
     return (
         <div class="project-carousel">
             {slides.map((project, index) => (
-                <div class={"project-container " + getClass(index, activeSlide, slides.length)}>
+                <div class={"project-container " + getClass(index, activeSlide, slides.length)} onMouseEnter={stopTimer} onMouseLeave={startTimer}>
                     <img src={project.image} class="project-image" width="588" height="283" />
                     <div class="project-footer">
                         <p class="project-title">{project.title}</p>
