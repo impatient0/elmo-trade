@@ -1,36 +1,36 @@
-.letters {
-    position: relative;
+.letters-container {
     display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 40px 8%;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 
-.letter-img {
-    margin: .5% .5%;
-    cursor: pointer;
+.letter-frame {
+    width: 100%;
+    height: 600px;
+    background-color: #EFEFEF;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.letter {
+    background-color: #EFEFEF;
+    position: absolute;
+    width: 70%;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     transition: all .5s ease;
-
-    &:hover {
-        filter: brightness(85%);
-        scale: 1.05;
-    }
 }
 
-#letter_1 {
-    filter: brightness(50%);
+.letter-text {
+    max-width: 560px;
 }
 
-#letter_1:hover {
-    animation: change-order 5s linear;
-}
-
-@keyframes change-order {
-    from {
-        order: 1;
-    }
-
-    to {
-        order: 10;
-    }
+.letter-logo {
+    mix-blend-mode: darken;
 }

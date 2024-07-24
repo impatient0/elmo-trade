@@ -186,17 +186,16 @@ button {
     max-width: 55%;
 }
 
-#logos {
-    padding-top: 64px;
+.logos {
+    width: 68%;
     display: flex;
     justify-content: space-between;
-    width: 90%;
     flex-wrap: wrap;
+    margin-bottom: 66px;
 }
 
-#logos img {
+.logos img {
     align-self: center;
-    object-fit: contain;
 }
 
 #projects {
