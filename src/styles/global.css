@@ -163,6 +163,14 @@ button {
     font-weight: 400;
 }
 
+.menu {
+    color: black;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
 .about {
     margin: 74px 0;
     width: 100%;
@@ -184,18 +192,6 @@ button {
 
 #about_home_2>p {
     max-width: 55%;
-}
-
-.logos {
-    width: 68%;
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    margin-bottom: 66px;
-}
-
-.logos img {
-    align-self: center;
 }
 
 #projects {

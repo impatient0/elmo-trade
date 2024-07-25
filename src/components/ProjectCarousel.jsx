@@ -1,4 +1,4 @@
-import { useState, useEffect, useLayoutEffect } from 'preact/hooks';
+import { useState, useLayoutEffect } from 'preact/hooks';
 import '../styles/project-carousel.css'
 
 function getClass(slide_index, active_slide, length) {

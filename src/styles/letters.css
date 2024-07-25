@@ -17,13 +17,14 @@
 .letter {
     background-color: #EFEFEF;
     position: absolute;
-    width: 70%;
+    width: 75%;
     left: 50%;
     top: 50%;
     transform: translateX(-50%) translateY(-50%);
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
+    flex-wrap: wrap;
     transition: all .5s ease;
 }
 
@@ -33,4 +34,17 @@
 
 .letter-logo {
     mix-blend-mode: darken;
+}
+
+.logos {
+    width: 68%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 66px;
+}
+
+.logos img {
+    align-self: center;
+    transition: all .5s ease;
 }

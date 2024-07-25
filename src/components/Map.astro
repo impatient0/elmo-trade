@@ -3,20 +3,19 @@ const { width, height } = Astro.props;
 import "../styles/map.css";
 const info = [
     {
-        text: ["9:00 - 22:00"],
-        icon: { path: "/icons/clock-solid.svg", width: 21, height: 28 },
-    },
-    {
-        text: ["Санкт-Петербург, Ленинский пр., 168, оф. 331"],
-        icon: { path: "/icons/location-dot-solid.svg", width: 21, height: 28 },
-    },
-    {
+        label: "Наш телефон",
         text: ["+7 (812) 370-14-10", "+7 (812) 370-22-61"],
         icon: { path: "/icons/phone-solid.svg", width: 21, height: 28 },
     },
     {
+        label: "Email",
         text: ["elmotreid@mail.ru"],
         icon: { path: "/icons/envelope-solid.svg", width: 21, height: 21 },
+    },
+    {
+        label: "Офис",
+        text: ["Ленинский пр., 168, оф. 331"],
+        icon: { path: "/icons/location-dot-solid.svg", width: 21, height: 28 },
     },
 ];
 ---
@@ -34,8 +33,9 @@ const info = [
                         height={info.icon.height}
                     />
                     <div>
+                        <p class="title2">{info.label}</p>
                         {info.text.map((text) => (
-                            <p>{text}</p>
+                            <p class="contact-info-text">{text}</p>
                         ))}
                     </div>
                 </div>

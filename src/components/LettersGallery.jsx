@@ -1,15 +1,32 @@
-import { useState } from 'preact/hooks';
+import { useState, useLayoutEffect } from 'preact/hooks';
 import '../styles/letters.css';
 
 export default function LettersGallery({ letters }) {
 
-    const [activeSlide, SetActiveSlide] = useState(0);
+    const [activeSlide, setActiveSlide] = useState(0);
+
+    const [timerTicking, setTimerTicking] = useState(false);
+
+    const startTimer = () => {
+        setTimerTicking(true);
+    };
+
+    const stopTimer = () => {
+        setTimerTicking(false);
+    };
+
+    useLayoutEffect(() => {
+        if (timerTicking) {
+            const timer = setTimeout(() => { setActiveSlide((activeSlide + 1) % letters.length) }, 5000);
+            return () => clearTimeout(timer);
+        }
+    }, [activeSlide, timerTicking]);
 
     return (
         <div class="letters-container">
             <div class="logos">
                 {letters.map((letter, index) => (
-                    <img src={letter.logo} onMouseEnter={() => SetActiveSlide(index)} />
+                    <img src={letter.logo} style={"scale: " + (index == activeSlide ? '1.2' : '1')} onMouseEnter={() => { setActiveSlide(index); stopTimer() }} onMouseLeave={startTimer} />
                 ))}
             </div>
             <div class="letter-frame">
@@ -21,7 +38,7 @@ export default function LettersGallery({ letters }) {
                             {letter.text.map((line) => (
                                 <p>{line}</p>
                             ))}
-                            <img src={letter.logo} class="letter-logo"/>
+                            <img src={letter.logo} class="letter-logo" />
                             <p class="title1">{letter.title}</p>
                         </div>
                         <img src={letter.image} />

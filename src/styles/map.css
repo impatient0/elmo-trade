@@ -1,32 +1,33 @@
 .map {
-    margin-top: 80px;
     position: relative;
     display: flex;
 }
 
 .contact-info-banner {
     position: absolute;
-    width: 454px;
-    height: 286px;
+    width: 38%;
+    height: 70%;
     z-index: 1;
     top: 15%;
     background-color: #0D7EE1;
     display: flex;
-    padding: 20px 0;
+    padding: 20px 90px;
     justify-content: space-evenly;
     flex-direction: column;
 }
 
 .contact-info-line {
-    padding-left: 40px;
     display: flex;
     align-items: center;
 }
 
+.contact-info-text {
+    font-size: 20px;
+    font-weight: 500;
+}
+
 .contact-info-line>div>p {
-    margin: .5em 24px;
+    margin: .25em 24px;
     color: white;
-    font-size: 16px;
     max-width: 325px;
-    font-weight: 300;
 }
