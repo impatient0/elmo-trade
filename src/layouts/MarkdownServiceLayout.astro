@@ -1,0 +1,17 @@
+---
+import BaseLayout from "./BaseLayout.astro";
+import Carousel from "../components/Carousel";
+import MultiGallery from "../components/MultiGallery";
+const { frontmatter } = Astro.props;
+---
+
+<BaseLayout pageTitle={frontmatter.title}>
+	<div class="cover">
+		<Carousel client:load images={frontmatter.carousel.images} />
+	</div>
+	<div class="about">
+		<p class="title1">{frontmatter.about.header}</p>
+		<p class="body1">{frontmatter.about.body}</p>
+	</div>
+	<MultiGallery client:load sections={frontmatter.multi_gallery} />
+</BaseLayout>

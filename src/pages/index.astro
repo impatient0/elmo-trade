@@ -4,48 +4,61 @@ import Carousel from "../components/Carousel";
 import Services from "../components/Services.astro";
 import Projects from "../components/Projects.astro";
 import Letters from "../components/Letters.astro";
-import Map from "../components/Map.astro";
 const pageTitle = "Элмо Трейд";
 const images = [
-	"/img/carousel1/carousel1.png",
-	"/img/carousel1/carousel2.png",
-	"/img/carousel1/carousel1.png",
-	"/img/carousel1/carousel2.png",
+	{
+		image: "/img/carousel1/carousel1.png",
+		description: {
+			title: "2019-2022",
+			headline: "ЗАВОД ИЗМЕРОН",
+			subbody: "г. Санкт-Петербург, ул. Броневая, д. 5",
+			body: "Выполнен комплекс строительно-монтажных работ по реконструкции административно-бытового здания Корпус № 1, №2. ",
+		},
+	},
+	{
+		image: "/img/carousel1/carousel2.png",
+		description: {
+			title: "2019-2022",
+			headline: "ЗАВОД ИЗМЕРОН",
+			subbody: "г. Санкт-Петербург, ул. Броневая, д. 5",
+			body: "Выполнен комплекс строительно-монтажных работ по реконструкции административно-бытового здания Корпус № 1, №2. ",
+		},
+	},
 ];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<div class="cover">
 		<Carousel client:load images={images} />
-		<div class="carousel-banner">
-			<p class="title2">2019-2022</p>
-			<p class="headline2">завод Измерон</p>
-			<p class="subbody2">г. Санкт-Петербург, ул. Броневая, д. 5</p>
-			<p class="body2">Выполнен комплекс строительно-монтажных работ по реконструкции административно-бытового здания Корпус № 1, №2. </p>
-		</div>
 	</div>
-	<div class="about" id="about_home">
+	<div class="about" id="about_home_1">
 		<p class="title1">Выполняем широкий спектр работ</p>
 		<p class="headline1">с 2001 года</p>
-		<p class="body1">ООО НПП «ЭЛМО трейд» занимается проектированием, монтажом и техническим обслуживанием инженерных систем и систем обеспечения противопожарной безопасности любой сложности с применением как отечественного так и импортного оборудования в городе Санкт-Петербурге и его ближайшем пригороде.</p>
+		<p class="body1">
+			ООО НПП «ЭЛМО трейд» занимается проектированием, монтажом и
+			техническим обслуживанием инженерных систем и систем обеспечения
+			противопожарной безопасности любой сложности с применением как
+			отечественного так и импортного оборудования в городе
+			Санкт-Петербурге и его ближайшем пригороде.
+		</p>
 	</div>
 	<Services />
 	<div class="about" id="about_home_2">
 		<p class="title1">Проекты</p>
 		<p class="headline1">ознакомьтесь с нашей работой</p>
-		<p class="body1">За более чем 20-ти летний период мы оборудовали инженерными системами большие количество объектов.</p>
+		<p class="body1">
+			За более чем 20-ти летний период мы оборудовали инженерными
+			системами большие количество объектов.
+		</p>
 	</div>
 	<Projects />
 	<div class="about" id="about_home_3">
-		<p class="title1">Благодарственные письма от  наших</p>
+		<p class="title1">Благодарственные письма от наших</p>
 		<p class="headline1">партнеров</p>
-		<p class="body1">Сотрудничаем на постоянной основе с девелоперами, застройщиками и промышленными предприятиями.</p>
+		<p class="body1">
+			Сотрудничаем на постоянной основе с девелоперами, застройщиками и
+			промышленными предприятиями.
+		</p>
 	</div>
 	<Letters />
-	<div class="about" id="about_home_4">
-		<p class="title1">Заинтересовались? Обращайтесь.</p>
-		<p class="headline1">контакты нашего офиса в петербурге</p>
-		<p class="body1">По всем интересующим Вас вопросам звоните нам с понедельника по пятницу с 09.00 до 18.00 по номеру 8 (812) 603 76 96 или приезжайте к нам в офис.</p>
-	</div>
-	<Map width="1440" height="600"/>
 </BaseLayout>

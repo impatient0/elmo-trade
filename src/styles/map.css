@@ -30,4 +30,5 @@
     margin: .25em 24px;
     color: white;
     max-width: 325px;
+    display: flexbox;
 }

@@ -1,0 +1,96 @@
+.multi-gallery {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    overflow: hidden;
+}
+
+.gallery-section {
+    position: relative;
+    max-width: 1190px;
+    width: 84%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-tile {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &:hover>.expand-btn{
+        animation: wiggle .5s ease;
+    }
+}
+
+.section-container {
+    width: 119%;
+    display: flex;
+    flex-direction: column;
+    transition: all .75s ease;
+    justify-content: flex-end;
+    transform: scaleY(100%);
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+}
+
+.expanded {
+    max-height: 651px;
+    opacity: 1;
+}
+
+.expand-btn {    
+    background-image: url("/icons/buttons/next-btn.svg");
+    width: 10px;
+    height: 18px;
+    margin: 8px;
+}
+
+.gallery-container {
+    position: relative;
+    width: 100%;
+    display: flex;
+    height: fit-content;
+    min-height: 600px;
+    &>.prev-btn {
+        left: 3%;
+    }
+    &>.next-btn {
+        right: 3%;
+    }
+    &>.hide-left {
+        left: -17%;
+    }
+    &>.hide-right {
+        left: 17%;
+    }
+}
+
+.section-image {
+    align-self: center;
+    transition: all .75s ease;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+@keyframes wiggle {
+    0% {
+        transform: rotate(0deg);
+    }
+    20% {
+        transform: rotate(10deg);
+    }
+    50% {
+        transform: rotate(-10deg);
+    }
+    80% {
+        transform: rotate(5deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}

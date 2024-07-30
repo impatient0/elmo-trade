@@ -1,6 +1,7 @@
 ---
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
+import Map from "../components/Map.astro";
 import "../styles/global.css";
 const { pageTitle } = Astro.props;
 ---
@@ -22,6 +23,12 @@ const { pageTitle } = Astro.props;
 	<body>
 		<Header />
 		<slot />
+		<div class="about" id="about_home_4">
+			<p class="title1">Заинтересовались? Обращайтесь.</p>
+			<p class="headline1">контакты нашего офиса в петербурге</p>
+			<p class="body1">По всем интересующим Вас вопросам звоните нам с понедельника по пятницу с 09.00 до 18.00 по номеру 8 (812) 603 76 96 или приезжайте к нам в офис.</p>
+		</div>
+		<Map width="1440" height="600"/>
 		<Footer />
 	</body>
 </html>

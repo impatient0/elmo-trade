@@ -6,10 +6,12 @@ export default function Carousel({ images }) {
     const [slideIndex, setSlideIndex] = useState(0);
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setSlideIndex((slideIndex + 1) % images.length);
-        }, 5000);
-        return () => clearTimeout(timer);
+        if (images.length > 0) {
+            const timer = setTimeout(() => {
+                setSlideIndex((slideIndex + 1) % images.length);
+            }, 5000);
+            return () => clearTimeout(timer);
+        }
     }, [slideIndex]);
 
     return (
@@ -19,7 +21,13 @@ export default function Carousel({ images }) {
                     images.map((image, index) => (
                         <div class="slide fade" style={index == slideIndex ? "display:block" : "display:none"}>
                             {/* <div class="numbertext">{index + 1} / {images.length}</div> */}
-                            <img src={image} style="width:100%" />
+                            <img src={image.image} class="carousel-img" />
+                            <div class="carousel-banner">
+                                <p class="title2">{image.description.title}</p>
+                                <p class="headline2">{image.description.headline}</p>
+                                <p class="subbody2" style={image.description.subbody.length > 0 ? "" : "margin:0"}>{image.description.subbody}</p>
+                                <p class="body2">{image.description.body}</p>
+                            </div>
                         </div>
                     ))
                 }
