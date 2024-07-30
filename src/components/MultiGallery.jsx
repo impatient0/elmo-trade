@@ -34,6 +34,14 @@ export default function MultiGallery({ sections }) {
         });
     }
 
+    const setSlide = (section_index, slide_index) => {
+        setActiveSlide((prevState) => {
+            const newState = prevState.slice();
+            newState[section_index] = slide_index;
+            return newState;
+        });
+    }
+
     const toggleExpanded = (section_index) => {
         setIsExpanded((prevState) => {
             const newState = prevState.slice();
@@ -45,18 +53,24 @@ export default function MultiGallery({ sections }) {
     return (
         <div class="multi-gallery">
             {sections.map((section, section_index) => (
-                <div class="gallery-section">
+                <div class={"gallery-section " + (isExpaneded[section_index] ? "expanded" : "")}>
+                    <div class="divider" style={(section_index == 0 ? "display:none" : "")} />
                     <div class="gallery-tile" onClick={() => toggleExpanded(section_index)}>
                         <p class="division">{section.title}</p>
                         <div class="expand-btn" />
                     </div>
-                    <div class={"section-container " + (isExpaneded[section_index] ? "expanded" : "")}>
+                    <div class="section-container">
                         <div class="gallery-container">
                             {section.images.map((image, slide_index) => (
                                 <img src={image} class={"section-image " + getClass(slide_index, activeSlide[section_index], section.images.length)} />
                             ))}
                             <div class="next-btn" onClick={() => nextSlide(section_index)} />
                             <div class="prev-btn" onClick={() => prevSlide(section_index)} />
+                        </div>
+                        <div class="gallery-navigation">
+                            {section.images.map((image, slide_index) => (
+                                <div class="navigation-square" style={slide_index == activeSlide[section_index] ? "background-color: #0D7EE1" : ""} onClick={() => setSlide(section_index, slide_index)}/>
+                            ))}
                         </div>
                     </div>
                 </div>
