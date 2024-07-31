@@ -151,11 +151,11 @@ button {
 }
 
 .about {
-    margin: 74px 0;
+    min-height: 360px;
     width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 0 20%;
 }
@@ -163,14 +163,11 @@ button {
 .about p {
     text-align: center;
     margin: 8px 0;
+    max-width: 830px;
 }
 
-#about_home_1 {
-    margin: 74px 0;
-}
-
-#about_home_2>p {
-    max-width: 55%;
+#about_home_3 {
+    min-height: 250px;
 }
 
 #projects {
