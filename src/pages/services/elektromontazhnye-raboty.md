@@ -25,4 +25,54 @@ multi_gallery: [
     { title: "рТП и РТП", images: ["/img/services/elektromontazhnye-raboty/mg1-1.png", "/img/services/elektromontazhnye-raboty/mg1-1.png", "/img/services/elektromontazhnye-raboty/mg1-1.png", "/img/services/elektromontazhnye-raboty/mg1-1.png", "/img/services/elektromontazhnye-raboty/mg1-1.png",] },
     { title: "Системы диспетчеризации", images: ["/img/services/elektromontazhnye-raboty/mg1-1.png", "/img/services/elektromontazhnye-raboty/mg1-1.png", "/img/services/elektromontazhnye-raboty/mg1-1.png", "/img/services/elektromontazhnye-raboty/mg1-1.png", "/img/services/elektromontazhnye-raboty/mg1-1.png",] },
 ]
+project_carousel: [
+    {
+        image: "/img/projects/project-1.png",
+        title: "завод Измерон",
+        year: ["2022"],
+        link: "/",
+        address:
+            "Ленинградская область,  массив «Федоровское», уч. Восточный № 43/44-3/18",
+    },
+    {
+        image: "/img/projects/project-2.png",
+        title: "завод Измерон",
+        year: ["2016-2018", "2020, 2022"],
+        link: "/",
+        address:
+            "Ленинградская область,  массив «Федоровское», уч. Восточный № 43/44-3/18",
+    },
+    {
+        image: "/img/projects/project-1.png",
+        title: "завод Измерон",
+        year: ["2022"],
+        link: "/",
+        address:
+            "Ленинградская область,  массив «Федоровское», уч. Восточный № 43/44-3/18",
+    },
+    {
+        image: "/img/projects/project-2.png",
+        title: "завод Измерон",
+        year: ["2016-2018", "2020, 2022"],
+        link: "/",
+        address:
+            "Ленинградская область,  массив «Федоровское», уч. Восточный № 43/44-3/18",
+    },
+    {
+        image: "/img/projects/project-1.png",
+        title: "завод Измерон",
+        year: ["2022"],
+        link: "/",
+        address:
+            "Ленинградская область,  массив «Федоровское», уч. Восточный № 43/44-3/18",
+    },
+    {
+        image: "/img/projects/project-2.png",
+        title: "завод Измерон",
+        year: ["2016-2018", "2020, 2022"],
+        link: "/",
+        address:
+            "Ленинградская область,  массив «Федоровское», уч. Восточный № 43/44-3/18",
+    },
+]
 ---

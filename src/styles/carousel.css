@@ -10,14 +10,14 @@
 
 .carousel-img {
     width: 100%;
-    position: absolute;
-    bottom: 0;
 }
 
 .slide {
     position: relative;
     overflow: hidden;
-    height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
 }
 
 .prev,
@@ -84,8 +84,8 @@
     grid-column: 1;
     grid-row: 1;
     width: 47.5%;
-    min-width: min-content;
-    padding: 52px 4% 52px 8.5%;
+    min-width: 460px;
+    padding: min(52px, 2.5%) 4% min(52px, 2.5%) 8.5%;
     color: white;
     z-index: 1;
     background-color: #0D7EE1;
@@ -93,6 +93,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
+    max-height: 100%;
 }
 
 .carousel-banner>p {
