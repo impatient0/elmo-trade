@@ -7,6 +7,12 @@
     overflow: hidden;
 }
 
+.project-image {
+    width: 100%;
+    height: 283px;
+    image-rendering: auto;
+}
+
 .project-container {
     width: 588px;
     height: 360px;

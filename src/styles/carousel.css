@@ -85,7 +85,7 @@
     grid-row: 1;
     width: 47.5%;
     min-width: 460px;
-    padding: min(52px, 2.5%) 4% min(52px, 2.5%) 8.5%;
+    padding: min(52px, 4%) 4% min(52px, 4%) 8.5%;
     color: white;
     z-index: 1;
     background-color: #0D7EE1;

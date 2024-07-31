@@ -39,7 +39,7 @@ export default function LettersGallery({ letters }) {
                                 <p>{line}</p>
                             ))}
                             <img src={letter.logo} class="letter-logo" />
-                            <p class="title1">{letter.title}</p>
+                            <p class="title1">{letter.signature}</p>
                         </div>
                         <img src={letter.image} />
                     </div>

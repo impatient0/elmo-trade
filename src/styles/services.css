@@ -30,6 +30,7 @@
 }
 
 .service {
+    cursor: pointer;
     z-index: 1;
     position: absolute;
     bottom: 0%;
@@ -49,6 +50,7 @@
     width: 100%;
     height: 160px;
     transition: all .5s ease;
+    image-rendering: auto;
 }
 
 .service-title {
@@ -61,7 +63,7 @@
     margin: 0;
     text-align: center;
     text-transform: uppercase;
-    padding: 0 15%;
+    padding: 0;
     font-size: 14px;
 }
 
@@ -96,7 +98,6 @@
 .service-button {
     /* opacity: 0; */
     transition: all 0.5s ease;
-    cursor: pointer;
     position: absolute;
     padding: 10px;
     right: 20px;
