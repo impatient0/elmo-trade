@@ -95,6 +95,8 @@ button {
     display: flex;
     flex-direction: column;
     position: relative;
+    max-height: 600px;
+    overflow: hidden;
 }
 
 .title1 {
