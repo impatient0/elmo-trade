@@ -8,7 +8,7 @@ body {
     background-color: #ffffff;
     margin: 0 auto;
     width: 100%;
-    max-width: 1440px;
+    /* max-width: 1440px; */
     min-height: 100%;
     display: flex;
     flex-direction: column;
@@ -155,11 +155,11 @@ button {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    padding: 0 20%;
 }
 
 .about p {
     text-align: center;
-    max-width: 60%;
     margin: 8px 0;
 }
 

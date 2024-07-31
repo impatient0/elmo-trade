@@ -16,6 +16,7 @@
     position: absolute;
     align-self: center;
     transition: all .75s ease;
+
     &:hover {
         filter: brightness(85%);
     }
@@ -24,7 +25,8 @@
 .project-footer {
     background-color: white;
     padding: 20px;
-    &>p{
+
+    &>p {
         margin: 2px;
     }
 }
@@ -43,7 +45,8 @@
     background-color: white;
     max-width: 120px;
     text-align: right;
-    &>p{
+
+    &>p {
         margin: 0;
     }
 }
@@ -79,6 +82,7 @@
     right: 4%;
     cursor: pointer;
     transition: all .5s ease;
+
     &:hover {
         scale: 1.1;
     }
@@ -93,7 +97,21 @@
     left: 4%;
     cursor: pointer;
     transition: all .5s ease;
+
     &:hover {
         scale: 1.1;
+    }
+}
+
+@media screen and (max-width: 1120px) {
+    .left-slide {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .right-slide {
+        opacity: 0;
+        left: 101%;
+        transform: translateX(100%);
     }
 }
