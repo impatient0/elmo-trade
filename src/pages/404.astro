@@ -18,15 +18,20 @@ const pageID = "404";
             href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
             rel="stylesheet"
         />
-        <title>{pageTitle}</title>
         <script
             src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
         ></script>
+        <title>{pageTitle}</title>
     </head>
     <body id={pageID}>
-        <div class="shrek">
-            <p>Ошибка 404: такой страницы пока нет</p>
-            <button onclick={"window.location.href='/';"}>Назад на главную</button>
+        <div id="shrek">
+            <div id="escape">
+                <p>Ошибка <b>404</b>: такой страницы пока нет</p>
+                <div id="button_container">
+                    <button onclick={"window.location.href='/';"}
+                        >Назад на главную
+                    </button></div>
+            </div>
         </div>
         <Footer />
     </body>
