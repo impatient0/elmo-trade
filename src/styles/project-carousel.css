@@ -22,9 +22,34 @@
     position: absolute;
     align-self: center;
     transition: all .75s ease;
+}
 
+.project-info {
+    cursor: pointer;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0D7EE1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all .5s ease;
+    opacity: 0;
+    background-image: url('/icons/lightning.svg');
+    background-size: 175px 289px;
+    background-position: 206px 35px;
+    background-repeat: no-repeat;
+    &>p {
+        text-align: center;
+        color: white;
+        font-size: 14px;
+        font-weight: 400;
+        max-width: 456px;
+    }
     &:hover {
-        filter: brightness(85%);
+        opacity: 1;
     }
 }
 

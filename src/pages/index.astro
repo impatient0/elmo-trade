@@ -5,6 +5,7 @@ import Services from "../components/Services.astro";
 import Projects from "../components/Projects.astro";
 import Letters from "../components/Letters.astro";
 const pageTitle = "Элмо Трейд";
+const pageID = "home";
 const images = [
 	{
 		image: "/img/carousel1/carousel1.png",
@@ -27,11 +28,11 @@ const images = [
 ];
 ---
 
-<BaseLayout pageTitle={pageTitle}>
+<BaseLayout pageTitle={pageTitle} pageID={pageID}>
 	<div class="cover">
 		<Carousel client:load images={images} />
 	</div>
-	<div class="about" id="about_home_1">
+	<div class="about" id="services">
 		<p class="title1">Выполняем широкий спектр работ</p>
 		<p class="headline1">с 2001 года</p>
 		<p class="body1">
@@ -43,7 +44,7 @@ const images = [
 		</p>
 	</div>
 	<Services />
-	<div class="about" id="about_home_2">
+	<div class="about" id="projects">
 		<p class="title1">Проекты</p>
 		<p class="headline1">ознакомьтесь с нашей работой</p>
 		<p class="body1">
@@ -52,7 +53,7 @@ const images = [
 		</p>
 	</div>
 	<Projects />
-	<div class="about" id="about_home_3">
+	<div class="about" id="partners">
 		<p class="title1">Благодарственные письма от наших</p>
 		<p class="headline1">партнеров</p>
 		<p class="body1">

@@ -1,6 +1,7 @@
 ---
 layout: ../../layouts/MarkdownServiceLayout.astro
 title: "Электромонтажные работы"
+pageID: "elektromontazhnye-raboty"
 carousel: { 
     images: [
         {

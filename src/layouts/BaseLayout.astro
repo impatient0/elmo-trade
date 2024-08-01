@@ -3,7 +3,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import Map from "../components/Map.astro";
 import "../styles/global.css";
-const { pageTitle } = Astro.props;
+const { pageTitle, pageID } = Astro.props;
 ---
 
 <html lang="ru">
@@ -19,16 +19,23 @@ const { pageTitle } = Astro.props;
 			rel="stylesheet"
 		/>
 		<title>{pageTitle}</title>
+		<script
+			src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+		></script>
 	</head>
-	<body>
+	<body id={pageID}>
 		<Header />
 		<slot />
-		<div class="about" id="about_home_4">
+		<div class="about" id="contacts">
 			<p class="title1">Заинтересовались? Обращайтесь.</p>
 			<p class="headline1">контакты нашего офиса в петербурге</p>
-			<p class="body1">По всем интересующим Вас вопросам звоните нам с понедельника по пятницу с 09.00 до 18.00 по номеру 8 (812) 603 76 96 или приезжайте к нам в офис.</p>
+			<p class="body1">
+				По всем интересующим Вас вопросам звоните нам с понедельника по
+				пятницу с 09.00 до 18.00 по номеру 8 (812) 603 76 96 или
+				приезжайте к нам в офис.
+			</p>
 		</div>
-		<Map width="1440" height="600"/>
+		<Map width="1440" height="600" />
 		<Footer />
 	</body>
 </html>

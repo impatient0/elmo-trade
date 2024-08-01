@@ -5,7 +5,7 @@ import DropdownBtn from "./DropdownBtn";
 const menu = [
     {
         btnText: "Услуги",
-        btnLink: "/services",
+        btnLink: "services",
         menuTexts: [
             "электромонтажные работы",
             "СИСТЕМЫ ПРОТИВОПОЖАРНОЙ ЗАЩИТЫ И Автоматики",
@@ -21,25 +21,26 @@ const menu = [
     },
     {
         btnText: "Проекты",
-        btnLink: "/projects",
+        btnLink: "projects",
         menuTexts: ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"],
         menuLinks: ["#", "#", "#", "#", "#", "#"],
     },
     {
         btnText: "Партнёры",
-        btnLink: "/partners",
+        btnLink: "partners",
         menuTexts: ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"],
         menuLinks: ["#", "#", "#", "#", "#", "#"],
     },
     {
         btnText: "Контакты",
-        btnLink: "/contacts",
+        btnLink: "contacts",
         menuTexts: ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"],
         menuLinks: ["#", "#", "#", "#", "#", "#"],
     },
 ];
 ---
 
+<script src="../scripts/NavButtons.js"></script>
 <div class="nav-links">
     {
         menu.map((menu) => (

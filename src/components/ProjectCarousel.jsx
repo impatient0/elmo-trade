@@ -29,18 +29,18 @@ export default function ProjectCarousel({ slides }) {
 
     useLayoutEffect(() => {
         if (timerTicking) {
-        const timer = setTimeout(() => {
-            setActiveSlide((activeSlide + 1) % slides.length);
-        }, 4000);
-        return () => clearTimeout(timer);
-    }
+            const timer = setTimeout(() => {
+                setActiveSlide((activeSlide + 1) % slides.length);
+            }, 4000);
+            return () => clearTimeout(timer);
+        }
     }, [timerTicking, activeSlide]);
 
     return (
         <div class="project-carousel">
             {slides.map((project, index) => (
                 <div class={"project-container " + getClass(index, activeSlide, slides.length)} onMouseEnter={stopTimer} onMouseLeave={startTimer}>
-                    <div class="project-image" style={`background-image: url('${project.image[0]}'); background-position: ${project.image[1]}px ${project.image[2]}px; background-size: ${project.image[3]}px ${project.image[4]}px`}/>
+                    <div class="project-image" style={`background-image: url('${project.image[0]}'); background-position: ${project.image[1]}px ${project.image[2]}px; background-size: ${project.image[3]}px ${project.image[4]}px`} />
                     <div class="project-footer">
                         <p class="project-title">{project.title}</p>
                         <p class="subbody2">{project.address}</p>
@@ -50,6 +50,11 @@ export default function ProjectCarousel({ slides }) {
                             <p class="body2">{year}</p>
                         ))}
                     </div>
+                    <a href={project.link}>
+                        <div class="project-info">
+                            <p>{project.info}</p>
+                        </div>
+                    </a>
                 </div>
             ))}
             <div class="next-btn" onClick={() => setActiveSlide((activeSlide + 1) % slides.length)} />

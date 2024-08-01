@@ -166,13 +166,13 @@ button {
     max-width: 830px;
 }
 
-#about_home_3 {
+#partners {
     justify-content: flex-start;
     padding-top: 96px;
     min-height: 300px;
 }
 
-#projects {
+#project_carousel {
     padding: 0;
     display: flex;
     flex-direction: column;

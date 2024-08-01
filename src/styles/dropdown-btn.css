@@ -54,7 +54,8 @@ nav {
     text-align: center;
     padding: 10px 0px;
     text-transform: uppercase;
-    transition: all .5s ease;
+    transition: transform .5s ease;
+    cursor: pointer;
 }
 
 .dropdown-btn {
@@ -64,8 +65,8 @@ nav {
 
 .nav-links a:hover,
 .nav-links a:focus {
-    background-color: #0D7EE1;
-    color: #ffffff;
+    transition-timing-function: cubic-bezier(.5,2,.5,1);
+    transform: translateY(-5px);
 }
 
 .dropdown-container {

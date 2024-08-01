@@ -6,7 +6,7 @@ import ProjectCarousel from "../components/ProjectCarousel";
 const { frontmatter } = Astro.props;
 ---
 
-<BaseLayout pageTitle={frontmatter.title}>
+<BaseLayout pageTitle={frontmatter.title} pageID={frontmatter.pageID}>
 	<div class="cover">
 		<Carousel client:load images={frontmatter.carousel.images} />
 	</div>
