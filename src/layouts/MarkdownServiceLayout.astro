@@ -10,10 +10,10 @@ const { frontmatter } = Astro.props;
 	<div class="cover">
 		<Carousel client:load images={frontmatter.carousel.images} />
 	</div>
-	<!-- <div class="about">
+	<div class="about">
 		<p class="title1">{frontmatter.about.header}</p>
 		<p class="body1">{frontmatter.about.body}</p>
-	</div> -->
+	</div>
 	<MultiGallery client:load sections={frontmatter.multi_gallery} />
 	<div id="made_on">
 		<p class="body1">Выполнено на:</p>
