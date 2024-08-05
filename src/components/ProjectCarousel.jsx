@@ -59,6 +59,11 @@ export default function ProjectCarousel({ slides }) {
             ))}
             <div class="next-btn" onClick={() => setActiveSlide((activeSlide + 1) % slides.length)} />
             <div class="prev-btn" onClick={() => setActiveSlide((activeSlide - 1 + slides.length) % slides.length)} />
+            <div class="gallery-navigation">
+                {slides.map((project, index) => (
+                    <div class="navigation-square" style={index == activeSlide ? "background-color: #0D7EE1" : ""} onClick={() => setActiveSlide(index)} />
+                ))}
+            </div>
         </div>
     )
 }

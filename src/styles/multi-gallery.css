@@ -90,7 +90,7 @@
 }
 
 .gallery-navigation {
-    margin: 52px 0;
+    margin: 25px 0 30px;
     display: flex;
 }
 
@@ -98,7 +98,7 @@
     background-color: #CCCCCC;
     width: 10px;
     height: 10px;
-    margin: 0 13px;
+    margin: 0 10px;
     transition: all .75s ease;
     cursor: pointer;
 }
