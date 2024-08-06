@@ -37,31 +37,33 @@ export default function ProjectCarousel({ slides }) {
     }, [timerTicking, activeSlide]);
 
     return (
-        <div class="project-carousel">
-            {slides.map((project, index) => (
-                <div class={"project-container " + getClass(index, activeSlide, slides.length)} onMouseEnter={stopTimer} onMouseLeave={startTimer}>
-                    <div class="project-image" style={`background-image: url('${project.image[0]}'); background-position: ${project.image[1]}px ${project.image[2]}px; background-size: ${project.image[3]}px ${project.image[4]}px`} />
-                    <div class="project-footer">
-                        <p class="project-title">{project.title}</p>
-                        <p class="subbody2">{project.address}</p>
-                    </div>
-                    <div class="project-year">
-                        {project.year.map((year) => (
-                            <p class="body2">{year}</p>
-                        ))}
-                    </div>
-                    <a href={project.link}>
-                        <div class="project-info">
-                            <p>{project.info}</p>
+        <div class="carousel-wrapper">
+            <div class="project-carousel">
+                {slides.map((project, index) => (
+                    <div class={"project-container " + getClass(index, activeSlide, slides.length)} onMouseEnter={stopTimer} onMouseLeave={startTimer}>
+                        <div class="project-image" style={`background-image: url('${project.image[0]}'); background-position: ${project.image[1]}px ${project.image[2]}px; background-size: ${project.image[3]}px ${project.image[4]}px`} />
+                        <div class="project-footer">
+                            <p class="project-title">{project.title}</p>
+                            <p class="subbody2">{project.address}</p>
                         </div>
-                    </a>
-                </div>
-            ))}
-            <div class="next-btn" onClick={() => setActiveSlide((activeSlide + 1) % slides.length)} />
-            <div class="prev-btn" onClick={() => setActiveSlide((activeSlide - 1 + slides.length) % slides.length)} />
+                        <div class="project-year">
+                            {project.year.map((year) => (
+                                <p class="body2">{year}</p>
+                            ))}
+                        </div>
+                        <a href={project.link}>
+                            <div class="project-info">
+                                <p>{project.info}</p>
+                            </div>
+                        </a>
+                    </div>
+                ))}
+                <div class="next-btn" onClick={() => setActiveSlide((activeSlide + 1) % slides.length)} />
+                <div class="prev-btn" onClick={() => setActiveSlide((activeSlide - 1 + slides.length) % slides.length)} />
+            </div>
             <div class="gallery-navigation">
                 {slides.map((project, index) => (
-                    <div class="navigation-square" style={index == activeSlide ? "background-color: #0D7EE1" : ""} onClick={() => setActiveSlide(index)} />
+                    <div class="navigation-square" style={(index == activeSlide ? "background-color: #0D7EE1" : "")} onClick={() => setActiveSlide(index)} />
                 ))}
             </div>
         </div>

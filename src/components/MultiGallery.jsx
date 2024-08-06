@@ -14,7 +14,7 @@ function getClass(slide_index, active_slide, length) {
 
 export default function MultiGallery({ sections }) {
 
-    const [isExpaneded, setIsExpanded] = useState(new Array(sections.length).fill(false));
+    const [isExpaneded, setIsExpanded] = useState(sections.length ? sections.map((_, i) => i === 0 ? true : false) : []);
 
     const [activeSlide, setActiveSlide] = useState(new Array(sections.length).fill(0));
 
@@ -69,7 +69,7 @@ export default function MultiGallery({ sections }) {
                         </div>
                         <div class="gallery-navigation">
                             {section.images.map((image, slide_index) => (
-                                <div class="navigation-square" style={slide_index == activeSlide[section_index] ? "background-color: #0D7EE1" : ""} onClick={() => setSlide(section_index, slide_index)}/>
+                                <div class="navigation-square" style={slide_index == activeSlide[section_index] ? "background-color: #0D7EE1" : ""} onClick={() => setSlide(section_index, slide_index)} />
                             ))}
                         </div>
                     </div>

@@ -1,9 +1,17 @@
-.project-carousel {
-    background-color: #EFEFEF;
+.carousel-wrapper {
+    width:100%;
     display: flex;
-    width: 100%;
-    min-height: 448px;
+    flex-direction: column;
+    align-items: center;
+    background-color: #EFEFEF;
+}
+.project-carousel {
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    width: 100%;
+    min-height: 412px;
     overflow: hidden;
 }
 
@@ -20,7 +28,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    align-self: center;
+    top: 52px;
     transition: all .75s ease;
 }
 
@@ -132,6 +140,20 @@
     &:hover {
         scale: 1.1;
     }
+}
+
+.gallery-navigation {
+    margin: 25px 0 30px;
+    display: flex;
+}
+
+.navigation-square {
+    background-color: #CCCCCC;
+    width: 10px;
+    height: 10px;
+    margin: 0 10px;
+    transition: all .75s ease;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 1120px) {

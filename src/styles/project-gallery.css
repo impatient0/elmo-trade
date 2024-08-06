@@ -42,20 +42,6 @@
     font-weight: 500;
 }
 
-.gallery-navigation {
-    margin: 25px 0 30px;
-    display: flex;
-}
-
-.navigation-square {
-    background-color: #CCCCCC;
-    width: 10px;
-    height: 10px;
-    margin: 0 10px;
-    transition: all .75s ease;
-    cursor: pointer;
-}
-
 @media screen and (max-width: 1120px) {
     .nav-links {
         display: none;
