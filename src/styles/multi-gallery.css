@@ -69,6 +69,7 @@
     display: flex;
     height: fit-content;
     min-height: 600px;
+    overflow: hidden;
 
     &>.prev-btn {
         transition: all .75s ease-out;
@@ -136,6 +137,7 @@
     position: absolute;
     left: 50%;
     transform: translateX(-50%);
+    max-width: 960px;
 }
 
 @keyframes shake {

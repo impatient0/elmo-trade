@@ -21,7 +21,7 @@ export default function MultiGallery({ sections }) {
     const nextSlide = (section_index) => {
         setActiveSlide((prevState) => {
             const newState = prevState.slice();
-            newState[section_index] = (newState[section_index] + 1) % sections.length;
+            newState[section_index] = (newState[section_index] + 1) % sections[section_index].images.length;
             return newState;
         });
     }
@@ -29,7 +29,7 @@ export default function MultiGallery({ sections }) {
     const prevSlide = (section_index) => {
         setActiveSlide((prevState) => {
             const newState = prevState.slice();
-            newState[section_index] = (newState[section_index] + sections.length - 1) % sections.length;
+            newState[section_index] = (newState[section_index] + sections[section_index].images.length - 1) % sections[section_index].images.length;
             return newState;
         });
     }
