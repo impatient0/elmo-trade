@@ -1,49 +1,7 @@
 ---
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import Carousel from "../../components/Carousel";
 const pageTitle = "Услуги";
-const carouselImages = [
-	{
-		image: "/img/carousel1/carousel1.png",
-		description: {
-			title: "2019-2022",
-			headline: "ЗАВОД ИЗМЕРОН",
-			subbody: "г. Санкт-Петербург, ул. Броневая, д. 5",
-			body: "г. Санкт-Петербург, ул. Броневая, д. 5",
-		},
-	},
-	{
-		image: "/img/carousel1/carousel2.png",
-		description: {
-			title: "2019-2022",
-			headline: "ЗАВОД ИЗМЕРОН",
-			subbody: "г. Санкт-Петербург, ул. Броневая, д. 5",
-			body: "г. Санкт-Петербург, ул. Броневая, д. 5",
-		},
-	},
-	{
-		image: "/img/carousel1/carousel1.png",
-		description: {
-			title: "2019-2022",
-			headline: "ЗАВОД ИЗМЕРОН",
-			subbody: "г. Санкт-Петербург, ул. Броневая, д. 5",
-			body: "г. Санкт-Петербург, ул. Броневая, д. 5",
-		},
-	},
-	{
-		image: "/img/carousel1/carousel2.png",
-		description: {
-			title: "2019-2022",
-			headline: "ЗАВОД ИЗМЕРОН",
-			subbody: "г. Санкт-Петербург, ул. Броневая, д. 5",
-			body: "г. Санкт-Петербург, ул. Броневая, д. 5",
-		},
-	},
-];
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<div class="cover">
-		<Carousel client:load images={carouselImages} />
-	</div>
 </BaseLayout>
