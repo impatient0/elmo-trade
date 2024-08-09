@@ -18,6 +18,8 @@ export default function MultiGallery({ sections }) {
 
     const [activeSlide, setActiveSlide] = useState(new Array(sections.length).fill(0));
 
+    const [interacted, setInteracted] = useState(false);
+
     const nextSlide = (section_index) => {
         setActiveSlide((prevState) => {
             const newState = prevState.slice();
@@ -45,9 +47,13 @@ export default function MultiGallery({ sections }) {
     const toggleExpanded = (section_index) => {
         setIsExpanded((prevState) => {
             const newState = prevState.slice();
+            if (!interacted) {
+                newState[0] = false;
+            }
             newState[section_index] = !newState[section_index];
             return newState;
         });
+        setInteracted(true);
     }
 
     const onlyExpanded = (section_index) => {
@@ -61,7 +67,7 @@ export default function MultiGallery({ sections }) {
     return (
         <div class="multi-gallery">
             {sections.map((section, section_index) => (
-                <div class={"gallery-section " + (isExpaneded[section_index] ? "expanded" : "")}>
+                <div class={"gallery-section " + (isExpaneded[section_index] ? "expanded " : "") + (interacted ? "expandable" : "")} id={"section_"+(section_index)}>
                     <div class="divider" style={(section_index == 0 ? "display:none" : "")} />
                     <div class="gallery-tile" style={(sections.length == 1 ? "display: none" : "")} onClick={() => toggleExpanded(section_index)}>
                         <p class="division">{section.title}</p>

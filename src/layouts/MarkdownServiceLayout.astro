@@ -18,5 +18,9 @@ const { frontmatter } = Astro.props;
 	<div id="made_on">
 		<p class="body1">Выполнено на:</p>
 	</div>
-	<ProjectCarousel client:load slides={frontmatter.project_carousel}/>
+	<ProjectCarousel client:load slides={frontmatter.project_carousel} />
+	<script is:inline
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+	></script>
+	<script src="../scripts/ServicePage.js"></script>
 </BaseLayout>

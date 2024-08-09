@@ -104,7 +104,7 @@
     cursor: pointer;
 }
 
-.expanded {
+.expandable.expanded {
     &>.section-container {
         max-height: 651px;
         opacity: 1;
