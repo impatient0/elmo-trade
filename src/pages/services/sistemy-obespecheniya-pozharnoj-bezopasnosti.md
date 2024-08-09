@@ -5,7 +5,7 @@ pageID: "sistemy-obespecheniya-pozharnoj-bezopasnosti"
 carousel: { 
     images: [
         {
-            image: ["/img/services/service-2.webp", 0, -200, 0, 0],
+            image: ["/img/services/service-2_upscaled.webp", 0, -200, 0, 0],
             description: {
                 title: "Услуги",
                 headline: "Системы обеспечения пожарной безопасности",
