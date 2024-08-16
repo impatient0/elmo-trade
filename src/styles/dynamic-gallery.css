@@ -1,0 +1,42 @@
+.dynamic-gallery-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.gallery-navigation {
+    display: flex;
+    max-width: fit-content;
+}
+
+.gallery-navigation-button {
+    border: 1px solid #D6D6D6;
+    border-radius: 3px;
+    background: none;
+    margin: 0 6px;
+    padding: 8px;
+    cursor: pointer;
+    transition: all .5s ease;
+    &.active {
+        background-color: #0D7EE1;
+        color: white;
+        border-color: #0D7EE1;
+    }
+    &:hover {
+        filter: brightness(85%);
+    }
+}
+
+.dynamic-gallery {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    &>.project-container {
+        position: relative;
+    }
+}
+
+.collapsed {
+    display: none;
+}
