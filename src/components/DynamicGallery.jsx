@@ -27,7 +27,7 @@ function getSlideState(year, yearList, yearActive, allActive) {
     console.log(yearList.length);
     for (let i = 0; i < yearList.length; i++) {
         console.log(yearActive[i] + ' ' + yearList[i] + ' ' + years + ' ' + (years.includes(yearList[i])));
-        if (yearActive[i] && (years.includes(yearList[i]))) {
+        if (yearActive[i] && ((years.includes(yearList[i])) || (i == yearList.length - 1 & years[0] < yearList[i]))) {
             return true;
         }
     }
@@ -36,7 +36,7 @@ function getSlideState(year, yearList, yearActive, allActive) {
 
 export default function DynamicGallery({ slides }) {
 
-    let years = [2023, 2022, 2021, 2020, 2019,];
+    let years = [2024, 2023, 2022, 2021, 2020, 2019,];
 
     const [allActive, setAllActive] = useState(true);
 
@@ -64,7 +64,7 @@ export default function DynamicGallery({ slides }) {
             <div class="gallery-navigation">
                 <button class={"gallery-navigation-button" + (allActive ? " active" : "")} onClick={makeAllActive}>Все проекты</button>
                 {years.map((year, year_index) => (
-                    <button class={"gallery-navigation-button" + (yearActive[year_index] ? " active" : "")} onClick={() => toggleActive(year_index)}>{year}</button>
+                    <button class={"gallery-navigation-button" + (yearActive[year_index] ? " active" : "")} onClick={() => toggleActive(year_index)}>{year + (year_index == years.length - 1 ? " и ранее" : "")}</button>
                 ))}
             </div>
             <div class="dynamic-gallery">
