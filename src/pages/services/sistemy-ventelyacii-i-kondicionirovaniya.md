@@ -5,7 +5,7 @@ pageID: "sistemy-ventelyacii-i-kondicionirovaniya"
 carousel: { 
     images: [
         {
-            image: ["/img/services/service-3.webp", 0, -300, 0, 0],
+            image: ["/img/services/service-3_upscaled.webp", 0, -300, 0, 0],
             description: {
                 title: "Услуги",
                 headline: "Системы вентиляции и кондиционирования",

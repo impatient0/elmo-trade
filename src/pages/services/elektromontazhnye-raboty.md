@@ -5,7 +5,7 @@ pageID: "elektromontazhnye-raboty"
 carousel: { 
     images: [
         {
-            image: ["/img/services/elektromontazhnye-raboty/tp-i-rtp/tp-i-rtp01.webp", 0, -300, 0, 0],
+            image: ["/img/services/tp-i-rtp01_upscaled.webp", 0, -300, 0, 0],
             description: {
                 title: "Услуги",
                 headline: "Электромонтажные работы",

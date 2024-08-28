@@ -5,7 +5,7 @@ pageID: "strukturirovannaya-kabelnaya-set"
 carousel: { 
     images: [
         {
-            image: ["/img/services/strukturirovannaya-kabelnaya-set/01.webp", 0, -300, 0, 0],
+            image: ["/img/services/01_upscaled.webp", 0, -300, 0, 0],
             description: {
                 title: "Услуги",
                 headline: "Структурированная кабельная сеть",

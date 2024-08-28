@@ -5,7 +5,7 @@ pageID: "teplosnabzhenie"
 carousel: { 
     images: [
         {
-            image: ["/img/services/service-7.webp", 0, -300, 0, 0],
+            image: ["/img/services/service-8_upscaled.webp", 0, -300, 0, 0],
             description: {
                 title: "Услуги",
                 headline: "Теплоснабжение",

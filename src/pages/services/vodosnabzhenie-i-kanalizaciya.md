@@ -5,7 +5,7 @@ pageID: "vodosnabzhenie-i-kanalizaciya"
 carousel: { 
     images: [
         {
-            image: ["/img/services/service-8.webp", 0, -300, 0, 0],
+            image: ["/img/services/service-7_upscaled.webp", 0, -300, 0, 0],
             description: {
                 title: "Услуги",
                 headline: "Водоснабжение и канализация",

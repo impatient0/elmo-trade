@@ -5,7 +5,7 @@ pageID: "komplektaciya-proektnymi-dvernymi-konstrukciyami"
 carousel: { 
     images: [
         {
-            image: ["/img/services/service-9.webp", 0, -600, 0, 0],
+            image: ["/img/services/service-9_upscaled.webp", 0, -600, 0, 0],
             description: {
                 title: "Услуги",
                 headline: "Комплектация проектными дверными конструкциями",

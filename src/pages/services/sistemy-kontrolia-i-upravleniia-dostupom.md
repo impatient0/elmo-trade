@@ -5,7 +5,7 @@ pageID: "sistemy-kontrolia-i-upravleniia-dostupom"
 carousel: { 
     images: [
         {
-            image: ["/img/services/service-4.webp", 0, -100, 0, 0],
+            image: ["/img/services/service-4_upscaled.webp", 0, -100, 0, 0],
             description: {
                 title: "Услуги",
                 headline: "Системы контроля и управления доступом",
