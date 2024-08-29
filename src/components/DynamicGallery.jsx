@@ -70,7 +70,7 @@ export default function DynamicGallery({ slides }) {
             <div class="dynamic-gallery">
             {slides.map((project, index) => (
                     <div class={"project-container" + (getSlideState(project.year, years, yearActive, allActive) ? "" : " collapsed")}>
-                        <div class="project-image" style={`background-image: url('${project.image[0]}'); background-position: ${project.image[1]}px ${project.image[2]}px; background-size: ${project.image[3]}px ${project.image[4]}px`} />
+                        <div class="project-image" style={`background-image: url('${project.image[0]}'); background-position: ${project.image[1]}px ${project.image[2]}px;` + (project.image[3] != 0 ? ` background-size: ${project.image[3]}px ${project.image[4]}px` : '')} />
                         <div class="project-footer">
                             <p class="project-title">{project.title}</p>
                             <p class="subbody2">{project.address}</p>

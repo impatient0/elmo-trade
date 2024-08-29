@@ -234,6 +234,11 @@ const projects = [
         info: "Выполнение работ по монтажу электроснабжения и освещения бизнесцентра.",
     },
 ];
+
+const allProjects = await Astro.glob("./*.md");
+const projectTitles = allProjects.map((project) => project.frontmatter.title);
+// const slides = allProjects.map((project) => ({image: project.frontmatter.carousel.images[0].image, title: project.frontmatter.title, year: [project.frontmatter.carousel.images[0].description.title], link: project.url, address: project.frontmatter.carousel.images[0].description.subbody, info: project.frontmatter.carousel.images[0].description.body}));
+const slides = allProjects.map((project) => ({image: project.frontmatter.info.slide_image, year: project.frontmatter.info.year, title: project.frontmatter.title, link: project.url, address: project.frontmatter.info.address, info: project.frontmatter.info.description, }));
 ---
 
 <BaseLayout pageTitle={pageTitle}>
@@ -245,5 +250,5 @@ const projects = [
         <p class="headline1">ознакомьтесь с нашей работой</p>
         <p class="body1">За более чем 20-ти летний период мы оборудовали инженерными системами большие количество объектов.</p>
     </div>
-    <DynamicGallery client:load slides={projects}/>
+    <DynamicGallery client:load slides={slides}/>
 </BaseLayout>
