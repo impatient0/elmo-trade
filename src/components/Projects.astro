@@ -1,7 +1,7 @@
 ---
 // import ProjectGallery from "./ProjectGallery";
 import ProjectCarousel from "./ProjectCarousel";
-const slides = [
+const slides_ = [
     {
         image: ["/img/projects/project-1.webp", 0, -52, 589, 442],
         title: "центр обработки данных «МТС»",
@@ -53,6 +53,9 @@ const slides = [
         info: "Выполнение работ по монтажу электроснабжения и освещения бизнесцентра.",
     },
 ];
+
+const allProjects = await Astro.glob("../pages/projects/*.md");
+const slides = allProjects.map((project) => ({image: project.frontmatter.info.slide_image, year: project.frontmatter.info.year, title: project.frontmatter.title, link: project.url, address: project.frontmatter.info.address, info: project.frontmatter.info.description, }));
 ---
 
 <div id="project_carousel">

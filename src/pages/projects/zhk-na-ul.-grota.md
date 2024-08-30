@@ -16,8 +16,8 @@ carousel: {
     ],
 }
 info: {
-    cover_image: ["/img/projects/zhk-na-ul.-grota/zhk-na-ul.-grota/zhk-na-ul.-grota01.webp", 0, 0, 0, 0],
-    slide_image: ["/img/projects/zhk-na-ul.-grota/zhk-na-ul.-grota/zhk-na-ul.-grota01.webp", 0, 0, 0, 0],
+    cover_image: ["/img/projects/zhk-na-ul.-grota/zhk-na-ul.-grota.webp", 0, -50, 0, 0],
+    slide_image: ["/img/projects/zhk-na-ul.-grota/zhk-na-ul.-grota.webp", 0, -80, 800, 443],
     year: ["2018"],
     address: "г. Санкт-Петербург, ул. Грота, 1-3Г",
     description: "Электроснабжение жилого дома.",

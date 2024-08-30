@@ -16,8 +16,8 @@ carousel: {
     ],
 }
 info: {
-    cover_image: ["/img/projects/bts-atr-treugolnik/prokladka-kabelnykh-linii/prokladka-kabelnykh-linii01.webp", 0, 0, 0, 0],
-    slide_image: ["/img/projects/bts-atr-treugolnik/prokladka-kabelnykh-linii/prokladka-kabelnykh-linii01.webp", 0, 0, 0, 0],
+    cover_image: ["/img/projects/bts-atr-treugolnik/bts-atr-treugolnik.webp", 0, -150, 0, 0],
+    slide_image: ["/img/projects/bts-atr-treugolnik/bts-atr-treugolnik.webp", 0, -50, 720, 538],
     year: ["2018"],
     address: "г. Санкт-Петербург, наб. Обводного канала, 138, корп. 2",
     description: "Реконструкция РТП и прокладка кабельных линий 0,4 кВ для электроснабжения БЦ АТР Треугольник.",

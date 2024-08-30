@@ -16,8 +16,8 @@ carousel: {
     ],
 }
 info: {
-    cover_image: ["/img/projects/trk-iuzhnyi-polius/ventellyatsiya-kinoteatra/ventellyatsiya-kinoteatra01.webp", 0, 0, 0, 0],
-    slide_image: ["/img/projects/trk-iuzhnyi-polius/ventellyatsiya-kinoteatra/ventellyatsiya-kinoteatra01.webp", 0, 0, 0, 0],
+    cover_image: ["/img/projects/trk-iuzhnyi-polius/trk-iuzhnyi-polius.webp", 0, -200, 0, 0],
+    slide_image: ["/img/projects/trk-iuzhnyi-polius/trk-iuzhnyi-polius.webp", 0, -50, 600, 389],
     year: ["2018"],
     address: "г. Санкт-Петербург, улица Пражская, 50/48",
     description: "Реконструкция  этажа ТРК Южный Полюс в зоне фудкорта. Строительство кинотеатра Синема 78.",

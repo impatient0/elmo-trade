@@ -16,8 +16,8 @@ carousel: {
     ],
 }
 info: {
-    cover_image: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta01.webp", 0, 0, 0, 0],
-    slide_image: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta01.webp", 0, 0, 0, 0],
+    cover_image: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta.webp", 0, -200, 0, 0],
+    slide_image: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta.webp", 0, -50, 650, 487],
     year: ["2018"],
     address: "г. Санкт-Петербург, просп. КИМа, 1",
     description: "Электроснабжение строймаркета К-Раута, строительство БКТП и кабельных линий 0,4 и 10 кВ.",

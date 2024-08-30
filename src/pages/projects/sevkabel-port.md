@@ -16,8 +16,8 @@ carousel: {
     ],
 }
 info: {
-    cover_image: ["/img/projects/sevkabel-port/sevkabel-port/sevkabel-port01.webp", 0, 0, 0, 0],
-    slide_image: ["/img/projects/sevkabel-port/sevkabel-port/sevkabel-port01.webp", 0, 0, 0, 0],
+    cover_image: ["/img/projects/sevkabel-port/sevkabel-port.webp", 0, -200, 0, 0],
+    slide_image: ["/img/projects/sevkabel-port/sevkabel-port.webp", 0, -50, 640, 427],
     year: ["2018"],
     address: "г. Санкт-Петербург, Кожевенная линия, 40Б",
     description: "Реконструкция  этажа ТРК Южный Полюс в зоне фудкорта. Строительство кинотеатра Синема 78.",
