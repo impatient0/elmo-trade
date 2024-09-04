@@ -140,6 +140,16 @@
     max-width: 960px;
 }
 
+.section-video {
+    align-self: center;
+    transition: all .75s ease;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: 960px;
+    max-height: 600px;
+}
+
 @keyframes shake {
     0% {
         padding-left: 0px;

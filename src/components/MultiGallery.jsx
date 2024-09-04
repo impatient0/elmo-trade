@@ -76,7 +76,10 @@ export default function MultiGallery({ sections }) {
                     <div class="section-container">
                         <div class="gallery-container">
                             {section.images.map((image, slide_index) => (
-                                <img src={image} class={"section-image " + getClass(slide_index, activeSlide[section_index], section.images.length)} />
+                                image.endsWith("webp") ? 
+                                <img src={image} class={"section-image " + getClass(slide_index, activeSlide[section_index], section.images.length)} /> : <video controls controlsList="nodownload" autoplay muted loop class={"section-video " + getClass(slide_index, activeSlide[section_index], section.images.length)}>
+                                    <source src={image}/>
+                                </video>
                             ))}
                             <div class="next-btn" onClick={() => nextSlide(section_index)} />
                             <div class="prev-btn" onClick={() => prevSlide(section_index)} />
