@@ -24,6 +24,5 @@ pnpm-debug.log*
 .idea/
 
 # videos
-
 .mov
 .mp4
