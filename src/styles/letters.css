@@ -33,7 +33,7 @@
 }
 
 .letter-logo {
-    mix-blend-mode: darken;
+    margin: 5px 0;
 }
 
 .logos {
@@ -47,4 +47,10 @@
 .logos img {
     align-self: center;
     transition: all .5s ease;
+    width: 10%;
+    height: auto;
+}
+
+.letter-image {
+    max-height: 500px;
 }
