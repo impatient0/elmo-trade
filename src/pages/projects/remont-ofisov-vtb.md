@@ -16,8 +16,8 @@ carousel: {
     ],
 }
 info: {
-    cover_image: ["/img/projects/remont-ofisov-vtb/vynos-kl-shcherbakov_/vynos-kl-shcherbakov_01.webp", 0, 0, 0, 0],
-    slide_image: ["/img/projects/remont-ofisov-vtb/vynos-kl-shcherbakov_/vynos-kl-shcherbakov_01.webp", 0, 0, 0, 0],
+    cover_image: ["/img/404.gif", 0, -150, 0, 0],
+    slide_image: ["/img/404.gif", 0, -50, 0],
     year: ["2018"],
     address: "г. Санкт-Петербург",
     description: "Ремонт кабельных линий.",

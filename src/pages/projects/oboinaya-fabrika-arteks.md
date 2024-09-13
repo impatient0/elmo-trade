@@ -3,8 +3,8 @@ layout: ../../layouts/MarkdownProjectLayout.astro
 title: "Обойная фабрика артекс"
 pageID: "oboinaya-fabrika-arteks"
 info: {
-    cover_image: ["/img/projects/oboinaya-fabrika-arteks/auvpt/auvpt01.webp", 0, -150, 0, 0],
-    slide_image: ["/img/projects/oboinaya-fabrika-arteks/auvpt/auvpt01.webp", 0, -50, 720, 538],
+    cover_image: ["/img/404.gif", 0, -150, 0, 0],
+    slide_image: ["/img/404.gif", 0, -50, 0],
     year: ["2017-2018"],
     address: "Лен. область, Гатчинский р-н., Киевское Шоссе, д.2",
     description: "Комплекс работ на обойной фабрике Артекс.",
