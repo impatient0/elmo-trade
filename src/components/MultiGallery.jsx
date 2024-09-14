@@ -69,7 +69,7 @@ export default function MultiGallery({ sections }) {
             {sections.map((section, section_index) => (
                 <div class={"gallery-section " + (isExpaneded[section_index] ? "expanded " : "") + ((interacted || sections.length == 1) ? "expandable" : "")} id={"section_"+(section_index)}>
                     <div class="divider" style={(section_index == 0 ? "display:none" : "")} />
-                    <div class="gallery-tile" style={(sections.length == 1 ? "display: none" : "")} onClick={() => toggleExpanded(section_index)}>
+                    <div class="gallery-tile" /*style={(sections.length == 1 ? "display: none" : "")}*/ onClick={() => toggleExpanded(section_index)}>
                         <p class="division">{section.title}</p>
                         <div class="expand-btn" />
                     </div>

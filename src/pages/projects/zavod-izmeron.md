@@ -47,5 +47,15 @@ sections: [
             { title: "Перенос КТП 3", images: ["/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-301_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-302_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-303_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-304_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-305_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-306_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-307_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-308_resized.webp", ] },
         ]
     },
+    {
+        about: {
+            header: "Выполняем широкий спектр работ",
+            body: "Наша организация предлагает широкий спектр услуг, связанных с электромонтажом и электрификацией, одна из них - электромонтажные работы промышленных предприятий. Данный комплекс услуг включает в себя: подготовку проекта энергоснабжения; реставрацию существующей или монтаж новой системы; монтаж оборудования; комплекс работ по отладке и запуску необходимого оборудования."
+        },
+        multi_gallery: [
+            { title: "НЭС", images: ["/img/projects/izmeron/izmeron-nes/nes/nes01_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes02_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes03_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes04_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes05_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes06_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes07_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes08_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes09_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes10_resized.webp", ] },
+            { title: "Перенос КТП 3", images: ["/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-301_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-302_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-303_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-304_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-305_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-306_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-307_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-308_resized.webp", ] },
+        ]
+    },
 ]
 ---
