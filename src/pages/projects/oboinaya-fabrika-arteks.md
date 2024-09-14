@@ -6,12 +6,12 @@ info: {
     cover_image: ["/img/404.gif", 0, -150, 0, 0],
     slide_image: ["/img/404.gif", 0, -50, 0],
     year: ["2017-2018"],
-    address: "Лен. область, Гатчинский р-н., Киевское Шоссе, д.2",
-    description: "Комплекс работ на обойной фабрике Артекс.",
+    address: "Лен обл., Гатчинский муниципальный район, Киевское шоссе, дом 2",
+    description: "Выполнение комплекса проектных и монтажных работ системы АУВПТ, СПС, СОУЭ на объекте «Обойная фабрика «Артекс».",
 }
 about: {
     header: "Выполняем широкий спектр работ",
-    body: "Наша организация предлагает широкий спектр услуг, связанных с электромонтажом и электрификацией, одна из них - электромонтажные работы промышленных предприятий. Данный комплекс услуг включает в себя: подготовку проекта энергоснабжения; реставрацию существующей или монтаж новой системы; монтаж оборудования; комплекс работ по отладке и запуску необходимого оборудования."
+    body: "Выполнение комплекса проектных и монтажных работ системы АУВПТ, СПС, СОУЭ на объекте «Обойная фабрика «Артекс»."
 }
 multi_gallery: [
     { title: "АУВПТ", images: ["/img/projects/oboinaya-fabrika-arteks/auvpt/auvpt01.webp", "/img/projects/oboinaya-fabrika-arteks/auvpt/auvpt02.webp", "/img/projects/oboinaya-fabrika-arteks/auvpt/auvpt03.webp", "/img/projects/oboinaya-fabrika-arteks/auvpt/auvpt04.webp", "/img/projects/oboinaya-fabrika-arteks/auvpt/auvpt05.webp", "/img/projects/oboinaya-fabrika-arteks/auvpt/auvpt06.webp", "/img/projects/oboinaya-fabrika-arteks/auvpt/auvpt07.webp", "/img/projects/oboinaya-fabrika-arteks/auvpt/auvpt08.webp", "/img/projects/oboinaya-fabrika-arteks/auvpt/auvpt09.webp", "/img/projects/oboinaya-fabrika-arteks/auvpt/auvpt10.webp", "/img/projects/oboinaya-fabrika-arteks/auvpt/auvpt11.webp", "/img/projects/oboinaya-fabrika-arteks/auvpt/auvpt12.webp", "/img/projects/oboinaya-fabrika-arteks/auvpt/auvpt13.webp", ] },

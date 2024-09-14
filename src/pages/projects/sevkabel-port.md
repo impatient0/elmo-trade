@@ -2,29 +2,16 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "Севкабель порт"
 pageID: "sevkabel-port"
-carousel: { 
-    images: [
-        {
-            image: ["/img/projects/sevkabel-port/sevkabel-port/sevkabel-port01.webp", 0, 0, 0, 0],
-            description: {
-                title: "2018",
-                headline: "Севкабель порт",
-                subbody: "г. Санкт-Петербург, Кожевенная линия, 40Б",
-                body: "Реконструкция  этажа ТРК Южный Полюс в зоне фудкорта. Строительство кинотеатра Синема 78.",
-            },
-        },
-    ],
-}
 info: {
     cover_image: ["/img/projects/sevkabel-port/sevkabel-port.webp", 0, -200, 0, 0],
     slide_image: ["/img/projects/sevkabel-port/sevkabel-port.webp", 0, -50, 640, 427],
     year: ["2018"],
     address: "г. Санкт-Петербург, Кожевенная линия, 40Б",
-    description: "Реконструкция  этажа ТРК Южный Полюс в зоне фудкорта. Строительство кинотеатра Синема 78.",
+    description: "Демонтаж электротехнических объектов для использования в качестве арт-конструкции.",
 }
 about: {
     header: "Выполняем широкий спектр работ",
-    body: "Наша организация предлагает широкий спектр услуг, связанных с электромонтажом и электрификацией, одна из них - электромонтажные работы промышленных предприятий. Данный комплекс услуг включает в себя: подготовку проекта энергоснабжения; реставрацию существующей или монтаж новой системы; монтаж оборудования; комплекс работ по отладке и запуску необходимого оборудования."
+    body: "Демонтаж электротехнических объектов для использования в качестве арт-конструкции."
 }
 multi_gallery: [
     { title: "sevkabel-port", images: ["/img/projects/sevkabel-port/sevkabel-port/sevkabel-port01.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port02.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port03.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port04.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port05.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port06.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port07.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port08.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port09.webp", ] },

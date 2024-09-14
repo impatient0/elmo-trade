@@ -2,29 +2,16 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "СТРОЙМАРКЕТ К-РАУТА"
 pageID: "stroimarket-k-rauta"
-carousel: { 
-    images: [
-        {
-            image: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta01.webp", 0, 0, 0, 0],
-            description: {
-                title: "2018",
-                headline: "СТРОЙМАРКЕТ К-РАУТА",
-                subbody: "г. Санкт-Петербург, просп. КИМа, 1",
-                body: "Электроснабжение строймаркета К-Раута, строительство БКТП и кабельных линий 0,4 и 10 кВ.",
-            },
-        },
-    ],
-}
 info: {
     cover_image: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta.webp", 0, -200, 0, 0],
     slide_image: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta.webp", 0, -50, 650, 487],
     year: ["2018"],
-    address: "г. Санкт-Петербург, просп. КИМа, 1",
-    description: "Электроснабжение строймаркета К-Раута, строительство БКТП и кабельных линий 0,4 и 10 кВ.",
+    address: "Санкт-Петербург, В.О., пр. Кима 13А",
+    description: "Комплекс работ по проектированию и выполнению электромонтажных работ наружных сетей постоянного электроснабжения магазина.",
 }
 about: {
     header: "Выполняем широкий спектр работ",
-    body: "Наша организация предлагает широкий спектр услуг, связанных с электромонтажом и электрификацией, одна из них - электромонтажные работы промышленных предприятий. Данный комплекс услуг включает в себя: подготовку проекта энергоснабжения; реставрацию существующей или монтаж новой системы; монтаж оборудования; комплекс работ по отладке и запуску необходимого оборудования."
+    body: "Электроснабжение строймаркета К-Раута, строительство БКТП и кабельных линий 0,4 и 10 кВ."
 }
 multi_gallery: [
     { title: "stroimarket-k-rauta", images: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta01.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta02.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta03.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta04.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta05.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta06.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta07.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta08.webp", ] },

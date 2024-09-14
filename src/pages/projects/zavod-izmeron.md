@@ -1,30 +1,29 @@
 ---
 layout: ../../layouts/MarkdownProjectMLayout.astro
-title: "Завод Измерон"
+title: "Завод “Измерон” "
 pageID: "zavod-izmeron"
 info: {
     cover_image: ["/img/projects/izmeron/izmeron.webp", 0, -250, 0, 0],
     slide_image: ["/img/projects/izmeron/izmeron.webp", 0, -75, 0],
-    year: ["2019"],
-    address: "Санкт-Петербург, Коломяжский пр-т., ",
+    year: ["2019-2023"],
+    address: " г. Санкт-Петербург, ул. Броневая 5.",
     description: "Реконструкция РТП и монтаж кабельных линий 10 кВ и 0,4 кВ для электроснабжения ОО НПФ Завод “Измерон”.",
 }
 sections: [
     {
         about: {
-            header: "Выполняем широкий спектр работ",
-            body: "Наша организация предлагает широкий спектр услуг, связанных с электромонтажом и электрификацией, одна из них - электромонтажные работы промышленных предприятий. Данный комплекс услуг включает в себя: подготовку проекта энергоснабжения; реставрацию существующей или монтаж новой системы; монтаж оборудования; комплекс работ по отладке и запуску необходимого оборудования."
+            header: "2019",
+            body: "Реконструкция РТП и монтаж кабельных линий 10 кВ и 0,4 кВ для электроснабжения ОО НПФ Завод “Измерон”."
         },
         multi_gallery: [
-            { title: "Коммуникации", images: ["/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii01_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii02_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii03_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii04_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii05_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii06_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii07_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii08_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii09_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii10_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii11_resized.webp", ] },
-            { title: "КР", images: ["/img/projects/izmeron/abk-1/kr/kr01_resized.webp", "/img/projects/izmeron/abk-1/kr/kr02_resized.webp", "/img/projects/izmeron/abk-1/kr/kr03_resized.webp", "/img/projects/izmeron/abk-1/kr/kr04_resized.webp", "/img/projects/izmeron/abk-1/kr/kr05_resized.webp", "/img/projects/izmeron/abk-1/kr/kr06_resized.webp", "/img/projects/izmeron/abk-1/kr/kr07_resized.webp", "/img/projects/izmeron/abk-1/kr/kr08_resized.webp", ] },
-            { title: "Перегородки", images: ["/img/projects/izmeron/abk-1/peregorodki/peregorodki01_resized.webp", "/img/projects/izmeron/abk-1/peregorodki/peregorodki02_resized.webp", "/img/projects/izmeron/abk-1/peregorodki/peregorodki03_resized.webp", "/img/projects/izmeron/abk-1/peregorodki/peregorodki04_resized.webp", "/img/projects/izmeron/abk-1/peregorodki/peregorodki05_resized.webp", "/img/projects/izmeron/abk-1/peregorodki/peregorodki06_resized.webp", "/img/projects/izmeron/abk-1/peregorodki/peregorodki07_resized.webp", "/img/projects/izmeron/abk-1/peregorodki/peregorodki08_resized.webp", ] },
+            { title: "НЭС", images: ["/img/projects/izmeron/izmeron-nes/nes/nes01_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes02_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes03_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes04_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes05_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes06_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes07_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes08_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes09_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes10_resized.webp", ] },
+            { title: "Перенос КТП", images: ["/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-301_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-302_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-303_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-304_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-305_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-306_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-307_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-308_resized.webp", ] },
         ]
     },
     {
         about: {
-            header: "Выполняем широкий спектр работ",
-            body: "Наша организация предлагает широкий спектр услуг, связанных с электромонтажом и электрификацией, одна из них - электромонтажные работы промышленных предприятий. Данный комплекс услуг включает в себя: подготовку проекта энергоснабжения; реставрацию существующей или монтаж новой системы; монтаж оборудования; комплекс работ по отладке и запуску необходимого оборудования."
+            header: "2020",
+            body: "Комплекс работ по реконструкции Корпуса №2 на объекте ООО НПФ «Завод «ИЗМЕРОН»."
         },
         multi_gallery: [
             { title: "ДО", images: ["/img/projects/izmeron/abk-2/do/do01_resized.webp", "/img/projects/izmeron/abk-2/do/do02_resized.webp", "/img/projects/izmeron/abk-2/do/do03_resized.webp", "/img/projects/izmeron/abk-2/do/do04_resized.webp", "/img/projects/izmeron/abk-2/do/do05_resized.webp", "/img/projects/izmeron/abk-2/do/do06_resized.webp", "/img/projects/izmeron/abk-2/do/do07_resized.webp", "/img/projects/izmeron/abk-2/do/do08_resized.webp", "/img/projects/izmeron/abk-2/do/do09_resized.webp", ] },
@@ -39,22 +38,22 @@ sections: [
     },
     {
         about: {
-            header: "Выполняем широкий спектр работ",
-            body: "Наша организация предлагает широкий спектр услуг, связанных с электромонтажом и электрификацией, одна из них - электромонтажные работы промышленных предприятий. Данный комплекс услуг включает в себя: подготовку проекта энергоснабжения; реставрацию существующей или монтаж новой системы; монтаж оборудования; комплекс работ по отладке и запуску необходимого оборудования."
+            header: "2021",
+            body: "Комплекс работ по реконструкции Корпуса №1 и установке стеклянных перегородок на объекте ООО НПФ «Завод «ИЗМЕРОН»."
         },
         multi_gallery: [
-            { title: "НЭС", images: ["/img/projects/izmeron/izmeron-nes/nes/nes01_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes02_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes03_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes04_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes05_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes06_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes07_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes08_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes09_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes10_resized.webp", ] },
-            { title: "Перенос КТП 3", images: ["/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-301_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-302_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-303_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-304_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-305_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-306_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-307_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-308_resized.webp", ] },
+            { title: "Коммуникации", images: ["/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii01_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii02_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii03_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii04_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii05_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii06_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii07_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii08_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii09_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii10_resized.webp", "/img/projects/izmeron/abk-1/kommunikatsii/kommunikatsii11_resized.webp", ] },
+            { title: "КР", images: ["/img/projects/izmeron/abk-1/kr/kr01_resized.webp", "/img/projects/izmeron/abk-1/kr/kr02_resized.webp", "/img/projects/izmeron/abk-1/kr/kr03_resized.webp", "/img/projects/izmeron/abk-1/kr/kr04_resized.webp", "/img/projects/izmeron/abk-1/kr/kr05_resized.webp", "/img/projects/izmeron/abk-1/kr/kr06_resized.webp", "/img/projects/izmeron/abk-1/kr/kr07_resized.webp", "/img/projects/izmeron/abk-1/kr/kr08_resized.webp", ] },
+            { title: "Перегородки", images: ["/img/projects/izmeron/abk-1/peregorodki/peregorodki01_resized.webp", "/img/projects/izmeron/abk-1/peregorodki/peregorodki02_resized.webp", "/img/projects/izmeron/abk-1/peregorodki/peregorodki03_resized.webp", "/img/projects/izmeron/abk-1/peregorodki/peregorodki04_resized.webp", "/img/projects/izmeron/abk-1/peregorodki/peregorodki05_resized.webp", "/img/projects/izmeron/abk-1/peregorodki/peregorodki06_resized.webp", "/img/projects/izmeron/abk-1/peregorodki/peregorodki07_resized.webp", "/img/projects/izmeron/abk-1/peregorodki/peregorodki08_resized.webp", ] },
         ]
     },
     {
         about: {
-            header: "Выполняем широкий спектр работ",
-            body: "Наша организация предлагает широкий спектр услуг, связанных с электромонтажом и электрификацией, одна из них - электромонтажные работы промышленных предприятий. Данный комплекс услуг включает в себя: подготовку проекта энергоснабжения; реставрацию существующей или монтаж новой системы; монтаж оборудования; комплекс работ по отладке и запуску необходимого оборудования."
+            header: "2023",
+            body: "Работы по монтажу системы обеспечения работы VRF системы кондиционирования серверных Корпуса №2."
         },
         multi_gallery: [
-            { title: "НЭС", images: ["/img/projects/izmeron/izmeron-nes/nes/nes01_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes02_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes03_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes04_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes05_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes06_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes07_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes08_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes09_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes10_resized.webp", ] },
-            { title: "Перенос КТП 3", images: ["/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-301_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-302_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-303_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-304_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-305_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-306_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-307_resized.webp", "/img/projects/izmeron/izmeron-nes/perenos-ktp-3/perenos-ktp-308_resized.webp", ] },
+            { title: "VRF", images: ["/img/projects/izmeron/izmeron-nes/nes/nes01_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes02_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes03_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes04_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes05_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes06_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes07_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes08_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes09_resized.webp", "/img/projects/izmeron/izmeron-nes/nes/nes10_resized.webp", ] },
         ]
     },
 ]

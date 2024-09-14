@@ -1,13 +1,13 @@
 ---
 layout: ../../layouts/MarkdownProjectMLayout.astro
-title: "Бизнес центр КИНМАРК"
+title: "БИЗНЕС-ПАРК “КИНМАРК”"
 pageID: "biznes-tsentr-kinmark"
 info: {
     cover_image: ["/img/projects/biznes-tsentr-kinmark/biznes-tsentr-kinmark.webp", 0, -250, 0, 0],
     slide_image: ["/img/projects/biznes-tsentr-kinmark/biznes-tsentr-kinmark.webp", 0, -100, 0],
-    year: ["2022"],
-    address: "Санкт-Петербург, Коломяжский пр-т., ",
-    description: "Приспособление помещения для строительства кинотеатра Люксор.",
+    year: ["2021-2024"],
+    address: "Таллинское ш., 194, корп. 2, стр. 1 (помещение 41-Н-1)",
+    description: "Комплекс работ по электроснабжению и освещению бизнес-парка “КИНМАРК”.",
 }
 sections: [
     {

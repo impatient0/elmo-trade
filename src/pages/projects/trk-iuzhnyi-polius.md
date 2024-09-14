@@ -2,29 +2,16 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "ТРК ЮЖНЫЙ ПОЛЮС"
 pageID: "trk-iuzhnyi-polius"
-carousel: { 
-    images: [
-        {
-            image: ["/img/projects/trk-iuzhnyi-polius/ventellyatsiya-kinoteatra/ventellyatsiya-kinoteatra01.webp", 0, 0, 0, 0],
-            description: {
-                title: "2018",
-                headline: "ТРК ЮЖНЫЙ ПОЛЮС",
-                subbody: "г. Санкт-Петербург, улица Пражская, 50/48",
-                body: "Реконструкция  этажа ТРК Южный Полюс в зоне фудкорта. Строительство кинотеатра Синема 78.",
-            },
-        },
-    ],
-}
 info: {
     cover_image: ["/img/projects/trk-iuzhnyi-polius/trk-iuzhnyi-polius.webp", 0, -200, 0, 0],
     slide_image: ["/img/projects/trk-iuzhnyi-polius/trk-iuzhnyi-polius.webp", 0, -50, 600, 389],
     year: ["2018"],
     address: "г. Санкт-Петербург, улица Пражская, 50/48",
-    description: "Реконструкция  этажа ТРК Южный Полюс в зоне фудкорта. Строительство кинотеатра Синема 78.",
+    description: "Реконструкция 3 этажа ТРК Южный Полюс в зоне фудкорта. ",
 }
 about: {
     header: "Выполняем широкий спектр работ",
-    body: "Наша организация предлагает широкий спектр услуг, связанных с электромонтажом и электрификацией, одна из них - электромонтажные работы промышленных предприятий. Данный комплекс услуг включает в себя: подготовку проекта энергоснабжения; реставрацию существующей или монтаж новой системы; монтаж оборудования; комплекс работ по отладке и запуску необходимого оборудования."
+    body: "Выполнен комплекс работ в зоне расположенной на 3 этажа при перепланировке помещения кинотеатра, детского игрового центра и зоны фудкорта расположенных на отм +9.030 в ТРК «Южный Полюс»"
 }
 multi_gallery: [
     { title: "Вентиляция кинотеатра", images: ["/img/projects/trk-iuzhnyi-polius/ventellyatsiya-kinoteatra/ventellyatsiya-kinoteatra01.webp", "/img/projects/trk-iuzhnyi-polius/ventellyatsiya-kinoteatra/ventellyatsiya-kinoteatra02.webp", "/img/projects/trk-iuzhnyi-polius/ventellyatsiya-kinoteatra/ventellyatsiya-kinoteatra03.webp", "/img/projects/trk-iuzhnyi-polius/ventellyatsiya-kinoteatra/ventellyatsiya-kinoteatra04.webp", "/img/projects/trk-iuzhnyi-polius/ventellyatsiya-kinoteatra/ventellyatsiya-kinoteatra05.webp", "/img/projects/trk-iuzhnyi-polius/ventellyatsiya-kinoteatra/ventellyatsiya-kinoteatra06.webp", "/img/projects/trk-iuzhnyi-polius/ventellyatsiya-kinoteatra/ventellyatsiya-kinoteatra07.webp", "/img/projects/trk-iuzhnyi-polius/ventellyatsiya-kinoteatra/ventellyatsiya-kinoteatra08.webp", "/img/projects/trk-iuzhnyi-polius/ventellyatsiya-kinoteatra/ventellyatsiya-kinoteatra09.webp", ] },

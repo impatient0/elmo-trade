@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownProjectLayout.astro
-title: "Складской комплекс"
+title: "Складской комплекс В ГАТЧИНСКОМ Районе"
 pageID: "skladskoi-kompleks"
 info: {
     cover_image: ["/img/404.gif", 0, -150, 0, 0],

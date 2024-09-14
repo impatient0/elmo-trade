@@ -1,17 +1,17 @@
 ---
 layout: ../../layouts/MarkdownProjectLayout.astro
-title: "СТРОЙМАРКЕТ МЕТРИКА"
+title: "СТРОЙМАРКЕТ “МЕТРИКА”"
 pageID: "stroimarket-metrika"
 info: {
     cover_image: ["/img/404.gif", 0, -150, 0, 0],
     slide_image: ["/img/404.gif", 0, -50, 0],
-    year: ["2018"],
-    address: "г. Санкт-Петербург, Якорная улица, 16, корп. 2",
+    year: ["2015"],
+    address: "г. Санкт-Петербург, Красногвардейский район, Уткин проспект, участок 4",
     description: "Монтаж БКТП, строительство кабельных линий 10 и 0,4 кВ.",
 }
 about: {
     header: "Выполняем широкий спектр работ",
-    body: "Наша организация предлагает широкий спектр услуг, связанных с электромонтажом и электрификацией, одна из них - электромонтажные работы промышленных предприятий. Данный комплекс услуг включает в себя: подготовку проекта энергоснабжения; реставрацию существующей или монтаж новой системы; монтаж оборудования; комплекс работ по отладке и запуску необходимого оборудования."
+    body: "Выполнен полный комплекс строительно-монтажных работ по прокладке наружных сетей постоянного и временного электроснабжения, модернизации сетей Ленэнерго а также пристроенной блочной трансформаторной подстанции для магазина и административного здания ООО «Стройбаза Рыбинская»."
 }
 multi_gallery: [
     { title: "Монтаж АСКУЭ", images: ["/img/projects/stroimarket-metrika/montazh-askue/montazh-askue01.webp", "/img/projects/stroimarket-metrika/montazh-askue/montazh-askue02.webp", "/img/projects/stroimarket-metrika/montazh-askue/montazh-askue03.webp", "/img/projects/stroimarket-metrika/montazh-askue/montazh-askue04.webp", "/img/projects/stroimarket-metrika/montazh-askue/montazh-askue05.webp", "/img/projects/stroimarket-metrika/montazh-askue/montazh-askue06.webp", "/img/projects/stroimarket-metrika/montazh-askue/montazh-askue07.webp", ] },

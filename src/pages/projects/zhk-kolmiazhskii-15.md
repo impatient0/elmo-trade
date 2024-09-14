@@ -24,7 +24,7 @@ info: {
 }
 about: {
     header: "Выполняем широкий спектр работ",
-    body: "Наша организация предлагает широкий спектр услуг, связанных с электромонтажом и электрификацией, одна из них - электромонтажные работы промышленных предприятий. Данный комплекс услуг включает в себя: подготовку проекта энергоснабжения; реставрацию существующей или монтаж новой системы; монтаж оборудования; комплекс работ по отладке и запуску необходимого оборудования."
+    body: "Строительство РТП и кабельных линий 10 кВ для электроснабжения ЖК."
 }
 multi_gallery: [
     { title: "zhk-kolmiazhskii-15", images: ["/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1501.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1502.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1503.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1504.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1505.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1506.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1507.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1508.webp", ]  },
