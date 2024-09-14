@@ -27,11 +27,13 @@ const slides = allProjects.map((project) => ({image: project.frontmatter.info.sl
 			]}
 		/>
 	</div>
-	<div class="about">
-		<p class="title1">{frontmatter.about.header}</p>
-		<p class="body1">{frontmatter.about.body}</p>
-	</div>
-	<MultiGallery client:load sections={frontmatter.multi_gallery} />
+	{frontmatter.sections.map((section) => (
+		<div class="about">
+			<p class="title1">{section.about.header}</p>
+			<p class="body1">{section.about.body}</p>
+		</div>
+		<MultiGallery client:load sections={section.multi_gallery} />
+	))}
 	<div id="made_on">
 		<p class="body1">Другие проекты:</p>
 	</div>
