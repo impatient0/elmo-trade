@@ -1,5 +1,5 @@
 ---
-layout: ../../layouts/MarkdownProjectLayout.astro
+layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "Бизнес центр КИНМАРК"
 pageID: "biznes-tsentr-kinmark"
 info: {
@@ -9,11 +9,33 @@ info: {
     address: "Санкт-Петербург, Коломяжский пр-т., ",
     description: "Приспособление помещения для строительства кинотеатра Люксор.",
 }
-about: {
-    header: "Выполняем широкий спектр работ",
-    body: "Наша организация предлагает широкий спектр услуг, связанных с электромонтажом и электрификацией, одна из них - электромонтажные работы промышленных предприятий. Данный комплекс услуг включает в себя: подготовку проекта энергоснабжения; реставрацию существующей или монтаж новой системы; монтаж оборудования; комплекс работ по отладке и запуску необходимого оборудования."
-}
-multi_gallery: [
-    { title: "ЭОМ", images: ["/img/projects/biznes-tsentr-kinmark/eom/eom01_resized.webp", "/img/projects/biznes-tsentr-kinmark/eom/eom02_resized.webp", "/img/projects/biznes-tsentr-kinmark/eom/eom03_resized.webp", "/img/projects/biznes-tsentr-kinmark/eom/eom04_resized.webp", "/img/projects/biznes-tsentr-kinmark/eom/eom05_resized.webp", "/img/projects/biznes-tsentr-kinmark/eom/eom06_resized.webp", ] },
+sections: [
+    {
+        about: {
+            header: "2021",
+            body: "Монтаж систем электроснабжения, устройство электрических сетей, установка и подключение электрических потребителей, монтаж и подключение щитов на объекте."
+        },
+        multi_gallery: [
+            { title: "ЭОМ", images: ["/img/projects/biznes-tsentr-kinmark/eom/eom01_resized.webp", "/img/projects/biznes-tsentr-kinmark/eom/eom04_resized.webp", "/img/projects/biznes-tsentr-kinmark/eom/eom05_resized.webp", "/img/projects/biznes-tsentr-kinmark/eom/eom06_resized.webp", ] },
+        ]
+    },
+    {
+        about: {
+            header: "2023",
+            body: "Поставка и монтаж КТП согласно ТУ ПАО “РОССЕТИ” для электроснабжения объекта."
+        },
+        multi_gallery: [
+            { title: "ЭОМ", images: ["/img/projects/biznes-tsentr-kinmark/eom/eom01_resized.webp", "/img/projects/biznes-tsentr-kinmark/eom/eom04_resized.webp", "/img/projects/biznes-tsentr-kinmark/eom/eom05_resized.webp", "/img/projects/biznes-tsentr-kinmark/eom/eom06_resized.webp", ] },
+        ]
+    },
+    {
+        about: {
+            header: "2024",
+            body: "Прокладка кабельных линий 0,4 кВ для подключения к элетропитанию мастерских для обслуживания автотранспорта."
+        },
+        multi_gallery: [
+            { title: "ЭОМ", images: ["/img/projects/biznes-tsentr-kinmark/eom/eom01_resized.webp", "/img/projects/biznes-tsentr-kinmark/eom/eom04_resized.webp", "/img/projects/biznes-tsentr-kinmark/eom/eom05_resized.webp", "/img/projects/biznes-tsentr-kinmark/eom/eom06_resized.webp", ] },
+        ]
+    },
 ]
 ---

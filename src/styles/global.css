@@ -211,3 +211,14 @@ button {
         margin: 0;
     }
 }
+
+.gallery-section-title {
+    min-height: 100px;
+    padding-bottom: 60px;
+    justify-content: flex-end;
+}
+
+#section_0 {
+    min-height: 220px;
+    justify-content: flex-end;
+}

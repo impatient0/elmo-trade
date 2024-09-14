@@ -27,8 +27,8 @@ const slides = allProjects.map((project) => ({image: project.frontmatter.info.sl
 			]}
 		/>
 	</div>
-	{frontmatter.sections.map((section) => (
-		<div class="about">
+	{frontmatter.sections.map((section, index) => (
+		<div class="about gallery-section-title" id={"section_"+index}>
 			<p class="title1">{section.about.header}</p>
 			<p class="body1">{section.about.body}</p>
 		</div>
