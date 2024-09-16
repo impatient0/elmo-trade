@@ -15,7 +15,7 @@ const { frontmatter } = Astro.props;
 	<div class="cover">
 		<Carousel client:load images={frontmatter.carousel.images} />
 	</div>
-	<div class="about">
+	<div class="about gallery-section-title" id="gallery-section_0">
 		<p class="title1">{frontmatter.about.header}</p>
 		<p class="body1">{frontmatter.about.body}</p>
 	</div>

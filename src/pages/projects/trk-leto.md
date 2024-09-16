@@ -3,8 +3,8 @@ layout: ../../layouts/MarkdownProjectLayout.astro
 title: "ТРК ЛЕТО"
 pageID: "trk-leto"
 info: {
-    cover_image: ["/img/404.gif", 0, -150, 0, 0],
-    slide_image: ["/img/404.gif", 0, -50, 0],
+    cover_image: ["/img/projects/trk-leto/trk-leto.webp", 0, -150, 0, 0],
+    slide_image: ["/img/projects/trk-leto/trk-leto.webp", 0, -50, 0],
     year: ["2020"],
     address: "г. Санкт-Петербург, Пулковское ш., 25, корп. 1",
     description: "Приспособление помещения для строительства кинотеатра Люксор.",

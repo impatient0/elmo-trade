@@ -3,8 +3,8 @@ layout: ../../layouts/MarkdownProjectLayout.astro
 title: "БИЗНЕС ЦЕНТР “ВИКТОРИя плаза”"
 pageID: "gazprom"
 info: {
-    cover_image: ["/img/404.gif", 0, -150, 0, 0],
-    slide_image: ["/img/404.gif", 0, -50, 0],
+    cover_image: ["/img/projects/gazprom/gazprom.webp", 0, -175, 0, 0],
+    slide_image: ["/img/projects/gazprom/gazprom.webp", 0, -25, 0],
     year: ["2021"],
     address: "Санкт-Петербург, Площадь Победы, д.2",
     description: "Техническогое обслуживание БК РТП бизнесцентра.",

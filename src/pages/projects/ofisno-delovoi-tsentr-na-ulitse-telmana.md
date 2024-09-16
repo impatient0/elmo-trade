@@ -3,7 +3,7 @@ layout: ../../layouts/MarkdownProjectLayout.astro
 title: "БИЗНЕС-ЦЕНТР “ТЕЛЬМАНА 2”"
 pageID: "ofisno-delovoi-tsentr-na-ulitse-telmana"
 info: {
-    cover_image: ["/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/ofisno-delovoi-tsentr-na-ulitse-telmana.webp", 0, -225, 0, 0],
+    cover_image: ["/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/ofisno-delovoi-tsentr-na-ulitse-telmana.webp", 0, -200, 0, 0],
     slide_image: ["/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/ofisno-delovoi-tsentr-na-ulitse-telmana.webp", 0, -50, 0, 0],
     year: ["2019"],
     address: "г. Санкт-Петербург, Невский район, ул. Тельмана, 2",

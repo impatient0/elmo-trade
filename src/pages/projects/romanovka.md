@@ -3,8 +3,8 @@ layout: ../../layouts/MarkdownProjectLayout.astro
 title: "ТЕХНОПАРК РОМАНОВКА "
 pageID: "romanovka"
 info: {
-    cover_image: ["/img/404.gif", 0, -150, 0, 0],
-    slide_image: ["/img/404.gif", 0, -50, 0],
+    cover_image: ["/img/projects/romanovka/romanovka.webp", 0, -0, 0, 0],
+    slide_image: ["/img/projects/romanovka/romanovka.webp", 0, 0, 677, 280],
     year: ["2021"],
     address: "Ленинградская область, Веревское сельское поселение пос. Романовка.",
     description: "Разработка проектной документации и монтаж наружного освещения.",
