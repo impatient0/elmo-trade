@@ -14,7 +14,7 @@ about: {
     body: "Электроснабжение строймаркета К-Раута, строительство БКТП и кабельных линий 0,4 и 10 кВ."
 }
 multi_gallery: [
-    { title: "stroimarket-k-rauta", images: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta01.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta02.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta03.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta04.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta05.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta06.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta07.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta08.webp", ] },
+    { title: "stroimarket-k-rauta", images: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta01_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta02_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta03_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta04_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta05_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta06_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta07_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta08_resized.webp", ] },
 ]
 project_carousel: [
     {
