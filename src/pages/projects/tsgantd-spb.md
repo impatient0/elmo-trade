@@ -3,8 +3,8 @@ layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "ЦГАНТД СПб"
 pageID: "tsgantd-spb"
 info: {
-    cover_image: ["/img/404.gif", 0, -150, 0, 0],
-    slide_image: ["/img/404.gif", 0, -50, 0],
+    cover_image: ["/img/elmo-shrug.gif", 0, -150, 0, 0],
+    slide_image: ["/img/elmo-shrug.gif", 0, -50, 0],
     year: ["2018"],
     address: "г. Санкт-Петербург, ул. Тамбовская д. 17а",
     description: "Монтаж АУГПТ архива правительства Санкт-Петербурга.",
