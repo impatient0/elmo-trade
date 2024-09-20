@@ -3,8 +3,8 @@ layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "Аварийный ремонт КАБЕЛЬНЫХ ЛИНИЙ ДЛЯ объекта ОАО “Банк ВТБ”"
 pageID: "remont-ofisov-vtb"
 info: {
-    cover_image: ["/img/elmo-shrug.gif", 0, -150, 0, 0],
-    slide_image: ["/img/elmo-shrug.gif", 0, -50, 0],
+    cover_image: ["/img/projects/remont-ofisov-vtb/remont-ofisov-vtb.webp", 0, -150, 0, 0],
+    slide_image: ["/img/projects/remont-ofisov-vtb/remont-ofisov-vtb.webp", 0, -50, 0],
     year: ["2018"],
     address: "г. Санкт-Петербург",
     description: "Ремонт кабельных линий.",

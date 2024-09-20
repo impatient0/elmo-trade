@@ -25,7 +25,7 @@ sections: [
             body: "Работы по разработке РД и монтажу внутреннего электроснабжения здания под общежития ФГБОУ «Санкт-Петербургский горный Университет»." 
         },
         multi_gallery: [
-            { title: "ДВЕРНЫЕ КОНСТРУКЦИИ", images: ["/img/projects/obshchezhitie-spgu-(gornyi-universitet)/dvernye-konstruktsii/dvernye-konstruktsii01_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/dvernye-konstruktsii/dvernye-konstruktsii02_resized.webp", ] },
+            { title: "ДВЕРНЫЕ КОНСТРУКЦИИ", images: ["/img/projects/obshchezhitie-spgu-(gornyi-universitet)/dvernye-konstruktsii/dvernye-konstruktsii10_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/dvernye-konstruktsii/dvernye-konstruktsii01_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/dvernye-konstruktsii/dvernye-konstruktsii02_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/dvernye-konstruktsii/dvernye-konstruktsii03_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/dvernye-konstruktsii/dvernye-konstruktsii05_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/dvernye-konstruktsii/dvernye-konstruktsii06_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/dvernye-konstruktsii/dvernye-konstruktsii07_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/dvernye-konstruktsii/dvernye-konstruktsii08_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/dvernye-konstruktsii/dvernye-konstruktsii09_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/dvernye-konstruktsii/dvernye-konstruktsii04_resized.webp", ] },
         ]
     },
     {
