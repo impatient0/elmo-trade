@@ -36,7 +36,7 @@ function getSlideState(year, yearList, yearActive, allActive) {
 
 export default function DynamicGallery({ slides }) {
 
-    let years = [2024, 2023, 2022, 2021, 2020, 2019,];
+    let years = [2024, 2023, 2022, 2021, 2020, 2019, 2018,];
 
     const [allActive, setAllActive] = useState(true);
 
