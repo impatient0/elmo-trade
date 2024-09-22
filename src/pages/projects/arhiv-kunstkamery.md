@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "АРХИВ КУНСТКАМЕРЫ"
 pageID: "arhiv-kunstkamery"
+services: ["some-service", ]
 info: {
     cover_image: ["/img/projects/arhiv-kunstkamery/arhiv-kunstkamery.webp", 0, -100, 0, 0],
     slide_image: ["/img/projects/arhiv-kunstkamery/arhiv-kunstkamery.webp", 0, 0, 0],

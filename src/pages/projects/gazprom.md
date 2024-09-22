@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "БИЗНЕС ЦЕНТР “ВИКТОРИя плаза”"
 pageID: "gazprom"
+services: ["some-service",]
 info: {
     cover_image: ["/img/projects/gazprom/gazprom.webp", 0, -175, 0, 0],
     slide_image: ["/img/projects/gazprom/gazprom.webp", 0, -25, 0],

@@ -24,7 +24,6 @@ function getSlideState(year, yearList, yearActive, allActive) {
         return true;
     }
     let years = convertIntervals(year);
-    console.log(yearList.length);
     for (let i = 0; i < yearList.length; i++) {
         console.log(yearActive[i] + ' ' + yearList[i] + ' ' + years + ' ' + (years.includes(yearList[i])));
         if (yearActive[i] && ((years.includes(yearList[i])) || (i == yearList.length - 1 & years[0] < yearList[i]))) {
@@ -77,7 +76,7 @@ export default function DynamicGallery({ slides }) {
                         </div>
                         <div class="project-year">
                             {project.year.map((year) => (
-                                <p class="body2">{year}</p>
+                                <p class="body2">{year != 0 ? year : "Выполнено"}</p>
                             ))}
                         </div>
                         <a href={project.link}>

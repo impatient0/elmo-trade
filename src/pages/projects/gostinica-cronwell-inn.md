@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "ГОСТИНИЦА \"Cronwell Inn\""
 pageID: "gostinica-cronwell-inn"
+services: ["some-service",]
 info: {
     cover_image: ["/img/projects/gostinica-cronwell-inn/gostinica-cronwell-inn.webp", 0, -150, 0, 0],
     slide_image: ["/img/projects/gostinica-cronwell-inn/gostinica-cronwell-inn.webp", 0, -50, 0],

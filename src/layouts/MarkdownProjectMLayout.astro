@@ -2,12 +2,8 @@
 import BaseLayout from "./BaseLayout.astro";
 import Carousel from "../components/Carousel";
 import MultiGallery from "../components/MultiGallery";
-import ProjectCarousel from "../components/ProjectCarousel";
-import { slide } from "astro:transitions";
+import Projects from "../components/Projects.astro";
 const { frontmatter } = Astro.props;
-
-const allProjects = await Astro.glob("../pages/projects/*.md");
-const slides = allProjects.map((project) => ({image: project.frontmatter.info.slide_image, year: project.frontmatter.info.year, title: project.frontmatter.title, link: project.url, address: project.frontmatter.info.address, info: project.frontmatter.info.description, }));
 ---
 
 <BaseLayout pageTitle={frontmatter.title} pageID={frontmatter.pageID}>
@@ -37,7 +33,7 @@ const slides = allProjects.map((project) => ({image: project.frontmatter.info.sl
 	<div id="made_on">
 		<p class="body1">Другие проекты:</p>
 	</div>
-	<ProjectCarousel client:load slides={slides} />
+	<Projects />
 	<script
 		is:inline
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"

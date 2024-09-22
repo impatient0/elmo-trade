@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "стройплощадка по адресу шкиперский проток"
 pageID: "strojploshadka-po-adresu-shkiperskij-protok"
+services: ["some-service",]
 info: {
     cover_image: ["/img/projects/strojploshadka-po-adresu-shkiperskij-protok/strojploshadka-po-adresu-shkiperskij-protok.webp", 0, 0, 0, 0],
     slide_image: ["/img/projects/strojploshadka-po-adresu-shkiperskij-protok/strojploshadka-po-adresu-shkiperskij-protok.webp", 0, 0, 754, 336],

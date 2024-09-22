@@ -48,7 +48,7 @@ export default function ProjectCarousel({ slides }) {
                         </div>
                         <div class="project-year">
                             {project.year.map((year) => (
-                                <p class="body2">{year}</p>
+                                <p class="body2">{year != 0 ? year : "Выполнено"}</p>
                             ))}
                         </div>
                         <a href={project.link}>

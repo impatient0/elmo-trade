@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "ОФИС \"МЕТРОСТРОЙ\""
 pageID: "ofis-metrostroj"
+services: ["some-service",]
 info: {
     cover_image: ["/img/projects/ofis-metrostroj/ofis-metrostroj.webp", 0, -150, 0, 0],
     slide_image: ["/img/projects/ofis-metrostroj/ofis-metrostroj.webp", 0, -50, 0],

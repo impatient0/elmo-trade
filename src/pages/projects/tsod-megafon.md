@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "ЦОД \"МЕГАФОН\""
 pageID: "tsod-megafon"
+services: ["some-service",]
 info: {
     cover_image: ["/img/elmo-shrug.gif", 0, -150, 0, 0],
     slide_image: ["/img/elmo-shrug.gif", 0, -50, 0],

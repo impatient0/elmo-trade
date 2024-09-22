@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "ЦГА Тамбовская"
 pageID: "tsga-tambovskaya"
+services: ["some-service",]
 info: {
     cover_image: ["/img/projects/tsgantd-spb/tsga-tambovskaya/tsga-tambovskaya.webp", 0, -100, 0, 0],
     slide_image: ["/img/projects/tsgantd-spb/tsga-tambovskaya/tsga-tambovskaya.webp", 0, -50, 0],

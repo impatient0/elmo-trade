@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "ЦОД МТС"
 pageID: "stroitelnaia-ploshchadka-tsod-mts"
+services: ["some-service",]
 info: {
     cover_image: ["/img/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp", 0, -100, 0, 0],
     slide_image: ["/img/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp", 0, -52, 589, 442],

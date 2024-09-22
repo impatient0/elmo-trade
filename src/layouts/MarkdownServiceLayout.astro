@@ -6,7 +6,17 @@ import ProjectCarousel from "../components/ProjectCarousel";
 import Projects from "../components/Projects.astro";
 
 const allProjects = await Astro.glob("../pages/projects/*.md");
-const slides = allProjects.map((project) => ({image: project.frontmatter.info.slide_image, year: project.frontmatter.info.year, title: project.frontmatter.title, link: project.url, address: project.frontmatter.info.address, info: project.frontmatter.info.description, }));
+const filteredProjects = allProjects.filter((project) =>
+	project.frontmatter.services?.includes("some-service"),
+);
+const slides = filteredProjects.map((project) => ({
+	image: project.frontmatter.info.slide_image,
+	year: project.frontmatter.info.year,
+	title: project.frontmatter.title,
+	link: project.url,
+	address: project.frontmatter.info.address,
+	info: project.frontmatter.info.description,
+}));
 
 const { frontmatter } = Astro.props;
 ---
@@ -23,8 +33,11 @@ const { frontmatter } = Astro.props;
 	<div id="made_on">
 		<p class="body1">Выполнено на:</p>
 	</div>
-	<Projects />
-	<script is:inline
+	<div id="project_carousel">
+		<ProjectCarousel client:load slides={slides} />
+	</div>
+	<script
+		is:inline
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
 	></script>
 	<script src="../scripts/ServicePage.js"></script>

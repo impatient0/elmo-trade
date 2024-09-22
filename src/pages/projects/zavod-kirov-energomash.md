@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "Завод «Киров – Энергомаш»"
 pageID: "zavod-kirov-energomash"
+services: ["some-service",]
 info: {
     cover_image: ["/img/projects/zavod-kirov-energomash/zavod-kirov-energomash.webp", 0, -150, 0, 0],
     slide_image: ["/img/projects/zavod-kirov-energomash/zavod-kirov-energomash.webp", 0, -50, 0],

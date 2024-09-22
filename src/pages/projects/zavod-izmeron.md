@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "Завод “Измерон”"
 pageID: "zavod-izmeron"
+services: ["some-service",]
 info: {
     cover_image: ["/img/projects/izmeron/izmeron.webp", 0, -150, 0, 0],
     slide_image: ["/img/projects/izmeron/izmeron.webp", 0, -0, 0],

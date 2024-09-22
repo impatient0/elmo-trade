@@ -2,6 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "Аварийный ремонт КАБЕЛЬНЫХ ЛИНИЙ ДЛЯ объекта ОАО “Банк ВТБ”"
 pageID: "remont-ofisov-vtb"
+services: ["some-service",]
 info: {
     cover_image: ["/img/projects/remont-ofisov-vtb/remont-ofisov-vtb.webp", 0, -150, 0, 0],
     slide_image: ["/img/projects/remont-ofisov-vtb/remont-ofisov-vtb.webp", 0, -50, 0],
