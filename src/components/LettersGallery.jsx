@@ -26,7 +26,7 @@ export default function LettersGallery({ letters }) {
         <div class="letters-container">
             <div class="logos">
                 {letters.map((letter, index) => (
-                    <img src={letter.logo} style={"scale: " + letter.logo_scale * (index == activeSlide ? 1.2 : 1)} onMouseEnter={() => { setActiveSlide(index); stopTimer() }} onMouseLeave={startTimer} />
+                    <img src={letter.logo} style={"scale: " + letter.logo_scale * (index == activeSlide ? 1.2 : 1) + "; transform: translateY(" + (index == activeSlide ? -5 : 0) + "px)"} onMouseEnter={() => { setActiveSlide(index); stopTimer() }} onMouseLeave={startTimer} />
                 ))}
             </div>
             <div class="letter-frame">
