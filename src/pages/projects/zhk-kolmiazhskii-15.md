@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "ЖК КОЛМЯЖСКИЙ 15"
 pageID: "zhk-kolmiazhskii-15"
-services: ["some-service",]
+services: ["some-service", "elektromontazhnye-raboty", ]
 carousel: { 
     images: [
         {
@@ -24,10 +24,10 @@ info: {
     description: "Строительство РТП и кабельных линий 10 кВ для электроснабжения ЖК.",
 }
 about: {
-    header: "Выполняем широкий спектр работ",
+    header: "Выполнен широкий спектр работ",
     body: "Строительство РТП и кабельных линий 10 кВ для электроснабжения ЖК."
 }
 multi_gallery: [
-    { title: "TODO zhk-kolmiazhskii-15", images: ["/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1501_resized.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1502_resized.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1503_resized.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1504_resized.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1505_resized.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1506_resized.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1507_resized.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1508_resized.webp", ] },
+    { title: "ЭОМ", images: ["/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1501_resized.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1502_resized.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1503_resized.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1504_resized.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1505_resized.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1506_resized.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1507_resized.webp", "/img/projects/zhk-kolmiazhskii-15/zhk-kolmiazhskii-15/zhk-kolmiazhskii-1508_resized.webp", ] },
 ]
 ---

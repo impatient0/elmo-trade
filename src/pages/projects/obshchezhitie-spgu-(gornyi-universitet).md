@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "Общежитие спгу (горный университет)"
 pageID: "obshchezhitie-spgu-(gornyi-universitet)"
-services: ["some-service",]
+services: ["some-service", "elektromontazhnye-raboty", "komplektaciya-proektnymi-dvernymi-konstrukciyami", "sistemy-obespecheniya-pozharnoj-bezopasnosti", "sistemy-kontrolia-i-upravleniia-dostupom", "sistemy-ventelyacii-i-kondicionirovaniya", "strukturirovannaya-kabelnaya-set", ]
 info: {
     cover_image: ["/img/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp", 0, -175, 0, 0],
     slide_image: ["/img/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp", 0, -25, 0],
@@ -13,7 +13,7 @@ info: {
 sections: [
     {
         about: {
-            header: "Выполняем широкий спектр работ",
+            header: "Выполнен широкий спектр работ",
             body: "Работы по разработке РД и монтажу внутреннего электроснабжения здания под общежития ФГБОУ «Санкт-Петербургский горный Университет»." 
         },
         multi_gallery: [
@@ -22,7 +22,7 @@ sections: [
     },
     {
         about: {
-            header: "Выполняем широкий спектр работ",
+            header: "Выполнен широкий спектр работ",
             body: "Работы по разработке РД и монтажу внутреннего электроснабжения здания под общежития ФГБОУ «Санкт-Петербургский горный Университет»." 
         },
         multi_gallery: [
@@ -31,7 +31,7 @@ sections: [
     },
     {
         about: {
-            header: "Выполняем широкий спектр работ",
+            header: "Выполнен широкий спектр работ",
             body: "Строительно-монтажные работы по устройству внутренних слаботочных систем СОУЭ, СПС, СКС, АСД, СОТ, АППЗ, СКУД, ОС на объекте: Реконструкция здания под общежитие ФГБОУ «Санкт-Петербургский горный Университет»." 
         },
         multi_gallery: [

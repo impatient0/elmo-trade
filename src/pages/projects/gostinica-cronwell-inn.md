@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "ГОСТИНИЦА \"Cronwell Inn\""
 pageID: "gostinica-cronwell-inn"
-services: ["some-service",]
+services: ["some-service", "komplektaciya-proektnymi-dvernymi-konstrukciyami", ]
 info: {
     cover_image: ["/img/projects/gostinica-cronwell-inn/gostinica-cronwell-inn.webp", 0, -150, 0, 0],
     slide_image: ["/img/projects/gostinica-cronwell-inn/gostinica-cronwell-inn.webp", 0, -50, 0],
@@ -13,11 +13,11 @@ info: {
 sections: [
     {
         about: {
-            header: "Выполняем широкий спектр работ",
+            header: "Выполнен широкий спектр работ",
             body: "Монтаж дверных конструкций."
         },
         multi_gallery: [
-            { title: "", images: ["/img/projects/gostinica-cronwell-inn/01_resized.webp", "/img/projects/gostinica-cronwell-inn/02_resized.webp", "/img/projects/gostinica-cronwell-inn/03_resized.webp", "/img/projects/gostinica-cronwell-inn/04_resized.webp", "/img/projects/gostinica-cronwell-inn/05_resized.webp", "/img/projects/gostinica-cronwell-inn/06_resized.webp", "/img/projects/gostinica-cronwell-inn/07_resized.webp", "/img/projects/gostinica-cronwell-inn/08_resized.webp", "/img/projects/gostinica-cronwell-inn/09_resized.webp", "/img/projects/gostinica-cronwell-inn/10_resized.webp", ] },
+            { title: "Монтаж дверных конструкций", images: ["/img/projects/gostinica-cronwell-inn/01_resized.webp", "/img/projects/gostinica-cronwell-inn/02_resized.webp", "/img/projects/gostinica-cronwell-inn/03_resized.webp", "/img/projects/gostinica-cronwell-inn/04_resized.webp", "/img/projects/gostinica-cronwell-inn/05_resized.webp", "/img/projects/gostinica-cronwell-inn/06_resized.webp", "/img/projects/gostinica-cronwell-inn/07_resized.webp", "/img/projects/gostinica-cronwell-inn/08_resized.webp", "/img/projects/gostinica-cronwell-inn/09_resized.webp", "/img/projects/gostinica-cronwell-inn/10_resized.webp", ] },
         ]
     },
 ]

@@ -4,8 +4,8 @@ title: "ЦОД \"МЕГАФОН\""
 pageID: "tsod-megafon"
 services: ["some-service",]
 info: {
-    cover_image: ["/img/elmo-shrug.gif", 0, -150, 0, 0],
-    slide_image: ["/img/elmo-shrug.gif", 0, -50, 0],
+    cover_image: ["/img/projects/tsod-megafon/tsod-megafon.webp", 0, -25, 0, 0],
+    slide_image: ["/img/projects/tsod-megafon/tsod-megafon.webp", 0, 0, 0],
     year: ["2024"],
     address: "Ленинградская область, Всеволожский район, дер. Новосаратовка-центр",
     description: "Комплекс работ по системам безопасности АСПЗ, СПС, СОУЭ, СОТ, СОТС «Центр обработки данных \"Уткина Заводь\" ПАО «МЕГАФОН».",
@@ -13,7 +13,7 @@ info: {
 sections: [
     {
         about: {
-            header: "Выполняем широкий спектр работ",
+            header: "Выполнен широкий спектр работ",
             body: "Комплекс работ по системам безопасности АСПЗ, СПС, СОУЭ, СОТ, СОТС «Центр обработки данных \"Уткина Заводь\" ПАО «МЕГАФОН»."
         },
         multi_gallery: [

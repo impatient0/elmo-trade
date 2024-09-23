@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "БЦ АТР ТРЕУГОЛЬНИК"
 pageID: "bts-atr-treugolnik"
-services: ["some-service",]
+services: ["some-service", "elektromontazhnye-raboty"]
 info: {
     cover_image: ["/img/projects/bts-atr-treugolnik/bts-atr-treugolnik.webp", 0, -150, 0, 0],
     slide_image: ["/img/projects/bts-atr-treugolnik/bts-atr-treugolnik.webp", 0, -50, 720, 538],
@@ -11,7 +11,7 @@ info: {
     description: "Реконструкция РТП и прокладка кабельных линий 0,4 кВ для электроснабжения БЦ АТР Треугольник.",
 }
 about: {
-    header: "Выполняем широкий спектр работ",
+    header: "Выполнен широкий спектр работ",
     body: "Наша организация предлагает широкий спектр услуг, связанных с электромонтажом и электрификацией, одна из них - электромонтажные работы промышленных предприятий. Данный комплекс услуг включает в себя: подготовку проекта энергоснабжения; реставрацию существующей или монтаж новой системы; монтаж оборудования; комплекс работ по отладке и запуску необходимого оборудования."
 }
 multi_gallery: [
