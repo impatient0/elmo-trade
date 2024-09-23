@@ -2,22 +2,22 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "ЦОД МТС"
 pageID: "stroitelnaia-ploshchadka-tsod-mts"
-services: ["some-service",]
+services: ["some-service", "elektromontazhnye-raboty", "sistemy-obespecheniya-pozharnoj-bezopasnosti", "sistemy-videonabliudeniia-i-okhrannye-signalizatsii", "strukturirovannaya-kabelnaya-set", "sistemy-kontrolia-i-upravleniia-dostupom", ]
 info: {
-    cover_image: ["/img/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp", 0, -100, 0, 0],
+    cover_image: ["/img/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp", 0, -200, 0, 0],
     slide_image: ["/img/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp", 0, -52, 589, 442],
     year: ["2017-2019"],
     address: "г. Санкт-Петербург, Оборонная ул., 29",
-    description: "Временное электроснабжение и освещение строительной площадки ЦОД МТС.",
+    description: "Комплекс работ на объекте Модульный центр обработки данных ПАО «МТС».",
 }
 sections: [
     {
         about: {
             header: "2019",
-            body: "Комплекс работ по проектированию и устройству сетей временного электроснабжения и освещения на период строительства объекта Модульный центр обработки данных ПАО «МТС»"
+            body: "Комплекс работ по проектированию и устройству сетей временного электроснабжения и освещения на период строительства объекта Модульный центр обработки данных ПАО «МТС»."
         },
         multi_gallery: [
-            { title: "ЭОМ", images: ["/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_101_resized.webp", "/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_102_resized.webp", "/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_103_resized.webp", "/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_104.MOV", "/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_105_resized.webp", "/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_106_resized.webp", "/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_107_resized.webp", "/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_108_resized.webp", "/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_109_resized.webp", ] },
+            { title: "ЭОМ", images: ["/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_102_resized.webp", "/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_103_resized.webp", "/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_104.MOV", "/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_105_resized.webp", "/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_106_resized.webp", "/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_107_resized.webp", "/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_108_resized.webp", "/img/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_109_resized.webp", ] },
         ]
     },
     {

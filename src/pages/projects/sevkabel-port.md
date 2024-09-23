@@ -11,10 +11,10 @@ info: {
     description: "Демонтаж электротехнических объектов для использования в качестве арт-конструкции.",
 }
 about: {
-    header: "Выполняем широкий спектр работ",
+    header: "Выполнен широкий спектр работ",
     body: "Демонтаж электротехнических объектов для использования в качестве арт-конструкции."
 }
 multi_gallery: [
-    { title: "TODO sevkabel-port", images: ["/img/projects/sevkabel-port/sevkabel-port/sevkabel-port01_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port02_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port03_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port04_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port05_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port06_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port07_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port08_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port09_resized.webp", ] },
+    { title: "Демонтаж", images: ["/img/projects/sevkabel-port/sevkabel-port/sevkabel-port01_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port02_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port03_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port04_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port05_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port06_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port07_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port08_resized.webp", "/img/projects/sevkabel-port/sevkabel-port/sevkabel-port09_resized.webp", ] },
 ]
 ---

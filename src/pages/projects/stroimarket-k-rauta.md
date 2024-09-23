@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "СТРОЙМАРКЕТ К-РАУТА"
 pageID: "stroimarket-k-rauta"
-services: ["some-service",]
+services: ["some-service", "elektromontazhnye-raboty", ]
 info: {
     cover_image: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta.webp", 0, -200, 0, 0],
     slide_image: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta.webp", 0, -50, 650, 487],
@@ -11,11 +11,11 @@ info: {
     description: "Комплекс работ по проектированию и выполнению электромонтажных работ наружных сетей постоянного электроснабжения магазина.",
 }
 about: {
-    header: "Выполняем широкий спектр работ",
+    header: "Выполнен широкий спектр работ",
     body: "Электроснабжение строймаркета К-Раута, строительство БКТП и кабельных линий 0,4 и 10 кВ."
 }
 multi_gallery: [
-    { title: "stroimarket-k-rauta", images: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta01_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta02_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta03_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta04_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta05_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta06_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta07_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta08_resized.webp", ] },
+    { title: "ЭОМ", images: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta01_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta02_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta03_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta04_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta05_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta06_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta07_resized.webp", "/img/projects/stroimarket-k-rauta/stroimarket-k-rauta/stroimarket-k-rauta08_resized.webp", ] },
 ]
 project_carousel: [
     {

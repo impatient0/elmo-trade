@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "ГОСТИНИЦА \"INDIGO\""
 pageID: "gostinica-indigo"
-services: ["some-service",]
+services: ["some-service", "komplektaciya-proektnymi-dvernymi-konstrukciyami",]
 info: {
     cover_image: ["/img/projects/gostinica-indigo/gostinica-indigo.webp", 0, -150, 0, 0],
     slide_image: ["/img/projects/gostinica-indigo/gostinica-indigo.webp", 0, -50, 0],
@@ -13,11 +13,11 @@ info: {
 sections: [
     {
         about: {
-            header: "Выполняем широкий спектр работ",
+            header: "Выполнен широкий спектр работ",
             body: "Монтаж дверных конструкций."
         },
         multi_gallery: [
-            { title: "", images: ["/img/projects/gostinica-indigo/01_resized.webp", "/img/projects/gostinica-indigo/02_resized.webp", "/img/projects/gostinica-indigo/03_resized.webp", "/img/projects/gostinica-indigo/04_resized.webp", "/img/projects/gostinica-indigo/05_resized.webp", "/img/projects/gostinica-indigo/06_resized.webp", "/img/projects/gostinica-indigo/07_resized.webp", "/img/projects/gostinica-indigo/08_resized.webp", "/img/projects/gostinica-indigo/09_resized.webp", "/img/projects/gostinica-indigo/10_resized.webp", ] },
+            { title: "Монтаж дверных конструкций", images: ["/img/projects/gostinica-indigo/01_resized.webp", "/img/projects/gostinica-indigo/02_resized.webp", "/img/projects/gostinica-indigo/03_resized.webp", "/img/projects/gostinica-indigo/04_resized.webp", "/img/projects/gostinica-indigo/05_resized.webp", "/img/projects/gostinica-indigo/06_resized.webp", "/img/projects/gostinica-indigo/07_resized.webp", "/img/projects/gostinica-indigo/08_resized.webp", "/img/projects/gostinica-indigo/09_resized.webp", "/img/projects/gostinica-indigo/10_resized.webp", ] },
         ]
     },
 ]

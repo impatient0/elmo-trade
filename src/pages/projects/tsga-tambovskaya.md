@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "ЦГА Тамбовская"
 pageID: "tsga-tambovskaya"
-services: ["some-service",]
+services: ["some-service", "sistemy-obespecheniya-pozharnoj-bezopasnosti", ]
 info: {
     cover_image: ["/img/projects/tsgantd-spb/tsga-tambovskaya/tsga-tambovskaya.webp", 0, -100, 0, 0],
     slide_image: ["/img/projects/tsgantd-spb/tsga-tambovskaya/tsga-tambovskaya.webp", 0, -50, 0],
@@ -13,7 +13,7 @@ info: {
 sections: [
     {
         about: {
-            header: "Выполняем широкий спектр работ",
+            header: "Выполнен широкий спектр работ",
             body: "Работы по дооснащению объекта «Архивный комитет Правительства Санкт-Петербурга» системой автоматической установки газового пожаротушения."
         },
         multi_gallery: [

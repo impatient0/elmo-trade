@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "СТРОЙМАРКЕТ “МЕТРИКА”"
 pageID: "stroimarket-metrika"
-services: ["some-service",]
+services: ["some-service", "elektromontazhnye-raboty", ]
 info: {
     cover_image: ["/img/projects/stroimarket-metrika/stroimarket-metrika.webp", 0, -150, 0, 0],
     slide_image: ["/img/projects/stroimarket-metrika/stroimarket-metrika.webp", 0, -50, 0],
@@ -11,8 +11,8 @@ info: {
     description: "Монтаж БКТП, строительство кабельных линий 10 и 0,4 кВ.",
 }
 about: {
-    header: "Выполняем широкий спектр работ",
-    body: "Выполнен полный комплекс строительно-монтажных работ по прокладке наружных сетей постоянного и временного электроснабжения, модернизации сетей Ленэнерго а также пристроенной блочной трансформаторной подстанции для магазина и административного здания ООО «Стройбаза Рыбинская»."
+    header: "Выполнен широкий спектр работ",
+    body: "Выполнен полный комплекс строительно-монтажных работ по прокладке наружных сетей постоянного и временного электроснабжения, модернизации сетей Ленэнерго, а также пристроенной блочной трансформаторной подстанции для магазина и административного здания ООО «Стройбаза Рыбинская»."
 }
 multi_gallery: [
     { title: "Монтаж АСКУЭ", images: ["/img/projects/stroimarket-metrika/montazh-askue/montazh-askue01_resized.webp", "/img/projects/stroimarket-metrika/montazh-askue/montazh-askue02_resized.webp", "/img/projects/stroimarket-metrika/montazh-askue/montazh-askue03_resized.webp", "/img/projects/stroimarket-metrika/montazh-askue/montazh-askue04_resized.webp", "/img/projects/stroimarket-metrika/montazh-askue/montazh-askue05_resized.webp", "/img/projects/stroimarket-metrika/montazh-askue/montazh-askue06_resized.webp", "/img/projects/stroimarket-metrika/montazh-askue/montazh-askue07_resized.webp", ] },

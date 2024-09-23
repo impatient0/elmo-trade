@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "БИЗНЕС-ЦЕНТР “ТЕЛЬМАНА 2”"
 pageID: "ofisno-delovoi-tsentr-na-ulitse-telmana"
-services: ["some-service",]
+services: ["some-service", "elektromontazhnye-raboty", "teplosnabzhenie", ]
 info: {
     cover_image: ["/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/ofisno-delovoi-tsentr-na-ulitse-telmana.webp", 0, -200, 0, 0],
     slide_image: ["/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/ofisno-delovoi-tsentr-na-ulitse-telmana.webp", 0, -50, 0, 0],
@@ -11,7 +11,7 @@ info: {
     description: "Монтаж инженерных систем: внутреннее электроснабжение и электросвещение, ИТП и системы отопления, наружное освещение.  Прокладка кабельной линии 0,4 кВ.",
 }
 about: {
-    header: "Выполняем широкий спектр работ",
+    header: "Выполнен широкий спектр работ",
     body: "Полный комплекс работ по системе внутреннего электроосвещения и силового оборудования, строительно-монтажные работы внутренних сетей отопления и теплоснабжения, строительно-монтажные работы наружных сетей электроснабжения и освещения на объекте «Офисно-деловой центр» по адресу г. Санкт-Петербург, Невский район, ул. Тельмана, участок 3 северо-восточнее пересечения с Октябрьской набережной»."
 }
 multi_gallery: [
