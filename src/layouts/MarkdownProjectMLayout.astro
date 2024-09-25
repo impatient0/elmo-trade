@@ -3,7 +3,6 @@ import BaseLayout from "./BaseLayout.astro";
 import Carousel from "../components/Carousel";
 import MultiGallery from "../components/MultiGallery";
 import Projects from "../components/Projects.astro";
-import { sequence } from "astro:middleware";
 const { frontmatter } = Astro.props;
 ---
 
@@ -15,7 +14,7 @@ const { frontmatter } = Astro.props;
 				{
 					image: frontmatter.info.cover_image,
 					description: {
-						title: frontmatter.info.year.join(" "),
+						title: frontmatter.info.year[0] == "0" ? "Выполнено" : frontmatter.info.year.join(" "),
 						headline: frontmatter.title,
 						subbody: frontmatter.info.address,
 						body: frontmatter.info.description,

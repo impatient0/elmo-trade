@@ -14,7 +14,7 @@ const { frontmatter } = Astro.props;
 				{
 					image: frontmatter.info.cover_image,
 					description: {
-						title: frontmatter.info.year.join(" "),
+						title: frontmatter.info.year[0] == "0" ? "Выполнено" : frontmatter.info.year.join(" "),
 						headline: frontmatter.title,
 						subbody: frontmatter.info.address,
 						body: frontmatter.info.description,

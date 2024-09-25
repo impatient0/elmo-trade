@@ -49,7 +49,7 @@ export default function DynamicGallery({ slides }) {
     const toggleActive = (year_index) => {
         setAllActive(false);
         setYearActive((prevState) => {
-            const newState = prevState.slice();
+            const newState = new Array(years.length).fill(false);
             newState[year_index] = !prevState[year_index];
             if (!newState.some(val => val == true)) {
                 setAllActive(true);

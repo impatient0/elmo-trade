@@ -33,8 +33,20 @@ const images = [
 	},
 ];
 
+const compareYears = (a, b) => {
+    let a_1 = a.year[a.year.length - 1].slice(-4);
+    let a_2 = a.year[a.year.length - 1].slice(0, 4);
+    let b_1 = b.year[b.year.length - 1].slice(-4);
+    let b_2 = b.year[b.year.length - 1].slice(0, 4);
+    if (a_1 == b_1) {
+        return a_2 > b_2 ? -1 : 1;
+    }
+    return a_1 > b_1 ? -1 : 1;
+}
+
 const allProjects = await Astro.glob("./*.md");
 const slides = allProjects.map((project) => ({image: project.frontmatter.info.slide_image, year: project.frontmatter.info.year, title: project.frontmatter.title, link: project.url, address: project.frontmatter.info.address, info: project.frontmatter.info.description, }));
+slides.sort(compareYears);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
