@@ -29,7 +29,7 @@ const slides = filteredProjects.map((project) => ({
 		<p class="title1">{frontmatter.about.header}</p>
 		<p class="body1">{frontmatter.about.body}</p>
 	</div>
-	<MultiGallery client:load sections={frontmatter.multi_gallery} />
+	<MultiGallery client:load sections={frontmatter.multi_gallery} shifts={"shifts" in frontmatter ? frontmatter.shifts : null}/>
 	<div id="made_on">
 		<p class="body1">Выполнено на:</p>
 	</div>

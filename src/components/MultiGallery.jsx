@@ -12,7 +12,20 @@ function getClass(slide_index, active_slide, length) {
     }
 }
 
-export default function MultiGallery({ sections }) {
+function getShift(shifts, section_index, slide_index) {
+    if (shifts == null) {
+        // console.log("shifts is null");
+        return 0;
+    }
+    if (!((section_index + "_" + slide_index) in shifts)) {
+        // console.log("shifts has no " + (section_index + "_" + slide_index));
+        return 0;
+    }
+    // console.log("shifts for " + (section_index + "_" + slide_index) + " is " + shifts[(section_index + "_" + slide_index)]);
+    return shifts[(section_index + "_" + slide_index)];
+}
+
+export default function MultiGallery({ sections, shifts }) {
 
     const [isExpaneded, setIsExpanded] = useState(sections.length ? sections.map((_, i) => i === 0 ? true : false) : []);
 
@@ -67,7 +80,7 @@ export default function MultiGallery({ sections }) {
     return (
         <div class="multi-gallery">
             {sections.map((section, section_index) => (
-                <div class={"gallery-section " + (isExpaneded[section_index] ? "expanded " : "") + ((interacted || sections.length == 1) ? "expandable" : "")} id={"section_"+(section_index)}>
+                <div class={"gallery-section " + (isExpaneded[section_index] ? "expanded " : "") + ((interacted || sections.length == 1) ? "expandable" : "")} id={"section_" + (section_index)}>
                     <div class="gallery-tile" /*style={(sections.length == 1 ? "display: none" : "")}*/ onClick={() => toggleExpanded(section_index)}>
                         <p class="division">{section.title}</p>
                         <div class="expand-btn" />
@@ -75,10 +88,10 @@ export default function MultiGallery({ sections }) {
                     <div class="section-container">
                         <div class="gallery-container">
                             {section.images.map((image, slide_index) => (
-                                image.endsWith("webp") ? 
-                                <img src={image} class={"section-image " + getClass(slide_index, activeSlide[section_index], section.images.length)} /> : <video controls controlsList="nodownload" autoplay muted loop class={"section-video " + getClass(slide_index, activeSlide[section_index], section.images.length)}>
-                                    <source src={image}/>
-                                </video>
+                                image.endsWith("webp") ?
+                                    <img src={image} class={"section-image " + getClass(slide_index, activeSlide[section_index], section.images.length)} style={"margin-top: " + getShift(shifts, section_index, slide_index) + "pt;"} /> : <video controls controlsList="nodownload" autoplay muted loop class={"section-video " + getClass(slide_index, activeSlide[section_index], section.images.length)}>
+                                        <source src={image} />
+                                    </video>
                             ))}
                             <div class="next-btn" onClick={() => nextSlide(section_index)} />
                             <div class="prev-btn" onClick={() => prevSlide(section_index)} />
