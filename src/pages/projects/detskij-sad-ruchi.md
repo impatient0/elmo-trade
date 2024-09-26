@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "ДЕТСКИЙ САД \"РУЧЬИ\""
 pageID: "detskij-sad-ruchi"
-services: ["some-service", "elektromontazhnye-raboty"]
+services: ["elektromontazhnye-raboty"]
 info: {
     cover_image: ["/img/projects/detskij-sad-ruchi/detskij-sad-ruchi.webp", 0, -150, 0, 0],
     slide_image: ["/img/projects/detskij-sad-ruchi/detskij-sad-ruchi.webp", 0, -50, 0],

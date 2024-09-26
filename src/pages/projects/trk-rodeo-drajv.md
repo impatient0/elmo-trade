@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "ТРК \"РОДЕО ДРАЙВ\""
 pageID: "trk-rodeo-drajv"
-services: ["some-service", "elektromontazhnye-raboty", ]
+services: ["elektromontazhnye-raboty", ]
 info: {
     cover_image: ["/img/projects/trk-rodeo-drajv/trk-rodeo-drajv.webp", 0, -125, 0, 0],
     slide_image: ["/img/projects/trk-rodeo-drajv/trk-rodeo-drajv.webp", 0, -40, 0],

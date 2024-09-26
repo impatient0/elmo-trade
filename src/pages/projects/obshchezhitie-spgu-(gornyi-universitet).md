@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "Общежитие спгу (горный университет)"
 pageID: "obshchezhitie-spgu-(gornyi-universitet)"
-services: ["some-service", "elektromontazhnye-raboty", "komplektaciya-proektnymi-dvernymi-konstrukciyami", "sistemy-obespecheniya-pozharnoj-bezopasnosti", "sistemy-kontrolia-i-upravleniia-dostupom", "sistemy-ventelyacii-i-kondicionirovaniya", "strukturirovannaya-kabelnaya-set", ]
+services: ["elektromontazhnye-raboty", "komplektaciya-proektnymi-dvernymi-konstrukciyami", "sistemy-obespecheniya-pozharnoj-bezopasnosti", "sistemy-kontrolia-i-upravleniia-dostupom", "sistemy-ventelyacii-i-kondicionirovaniya", "strukturirovannaya-kabelnaya-set", "sistemy-videonabliudeniia"]
 info: {
     cover_image: ["/img/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp", 0, -175, 0, 0],
     slide_image: ["/img/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp", 0, -25, 0],

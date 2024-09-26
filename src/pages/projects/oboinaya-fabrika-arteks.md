@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "Обойная фабрика артекс"
 pageID: "oboinaya-fabrika-arteks"
-services: ["some-service", "elektromontazhnye-raboty", "sistemy-obespecheniya-pozharnoj-bezopasnosti", ]
+services: ["elektromontazhnye-raboty", "sistemy-obespecheniya-pozharnoj-bezopasnosti", ]
 info: {
     cover_image: ["/img/projects/oboinaya-fabrika-arteks/oboinaya-fabrika-arteks.webp", 0, -275, 0, 0],
     slide_image: ["/img/projects/oboinaya-fabrika-arteks/oboinaya-fabrika-arteks.webp", 0, -50, 0],

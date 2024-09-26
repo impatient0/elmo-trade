@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "ЖК НА УЛ. ГРОТА"
 pageID: "zhk-na-ul.-grota"
-services: ["some-service", "elektromontazhnye-raboty", ]
+services: ["elektromontazhnye-raboty", ]
 info: {
     cover_image: ["/img/projects/zhk-na-ul.-grota/zhk-na-ul.-grota.webp", 0, -50, 0, 0],
     slide_image: ["/img/projects/zhk-na-ul.-grota/zhk-na-ul.-grota.webp", 0, -80, 800, 443],

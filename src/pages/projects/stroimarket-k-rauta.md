@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "СТРОЙМАРКЕТ К-РАУТА"
 pageID: "stroimarket-k-rauta"
-services: ["some-service", "elektromontazhnye-raboty", ]
+services: ["elektromontazhnye-raboty", ]
 info: {
     cover_image: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta.webp", 0, -200, 0, 0],
     slide_image: ["/img/projects/stroimarket-k-rauta/stroimarket-k-rauta.webp", 0, -50, 650, 487],

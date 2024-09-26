@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "ТРК ЮЖНЫЙ ПОЛЮС"
 pageID: "trk-iuzhnyi-polius"
-services: ["some-service", "elektromontazhnye-raboty", "sistemy-obespecheniya-pozharnoj-bezopasnosti", ]
+services: ["elektromontazhnye-raboty", "sistemy-obespecheniya-pozharnoj-bezopasnosti", ]
 info: {
     cover_image: ["/img/projects/trk-iuzhnyi-polius/trk-iuzhnyi-polius.webp", 0, -200, 0, 0],
     slide_image: ["/img/projects/trk-iuzhnyi-polius/trk-iuzhnyi-polius.webp", 0, -50, 600, 389],

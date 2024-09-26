@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "ЦГА Варфоломеевская"
 pageID: "tsga-varfolomeevskaya"
-services: ["some-service", "sistemy-obespecheniya-pozharnoj-bezopasnosti", ]
+services: ["sistemy-obespecheniya-pozharnoj-bezopasnosti", ]
 info: {
     cover_image: ["/img/projects/tsgantd-spb/tsga-varfolomeevskaya/tsga-varfolomeevskaya.webp", 0, 0, 0, 0],
     slide_image: ["/img/projects/tsgantd-spb/tsga-varfolomeevskaya/tsga-varfolomeevskaya.webp", -100, 0, 792, 305],

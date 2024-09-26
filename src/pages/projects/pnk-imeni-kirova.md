@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "ПНК имени кирова"
 pageID: "pnk-imeni-kirova"
-services: ["some-service", "elektromontazhnye-raboty", ]
+services: ["elektromontazhnye-raboty", ]
 info: {
     cover_image: ["/img/projects/pnk-imeni-kirova/pnk-imeni-kirova.webp", 0, -150, 0, 0],
     slide_image: ["/img/projects/pnk-imeni-kirova/pnk-imeni-kirova.webp", 0, -50, 0],

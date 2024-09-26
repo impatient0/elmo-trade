@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "ТЕХНОПАРК РОМАНОВКА "
 pageID: "romanovka"
-services: ["some-service", "elektromontazhnye-raboty", ]
+services: ["elektromontazhnye-raboty", ]
 info: {
     cover_image: ["/img/projects/romanovka/08_resized.webp", 0, -550, 0, 0],
     slide_image: ["/img/projects/romanovka/08_resized.webp", 0, -200, 600, 780],

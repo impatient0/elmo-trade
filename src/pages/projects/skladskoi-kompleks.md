@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "Складской комплекс В ГАТЧИНСКОМ Районе"
 pageID: "skladskoi-kompleks"
-services: ["some-service", "elektromontazhnye-raboty", ]
+services: ["elektromontazhnye-raboty", ]
 info: {
     cover_image: ["/img/projects/skladskoi-kompleks/03_resized.webp", 0, -150, 0, 0],
     slide_image: ["/img/projects/skladskoi-kompleks/03_resized.webp", 0, -50, 0],

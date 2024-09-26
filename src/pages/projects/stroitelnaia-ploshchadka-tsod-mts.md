@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "ЦОД МТС"
 pageID: "stroitelnaia-ploshchadka-tsod-mts"
-services: ["some-service", "elektromontazhnye-raboty", "sistemy-obespecheniya-pozharnoj-bezopasnosti", "sistemy-videonabliudeniia-i-okhrannye-signalizatsii", "strukturirovannaya-kabelnaya-set", "sistemy-kontrolia-i-upravleniia-dostupom", ]
+services: ["elektromontazhnye-raboty", "sistemy-obespecheniya-pozharnoj-bezopasnosti", "sistemy-videonabliudeniia-i-okhrannye-signalizatsii", "strukturirovannaya-kabelnaya-set", "sistemy-kontrolia-i-upravleniia-dostupom", ]
 info: {
     cover_image: ["/img/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp", 0, -200, 0, 0],
     slide_image: ["/img/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp", 0, -52, 589, 442],

@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "БИЗНЕС-ЦЕНТР “ТЕЛЬМАНА 2”"
 pageID: "ofisno-delovoi-tsentr-na-ulitse-telmana"
-services: ["some-service", "elektromontazhnye-raboty", "teplosnabzhenie", ]
+services: ["elektromontazhnye-raboty", "teplosnabzhenie", ]
 info: {
     cover_image: ["/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/ofisno-delovoi-tsentr-na-ulitse-telmana.webp", 0, -200, 0, 0],
     slide_image: ["/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/ofisno-delovoi-tsentr-na-ulitse-telmana.webp", 0, -50, 0, 0],

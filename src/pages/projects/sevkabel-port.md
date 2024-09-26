@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "Севкабель порт"
 pageID: "sevkabel-port"
-services: ["some-service",]
+services: []
 info: {
     cover_image: ["/img/projects/sevkabel-port/sevkabel-port.webp", 0, -200, 0, 0],
     slide_image: ["/img/projects/sevkabel-port/sevkabel-port.webp", 0, -50, 640, 427],

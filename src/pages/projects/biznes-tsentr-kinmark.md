@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "БИЗНЕС-ПАРК “КИНМАРК”"
 pageID: "biznes-tsentr-kinmark"
-services: ["some-service", "elektromontazhnye-raboty"]
+services: ["elektromontazhnye-raboty"]
 info: {
     cover_image: ["/img/projects/biznes-tsentr-kinmark/biznes-tsentr-kinmark.webp", 0, -250, 0, 0],
     slide_image: ["/img/projects/biznes-tsentr-kinmark/biznes-tsentr-kinmark.webp", 0, -75, 0],

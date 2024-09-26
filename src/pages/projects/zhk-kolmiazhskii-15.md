@@ -2,7 +2,7 @@
 layout: ../../layouts/MarkdownProjectLayout.astro
 title: "ЖК КОЛМЯЖСКИЙ 15"
 pageID: "zhk-kolmiazhskii-15"
-services: ["some-service", "elektromontazhnye-raboty", ]
+services: ["elektromontazhnye-raboty", ]
 carousel: { 
     images: [
         {
