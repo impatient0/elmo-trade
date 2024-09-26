@@ -17,7 +17,13 @@ const images = [
 		},
 	},
 	{
-		image: ["/img/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp", 0, -175, 0, 0],
+		image: [
+			"/img/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp",
+			0,
+			-175,
+			0,
+			0,
+		],
 		description: {
 			title: "2022-2023",
 			headline: "Общежитие спгу (горный университет) ",
@@ -26,7 +32,13 @@ const images = [
 		},
 	},
 	{
-		image: ["/img/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp", 0, -100, 0, 0],
+		image: [
+			"/img/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp",
+			0,
+			-100,
+			0,
+			0,
+		],
 		description: {
 			title: "2017-2019",
 			headline: "ЦОД МТС",
@@ -35,6 +47,11 @@ const images = [
 		},
 	},
 ];
+
+const yearFilter = (x) => {
+	let currentYear = new Date().getFullYear();
+	return Number(x.year[x.year.length - 1].slice(-4)) >= currentYear - 1;
+};
 ---
 
 <BaseLayout pageTitle={pageTitle} pageID={pageID}>
@@ -61,7 +78,7 @@ const images = [
 			системами большие количество объектов.
 		</p>
 	</div>
-	<Projects />
+	<Projects filter={yearFilter}/>
 	<div class="about" id="partners">
 		<p class="title1">Благодарственные письма от наших</p>
 		<p class="headline1">партнеров</p>

@@ -1,6 +1,12 @@
 ---
 import ProjectCarousel from "./ProjectCarousel";
 
+const props = Astro.props;
+
+const yearFilter = (x) => {
+    let currentYear = new Date().getFullYear();
+    return Number(x.year[x.year.length - 1].slice(-4)) >= currentYear - 1;
+}
 const allProjects = await Astro.glob("../pages/projects/*.md");
 const slides = allProjects.map((project) => ({
     image: project.frontmatter.info.slide_image,
@@ -9,7 +15,8 @@ const slides = allProjects.map((project) => ({
     link: project.url,
     address: project.frontmatter.info.address,
     info: project.frontmatter.info.description,
-}));
+    services: project.frontmatter.services,
+})).filter(props.filter != null ? props.filter : (x) => true);
 ---
 
 <div id="project_carousel">
