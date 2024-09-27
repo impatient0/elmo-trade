@@ -28,6 +28,7 @@ export default function Carousel({ images }) {
                                 <p class="subbody2" style={image.description.subbody.length > 0 ? "" : "margin:0"}>{image.description.subbody}</p>
                                 <p class="body2">{image.description.body}</p>
                             </div>
+                            <a href={image.link} class="project-link"/>
                         </div>
                     ))
                 }

@@ -107,6 +107,13 @@
     margin-bottom: 12px;
 }
 
+.project-link::after {
+    z-index: 2;
+    content: '';
+    position: absolute;
+    inset: 0;
+}
+
 @keyframes fade {
     from {
         opacity: .5

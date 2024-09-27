@@ -20,7 +20,9 @@ export default function ProjectCarousel({ slides }) {
     const [timerTicking, setTimerTicking] = useState(false);
 
     const startTimer = () => {
-        setTimerTicking(true);
+        if (slides.length > 2) {
+            setTimerTicking(true);
+        }
     };
 
     const stopTimer = () => {
@@ -39,7 +41,7 @@ export default function ProjectCarousel({ slides }) {
     return (
         <div class="carousel-wrapper">
             <div class="project-carousel">
-                {slides.map((project, index) => (
+                {slides.map((project, index) =>
                     <div class={"project-container " + getClass(index, activeSlide, slides.length)} onMouseEnter={stopTimer} onMouseLeave={startTimer}>
                         <div class="project-image" style={`background-image: url('${project.image[0]}'); background-position: ${project.image[1]}px ${project.image[2]}px;` + (project.image[3] != 0 ? ` background-size: ${project.image[3]}px ${project.image[4]}px` : ' background-size: 100%')} />
                         <div class="project-footer">
@@ -52,18 +54,18 @@ export default function ProjectCarousel({ slides }) {
                             ))}
                         </div>
                         <a href={project.link}>
-                            <div class="project-info">
+                            <div class={"project-info" + (project.title == "" ? " placeholder" : "")}>
                                 <p>{project.info}</p>
                             </div>
                         </a>
                     </div>
-                ))}
-                <div class="next-btn" onClick={() => setActiveSlide((activeSlide + 1) % slides.length)} />
-                <div class="prev-btn" onClick={() => setActiveSlide((activeSlide - 1 + slides.length) % slides.length)} />
+                )}
+                <div class="next-btn" onClick={() => setActiveSlide((activeSlide + 1) % slides.length)} style={(slides.length > 2 ? "" : "display: none")}/>
+                <div class="prev-btn" onClick={() => setActiveSlide((activeSlide - 1 + slides.length) % slides.length)} style={(slides.length > 2 ? "" : "display: none")}/>
             </div>
             <div class="gallery-navigation">
                 {slides.map((project, index) => (
-                    <div class="navigation-square" style={(index == activeSlide ? "background-color: #0D7EE1" : "")} onClick={() => setActiveSlide(index)} />
+                    <div class="navigation-square" style={(index == activeSlide ? "background-color: #0D7EE1; " : "") + (slides.length > 2 ? "" : "display: none")} onClick={() => setActiveSlide(index)} />
                 ))}
             </div>
         </div>

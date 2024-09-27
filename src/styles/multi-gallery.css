@@ -138,6 +138,9 @@
     left: 50%;
     transform: translateX(-50%);
     max-width: 960px;
+    &:hover {
+        filter: contrast(110%) drop-shadow(0 0 10px #cccccc);
+    }
 }
 
 .section-video {
@@ -148,6 +151,29 @@
     transform: translateX(-50%);
     max-width: 960px;
     max-height: 600px;
+}
+
+.section-image-full {
+    position: fixed;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transition: all .5 ease;
+    pointer-events: none;
+    opacity: 0%;
+    transform: translateX(-50%) translateY(-50%);
+    max-height: 90%;
+    width: auto;
+}
+
+.dimmer {
+    z-index: 2;
+    display: none;
+    backdrop-filter: blur(5px);
+    pointer-events: none;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    inset: 0;
 }
 
 @keyframes shake {

@@ -28,7 +28,7 @@
     display: flex;
     flex-direction: column;
     position: absolute;
-    top: 52px;
+    top: 36px;
     transition: all .75s ease;
 }
 
@@ -58,6 +58,19 @@
     }
     &:hover {
         opacity: 1;
+    }
+}
+
+.placeholder {
+    cursor: auto;
+    border: 1px solid #AFAFAF;
+    opacity: 1;
+    background-color: #EFEFEF;
+    background-image: url('/icons/lightning-grey.svg');
+    &>p {
+        color: #7E7B71;
+        font-weight: 600;
+        content: "Здесь мог бы быть ваш проект :)";
     }
 }
 

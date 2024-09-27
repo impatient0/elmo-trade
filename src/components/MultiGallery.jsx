@@ -31,6 +31,8 @@ export default function MultiGallery({ sections, shifts }) {
 
     const [activeSlide, setActiveSlide] = useState(new Array(sections.length).fill(0));
 
+    const [isFull, setIsFull] = useState(new Array(sections.length).fill(false));
+
     const [interacted, setInteracted] = useState(false);
 
     const nextSlide = (section_index) => {
@@ -69,6 +71,18 @@ export default function MultiGallery({ sections, shifts }) {
         setInteracted(true);
     }
 
+    const toggleFull = (section_index) => {
+        setIsFull((prevState) => {
+            const newState = prevState.slice();
+            newState[section_index] = !newState[section_index];
+            return newState;
+        });
+    }
+
+    const closeFull = () => {
+        setIsFull(new Array(sections.length).fill(false));
+    }
+
     const onlyExpanded = (section_index) => {
         setIsExpanded((prevState) => {
             const newState = new Array(sections.length).fill(false);
@@ -79,6 +93,7 @@ export default function MultiGallery({ sections, shifts }) {
 
     return (
         <div class="multi-gallery">
+            <div class="dimmer" style={isFull.some((x) => x) ? "display: block; pointer-events: all;" : ""} onClick={closeFull}/>
             {sections.map((section, section_index) => (
                 <div class={"gallery-section " + (isExpaneded[section_index] ? "expanded " : "") + ((interacted || sections.length == 1) ? "expandable" : "")} id={"section_" + (section_index)}>
                     <div class="gallery-tile" /*style={(sections.length == 1 ? "display: none" : "")}*/ onClick={() => toggleExpanded(section_index)}>
@@ -89,7 +104,7 @@ export default function MultiGallery({ sections, shifts }) {
                         <div class="gallery-container">
                             {section.images.map((image, slide_index) => (
                                 image.endsWith("webp") ?
-                                    <img src={image} class={"section-image " + getClass(slide_index, activeSlide[section_index], section.images.length)} style={"margin-top: " + getShift(shifts, section_index, slide_index) + "pt;"} /> : <video controls controlsList="nodownload" autoplay muted loop class={"section-video " + getClass(slide_index, activeSlide[section_index], section.images.length)}>
+                                    <img src={image} class={"section-image " + getClass(slide_index, activeSlide[section_index], section.images.length)} style={"margin-top: " + getShift(shifts, section_index, slide_index) + "pt;" + (slide_index == activeSlide[section_index] ? " cursor: pointer;" : "")} onClick={() => toggleFull(section_index)} /> : <video controls controlsList="nodownload" autoplay muted loop class={"section-video " + getClass(slide_index, activeSlide[section_index], section.images.length)}>
                                         <source src={image} />
                                     </video>
                             ))}
@@ -103,6 +118,7 @@ export default function MultiGallery({ sections, shifts }) {
                         </div>
                     </div>
                     <div class="divider" /*style={(section_index == 0 ? "display:none" : "")}*/ />
+                    <img src={section.images[activeSlide[section_index]]} class="section-image-full" style={isFull[section_index] ? "opacity: 100%" : ""}/>
                 </div>
             ))}
         </div>

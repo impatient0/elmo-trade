@@ -1,11 +1,28 @@
 ---
+import { slide } from "astro:transitions";
 import ProjectCarousel from "./ProjectCarousel";
 
 const props = Astro.props;
 
-const yearFilter = (x) => {
-    let currentYear = new Date().getFullYear();
-    return Number(x.year[x.year.length - 1].slice(-4)) >= currentYear - 1;
+const compareYears = (a, b) => {
+    let a_1 = a.year[a.year.length - 1].slice(-4);
+    let a_2 = a.year[a.year.length - 1].slice(0, 4);
+    let b_1 = b.year[b.year.length - 1].slice(-4);
+    let b_2 = b.year[b.year.length - 1].slice(0, 4);
+    if (a_1 == b_1) {
+        return a_2 > b_2 ? -1 : 1;
+    }
+    return a_1 > b_1 ? -1 : 1;
+}
+
+const stub = {
+    image: ["/img/elmo-shrug.gif", 0, 0, 0, 0],
+    year: ["0"],
+    title: "",
+    link: null,
+    address: "",
+    info: "Здесь мог бы быть ваш проект :)",
+    services: [],
 }
 const allProjects = await Astro.glob("../pages/projects/*.md");
 const slides = allProjects.map((project) => ({
@@ -17,6 +34,10 @@ const slides = allProjects.map((project) => ({
     info: project.frontmatter.info.description,
     services: project.frontmatter.services,
 })).filter(props.filter != null ? props.filter : (x) => true);
+slides.sort(compareYears);
+while (slides.length < 2) {
+    slides.push(stub);
+}
 ---
 
 <div id="project_carousel">
