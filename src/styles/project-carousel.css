@@ -69,7 +69,7 @@
     background-image: url('/icons/lightning-grey.svg');
     &>p {
         color: #7E7B71;
-        font-weight: 600;
+        font-weight: 500;
         content: "Здесь мог бы быть ваш проект :)";
     }
 }
