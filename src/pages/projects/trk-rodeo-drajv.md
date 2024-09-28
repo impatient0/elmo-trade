@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownProjectMLayout.astro
-title: "ТРК \"РОДЕО ДРАЙВ\""
+title: "ТРК “РОДЕО ДРАЙВ”"
 pageID: "trk-rodeo-drajv"
 services: ["elektromontazhnye-raboty", ]
 info: {

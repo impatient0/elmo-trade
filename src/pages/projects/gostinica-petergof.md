@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownProjectMLayout.astro
-title: "ОТЕЛЬ \"НОВЫЙ ПЕТЕРГОФ\""
+title: "ОТЕЛЬ “НОВЫЙ ПЕТЕРГОФ”"
 pageID: "gostinica-petergof"
 services: ["komplektaciya-proektnymi-dvernymi-konstrukciyami", ]
 info: {
@@ -17,8 +17,9 @@ sections: [
             body: "Монтаж дверных конструкций."
         },
         multi_gallery: [
-            { title: "Монтаж дверных конструкций", images: ["/img/projects/gostinica-petergof/01_resized.webp", "/img/projects/gostinica-petergof/02_resized.webp", "/img/projects/gostinica-petergof/03_resized.webp", "/img/projects/gostinica-petergof/04_resized.webp", "/img/projects/gostinica-petergof/05_resized.webp", "/img/projects/gostinica-petergof/06_resized.webp", "/img/projects/gostinica-petergof/07_resized.webp", "/img/projects/gostinica-petergof/08_resized.webp", "/img/projects/gostinica-petergof/09_resized.webp", "/img/projects/gostinica-petergof/10_resized.webp", ] },
-        ]
+            { title: "Монтаж дверных конструкций", images: ["/img/projects/gostinica-petergof/09_resized.webp", "/img/projects/gostinica-petergof/01_resized.webp", "/img/projects/gostinica-petergof/02_resized.webp", "/img/projects/gostinica-petergof/03_resized.webp", "/img/projects/gostinica-petergof/04_resized.webp", "/img/projects/gostinica-petergof/05_resized.webp", "/img/projects/gostinica-petergof/06_resized.webp", "/img/projects/gostinica-petergof/07_resized.webp", "/img/projects/gostinica-petergof/08_resized.webp", "/img/projects/gostinica-petergof/10_resized.webp", ] },
+        ],
+        shifts: {"0_0": 200, }
     },
 ]
 

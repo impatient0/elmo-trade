@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownProjectLayout.astro
-title: "ТЕХНОПАРК РОМАНОВКА "
+title: "ТЕХНОПАРК “РОМАНОВКА”"
 pageID: "romanovka"
 services: ["elektromontazhnye-raboty", ]
 info: {
@@ -15,6 +15,10 @@ about: {
     body: "Разработка проектной документации и монтаж наружного освещения."
 }
 multi_gallery: [
-    { title: "ЭОМ", images: ["/img/projects/romanovka/01_resized.webp", "/img/projects/romanovka/02_resized.webp", "/img/projects/romanovka/03_resized.webp", "/img/projects/romanovka/04_resized.webp", "/img/projects/romanovka/05.MOV", "/img/projects/romanovka/06_resized.webp", "/img/projects/romanovka/07_resized.webp", "/img/projects/romanovka/09_resized.webp", "/img/projects/romanovka/10_resized.webp", ] },
+    {
+        title: "ЭОМ",
+        images: ["/img/projects/romanovka/01_resized.webp", "/img/projects/romanovka/02_resized.webp", "/img/projects/romanovka/03_resized.webp", "/img/projects/romanovka/04_resized.webp", "/img/projects/romanovka/06_resized.webp", "/img/projects/romanovka/07_resized.webp", "/img/projects/romanovka/09_resized.webp", "/img/projects/romanovka/10_resized.webp", "/img/projects/romanovka/05.MOV", ]
+    },
 ]
+shifts: {"0_3": 200, "0_5": 200, }
 ---

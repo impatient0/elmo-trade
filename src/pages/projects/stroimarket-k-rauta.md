@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownProjectLayout.astro
-title: "СТРОЙМАРКЕТ К-РАУТА"
+title: "СТРОЙМАРКЕТ “К-РАУТА”"
 pageID: "stroimarket-k-rauta"
 services: ["elektromontazhnye-raboty", ]
 info: {

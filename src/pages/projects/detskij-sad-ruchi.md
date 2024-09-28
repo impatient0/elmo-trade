@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownProjectMLayout.astro
-title: "ДЕТСКИЙ САД \"РУЧЬИ\""
+title: "ДЕТСКИЙ САД “РУЧЬИ”"
 pageID: "detskij-sad-ruchi"
 services: ["elektromontazhnye-raboty"]
 info: {
@@ -18,7 +18,8 @@ sections: [
         },
         multi_gallery: [
             { title: "ЭОМ", images: ["/img/projects/detskij-sad-ruchi/01_resized.webp", "/img/projects/detskij-sad-ruchi/02_resized.webp", "/img/projects/detskij-sad-ruchi/03_resized.webp", "/img/projects/detskij-sad-ruchi/04_resized.webp", "/img/projects/detskij-sad-ruchi/05_resized.webp", ] },
-        ]
+        ],
+        shifts: {"0_2": -150, "0_4": -300, }
     },
 ]
 

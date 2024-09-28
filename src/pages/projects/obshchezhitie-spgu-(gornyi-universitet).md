@@ -18,7 +18,8 @@ sections: [
         },
         multi_gallery: [
             { title: "ЭОМ", images: ["/img/projects/obshchezhitie-spgu-(gornyi-universitet)/eom/eom01_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/eom/eom02_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/eom/eom03_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/eom/eom04_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/eom/eom05_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/eom/eom06_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/eom/eom07_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/eom/eom08_resized.webp", ] },
-        ]
+        ],
+        shifts: {"0_5": -250, }
     },
     {
         about: {
@@ -40,7 +41,8 @@ sections: [
             { title: "СКУД", images: ["/img/projects/obshchezhitie-spgu-(gornyi-universitet)/skud/skud01_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/skud/skud02_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/skud/skud03_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/skud/skud04_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/skud/skud05_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/skud/skud06_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/skud/skud07_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/skud/skud08_resized.webp", ] },
             { title: "СОУЭ", images: ["/img/projects/obshchezhitie-spgu-(gornyi-universitet)/soue/soue01_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/soue/soue02_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/soue/soue03_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/soue/soue04_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/soue/soue05_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/soue/soue06_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/soue/soue07_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/soue/soue08_resized.webp", ] },
             { title: "СПС", images: ["/img/projects/obshchezhitie-spgu-(gornyi-universitet)/sps/sps01_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/sps/sps02_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/sps/sps03_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/sps/sps04_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/sps/sps05_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/sps/sps06_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/sps/sps07_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/sps/sps08_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/sps/sps09_resized.webp", "/img/projects/obshchezhitie-spgu-(gornyi-universitet)/sps/sps10_resized.webp", ] },
-        ]
+        ],
+        shifts: {"2_2": 225, "2_6": 350, "3_1": 250, "3_5": 450, "3_6": 250, "3_7": 450, "4_7": -75, "4_8": -100, }
     },
 ]
 

@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownProjectMLayout.astro
-title: "ГОСТИНИЦА \"Cronwell Inn\""
+title: "ГОСТИНИЦА “Cronwell Inn”"
 pageID: "gostinica-cronwell-inn"
 services: ["komplektaciya-proektnymi-dvernymi-konstrukciyami", ]
 info: {

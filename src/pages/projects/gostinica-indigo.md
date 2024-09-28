@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownProjectMLayout.astro
-title: "ГОСТИНИЦА \"INDIGO\""
+title: "ГОСТИНИЦА “INDIGO”"
 pageID: "gostinica-indigo"
 services: ["komplektaciya-proektnymi-dvernymi-konstrukciyami",]
 info: {

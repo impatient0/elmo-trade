@@ -1,6 +1,6 @@
 ---
 layout: ../../layouts/MarkdownProjectLayout.astro
-title: "ТРК ЛЕТО"
+title: "ТРК “ЛЕТО”"
 pageID: "trk-leto"
 services: ["sistemy-ventelyacii-i-kondicionirovaniya", ]
 info: {

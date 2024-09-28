@@ -116,12 +116,14 @@
     opacity: 0;
     left: 101%;
     transform: translateX(100%);
+    pointer-events: none;
 }
 
 .hide-left {
     opacity: 0;
     left: -1%;
     transform: translateX(-100%);
+    pointer-events: none;
 }
 
 .next-btn {
