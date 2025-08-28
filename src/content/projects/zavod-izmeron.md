@@ -5,7 +5,7 @@ pageID: "zavod-izmeron"
 services: ["vodosnabzhenie-i-kanalizaciya", "elektromontazhnye-raboty", "sistemy-ventelyacii-i-kondicionirovaniya", ]
 info: {
     cover_image: ["/img/projects/izmeron/izmeron.webp", 0, -150, 0, 0],
-    slide_image: ["/img/projects/izmeron/izmeron.webp", 0, -0, 0],
+    slide_image: ["/img/projects/izmeron/izmeron.webp", 0, -0, 0, 0],
     year: ["2019-2023"],
     address: "г. Санкт-Петербург, ул. Броневая 5.",
     description: "Реконструкция РТП и монтаж кабельных линий 10 кВ и 0,4 кВ для электроснабжения ОО НПФ Завод “Измерон”.",

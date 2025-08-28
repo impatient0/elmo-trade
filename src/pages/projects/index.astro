@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import DynamicGallery from "../../components/DynamicGallery";
 import Carousel from "../../components/Carousel";
@@ -59,8 +60,16 @@ const compareYears = (a, b) => {
     return a_1 > b_1 ? -1 : 1;
 }
 
-const allProjects = await Astro.glob("./*.md");
-const slides = allProjects.map((project) => ({image: project.frontmatter.info.slide_image, year: project.frontmatter.info.year, title: project.frontmatter.title, link: project.url, address: project.frontmatter.info.address, info: project.frontmatter.info.description, }));
+const allProjects = await getCollection('projects');
+
+const slides = allProjects.map((project) => ({
+    image: project.data.info.slide_image, 
+    year: project.data.info.year, 
+    title: project.data.title,
+    link: `/projects/${project.id}`, 
+    address: project.data.info.address, 
+    info: project.data.info.description, 
+}));
 slides.sort(compareYears);
 ---
 

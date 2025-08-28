@@ -5,7 +5,7 @@ pageID: "skladskoi-kompleks"
 services: ["elektromontazhnye-raboty", ]
 info: {
     cover_image: ["/img/projects/skladskoi-kompleks/03_resized.webp", 0, -150, 0, 0],
-    slide_image: ["/img/projects/skladskoi-kompleks/03_resized.webp", 0, -50, 0],
+    slide_image: ["/img/projects/skladskoi-kompleks/03_resized.webp", 0, -50, 0, 0],
     year: ["2022"],
     address: "Санкт-Петербург, Гатчинский р-н",
     description: "Монтаж систем внешнего электроснабжения и электроосвещения склада.",

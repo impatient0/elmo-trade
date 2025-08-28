@@ -5,7 +5,7 @@ pageID: "arhiv-kunstkamery"
 services: ["sistemy-obespecheniya-pozharnoj-bezopasnosti", ]
 info: {
     cover_image: ["/img/projects/arhiv-kunstkamery/arhiv-kunstkamery.webp", 0, -100, 0, 0],
-    slide_image: ["/img/projects/arhiv-kunstkamery/arhiv-kunstkamery.webp", 0, 0, 0],
+    slide_image: ["/img/projects/arhiv-kunstkamery/arhiv-kunstkamery.webp", 0, 0, 0, 0],
     year: ["2023-2024"],
     address: "г. Санкт-Петербург, ул. Заповедная д. 51 корп. 3",
     description: "Комплекс работ по созданию системы АУГПТ.",

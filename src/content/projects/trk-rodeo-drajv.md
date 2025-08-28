@@ -5,7 +5,7 @@ pageID: "trk-rodeo-drajv"
 services: ["elektromontazhnye-raboty", ]
 info: {
     cover_image: ["/img/projects/trk-rodeo-drajv/trk-rodeo-drajv.webp", 0, -125, 0, 0],
-    slide_image: ["/img/projects/trk-rodeo-drajv/trk-rodeo-drajv.webp", 0, -40, 0],
+    slide_image: ["/img/projects/trk-rodeo-drajv/trk-rodeo-drajv.webp", 0, -40, 0, 0],
     year: ["2015"],
     address: "Санкт-Петербург, пр. Культуры д.1, лит. А",
     description: "Комплекс работ по замене питающих электрических кабелей системы наружного освещения парковки и прилегающей территории Крытого водного парка и курортного центра «Аквапарк».",

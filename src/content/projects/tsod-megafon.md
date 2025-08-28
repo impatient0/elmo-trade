@@ -5,7 +5,7 @@ pageID: "tsod-megafon"
 services: []
 info: {
     cover_image: ["/img/projects/tsod-megafon/tsod-megafon.webp", 0, -25, 0, 0],
-    slide_image: ["/img/projects/tsod-megafon/tsod-megafon.webp", 0, 0, 0],
+    slide_image: ["/img/projects/tsod-megafon/tsod-megafon.webp", 0, 0, 0, 0],
     year: ["2024"],
     address: "Ленинградская область, Всеволожский район, дер. Новосаратовка-центр",
     description: "Комплекс работ по системам безопасности АСПЗ, СПС, СОУЭ, СОТ, СОТС «Центр обработки данных “Уткина Заводь” ПАО «МЕГАФОН».",

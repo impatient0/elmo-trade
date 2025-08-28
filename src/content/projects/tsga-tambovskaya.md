@@ -5,7 +5,7 @@ pageID: "tsga-tambovskaya"
 services: ["sistemy-obespecheniya-pozharnoj-bezopasnosti", ]
 info: {
     cover_image: ["/img/projects/tsgantd-spb/tsga-tambovskaya/tsga-tambovskaya.webp", 0, -100, 0, 0],
-    slide_image: ["/img/projects/tsgantd-spb/tsga-tambovskaya/tsga-tambovskaya.webp", 0, -50, 0],
+    slide_image: ["/img/projects/tsgantd-spb/tsga-tambovskaya/tsga-tambovskaya.webp", 0, -50, 0, 0],
     year: ["2015"],
     address: "г. Санкт-Петербург, Фрунзенский район, ул. Тамбовская, д. 17, лит. А",
     description: "Работы по дооснащению объекта «Архивный комитет Правительства Санкт-Петербурга» системой автоматической установки газового пожаротушения.",

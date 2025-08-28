@@ -1,4 +1,5 @@
 ---
+import { getCollection } from "astro:content";
 import { slide } from "astro:transitions";
 import ProjectCarousel from "./ProjectCarousel";
 
@@ -15,7 +16,17 @@ const compareYears = (a, b) => {
     return a_1 > b_1 ? -1 : 1;
 }
 
-const stub = {
+interface Stub {
+    image: [string, number, number, number, number];
+    year: string[];
+    title: string;
+    link: string | null;
+    address: string;
+    info: string;
+    services: any[];
+}
+
+const stub : Stub = {
     image: ["/img/elmo-shrug.gif", 0, 0, 0, 0],
     year: ["0"],
     title: "",
@@ -24,17 +35,21 @@ const stub = {
     info: "Здесь мог бы быть Ваш проект :)",
     services: [],
 }
-const allProjects = await Astro.glob("../pages/projects/*.md");
+
+const allProjects = await getCollection("projects");
+
 const slides = allProjects.map((project) => ({
-    image: project.frontmatter.info.slide_image,
-    year: project.frontmatter.info.year,
-    title: project.frontmatter.title,
-    link: project.url,
-    address: project.frontmatter.info.address,
-    info: project.frontmatter.info.description,
-    services: project.frontmatter.services,
+    image: project.data.info.slide_image,
+    year: project.data.info.year,
+    title: project.data.title,
+    link: `/projects/${project.id}`,
+    address: project.data.info.address,
+    info: project.data.info.description,
+    services: project.data.services,
 })).filter(props.filter != null ? props.filter : (x) => true);
+
 slides.sort(compareYears);
+
 while (slides.length < 2) {
     slides.push(stub);
 }

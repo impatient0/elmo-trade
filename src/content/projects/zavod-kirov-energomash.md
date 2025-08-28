@@ -5,7 +5,7 @@ pageID: "zavod-kirov-energomash"
 services: ["elektromontazhnye-raboty", ]
 info: {
     cover_image: ["/img/projects/zavod-kirov-energomash/zavod-kirov-energomash.webp", 0, -150, 0, 0],
-    slide_image: ["/img/projects/zavod-kirov-energomash/zavod-kirov-energomash.webp", 0, -50, 0],
+    slide_image: ["/img/projects/zavod-kirov-energomash/zavod-kirov-energomash.webp", 0, -50, 0, 0],
     year: ["2018"],
     address: "г. Санкт- Петербург, пр. Стачек, дом 47",
     description: "Комплекс строительно-монтажных работ по  модернизации нагрузочного комплекса 10 кВ с увеличением мощности с 40МВт до 60МВт.",

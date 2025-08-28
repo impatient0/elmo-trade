@@ -5,7 +5,7 @@ pageID: "ofis-metrostroj"
 services: ["komplektaciya-proektnymi-dvernymi-konstrukciyami", ]
 info: {
     cover_image: ["/img/projects/ofis-metrostroj/ofis-metrostroj.webp", 0, -150, 0, 0],
-    slide_image: ["/img/projects/ofis-metrostroj/ofis-metrostroj.webp", 0, -50, 0],
+    slide_image: ["/img/projects/ofis-metrostroj/ofis-metrostroj.webp", 0, -50, 0, 0],
     year: ["0"],
     address: "г. Санкт-Петербург, Загородный пр. дом 32",
     description: "Поставка и монтаж дверных конструкций на объекте.",

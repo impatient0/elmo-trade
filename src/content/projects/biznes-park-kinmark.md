@@ -5,7 +5,7 @@ pageID: "biznes-tsentr-kinmark"
 services: ["elektromontazhnye-raboty"]
 info: {
     cover_image: ["/img/projects/biznes-tsentr-kinmark/biznes-tsentr-kinmark.webp", 0, -250, 0, 0],
-    slide_image: ["/img/projects/biznes-tsentr-kinmark/biznes-tsentr-kinmark.webp", 0, -75, 0],
+    slide_image: ["/img/projects/biznes-tsentr-kinmark/biznes-tsentr-kinmark.webp", 0, -75, 0, 0],
     year: ["2021-2024"],
     address: "Таллинское ш., 194, корп. 2, стр. 1 (помещение 41-Н-1)",
     description: "Комплекс работ по электроснабжению и освещению бизнес-парка “КИНМАРК”.",

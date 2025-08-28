@@ -5,7 +5,7 @@ pageID: "gazprom"
 services: ["elektromontazhnye-raboty"]
 info: {
     cover_image: ["/img/projects/gazprom/gazprom.webp", 0, -200, 0, 0],
-    slide_image: ["/img/projects/gazprom/gazprom.webp", 0, -75, 0],
+    slide_image: ["/img/projects/gazprom/gazprom.webp", 0, -75, 0, 0],
     year: ["2021"],
     address: "Санкт-Петербург, Площадь Победы, д.2",
     description: "Техническогое обслуживание БК РТП бизнесцентра.",

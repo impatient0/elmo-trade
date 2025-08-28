@@ -5,7 +5,7 @@ pageID: "stroimarket-metrika"
 services: ["elektromontazhnye-raboty", ]
 info: {
     cover_image: ["/img/projects/stroimarket-metrika/stroimarket-metrika.webp", 0, -150, 0, 0],
-    slide_image: ["/img/projects/stroimarket-metrika/stroimarket-metrika.webp", 0, -50, 0],
+    slide_image: ["/img/projects/stroimarket-metrika/stroimarket-metrika.webp", 0, -50, 0, 0],
     year: ["2015"],
     address: "г. Санкт-Петербург, Красногвардейский район, Уткин проспект, участок 4",
     description: "Монтаж БКТП, строительство кабельных линий 10 и 0,4 кВ.",

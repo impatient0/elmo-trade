@@ -5,7 +5,7 @@ pageID: "gostinica-petergof"
 services: ["komplektaciya-proektnymi-dvernymi-konstrukciyami", ]
 info: {
     cover_image: ["/img/projects/gostinica-petergof/gostinica-petergof.webp", 0, -150, 0, 0],
-    slide_image: ["/img/projects/gostinica-petergof/gostinica-petergof.webp", 0, -50, 0],
+    slide_image: ["/img/projects/gostinica-petergof/gostinica-petergof.webp", 0, -50, 0, 0],
     year: ["0"],
     address: "Санкт-Петербургский просп., 34, Петергоф",
     description: "Монтаж дверных конструкций.",

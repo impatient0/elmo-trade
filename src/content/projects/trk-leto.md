@@ -5,7 +5,7 @@ pageID: "trk-leto"
 services: ["sistemy-ventelyacii-i-kondicionirovaniya", ]
 info: {
     cover_image: ["/img/projects/trk-leto/trk-leto.webp", 0, -150, 0, 0],
-    slide_image: ["/img/projects/trk-leto/trk-leto.webp", 0, -50, 0],
+    slide_image: ["/img/projects/trk-leto/trk-leto.webp", 0, -50, 0, 0],
     year: ["2020"],
     address: "г. Санкт-Петербург, Пулковское ш., 25, корп. 1",
     description: "Приспособление помещения для строительства кинотеатра Люксор.",

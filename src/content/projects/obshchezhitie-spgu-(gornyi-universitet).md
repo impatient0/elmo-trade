@@ -5,7 +5,7 @@ pageID: "obshchezhitie-spgu-(gornyi-universitet)"
 services: ["elektromontazhnye-raboty", "komplektaciya-proektnymi-dvernymi-konstrukciyami", "sistemy-obespecheniya-pozharnoj-bezopasnosti", "sistemy-kontrolia-i-upravleniia-dostupom", "sistemy-ventelyacii-i-kondicionirovaniya", "strukturirovannaya-kabelnaya-set", "sistemy-videonabliudeniia"]
 info: {
     cover_image: ["/img/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp", 0, -175, 0, 0],
-    slide_image: ["/img/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp", 0, -25, 0],
+    slide_image: ["/img/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp", 0, -25, 0, 0],
     year: ["2022-2023"],
     address: "г. Санкт-Петербург, 14-я линия В.О., д. 77, литер А.",
     description: Разработка РД и выполнение работ по монтажу внутренних инженерных систем.",

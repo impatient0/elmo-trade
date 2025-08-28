@@ -5,7 +5,7 @@ pageID: "gostinica-cronwell-inn"
 services: ["komplektaciya-proektnymi-dvernymi-konstrukciyami", ]
 info: {
     cover_image: ["/img/projects/gostinica-cronwell-inn/gostinica-cronwell-inn.webp", 0, -150, 0, 0],
-    slide_image: ["/img/projects/gostinica-cronwell-inn/gostinica-cronwell-inn.webp", 0, -50, 0],
+    slide_image: ["/img/projects/gostinica-cronwell-inn/gostinica-cronwell-inn.webp", 0, -50, 0, 0],
     year: ["0"],
     address: "Стремянная ул., 18, Санкт-Петербург",
     description: "Монтаж дверных конструкций.",

@@ -5,7 +5,7 @@ pageID: "oboinaya-fabrika-arteks"
 services: ["elektromontazhnye-raboty", "sistemy-obespecheniya-pozharnoj-bezopasnosti", ]
 info: {
     cover_image: ["/img/projects/oboinaya-fabrika-arteks/oboinaya-fabrika-arteks.webp", 0, -275, 0, 0],
-    slide_image: ["/img/projects/oboinaya-fabrika-arteks/oboinaya-fabrika-arteks.webp", 0, -50, 0],
+    slide_image: ["/img/projects/oboinaya-fabrika-arteks/oboinaya-fabrika-arteks.webp", 0, -50, 0, 0],
     year: ["2017-2021"],
     address: "Лен обл., Гатчинский муниципальный район, Киевское шоссе, дом 2",
     description: "Выполнение комплекса проектных и монтажных работ на объекте «Обойная фабрика «Артекс».",

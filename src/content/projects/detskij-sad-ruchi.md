@@ -5,7 +5,7 @@ pageID: "detskij-sad-ruchi"
 services: ["elektromontazhnye-raboty"]
 info: {
     cover_image: ["/img/projects/detskij-sad-ruchi/detskij-sad-ruchi.webp", 0, -150, 0, 0],
-    slide_image: ["/img/projects/detskij-sad-ruchi/detskij-sad-ruchi.webp", 0, -50, 0],
+    slide_image: ["/img/projects/detskij-sad-ruchi/detskij-sad-ruchi.webp", 0, -50, 0, 0],
     year: ["2023"],
     address: "г. Санкт-Петербург, территория предприятия «Ручьи», участок 8",
     description: "Работы по монтажу наружного освещения здания дошкольного образования на 160 мест с бассейном.",
