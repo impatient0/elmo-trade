@@ -43,7 +43,7 @@ export default function ProjectCarousel({ slides }) {
             <div class="project-carousel">
                 {slides.map((project, index) =>
                     <div class={"project-container " + getClass(index, activeSlide, slides.length)} onMouseEnter={stopTimer} onMouseLeave={startTimer}>
-                        <div class="project-image" style={`background-image: url('${project.image[0]}'); background-position: ${project.image[1]}px ${project.image[2]}px;` + (project.image[3] != 0 ? ` background-size: ${project.image[3]}px ${project.image[4]}px` : ' background-size: 100%')} />
+                        <div class="project-image" style={`background-image: url('${project.optimizedSrc}'); background-position: ${project.offsets[0]}px ${project.offsets[1]}px; background-size: ${project.offsets[2] > 0 ? `${project.offsets[2]}px ${project.offsets[3]}px` : 'cover'}`} />
                         <div class="project-footer">
                             <p class="project-title">{project.title}</p>
                             <p class="subbody2">{project.address}</p>

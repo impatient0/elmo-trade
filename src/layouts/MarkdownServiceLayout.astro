@@ -5,16 +5,63 @@ import MultiGallery from "../components/MultiGallery";
 import ProjectCarousel from "../components/ProjectCarousel";
 import Projects from "../components/Projects.astro";
 
+import { getImage } from "astro:assets";
+
+const allServiceImages = import.meta.glob('/src/assets/images/services/**/*.{webp,jpg,jpeg,png,gif,svg,avif}');
+
+const { frontmatter } = Astro.props;
+
+const optimizedCarouselImages = await Promise.all(
+    frontmatter.carousel.images.map(async (imgData) => {
+        const optimized = await getImage({
+            src: imgData.image,
+            width: 1920,
+            format: 'webp',
+        });
+        return {
+            ...imgData,
+            optimizedSrc: optimized.src,
+        };
+    })
+);
+
+const optimizedMultiGallery = await Promise.all(
+    frontmatter.multi_gallery.map(async (gallery) => {
+        const optimizedImages = await Promise.all(
+            gallery.images.map(async (imagePath) => {
+                if (!/\.(webp|jpg|jpeg|png|gif|svg|avif)$/.test(imagePath)) {
+                    return { src: imagePath, type: 'video' };
+                }
+                
+                const globKey = `${imagePath.replace('../..', '/src')}`;
+
+                if (allServiceImages[globKey]) {
+                    try {
+                        const imageModule = await allServiceImages[globKey]();
+                        const optimized = await getImage({ src: (imageModule as Record<string, any>).default, width: 1200, format: 'webp' });
+                        return { src: optimized.src, type: 'image' };
+                    } catch (e) {
+                        console.error(`Failed to process service image from glob: ${globKey}`, e);
+                        return { src: imagePath, type: 'error' };
+                    }
+                } else {
+                    console.warn(`Service image not found in glob: ${globKey}`);
+                    return { src: imagePath, type: 'error' };
+                }
+            })
+        );
+        return { ...gallery, images: optimizedImages };
+    })
+);
+
 const serviceFilter = (p) => {
 	return p.services?.includes(frontmatter.pageID);
 };
-
-const { frontmatter } = Astro.props;
 ---
 
 <BaseLayout pageTitle={frontmatter.title} pageID={frontmatter.pageID}>
 	<div class="cover">
-		<Carousel client:load images={frontmatter.carousel.images} />
+		<Carousel client:load images={optimizedCarouselImages} />
 	</div>
 	<div class="about gallery-section-title" id="gallery-section_0">
 		<p class="title1">{frontmatter.about.header}</p>
@@ -22,7 +69,7 @@ const { frontmatter } = Astro.props;
 	</div>
 	<MultiGallery
 		client:load
-		sections={frontmatter.multi_gallery}
+		sections={optimizedMultiGallery}
 		shifts={"shifts" in frontmatter ? frontmatter.shifts : null}
 	/>
 	<div id="made_on">

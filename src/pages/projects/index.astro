@@ -1,11 +1,21 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import DynamicGallery from "../../components/DynamicGallery";
 import Carousel from "../../components/Carousel";
+
+import { getImage } from "astro:assets";
+import izmeronImage from "../../assets/images/projects/izmeron/izmeron.webp";
+import spguImage from "../../assets/images/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp";
+import mtsImage from "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp";
+
 const pageTitle = "Проекты";
-const images = [
+
+const rawCarouselData = [
 	{
-		image: ["/img/projects/izmeron/izmeron.webp", 0, -150, 0, 0],
+		image: izmeronImage,
+		offsets: [0, -150],
+		size: [0, 0],
 		description: {
 			title: "2019-2022",
 			headline: "Завод “Измерон”",
@@ -15,13 +25,9 @@ const images = [
 		link: "/projects/zavod-izmeron",
 	},
 	{
-		image: [
-			"/img/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp",
-			0,
-			-175,
-			0,
-			0,
-		],
+		image: spguImage,
+		offsets: [0, -175],
+		size: [0, 0],
 		description: {
 			title: "2022-2023",
 			headline: "Общежитие спгу (горный университет) ",
@@ -31,13 +37,9 @@ const images = [
 		link: "/projects/obshchezhitie-spgu-(gornyi-universitet)",
 	},
 	{
-		image: [
-			"/img/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp",
-			0,
-			-200,
-			0,
-			0,
-		],
+		image: mtsImage,
+		offsets: [0, -200],
+		size: [0, 0],
 		description: {
 			title: "2017-2019",
 			headline: "ЦОД МТС",
@@ -47,6 +49,17 @@ const images = [
 		link: "/projects/tsod-mts",
 	},
 ];
+
+const optimizedCarouselImages = await Promise.all(
+    rawCarouselData.map(async (imgData) => {
+        const optimized = await getImage({
+            src: imgData.image,
+            width: imgData.size[0],
+            format: 'webp',
+        });
+        return { ...imgData, optimizedSrc: optimized.src };
+    })
+);
 
 const compareYears = (a, b) => {
     let a_1 = a.year[a.year.length - 1].slice(-4);
@@ -59,14 +72,34 @@ const compareYears = (a, b) => {
     return a_1 > b_1 ? -1 : 1;
 }
 
-const allProjects = await Astro.glob("./*.md");
-const slides = allProjects.map((project) => ({image: project.frontmatter.info.slide_image, year: project.frontmatter.info.year, title: project.frontmatter.title, link: project.url, address: project.frontmatter.info.address, info: project.frontmatter.info.description, }));
+const allProjects = await getCollection('projects');
+
+const slides = await Promise.all(
+    allProjects.map(async (project) => {
+        const optimized = await getImage({
+            src: project.data.info.slide_image as ImageMetadata,
+			width: project.data.info.slide_image.width,
+			format: 'webp'
+        });
+
+        return {
+            year: project.data.info.year, 
+            title: project.data.title,
+            link: `/projects/${project.id}`, 
+            address: project.data.info.address, 
+            info: project.data.info.description,
+            optimizedSrc: optimized.src,
+            offsets: project.data.info.slide_image_offsets || [0, 0],
+        };
+    })
+);
+
 slides.sort(compareYears);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
 	<div class="cover">
-		<Carousel client:load images={images} />
+		<Carousel client:load images={optimizedCarouselImages} />
 	</div>
     <div class="about">
         <p class="title1">Проекты</p>

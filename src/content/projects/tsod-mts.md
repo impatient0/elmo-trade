@@ -1,0 +1,158 @@
+---
+layout: ../../layouts/MarkdownProjectMLayout.astro
+title: "ЦОД МТС"
+pageID: "stroitelnaia-ploshchadka-tsod-mts"
+services: ["elektromontazhnye-raboty", "sistemy-obespecheniya-pozharnoj-bezopasnosti", "sistemy-videonabliudeniia-i-okhrannye-signalizatsii", "strukturirovannaya-kabelnaya-set", "sistemy-kontrolia-i-upravleniia-dostupom", ]
+info: {
+    cover_image: "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp",
+    cover_image_offsets: [0, -200, 0, 0],
+    slide_image: "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp",
+    slide_image_offsets: [0, -52, 589, 442],
+    year: ["2017-2019"],
+    address: "г. Санкт-Петербург, Оборонная ул., 29",
+    description: "Комплекс работ на объекте Модульный центр обработки данных ПАО «МТС».",
+}
+sections: [
+    {
+        about: {
+            header: "2019",
+            body: "Комплекс работ по проектированию и устройству сетей временного электроснабжения и освещения на период строительства объекта Модульный центр обработки данных ПАО «МТС»."
+        },
+        multi_gallery: [
+            { title: "ЭОМ", images: [
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_102.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_103.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_105.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_106.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_107.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_108.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_109.webp",
+                "../videos/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_104.MOV",
+            ] },
+        ]
+    },
+    {
+        about: {
+            header: "2020",
+            body: "Комплекс работ по устройству наружных и внутренних инженерных сетей объекта."
+        },
+        multi_gallery: [
+            { title: "АУГПТ", images: [
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/augpt/augpt01.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/augpt/augpt02.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/augpt/augpt03.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/augpt/augpt04.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/augpt/augpt05.webp",
+            ] },
+            { title: "ККС", images: [
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/kks/kks01.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/kks/kks03.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/kks/kks04.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/kks/kks05.webp",
+            ] },
+            { title: "НЭС", images: [
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/nes/nes01.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/nes/nes02.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/nes/nes03.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/nes/nes04.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/nes/nes05.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/nes/nes06.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/nes/nes07.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/nes/nes08.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/nes/nes09.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/nes/nes10.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/nes/nes11.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/nes/nes12.webp",
+            ] },
+            { title: "ОС", images: [
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os01.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os02.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os03.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os04.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os05.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os06.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os07.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os08.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os09.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os11.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os12.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os13.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os14.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os15.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os16.webp",
+                "../videos/projects/stroitelnaia-ploshchadka-tsod-mts/os/os10.MOV",
+            ] },
+            { title: "СКС", images: [
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sks_/sks_01.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sks_/sks_02.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sks_/sks_03.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sks_/sks_04.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sks_/sks_05.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sks_/sks_06.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sks_/sks_07.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sks_/sks_08.webp",
+            ] },
+            { title: "СКУД", images: [
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/skud/skud01.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/skud/skud02.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/skud/skud03.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/skud/skud04.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/skud/skud05.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/skud/skud06.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/skud/skud07.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/skud/skud08.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/skud/skud09.webp",
+            ] },
+            { title: "СПС", images: [
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sps/sps01.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sps/sps02.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sps/sps03.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sps/sps04.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sps/sps05.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sps/sps06.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sps/sps08.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sps/sps09.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sps/sps10.webp",
+                "../videos/projects/stroitelnaia-ploshchadka-tsod-mts/sps/sps07.MOV",
+            ] },
+            { title: "Фасадное Освещение", images: [
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/fasadnoe-osveshchenie/fasadnoe-osveshchenie07.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/fasadnoe-osveshchenie/fasadnoe-osveshchenie01.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/fasadnoe-osveshchenie/fasadnoe-osveshchenie02.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/fasadnoe-osveshchenie/fasadnoe-osveshchenie03.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/fasadnoe-osveshchenie/fasadnoe-osveshchenie04.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/fasadnoe-osveshchenie/fasadnoe-osveshchenie05.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/fasadnoe-osveshchenie/fasadnoe-osveshchenie06.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/fasadnoe-osveshchenie/fasadnoe-osveshchenie08.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/fasadnoe-osveshchenie/fasadnoe-osveshchenie09.webp",
+            ] },
+            { title: "ЭОМ", images: [
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_201.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_202.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_203.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_204.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_205.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_206.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_207.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_208.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_209.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_210.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_211.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_212.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_213.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_214.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_217.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_218.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_219.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_220.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_221.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_222.webp",
+                "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_223.webp",
+                "../videos/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_215.MOV",
+                "../videos/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_216.MOV",
+            ] },
+        ],
+        shifts: {"0_4": 150, "1_2": -350, "1_3": 200, "2_3": -200, "3_3": 250, "5_0": -300, "5_4": 100, "5_8": 350, "6_2": -300, "7_1": 200, "7_2": 200, }
+    },
+]
+---

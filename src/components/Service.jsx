@@ -1,9 +1,14 @@
 import '../styles/services.css';
-export default function Service({ title, description, image, link, id }) {
+
+export default function Service({ title, description, optimizedSrc, offsets, size, link, id }) {
 
     return (
         <div class="service-container" id={id} >
-            <div class="service-image" id={"bgi_" + id} style={`background-image: url('${image[0]}'); background-position: ${image[1]}px ${image[2]}px; background-size: ${image[3]}px ${image[4]}px`} />
+            <div 
+                class="service-image" 
+                id={"bgi_" + id} 
+                style={`background-image: url('${optimizedSrc}'); background-position: ${offsets[0]}px ${offsets[1]}px; background-size: ${size[0]}px ${size[1]}px`} 
+            />
             <div id={"hdr_" + id} style="opacity:1" class="service-title">{title.map((title_line) => (
                 <p>{title_line}</p>
             ))}</div>
