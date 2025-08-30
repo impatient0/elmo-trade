@@ -43,19 +43,22 @@ const projectsCollection = defineCollection({
 
 const servicesCollection = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/services" }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     layout: z.string(),
     title: z.string(),
     pageID: z.string(),
     carousel: z.object({
       images: z.array(z.object({
-        image: z.tuple([z.string(), z.number(), z.number(), z.number(), z.number()]),
+        image: image(),
+        offsets: z.array(z.number()).optional(),
+        size: z.array(z.number()).optional(),
         description: z.object({
           title: z.string(),
           headline: z.string(),
           subbody: z.string(),
           body: z.string(),
         }),
+        link: z.string().optional(),
       })),
     }),
     about: z.object({
@@ -65,14 +68,6 @@ const servicesCollection = defineCollection({
     multi_gallery: z.array(z.object({
       title: z.string(),
       images: z.array(z.string()),
-    })),
-    project_carousel: z.array(z.object({
-      image: z.tuple([z.string(), z.number(), z.number(), z.number(), z.number()]),
-      title: z.string(),
-      year: z.array(z.string()),
-      link: z.string(),
-      address: z.string(),
-      info: z.string(),
     })),
   }),
 });

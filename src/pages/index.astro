@@ -4,11 +4,20 @@ import Carousel from "../components/Carousel";
 import Services from "../components/Services.astro";
 import Projects from "../components/Projects.astro";
 import Letters from "../components/Letters.astro";
+
+import { getImage } from "astro:assets";
+import izmeronImage from "../assets/images/projects/izmeron/izmeron.webp";
+import spguImage from "../assets/images/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp";
+import mtsImage from "../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp";
+
 const pageTitle = "Элмо Трейд";
 const pageID = "home";
-const images = [
+
+const rawImagesData = [
 	{
-		image: ["/img/projects/izmeron/izmeron.webp", 0, -150, 0, 0],
+		image: izmeronImage,
+		offsets: [0, -150],
+		size: [0, 0], // Use 0,0 to signify 'cover'
 		description: {
 			title: "2019-2022",
 			headline: "Завод “Измерон”",
@@ -18,13 +27,9 @@ const images = [
 		link: "/projects/zavod-izmeron",
 	},
 	{
-		image: [
-			"/img/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp",
-			0,
-			-175,
-			0,
-			0,
-		],
+		image: spguImage,
+		offsets: [0, -175],
+		size: [0, 0],
 		description: {
 			title: "2022-2023",
 			headline: "Общежитие спгу (горный университет) ",
@@ -34,13 +39,9 @@ const images = [
 		link: "/projects/obshchezhitie-spgu-(gornyi-universitet)",
 	},
 	{
-		image: [
-			"/img/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp",
-			0,
-			-200,
-			0,
-			0,
-		],
+		image: mtsImage,
+		offsets: [0, -200],
+		size: [0, 0],
 		description: {
 			title: "2017-2019",
 			headline: "ЦОД МТС",
@@ -51,6 +52,20 @@ const images = [
 	},
 ];
 
+const optimizedImages = await Promise.all(
+    rawImagesData.map(async (imgData) => {
+        const optimized = await getImage({
+            src: imgData.image,
+            width: imgData.size[0],
+            format: 'webp',
+        });
+        return {
+            ...imgData,
+            src: optimized.src,
+        };
+    })
+);
+
 const yearFilter = (x) => {
 	let currentYear = new Date().getFullYear();
 	return Number(x.year[x.year.length - 1].slice(-4)) >= currentYear - 1;
@@ -59,7 +74,7 @@ const yearFilter = (x) => {
 
 <BaseLayout pageTitle={pageTitle} pageID={pageID}>
 	<div class="cover">
-		<Carousel client:load images={images} />
+		<Carousel client:load images={optimizedImages} />
 	</div>
 	<div class="about">
 		<p class="title1">Выполнен широкий спектр работ</p>

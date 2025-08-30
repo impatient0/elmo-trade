@@ -5,16 +5,32 @@ import MultiGallery from "../components/MultiGallery";
 import ProjectCarousel from "../components/ProjectCarousel";
 import Projects from "../components/Projects.astro";
 
+import { getImage } from "astro:assets";
+
 const serviceFilter = (p) => {
 	return p.services?.includes(frontmatter.pageID);
 };
 
 const { frontmatter } = Astro.props;
+
+const optimizedImages = await Promise.all(
+    frontmatter.carousel.images.map(async (imgData) => {
+        const optimized = await getImage({
+            src: imgData.image,
+            width: imgData.width,
+            format: 'webp',
+        });
+        return {
+            ...imgData,
+            src: optimized.src,
+        };
+    })
+);
 ---
 
 <BaseLayout pageTitle={frontmatter.title} pageID={frontmatter.pageID}>
 	<div class="cover">
-		<Carousel client:load images={frontmatter.carousel.images} />
+		<Carousel client:load images={optimizedImages} />
 	</div>
 	<div class="about gallery-section-title" id="gallery-section_0">
 		<p class="title1">{frontmatter.about.header}</p>
