@@ -95,41 +95,43 @@ export default function MultiGallery({ sections, shifts }) {
 
     return (
         <div class="multi-gallery">
-            <div class="dimmer" style={isFull.some((x) => x) ? "display: block; pointer-events: all;" : ""} onClick={closeFull}/>
+            <div class="dimmer" style={isFull.some((x) => x) ? "display: block; pointer-events: all;" : ""} onClick={closeFull} />
             {sections.map((section, section_index) => (
-                <div class={"gallery-section " + (isExpanded[section_index] ? "expanded " : "") + ((interacted || sections.length == 1) ? "expandable" : "")} id={"section_" + (section_index)}>
-                    <div class="gallery-tile" onClick={() => toggleExpanded(section_index)}>
-                        <p class="division">{section.title}</p>
-                        <div class="expand-btn" />
-                    </div>
-                    <div class="section-container">
-                        <div class="gallery-container">
-                            {section.images.map((image, slide_index) => (
-                                image.type === 'image' ?
-                                    <img src={image.src} class={"section-image " + getClass(slide_index, activeSlide[section_index], section.images.length)} style={"margin-top: " + getShift(shifts, section_index, slide_index) + "pt;" + (slide_index == activeSlide[section_index] ? " cursor: pointer;" : "")} onClick={() => toggleFull(section_index)} />
-                                    :
-                                    <video controls controlsList="nodownload" autoplay muted loop class={"section-video " + getClass(slide_index, activeSlide[section_index], section.images.length)}>
-                                        <source src={image.src} />
-                                    </video>
-                            ))}
-                            <div class="next-btn" onClick={() => nextSlide(section_index)} />
-                            <div class="prev-btn" onClick={() => prevSlide(section_index)} />
+                (section.images && section.images.length > 0) && (
+                    <div class={"gallery-section " + (isExpanded[section_index] ? "expanded " : "") + ((interacted || sections.length == 1) ? "expandable" : "")} id={"section_" + (section_index)}>
+                        <div class="gallery-tile" onClick={() => toggleExpanded(section_index)}>
+                            <p class="division">{section.title}</p>
+                            <div class="expand-btn" />
                         </div>
-                        <div class="gallery-navigation">
-                            {section.images.map((image, slide_index) => (
-                                <div class="navigation-square" style={slide_index == activeSlide[section_index] ? "background-color: #0D7EE1" : ""} onClick={() => setSlide(section_index, slide_index)} />
-                            ))}
+                        <div class="section-container">
+                            <div class="gallery-container">
+                                {section.images.map((image, slide_index) => (
+                                    image.type === 'image' ?
+                                        <img src={image.src} class={"section-image " + getClass(slide_index, activeSlide[section_index], section.images.length)} style={"margin-top: " + getShift(shifts, section_index, slide_index) + "pt;" + (slide_index == activeSlide[section_index] ? " cursor: pointer;" : "")} onClick={() => toggleFull(section_index)} />
+                                        :
+                                        <video controls controlsList="nodownload" autoplay muted loop class={"section-video " + getClass(slide_index, activeSlide[section_index], section.images.length)}>
+                                            <source src={image.src} />
+                                        </video>
+                                ))}
+                                <div class="next-btn" onClick={() => nextSlide(section_index)} />
+                                <div class="prev-btn" onClick={() => prevSlide(section_index)} />
+                            </div>
+                            <div class="gallery-navigation">
+                                {section.images.map((image, slide_index) => (
+                                    <div class="navigation-square" style={slide_index == activeSlide[section_index] ? "background-color: #0D7EE1" : ""} onClick={() => setSlide(section_index, slide_index)} />
+                                ))}
+                            </div>
                         </div>
+                        <div class="divider" />
+                        {section.images[activeSlide[section_index]].type === 'image' &&
+                            <img
+                                src={section.images[activeSlide[section_index]].src}
+                                class="section-image-full"
+                                style={isFull[section_index] ? "opacity: 100%" : ""}
+                            />
+                        }
                     </div>
-                    <div class="divider"/>
-                    {section.images[activeSlide[section_index]].type === 'image' &&
-                        <img 
-                            src={section.images[activeSlide[section_index]].src} 
-                            class="section-image-full" 
-                            style={isFull[section_index] ? "opacity: 100%" : ""}
-                        />
-                    }
-                </div>
+                )
             ))}
         </div>
     )
