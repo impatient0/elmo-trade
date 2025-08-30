@@ -14,14 +14,14 @@ function getClass(slide_index, active_slide, length) {
 
 function getShift(shifts, section_index, slide_index) {
     if (shifts == null) {
-        console.log("shifts is null");
+        // console.log("shifts is null");
         return 0;
     }
     if (!((section_index + "_" + slide_index) in shifts)) {
-        console.log("shifts has no " + (section_index + "_" + slide_index));
+        // console.log("shifts has no " + (section_index + "_" + slide_index));
         return 0;
     }
-    console.log("shifts for " + (section_index + "_" + slide_index) + " is " + shifts[(section_index + "_" + slide_index)]);
+    // console.log("shifts for " + (section_index + "_" + slide_index) + " is " + shifts[(section_index + "_" + slide_index)]);
     return shifts[(section_index + "_" + slide_index)];
 }
 

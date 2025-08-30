@@ -25,7 +25,6 @@ function getSlideState(year, yearList, yearActive, allActive) {
     }
     let years = convertIntervals(year);
     for (let i = 0; i < yearList.length; i++) {
-        console.log(yearActive[i] + ' ' + yearList[i] + ' ' + years + ' ' + (years.includes(yearList[i])));
         if (yearActive[i] && ((years.includes(yearList[i])) || (i == yearList.length - 1 & years[0] < yearList[i]))) {
             return true;
         }
