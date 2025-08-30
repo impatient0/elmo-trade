@@ -3,19 +3,20 @@ import { glob } from 'astro/loaders';
 
 const projectsCollection = defineCollection({
   loader: glob({ pattern: "**/*.md", base: "./src/content/projects" }),
-  schema: z.object({
+  schema: ({ image }) => z.object({
     layout: z.string(),
     title: z.string(),
     pageID: z.string(),
     services: z.array(z.string()),
     info: z.object({
-      cover_image: z.tuple([z.string(), z.number(), z.number(), z.number(), z.number()]),
-      slide_image: z.tuple([z.string(), z.number(), z.number(), z.number(), z.number()]),
+      cover_image: image(),
+      cover_image_offsets: z.array(z.number()).optional(),
+      slide_image: image(),
+      slide_image_offsets: z.array(z.number()).optional(),
       year: z.array(z.string()),
       address: z.string(),
       description: z.string(),
     }),
-
     sections: z.array(z.object({
         about: z.object({
             header: z.string(),
@@ -23,20 +24,10 @@ const projectsCollection = defineCollection({
         }),
         multi_gallery: z.array(z.object({
             title: z.string(),
-            images: z.array(z.string()),
+            images: z.array(z.string()), 
         })),
         shifts: z.record(z.string(), z.number()).optional(),
-    })).optional(),
-
-    about: z.object({
-        header: z.string(),
-        body: z.string(),
-    }).optional(),
-
-    multi_gallery: z.array(z.object({
-        title: z.string(),
-        images: z.array(z.string()),
-    })).optional(),
+    })),
   }),
 });
 

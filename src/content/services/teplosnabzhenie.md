@@ -22,6 +22,15 @@ about: {
     body: "Наша организация предлагает широкий спектр услуг, связанных с электромонтажом и электрификацией, одна из них - электромонтажные работы промышленных предприятий. Данный комплекс услуг включает в себя: подготовку проекта энергоснабжения; реставрацию существующей или монтаж новой системы; монтаж оборудования; комплекс работ по отладке и запуску необходимого оборудования."
 }
 multi_gallery: [
-    { title: "Теплоснабжение", images: ["/img/services/teplosnabzhenie/01.webp", "/img/services/teplosnabzhenie/02.webp", "/img/services/teplosnabzhenie/03.webp", "/img/services/teplosnabzhenie/04.webp", "/img/services/teplosnabzhenie/05.webp", "/img/services/teplosnabzhenie/06.webp", "/img/services/teplosnabzhenie/07.webp", "/img/services/teplosnabzhenie/08.webp", ] },
+    { title: "Теплоснабжение", images: [
+        "../../assets/images/services/teplosnabzhenie/01.webp",
+        "../../assets/images/services/teplosnabzhenie/02.webp",
+        "../../assets/images/services/teplosnabzhenie/03.webp",
+        "../../assets/images/services/teplosnabzhenie/04.webp",
+        "../../assets/images/services/teplosnabzhenie/05.webp",
+        "../../assets/images/services/teplosnabzhenie/06.webp",
+        "../../assets/images/services/teplosnabzhenie/07.webp",
+        "../../assets/images/services/teplosnabzhenie/08.webp",
+    ] },
 ]
 ---

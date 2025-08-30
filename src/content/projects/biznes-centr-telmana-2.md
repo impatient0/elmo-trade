@@ -1,22 +1,49 @@
 ---
-layout: ../../layouts/MarkdownProjectLayout.astro
+layout: ../../layouts/MarkdownProjectMLayout.astro
 title: "БИЗНЕС-ЦЕНТР “ТЕЛЬМАНА 2”"
 pageID: "ofisno-delovoi-tsentr-na-ulitse-telmana"
 services: ["elektromontazhnye-raboty", "teplosnabzhenie", ]
 info: {
-    cover_image: ["/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/ofisno-delovoi-tsentr-na-ulitse-telmana.webp", 0, -200, 0, 0],
-    slide_image: ["/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/ofisno-delovoi-tsentr-na-ulitse-telmana.webp", 0, -50, 0, 0],
+    cover_image: "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/ofisno-delovoi-tsentr-na-ulitse-telmana.webp",
+    cover_image_offsets: [0, -200, 0, 0],
+    slide_image: "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/ofisno-delovoi-tsentr-na-ulitse-telmana.webp",
+    slide_image_offsets: [0, -50, 0, 0],
     year: ["2019"],
     address: "г. Санкт-Петербург, Невский район, ул. Тельмана, 2",
     description: "Монтаж инженерных систем: внутреннее электроснабжение и электросвещение, ИТП и системы отопления, наружное освещение.  Прокладка кабельной линии 0,4 кВ.",
 }
-about: {
-    header: "Выполнен широкий спектр работ",
-    body: "Полный комплекс работ по системе внутреннего электроосвещения и силового оборудования, строительно-монтажные работы внутренних сетей отопления и теплоснабжения, строительно-монтажные работы наружных сетей электроснабжения и освещения на объекте «Офисно-деловой центр» по адресу г. Санкт-Петербург, Невский район, ул. Тельмана, участок 3 северо-восточнее пересечения с Октябрьской набережной»."
-}
-multi_gallery: [
-    { title: "ГРЩ", images: ["/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/grshch/grshch01_resized.webp", ] },
-    { title: "Прокладка кабельной линии", images: ["/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/prokladka-kabelnoi-linii/prokladka-kabelnoi-linii01_resized.webp", "/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/prokladka-kabelnoi-linii/prokladka-kabelnoi-linii02_resized.webp", "/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/prokladka-kabelnoi-linii/prokladka-kabelnoi-linii03_resized.webp", "/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/prokladka-kabelnoi-linii/prokladka-kabelnoi-linii04_resized.webp", "/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/prokladka-kabelnoi-linii/prokladka-kabelnoi-linii05_resized.webp", "/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/prokladka-kabelnoi-linii/prokladka-kabelnoi-linii06_resized.webp", ] },
-    { title: "Теплоснабжение", images: ["/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie01_resized.webp", "/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie02_resized.webp", "/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie03_resized.webp", "/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie04_resized.webp", "/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie05_resized.webp", "/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie06_resized.webp", "/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie07_resized.webp", "/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie08_resized.webp", "/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie09_resized.webp", "/img/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie10_resized.webp", ] },
+sections: [
+    {
+        about: {
+            header: "Выполнен широкий спектр работ",
+            body: "Полный комплекс работ по системе внутреннего электроосвещения и силового оборудования, строительно-монтажные работы внутренних сетей отопления и теплоснабжения, строительно-монтажные работы наружных сетей электроснабжения и освещения на объекте «Офисно-деловой центр» по адресу г. Санкт-Петербург, Невский район, ул. Тельмана, участок 3 северо-восточнее пересечения с Октябрьской набережной»."
+        },
+        multi_gallery: [
+            { title: "ГРЩ", images: [
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/grshch/grshch01_resized.webp",
+            ] },
+            { title: "Прокладка кабельной линии", images: [
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/prokladka-kabelnoi-linii/prokladka-kabelnoi-linii01_resized.webp",
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/prokladka-kabelnoi-linii/prokladka-kabelnoi-linii02_resized.webp",
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/prokladka-kabelnoi-linii/prokladka-kabelnoi-linii03_resized.webp",
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/prokladka-kabelnoi-linii/prokladka-kabelnoi-linii04_resized.webp",
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/prokladka-kabelnoi-linii/prokladka-kabelnoi-linii05_resized.webp",
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/prokladka-kabelnoi-linii/prokladka-kabelnoi-linii06_resized.webp",
+            ] },
+            { title: "Теплоснабжение", images: [
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie01_resized.webp",
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie02_resized.webp",
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie03_resized.webp",
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie04_resized.webp",
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie05_resized.webp",
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie06_resized.webp",
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie07_resized.webp",
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie08_resized.webp",
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie09_resized.webp",
+                "../../assets/images/projects/ofisno-delovoi-tsentr-na-ulitse-telmana/teplosnabzhenie/teplosnabzhenie10_resized.webp",
+            ] },
+        ],
+    },
 ]
+
 ---

@@ -22,6 +22,17 @@ about: {
     body: "Наша организация предлагает широкий спектр услуг, связанных с электромонтажом и электрификацией, одна из них - электромонтажные работы промышленных предприятий. Данный комплекс услуг включает в себя: подготовку проекта энергоснабжения; реставрацию существующей или монтаж новой системы; монтаж оборудования; комплекс работ по отладке и запуску необходимого оборудования."
 }
 multi_gallery: [
-    { title: "Системы вентиляции и кондиционирования", images: ["/img/services/sistemy-ventilyacii/01.webp", "/img/services/sistemy-ventilyacii/02.webp", "/img/services/sistemy-ventilyacii/03.webp", "/img/services/sistemy-ventilyacii/04.webp", "/img/services/sistemy-ventilyacii/05.webp", "/img/services/sistemy-ventilyacii/06.webp", "/img/services/sistemy-ventilyacii/07.webp", "/img/services/sistemy-ventilyacii/08.webp", "/img/services/sistemy-ventilyacii/09.webp", "/img/services/sistemy-ventilyacii/10.webp", ] },
+    { title: "Системы вентиляции и кондиционирования", images: [
+        "../../assets/images/services/sistemy-ventilyacii/01.webp",
+        "../../assets/images/services/sistemy-ventilyacii/02.webp",
+        "../../assets/images/services/sistemy-ventilyacii/03.webp",
+        "../../assets/images/services/sistemy-ventilyacii/04.webp",
+        "../../assets/images/services/sistemy-ventilyacii/05.webp",
+        "../../assets/images/services/sistemy-ventilyacii/06.webp",
+        "../../assets/images/services/sistemy-ventilyacii/07.webp",
+        "../../assets/images/services/sistemy-ventilyacii/08.webp",
+        "../../assets/images/services/sistemy-ventilyacii/09.webp",
+        "../../assets/images/services/sistemy-ventilyacii/10.webp",
+    ] },
 ]
 ---

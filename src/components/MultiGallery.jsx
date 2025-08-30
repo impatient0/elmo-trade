@@ -27,7 +27,7 @@ function getShift(shifts, section_index, slide_index) {
 
 export default function MultiGallery({ sections, shifts }) {
 
-    const [isExpaneded, setIsExpanded] = useState(sections.length ? sections.map((_, i) => i === 0 ? true : false) : []);
+    const [isExpanded, setIsExpanded] = useState(sections.length ? sections.map((_, i) => i === 0 ? true : false) : []);
 
     const [activeSlide, setActiveSlide] = useState(new Array(sections.length).fill(0));
 
@@ -60,15 +60,17 @@ export default function MultiGallery({ sections, shifts }) {
     }
 
     const toggleExpanded = (section_index) => {
+        if (!interacted) {
+            setInteracted(true);
+        }
         setIsExpanded((prevState) => {
-            const newState = prevState.slice();
-            if (!interacted) {
+            const newState = [...prevState];
+            newState[section_index] = !newState[section_index];
+            if (!interacted && section_index !== 0) {
                 newState[0] = false;
             }
-            newState[section_index] = !newState[section_index];
             return newState;
         });
-        setInteracted(true);
     }
 
     const toggleFull = (section_index) => {
@@ -95,17 +97,19 @@ export default function MultiGallery({ sections, shifts }) {
         <div class="multi-gallery">
             <div class="dimmer" style={isFull.some((x) => x) ? "display: block; pointer-events: all;" : ""} onClick={closeFull}/>
             {sections.map((section, section_index) => (
-                <div class={"gallery-section " + (isExpaneded[section_index] ? "expanded " : "") + ((interacted || sections.length == 1) ? "expandable" : "")} id={"section_" + (section_index)}>
-                    <div class="gallery-tile" /*style={(sections.length == 1 ? "display: none" : "")}*/ onClick={() => toggleExpanded(section_index)}>
+                <div class={"gallery-section " + (isExpanded[section_index] ? "expanded " : "") + ((interacted || sections.length == 1) ? "expandable" : "")} id={"section_" + (section_index)}>
+                    <div class="gallery-tile" onClick={() => toggleExpanded(section_index)}>
                         <p class="division">{section.title}</p>
                         <div class="expand-btn" />
                     </div>
                     <div class="section-container">
                         <div class="gallery-container">
                             {section.images.map((image, slide_index) => (
-                                image.endsWith("webp") ?
-                                    <img src={image} class={"section-image " + getClass(slide_index, activeSlide[section_index], section.images.length)} style={"margin-top: " + getShift(shifts, section_index, slide_index) + "pt;" + (slide_index == activeSlide[section_index] ? " cursor: pointer;" : "")} onClick={() => toggleFull(section_index)} /> : <video controls controlsList="nodownload" autoplay muted loop class={"section-video " + getClass(slide_index, activeSlide[section_index], section.images.length)}>
-                                        <source src={image} />
+                                image.type === 'image' ?
+                                    <img src={image.src} class={"section-image " + getClass(slide_index, activeSlide[section_index], section.images.length)} style={"margin-top: " + getShift(shifts, section_index, slide_index) + "pt;" + (slide_index == activeSlide[section_index] ? " cursor: pointer;" : "")} onClick={() => toggleFull(section_index)} />
+                                    :
+                                    <video controls controlsList="nodownload" autoplay muted loop class={"section-video " + getClass(slide_index, activeSlide[section_index], section.images.length)}>
+                                        <source src={image.src} />
                                     </video>
                             ))}
                             <div class="next-btn" onClick={() => nextSlide(section_index)} />
@@ -117,8 +121,14 @@ export default function MultiGallery({ sections, shifts }) {
                             ))}
                         </div>
                     </div>
-                    <div class="divider" /*style={(section_index == 0 ? "display:none" : "")}*/ />
-                    <img src={section.images[activeSlide[section_index]]} class="section-image-full" style={isFull[section_index] ? "opacity: 100%" : ""}/>
+                    <div class="divider"/>
+                    {section.images[activeSlide[section_index]].type === 'image' &&
+                        <img 
+                            src={section.images[activeSlide[section_index]].src} 
+                            class="section-image-full" 
+                            style={isFull[section_index] ? "opacity: 100%" : ""}
+                        />
+                    }
                 </div>
             ))}
         </div>

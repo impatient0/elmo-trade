@@ -42,7 +42,6 @@ export default function LettersGallery({ letters }) {
                             <p class="title1">{letter.signature}</p>
                         </div>
                         <img src={letter.image} class="letter-image"/>
-                        {/* <iframe src={letter.pdf} height="500px"/> */}
                     </div>
                 ))}
             </div>

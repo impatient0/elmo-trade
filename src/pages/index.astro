@@ -61,7 +61,7 @@ const optimizedImages = await Promise.all(
         });
         return {
             ...imgData,
-            src: optimized.src,
+            optimizedSrc: optimized.src,
         };
     })
 );

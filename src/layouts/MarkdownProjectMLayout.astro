@@ -1,9 +1,68 @@
 ---
+import { getImage } from 'astro:assets';
 import BaseLayout from "./BaseLayout.astro";
 import Carousel from "../components/Carousel";
 import MultiGallery from "../components/MultiGallery";
 import Projects from "../components/Projects.astro";
+
+const allGalleryImages = import.meta.glob('/src/assets/images/projects/**/*.{webp,jpg,jpeg,png,gif,svg,avif}');
+
 const { frontmatter } = Astro.props;
+
+const optimizedTopImage = await getImage({
+    src: frontmatter.info.cover_image,
+    width: 1920,
+    format: 'webp',
+});
+
+const optimizedCarouselImages = [
+    {
+        optimizedSrc: optimizedTopImage.src,
+        offsets: frontmatter.info.cover_image_offsets || [0, 0],
+        size: [0, 0],
+        description: {
+            title: frontmatter.info.year[0] == "0" ? "Выполнено" : frontmatter.info.year.join(" "),
+            headline: frontmatter.title,
+            subbody: frontmatter.info.address,
+            body: frontmatter.info.description,
+        },
+    },
+];
+
+const optimizedSections = await Promise.all(
+    frontmatter.sections.map(async (section) => {
+        const optimizedGalleries = await Promise.all(
+            section.multi_gallery.map(async (gallery) => {
+                const optimizedImages = await Promise.all(
+                    gallery.images.map(async (imagePath) => {
+                        if (!/\.(webp|jpg|jpeg|png|gif|svg|avif)$/.test(imagePath)) {
+                            return { src: imagePath, type: 'video' };
+                        }
+                        
+                        const globKey = `${imagePath.replace('../..', '/src')}`;
+
+                        if (allGalleryImages[globKey]) {
+                            try {
+                                const imageModule = await allGalleryImages[globKey]();
+                                const optimized = await getImage({ src: (imageModule as Record<string, any>).default, width: 1200, format: 'webp' });
+								
+                                return { src: optimized.src, type: 'image' };
+                            } catch (e) {
+                                console.error(`Failed to process image from glob: ${globKey}`, e);
+                                return { src: imagePath, type: 'error' };
+                            }
+                        } else {
+                            console.warn(`Image not found in glob: ${globKey}`);
+                            return { src: imagePath, type: 'error' };
+                        }
+                    })
+                );
+                return { ...gallery, images: optimizedImages };
+            })
+        );
+        return { ...section, multi_gallery: optimizedGalleries };
+    })
+);
 
 const servicesFilter = (p) => {
 	return frontmatter.title != p.title && frontmatter.services.some(s => p.services.includes(s));
@@ -12,22 +71,9 @@ const servicesFilter = (p) => {
 
 <BaseLayout pageTitle={frontmatter.title} pageID={frontmatter.pageID}>
 	<div class="cover">
-		<Carousel
-			client:load
-			images={[
-				{
-					image: frontmatter.info.cover_image,
-					description: {
-						title: frontmatter.info.year[0] == "0" ? "Выполнено" : frontmatter.info.year.join(" "),
-						headline: frontmatter.title,
-						subbody: frontmatter.info.address,
-						body: frontmatter.info.description,
-					},
-				},
-			]}
-		/>
+		<Carousel client:load images={optimizedCarouselImages} />
 	</div>
-	{frontmatter.sections.map((section, index) => (
+	{optimizedSections.map((section, index) => (
 		<div class="about gallery-section-title" id={"gallery-section_"+index}>
 			<p class="title1">{section.about.header}</p>
 			<p class="body1">{section.about.body}</p>

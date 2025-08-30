@@ -54,10 +54,10 @@ const optimizedCarouselImages = await Promise.all(
     rawCarouselData.map(async (imgData) => {
         const optimized = await getImage({
             src: imgData.image,
-            width: 1920,
+            width: imgData.size[0],
             format: 'webp',
         });
-        return { ...imgData, src: optimized.src };
+        return { ...imgData, optimizedSrc: optimized.src };
     })
 );
 
@@ -74,14 +74,26 @@ const compareYears = (a, b) => {
 
 const allProjects = await getCollection('projects');
 
-const slides = allProjects.map((project) => ({
-    image: project.data.info.slide_image, 
-    year: project.data.info.year, 
-    title: project.data.title,
-    link: `/projects/${project.id}`, 
-    address: project.data.info.address, 
-    info: project.data.info.description, 
-}));
+const slides = await Promise.all(
+    allProjects.map(async (project) => {
+        const optimized = await getImage({
+            src: project.data.info.slide_image as ImageMetadata,
+			width: project.data.info.slide_image.width,
+			format: 'webp'
+        });
+
+        return {
+            year: project.data.info.year, 
+            title: project.data.title,
+            link: `/projects/${project.id}`, 
+            address: project.data.info.address, 
+            info: project.data.info.description,
+            optimizedSrc: optimized.src,
+            offsets: project.data.info.slide_image_offsets || [0, 0],
+        };
+    })
+);
+
 slides.sort(compareYears);
 ---
 
