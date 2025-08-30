@@ -4,9 +4,9 @@ title: "Складской комплекс В ГАТЧИНСКОМ Районе
 pageID: "skladskoi-kompleks"
 services: ["elektromontazhnye-raboty", ]
 info: {
-    cover_image: "../../assets/images/projects/skladskoi-kompleks/03_resized.webp",
+    cover_image: "../../assets/images/projects/skladskoi-kompleks/03.webp",
     cover_image_offsets: [0, -150, 0, 0],
-    slide_image: "../../assets/images/projects/skladskoi-kompleks/03_resized.webp",
+    slide_image: "../../assets/images/projects/skladskoi-kompleks/03.webp",
     slide_image_offsets: [0, -50, 0, 0],
     year: ["2022"],
     address: "Санкт-Петербург, Гатчинский р-н",
@@ -20,9 +20,9 @@ sections: [
         },
         multi_gallery: [
             { title: "ЭОМ", images: [
-                "../../assets/images/projects/skladskoi-kompleks/01_resized.webp",
-                "../../assets/images/projects/skladskoi-kompleks/02_resized.webp",
-                "../../assets/images/projects/skladskoi-kompleks/05_resized.webp",
+                "../../assets/images/projects/skladskoi-kompleks/01.webp",
+                "../../assets/images/projects/skladskoi-kompleks/02.webp",
+                "../../assets/images/projects/skladskoi-kompleks/05.webp",
             ] },
         ],
     },

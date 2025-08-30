@@ -20,9 +20,9 @@ sections: [
         },
         multi_gallery: [
             { title: "БКРТП", images: [
-                "../../assets/images/projects/gazprom/01_resized.webp",
-                "../../assets/images/projects/gazprom/02_resized.webp",
-                "../../assets/images/projects/gazprom/03_resized.webp",
+                "../../assets/images/projects/gazprom/01.webp",
+                "../../assets/images/projects/gazprom/02.webp",
+                "../../assets/images/projects/gazprom/03.webp",
             ] },
         ],
     },

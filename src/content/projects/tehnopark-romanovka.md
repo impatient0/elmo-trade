@@ -4,9 +4,9 @@ title: "ТЕХНОПАРК “РОМАНОВКА”"
 pageID: "romanovka"
 services: ["elektromontazhnye-raboty", ]
 info: {
-    cover_image: "../../assets/images/projects/romanovka/08_resized.webp",
+    cover_image: "../../assets/images/projects/romanovka/08.webp",
     cover_image_offsets: [0, -550, 0, 0],
-    slide_image: "../../assets/images/projects/romanovka/08_resized.webp",
+    slide_image: "../../assets/images/projects/romanovka/08.webp",
     slide_image_offsets: [0, -200, 600, 780],
     year: ["2021"],
     address: "Ленинградская область, Веревское сельское поселение пос. Романовка.",
@@ -22,14 +22,14 @@ sections: [
             {
                 title: "ЭОМ",
                 images: [
-                    "../../assets/images/projects/romanovka/01_resized.webp",
-                    "../../assets/images/projects/romanovka/02_resized.webp",
-                    "../../assets/images/projects/romanovka/03_resized.webp",
-                    "../../assets/images/projects/romanovka/04_resized.webp",
-                    "../../assets/images/projects/romanovka/06_resized.webp",
-                    "../../assets/images/projects/romanovka/07_resized.webp",
-                    "../../assets/images/projects/romanovka/09_resized.webp",
-                    "../../assets/images/projects/romanovka/10_resized.webp",
+                    "../../assets/images/projects/romanovka/01.webp",
+                    "../../assets/images/projects/romanovka/02.webp",
+                    "../../assets/images/projects/romanovka/03.webp",
+                    "../../assets/images/projects/romanovka/04.webp",
+                    "../../assets/images/projects/romanovka/06.webp",
+                    "../../assets/images/projects/romanovka/07.webp",
+                    "../../assets/images/projects/romanovka/09.webp",
+                    "../../assets/images/projects/romanovka/10.webp",
                     "../videos/projects/romanovka/05.MOV",
                 ]
             },

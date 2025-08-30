@@ -20,11 +20,11 @@ sections: [
         },
         multi_gallery: [
             { title: "ЭОМ", images: [
-                "../../assets/images/projects/detskij-sad-ruchi/01_resized.webp",
-                "../../assets/images/projects/detskij-sad-ruchi/02_resized.webp",
-                "../../assets/images/projects/detskij-sad-ruchi/03_resized.webp",
-                "../../assets/images/projects/detskij-sad-ruchi/04_resized.webp",
-                "../../assets/images/projects/detskij-sad-ruchi/05_resized.webp",
+                "../../assets/images/projects/detskij-sad-ruchi/01.webp",
+                "../../assets/images/projects/detskij-sad-ruchi/02.webp",
+                "../../assets/images/projects/detskij-sad-ruchi/03.webp",
+                "../../assets/images/projects/detskij-sad-ruchi/04.webp",
+                "../../assets/images/projects/detskij-sad-ruchi/05.webp",
             ] },
         ],
         shifts: {"0_2": -150, "0_4": -300, }

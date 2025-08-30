@@ -20,9 +20,9 @@ sections: [
         },
         multi_gallery: [
             { title: "ЭОМ", images: [
-                "../../assets/images/projects/pnk-imeni-kirova/01_resized.webp",
-                "../../assets/images/projects/pnk-imeni-kirova/02_resized.webp",
-                "../../assets/images/projects/pnk-imeni-kirova/03_resized.webp",
+                "../../assets/images/projects/pnk-imeni-kirova/01.webp",
+                "../../assets/images/projects/pnk-imeni-kirova/02.webp",
+                "../../assets/images/projects/pnk-imeni-kirova/03.webp",
             ] },
         ],
     },

@@ -20,10 +20,10 @@ sections: [
         },
         multi_gallery: [
             { title: "ЭОМ", images: [
-                "../../assets/images/projects/zhk-na-ul.-grota/todo-zhk-na-ul.-grota/todo-zhk-na-ul.-grota01_resized.webp",
-                "../../assets/images/projects/zhk-na-ul.-grota/todo-zhk-na-ul.-grota/todo-zhk-na-ul.-grota02_resized.webp",
-                "../../assets/images/projects/zhk-na-ul.-grota/todo-zhk-na-ul.-grota/todo-zhk-na-ul.-grota03_resized.webp",
-                "../../assets/images/projects/zhk-na-ul.-grota/todo-zhk-na-ul.-grota/todo-zhk-na-ul.-grota04_resized.webp",
+                "../../assets/images/projects/zhk-na-ul.-grota/todo-zhk-na-ul.-grota/todo-zhk-na-ul.-grota01.webp",
+                "../../assets/images/projects/zhk-na-ul.-grota/todo-zhk-na-ul.-grota/todo-zhk-na-ul.-grota02.webp",
+                "../../assets/images/projects/zhk-na-ul.-grota/todo-zhk-na-ul.-grota/todo-zhk-na-ul.-grota03.webp",
+                "../../assets/images/projects/zhk-na-ul.-grota/todo-zhk-na-ul.-grota/todo-zhk-na-ul.-grota04.webp",
             ] },
         ],
     },
