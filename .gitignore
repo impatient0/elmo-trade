@@ -26,3 +26,6 @@ pnpm-debug.log*
 # videos
 .mov
 .mp4
+
+# Local Netlify folder
+.netlify
