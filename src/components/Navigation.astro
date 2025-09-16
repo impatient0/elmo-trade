@@ -67,7 +67,7 @@ const menu = [
     <div class="mobile-nav-links">
         {
             menu.map((item) => (
-                <a href={`#${item.btnLink}`} class="mobile-nav-item">
+                <a href={`${item.btnLink}`} class="mobile-nav-item">
                     {item.btnText}
                     <div class="arrow" />
                 </a>
@@ -88,6 +88,9 @@ const menu = [
 
         if (burger && mobileMenu) {
             burger.addEventListener('click', () => {
+                document.body.classList.toggle('menu-open');
+            });
+            mobileMenu.addEventListener('click', () => {
                 document.body.classList.toggle('menu-open');
             });
         }
