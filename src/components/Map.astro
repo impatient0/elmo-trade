@@ -1,47 +1,11 @@
 ---
 const { width, height } = Astro.props;
 import "../styles/map.css";
-const info = [
-    {
-        label: "Наш телефон",
-        text: ["+7 (812) 370-14-10", "+7 (812) 370-22-61"],
-        icon: { path: "/icons/phone-solid.svg", width: 21, height: 28 },
-    },
-    {
-        label: "Email",
-        text: ["elmotreid@mail.ru"],
-        icon: { path: "/icons/envelope-solid.svg", width: 21, height: 21 },
-    },
-    {
-        label: "Офис",
-        text: ["Ленинский пр., 168, оф. 331"],
-        icon: { path: "/icons/location-dot-solid.svg", width: 21, height: 28 },
-    },
-];
+import ContactInfo from "./ContactInfo.astro";
 ---
 
 <div class="map">
-    <div class="contact-info-banner">
-        {
-            info.map((info) => (
-                <div class="contact-info-line">
-                    <img
-                        class="icon"
-                        src={info.icon.path}
-                        alt="Icon"
-                        width={info.icon.width}
-                        height={info.icon.height}
-                    />
-                    <div>
-                        <p class="title2">{info.label}</p>
-                        {info.text.map((text) => (
-                            <p class="contact-info-text">{text}</p>
-                        ))}
-                    </div>
-                </div>
-            ))
-        }
-    </div>
+    <ContactInfo />
     <script
         type="text/javascript"
         charset="utf-8"

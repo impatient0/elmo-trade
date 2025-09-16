@@ -4,19 +4,146 @@ import Navigation from "./Navigation.astro";
 
 <header>
     <nav>
-        <div class="elmo" onclick="window.location.href='/';">
-            <img src="/img/logo.svg" class="logo" />
+        <a href="/" class="elmo">
+            <img src="/img/logo.svg" class="logo" alt="Элмо Трейд Лого" />
             <div class="vertical-line"></div>
             <div>
                 <p>научно</p>
                 <p>производственное</p>
                 <p>предприятие</p>
             </div>
-        </div>
+        </a>
         <Navigation />
         <div class="nav-contact">
-            <p><b>+7 (812) 370 22 61</b></p>
+            <p><strong>+7 (812) 370 22 61</strong></p>
             <p>elmotreid@mail.ru</p>
+        </div>
+        <div class="burger-menu" aria-label="Open menu" id="burger-menu">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
     </nav>
 </header>
+
+<style>
+    header {
+        z-index: 20;
+    }
+
+    nav {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 120px;
+        margin: 0 8.5%;
+    }
+
+    .elmo {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+    .elmo p {
+        margin: 0;
+        color: #5E5E5E;
+        font-size: 12px;
+        font-weight: 500;
+        text-transform: uppercase;
+    }
+
+    .vertical-line {
+        width: 1px;
+        height: 68px;
+        background-color: #5E5E5E;
+        margin: 0 19px;
+    }
+
+    .nav-contact {
+        text-align: right;
+    }
+
+    .nav-contact p {
+        color: #0095E0;
+        font-style: italic;
+        font-size: 16px;
+        font-weight: 300;
+        margin: 0;
+    }
+
+    .nav-contact strong {
+        color: #259DDA;
+        font-size: 20px;
+        font-weight: 500;
+        font-style: normal; /* Reset italic from parent */
+    }
+
+    .burger-menu {
+        display: none; /* Hidden by default */
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: space-around;
+        width: 2rem;
+        height: 2rem;
+        padding: 0;
+    }
+
+    .burger-menu span {
+        width: 2rem;
+        height: 1px;
+        background: var(--color-text-secondary);
+        border-radius: 10px;
+        transition: all 0.3s ease-in-out;
+        position: relative;
+        transform-origin: 1px;
+    }
+
+    /* --- MOBILE STYLES --- */
+    @media (max-width: 768px) {
+        header {            
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        nav {
+            height: 56px; /* New mobile height */
+            margin: 0 22px; /* Reduced side margins */
+            overflow: hidden;
+        }
+
+        .elmo .logo {
+            height: 83px; /* Adjust logo size */
+        }
+
+        .elmo .vertical-line {
+            height: 37px;
+            margin: 0 11px;
+        }
+
+        .elmo p {
+            font-size: 9px; /* New mobile font size */
+        }
+
+        .nav-contact {
+            display: none; /* Hide desktop contacts */
+        }
+
+        .burger-menu {
+            display: flex; /* Show the burger on mobile */
+        }
+    }
+    
+    /* Optional: Animate the burger icon into an 'X' */
+    body.menu-open .burger-menu span:nth-child(1) {
+        transform: rotate(45deg) translate(3px, -3px);
+    }
+    body.menu-open .burger-menu span:nth-child(2) {
+        opacity: 0;
+    }
+    body.menu-open .burger-menu span:nth-child(3) {
+        transform: rotate(-45deg) translate(3px, 3px);
+    }
+</style>

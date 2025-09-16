@@ -2,33 +2,3 @@
     position: relative;
     display: flex;
 }
-
-.contact-info-banner {
-    position: absolute;
-    width: 38%;
-    height: 70%;
-    z-index: 1;
-    top: 15%;
-    background-color: #0D7EE1;
-    display: flex;
-    padding: 20px 90px;
-    justify-content: space-evenly;
-    flex-direction: column;
-}
-
-.contact-info-line {
-    display: flex;
-    align-items: center;
-}
-
-.contact-info-text {
-    font-size: 20px;
-    font-weight: 500;
-}
-
-.contact-info-line>div>p {
-    margin: .25em 24px;
-    color: white;
-    max-width: 325px;
-    display: flexbox;
-}

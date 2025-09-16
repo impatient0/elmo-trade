@@ -1,0 +1,103 @@
+---
+import { Image } from "astro:assets";
+const { showIcons = true, variant } = Astro.props;
+
+const info = [
+    {
+        label: "Наш телефон",
+        text: ["+7 (812) 370-14-10", "+7 (812) 370-22-61"],
+        icon: { path: "/icons/phone-solid.svg", width: 21, height: 28 },
+    },
+    {
+        label: "Email",
+        text: ["elmotreid@mail.ru"],
+        icon: { path: "/icons/envelope-solid.svg", width: 21, height: 21 },
+    },
+    {
+        label: "Офис",
+        text: ["Ленинский пр., 168, оф. 331"],
+        icon: { path: "/icons/location-dot-solid.svg", width: 21, height: 28 },
+    },
+];
+
+const bannerClass = ["contact-info-banner", variant && `${variant}-variant`].join(" ");
+---
+
+<div class={bannerClass}>
+    {
+        info.map((infoItem) => (
+            <div class="contact-info-line">
+                {showIcons && (
+                    <img
+                        class="icon"
+                        src={infoItem.icon.path}
+                        alt="Icon"
+                        width={infoItem.icon.width}
+                        height={infoItem.icon.height}
+                    />
+                )}
+                <div>
+                    <p class="title2">{infoItem.label}</p>
+                    {infoItem.text.map((text) => (
+                        <p class="contact-info-text">{text}</p>
+                    ))}
+                </div>
+            </div>
+        ))
+    }
+</div>
+
+<style>
+    .contact-info-banner {
+        position: absolute;
+        width: 38%;
+        height: 70%;
+        z-index: 1;
+        top: 15%;
+        background-color: #0D7EE1;
+        display: flex;
+        padding: 20px 90px;
+        justify-content: space-evenly;
+        flex-direction: column;
+    }
+
+    .contact-info-line {
+        display: flex;
+        align-items: center;
+    }
+
+    .contact-info-text {
+        font-size: 20px;
+        font-weight: 500;
+    }
+
+    .contact-info-line>div>p {
+        margin: .25em 24px;
+        color: white;
+        max-width: 325px;
+        display: flexbox;
+    }
+
+    .contact-info-banner.menu-variant {
+        position: relative;
+        width: 100%;
+        padding-left: 50px;
+
+        height: 100%;
+        justify-content: space-around;
+        padding-bottom: 20%;
+    }
+
+    .contact-info-banner.footer-variant {
+        position: relative;
+        width: 100%;
+        padding-left: 50px;
+        
+        height: 280px;
+        justify-content: space-between;
+    }
+
+    .footer-variant .contact-info-text {
+        color: var(--color-text-secondary);
+    }
+</style>
