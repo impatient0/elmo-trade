@@ -17,7 +17,7 @@ const optimizedTopImage = await getImage({
 
 const optimizedCarouselImages = [
     {
-        optimizedSrc: optimizedTopImage.src,
+        optimizedImage: optimizedTopImage,
         offsets: frontmatter.info.cover_image_offsets || [0, 0],
         size: [0, 0],
         description: {

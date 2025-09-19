@@ -1,49 +1,102 @@
-import { useState, useEffect } from 'preact/hooks';
+import { useState, useEffect, useRef } from 'preact/hooks';
 import '../styles/carousel.css';
 
-export default function Carousel({ images }) {
-
+export default function Carousel({ images, showDots = false, showNavButtons = false, autoplay = true }) {
     const [slideIndex, setSlideIndex] = useState(0);
+    const [isPaused, setIsPaused] = useState(false);
+    const timeoutRef = useRef(null);
+
+    const resetTimeout = () => {
+        if (timeoutRef.current) {
+            clearTimeout(timeoutRef.current);
+        }
+    };
 
     useEffect(() => {
-        if (images.length > 0) {
-            const timer = setTimeout(() => {
-                setSlideIndex((slideIndex + 1) % images.length);
+        if (autoplay && !isPaused && images.length > 0) {
+            resetTimeout();
+            timeoutRef.current = setTimeout(() => {
+                setSlideIndex((prevIndex) => (prevIndex + 1) % images.length);
             }, 5000);
-            return () => clearTimeout(timer);
+            return () => resetTimeout();
         }
-    }, [slideIndex]);
+    }, [slideIndex, isPaused, autoplay, images.length]);
+
+    const goToSlide = (index) => {
+        const newIndex = (index + images.length) % images.length;
+        setSlideIndex(newIndex);
+    };
+
+    const handleMouseEnter = () => setIsPaused(true);
+    const handleMouseLeave = () => setIsPaused(false);
 
     return (
-        <div class="carousel">
-            <div>
-                {
-                    images.map((image, index) => (
-                        <div class="slide fade" style={index == slideIndex ? "display:block" : "display:none"}>
-                            {/* <div class="numbertext">{index + 1} / {images.length}</div> */}
-                            <div style={`background-image: url('${image.optimizedSrc}'); background-position: ${image.offsets[0]}px ${image.offsets[1]}px; background-size: ` + (image.size[0] > 0 ? `${image.size[0]}px ${image.size[1]}px` : "cover")} class="carousel-img" />
-                            <div class="carousel-banner">
-                                <p class="title2">{image.description.title}</p>
-                                <p class="headline2">{image.description.headline}</p>
-                                <p class="subbody2" style={image.description.subbody.length > 0 ? "" : "margin:0"}>{image.description.subbody}</p>
-                                <p class="body2">{image.description.body}</p>
-                            </div>
-                             {image.link && <a href={image.link} class="project-link"/>}
-                        </div>
-                    ))
-                }
-
-                {/* <a class="prev" onClick={() => setSlideIndex((slideIndex - 1) % images.length)}>&#10094;</a>
-                <a class="next" onClick={() => setSlideIndex((slideIndex + 1) % images.length)}>&#10095;</a> */}
+        <div 
+            class="carousel" 
+            onMouseEnter={handleMouseEnter} 
+            onMouseLeave={handleMouseLeave}
+            role="region"
+            aria-roledescription="carousel"
+            aria-label="Highlighted Projects"
+        >
+            <div class="slides-container">
+                {images.map((image, index) => (
+                    <div
+                        class={`slide ${index === slideIndex ? 'active' : ''}`}
+                        aria-hidden={index !== slideIndex}
+                    >
+                        <img
+                            // Use the attributes from our optimizedImage object
+                            src={image.optimizedImage.src}
+                            srcset={image.optimizedImage.attributes.srcset}
+                            class="carousel-img"
+                            // Still use CSS variables for object-position
+                            style={{
+                                '--bg-pos-x': `${image.offsets[0]}px`,
+                                '--bg-pos-y': `${image.offsets[1]}px`,
+                            }}
+                            // Important for performance and A11y
+                            loading={index === 0 ? 'eager' : 'lazy'}
+                            decoding="async"
+                            alt={image.description.headline}
+                        />
+                        <div class="carousel-banner">
+                            <p class="title2">{image.description.title}</p>
+                            <p class="headline2">{image.description.headline}</p>
+                            {image.description.subbody && (
+                                <p class="subbody2">{image.description.subbody}</p>
+                            )}
+                            <p class="body2">{image.description.body}</p>
+                        </div>                        
+                        {image.link && (
+                            <a href={image.link} class="view-project-btn" aria-label={`View project: ${image.description.headline}`}>
+                                <span class="arrow"></span>
+                            </a>
+                        )}
+                    </div>
+                ))}
             </div>
 
-            {/* <div style="text-align:center">
-                {
-                    images.map((image, index) => (
-                        <span class={"dot" + (index == slideIndex ? " active" : "")} onClick={() => setSlideIndex(index)}></span>
-                    ))
-                }
-            </div> */}
+            {/* FEATURE: Conditionally render nav buttons based on prop */}
+            {showNavButtons && (
+                <>
+                    <button class="prev" onClick={() => goToSlide(slideIndex - 1)} aria-label="Previous slide">&#10094;</button>
+                    <button class="next" onClick={() => goToSlide(slideIndex + 1)} aria-label="Next slide">&#10095;</button>
+                </>
+            )}
+
+            {/* FEATURE: Conditionally render dots based on prop */}
+            {showDots && (
+                <div class="dots-container">
+                    {images.map((_, index) => (
+                        <button
+                            class={`dot ${index === slideIndex ? 'active' : ''}`}
+                            onClick={() => goToSlide(index)}
+                            aria-label={`Go to slide ${index + 1}`}
+                        />
+                    ))}
+                </div>
+            )}
         </div>
-    )
+    );
 }

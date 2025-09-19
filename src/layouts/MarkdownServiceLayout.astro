@@ -20,7 +20,7 @@ const optimizedCarouselImages = await Promise.all(
         });
         return {
             ...imgData,
-            optimizedSrc: optimized.src,
+            optimizedImage: optimized,
         };
     })
 );

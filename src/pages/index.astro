@@ -54,14 +54,14 @@ const rawImagesData = [
 
 const optimizedImages = await Promise.all(
     rawImagesData.map(async (imgData) => {
-        const optimized = await getImage({
+        const optimizedImageObject = await getImage({
             src: imgData.image,
-            width: imgData.size[0],
+            width: 1440,
             format: 'webp',
         });
         return {
             ...imgData,
-            optimizedSrc: optimized.src,
+            optimizedImage: optimizedImageObject,
         };
     })
 );
