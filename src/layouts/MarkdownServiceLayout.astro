@@ -15,12 +15,12 @@ const optimizedCarouselImages = await Promise.all(
     frontmatter.carousel.images.map(async (imgData) => {
         const optimized = await getImage({
             src: imgData.image,
-            width: 1920,
+            width: 1440,
             format: 'webp',
         });
         return {
             ...imgData,
-            optimizedImage: optimized,
+            optimizedImageSrc: optimized.src,
         };
     })
 );

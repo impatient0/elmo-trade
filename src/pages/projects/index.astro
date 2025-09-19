@@ -57,7 +57,7 @@ const optimizedCarouselImages = await Promise.all(
             width: imgData.size[0],
             format: 'webp',
         });
-        return { ...imgData, optimizedSrc: optimized.src };
+        return { ...imgData, optimizedImageSrc: optimized.src };
     })
 );
 

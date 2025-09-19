@@ -59,9 +59,11 @@ const optimizedImages = await Promise.all(
             width: 1440,
             format: 'webp',
         });
+
+
         return {
             ...imgData,
-            optimizedImage: optimizedImageObject,
+            optimizedImageSrc: optimizedImageObject.src,
         };
     })
 );

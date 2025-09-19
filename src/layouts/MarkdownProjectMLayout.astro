@@ -11,13 +11,13 @@ const { frontmatter } = Astro.props;
 
 const optimizedTopImage = await getImage({
     src: frontmatter.info.cover_image,
-    width: 1920,
+    width: 1440,
     format: 'webp',
 });
 
 const optimizedCarouselImages = [
     {
-        optimizedImage: optimizedTopImage,
+        optimizedImageSrc: optimizedTopImage.src,
         offsets: frontmatter.info.cover_image_offsets || [0, 0],
         size: [0, 0],
         description: {

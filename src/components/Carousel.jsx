@@ -40,22 +40,19 @@ export default function Carousel({ images, showDots = false, showNavButtons = fa
             aria-label="Highlighted Projects"
         >
             <div class="slides-container">
+                {console.log(images)}
                 {images.map((image, index) => (
                     <div
                         class={`slide ${index === slideIndex ? 'active' : ''}`}
                         aria-hidden={index !== slideIndex}
                     >
                         <img
-                            // Use the attributes from our optimizedImage object
-                            src={image.optimizedImage.src}
-                            srcset={image.optimizedImage.attributes.srcset}
+                            src={image.optimizedImageSrc}
                             class="carousel-img"
-                            // Still use CSS variables for object-position
                             style={{
                                 '--bg-pos-x': `${image.offsets[0]}px`,
                                 '--bg-pos-y': `${image.offsets[1]}px`,
                             }}
-                            // Important for performance and A11y
                             loading={index === 0 ? 'eager' : 'lazy'}
                             decoding="async"
                             alt={image.description.headline}
