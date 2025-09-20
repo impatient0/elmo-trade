@@ -125,6 +125,41 @@ const letters = [
     const logos = container.querySelectorAll<HTMLElement>('.logos .logo');
     const letters = container.querySelectorAll<HTMLElement>('.letter-frame .letter');
 
+    // --- NEW: INTERSECTION OBSERVER LOGIC ---
+    const observer = new IntersectionObserver(
+        (entries) => {
+            // This function is called when the component enters or leaves the viewport
+            const [entry] = entries;
+            if (entry.isIntersecting) {
+                // The component is visible, so start the autoplay.
+                startAutoplay();
+            } else {
+                // The component is not visible, so stop the autoplay.
+                stopAutoplay();
+            }
+        },
+        {
+            // Options: trigger when at least 1px of the component is visible
+            root: null, // observes intersections relative to the viewport
+            threshold: 0,
+        }
+    );
+
+    // Tell the observer to start watching our main component container
+    observer.observe(logosContainer);
+
+    function debounce(func, wait) {
+        let timeout;
+        return function executedFunction(...args) {
+            const later = () => {
+                clearTimeout(timeout);
+                func(...args);
+            };
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+        };
+    }
+
     let activeIndex = 0;
     let autoplayInterval = null;
 
@@ -213,9 +248,35 @@ const letters = [
         });
     });
 
+    // --- NEW: SCROLL-DRIVEN ACTIVE LOGIC ---
+    const handleScroll = debounce(() => {
+        const containerCenter = logosContainer.offsetWidth / 2;
+        let closestLogoIndex = -1;
+        let smallestDistance = Infinity;
+
+        logos.forEach((logo, index) => {
+            const logoCenter = logo.offsetLeft - logosContainer.scrollLeft + logo.offsetWidth / 2;
+            const distance = Math.abs(containerCenter - logoCenter);
+
+            if (distance < smallestDistance) {
+                smallestDistance = distance;
+                closestLogoIndex = index;
+            }
+        });
+
+        if (closestLogoIndex !== -1 && closestLogoIndex !== activeIndex) {
+            setActive(closestLogoIndex);
+        }
+    }, 150); // Wait 150ms after the last scroll event to fire.
+
+    logosContainer.addEventListener('scroll', handleScroll);
+
+    // We also need to pause autoplay when the user is manually interacting.
+    logosContainer.addEventListener('touchstart', stopAutoplay, { passive: true });
+    logosContainer.addEventListener('mousedown', stopAutoplay);
+
     // Initialize the component
     setActive(0);
-    startAutoplay();
 </script>
 
 <style>
