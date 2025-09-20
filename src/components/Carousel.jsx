@@ -40,7 +40,6 @@ export default function Carousel({ images, showDots = false, showNavButtons = fa
             aria-label="Highlighted Projects"
         >
             <div class="slides-container">
-                {console.log(images)}
                 {images.map((image, index) => (
                     <div
                         class={`slide ${index === slideIndex ? 'active' : ''}`}

@@ -82,11 +82,12 @@ const menu = [
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    function setupBurgerMenu() {
         const burger = document.querySelector('.burger-menu');
         const mobileMenu = document.querySelector('.mobile-menu');
 
         if (burger && mobileMenu) {
+            console.log("Burger and mobile menu found");
             burger.addEventListener('click', () => {
                 document.body.classList.toggle('menu-open');
             });
@@ -94,7 +95,11 @@ const menu = [
                 document.body.classList.toggle('menu-open');
             });
         }
-    });
+    }
+
+    setupBurgerMenu();
+
+    document.addEventListener('astro:page-load', setupBurgerMenu);
 </script>
 
 <style>
