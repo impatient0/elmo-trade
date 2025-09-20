@@ -1,6 +1,5 @@
 ---
 const { width, height } = Astro.props;
-import "../styles/map.css";
 import ContactInfo from "./ContactInfo.astro";
 ---
 
@@ -13,3 +12,10 @@ import ContactInfo from "./ContactInfo.astro";
         src=`https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A753e8d8930b6b9ee79e78edc836c09ac776e3db1c768918e6a782f24fcbdaf32&width=${width}&height=${height}&lang=ru_RU&scroll=true`
     ></script>
 </div>
+
+<style>
+    .map {
+        position: relative;
+        display: flex;
+    }
+</style>
