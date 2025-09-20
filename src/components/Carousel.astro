@@ -1,0 +1,325 @@
+---
+const { images, showDots = false, showNavButtons = false, autoplay = true } = Astro.props;
+---
+
+<div class="carousel" role="region" aria-roledescription="carousel" aria-label="Highlighted Projects">
+    <div class="slides-container">
+        {images.map((image, index) => (
+            <div class="slide" data-index={index}>
+                <img
+                    class="carousel-img"
+                    src={image.optimizedImageSrc}
+                    style={`'--bg-pos-x': ${image.offsets[0]}px; '--bg-pos-y': ${image.offsets[1]}px;`}
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    decoding="async"
+                    alt={image.description.headline}
+                />
+                <div class="carousel-banner">
+                    <div class="banner-text">
+                        <p class="title2">{image.description.title}</p>
+                        <p class="headline2">{image.description.headline}</p>
+                        {image.description.subbody && (
+                            <p class="subbody2">{image.description.subbody}</p>
+                        )}
+                        <p class="body2">{image.description.body}</p>
+                    </div>
+                </div>
+                {image.link && (
+                    <a href={image.link} class="view-project-btn" aria-label={`View project: ${image.description.headline}`}>
+                        <span class="arrow"></span>
+                    </a>
+                )}
+            </div>
+        ))}
+    </div>
+
+    <!-- Controls are now part of the template -->
+    {showNavButtons && (
+        <>
+            <button class="prev" aria-label="Previous slide">&#10094;</button>
+            <button class="next" aria-label="Next slide">&#10095;</button>
+        </>
+    )}
+    {showDots && (
+        <div class="dots-container">
+            {images.map((_, index) => (
+                <button class="dot" data-index={index} aria-label={`Go to slide ${index + 1}`}></button>
+            ))}
+        </div>
+    )}
+</div>
+
+
+<script define:vars={{ autoplay }}>
+    const carousel = document.querySelector('.carousel');
+    const slides = carousel.querySelectorAll('.slide');
+    const dots = carousel.querySelectorAll('.dot');
+    const nextBtn = carousel.querySelector('.next');
+    const prevBtn = carousel.querySelector('.prev');
+
+    let activeIndex = 0;
+    let autoplayInterval = null;
+
+    function goToSlide(index) {
+        slides[activeIndex].classList.remove('is-active');
+        if (dots.length > 0) dots[activeIndex].classList.remove('is-active');
+        
+        activeIndex = (index + slides.length) % slides.length; // Ensure index loops correctly
+        
+        slides[activeIndex].classList.add('is-active');
+        if (dots.length > 0) dots[activeIndex].classList.add('is-active');
+    }
+
+    function startAutoplay() {
+        console.log("Starting autoplay...");
+        if (!autoplay) return;
+        stopAutoplay();
+        autoplayInterval = setInterval(() => {
+            goToSlide(activeIndex + 1);
+        }, 5000);
+    }
+
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+
+    // Event Listeners
+    if (nextBtn && prevBtn) {
+        nextBtn.addEventListener('click', () => goToSlide(activeIndex + 1));
+        prevBtn.addEventListener('click', () => goToSlide(activeIndex - 1));
+    }
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
+    });
+
+    carousel.addEventListener('mouseenter', stopAutoplay);
+    carousel.addEventListener('mouseleave', startAutoplay);
+
+    // Initialize
+    if (slides.length > 0) {
+        slides[0].classList.add('is-active');
+        if (dots.length > 0) dots[0].classList.add('is-active');
+        startAutoplay();
+    }
+</script>
+
+
+<style>
+    .carousel {
+        position: relative;
+        width: 100%;
+        height: 600px; /* Set a fixed height on the main container */
+        overflow: hidden;
+    }
+
+    .slides-container {
+        width: 100%;
+        height: 100%;
+    }
+
+    .slide {
+        /* CHANGE: All slides are layered on top of each other */
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        
+        /* CHANGE: Hide by default using opacity for smooth transitions */
+        opacity: 0;
+        visibility: hidden;
+        transition: opacity 1s ease-in-out, visibility 1s;
+    }
+
+    .slide.is-active {
+        /* Show the active slide */
+        opacity: 1;
+        visibility: visible;
+        z-index: 1; /* Bring active slide to the front */
+    }
+
+    .carousel-img {
+        width: 100%;
+        height: calc(100% - var(--bg-pos-y, 0px));
+
+        object-fit: cover; 
+        
+        object-position: calc(50% + var(--bg-pos-x)) var(--bg-pos-y);
+    }
+
+    .carousel-banner {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 47.5%;
+        min-width: 460px;
+        padding: min(52px, 4%) 4% min(52px, 4%) 8.5%;
+        color: var(--color-text-on-primary);
+        background-color: var(--color-primary);
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        max-height: 100%;
+    }
+
+    .carousel-banner > p {
+        margin: 4px 0;
+        max-width: 420px;
+    }
+
+    .carousel-banner .subbody2 {
+        margin-bottom: 12px;
+    }
+
+    .project-link::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        z-index: 3; /* Must be on top of everything to be clickable */
+    }
+
+    .arrow {
+        position: relative;
+        width: 17px;
+        height: 17px;
+    }
+
+    .arrow::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 17px;
+        height: 17px;
+        border-style: solid;
+        border-color: var(--color-background-html);
+        border-width: 2px 2px 0 0;
+        transform: translate(-65%, -50%) rotate(45deg);
+    }
+
+    /* --- Controls --- */
+    .prev,
+    .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 4;
+        cursor: pointer;
+        padding: 16px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        background-color: rgba(0, 0, 0, 0.4);
+        border: none;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s ease;
+    }
+
+    .prev { left: 16px; }
+    .next { right: 16px; }
+
+    .prev:hover,
+    .next:hover {
+        background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    .dots-container {
+        position: absolute;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 4;
+        display: flex;
+        gap: 12px;
+    }
+
+    .dot {
+        cursor: pointer;
+        height: 13px;
+        width: 13px;
+        background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent dots */
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.2);
+        padding: 0;
+        transition: background-color 0.6s ease;
+    }
+
+    .dot.is-active,
+    .dot:hover {
+        background-color: var(--color-primary);
+        border-color: transparent;
+    }
+
+    .view-project-btn {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 4;
+    }
+
+    /* ==========================================================================
+    MOBILE STYLES (Breakpoint: 768px)
+    ========================================================================== */
+
+    @media (max-width: 768px) {
+        .carousel {
+            /* Your specified mobile height */
+            height: 495px;
+        }
+
+        .carousel-banner {
+            /* Position banner at the bottom */
+            bottom: 5%;
+            left: 0;
+            transform: translateY(0);
+
+            /* Make it full-width */
+            width: calc(100px + 50%);
+            min-width: 0;
+            max-width: 460px;
+            
+            /* CHANGE: New background and text color */
+            background-color: var(--color-background-html);
+            color: var(--color-text-primary);
+            
+            /* You can now manually adjust these padding values from Figma */
+            padding: 20px 22px;
+            justify-content: flex-start;
+        }
+        
+        .carousel-banner .headline2 {
+            /* Example of a typography tweak for mobile */
+            font-size: 16px; 
+        }
+
+        /* --- New Project Link Button Styles --- */
+        .view-project-btn {
+            flex-shrink: 0; /* Prevents the button from shrinking */
+            position: absolute;
+            top: 50%;
+            right: 16px;
+            left: auto;
+            transform: translateY(-50%);
+            cursor: pointer;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;        
+        }
+
+        .view-project-btn:hover {
+            transform: translate(10px, -50%);
+        }
+    }
+</style>

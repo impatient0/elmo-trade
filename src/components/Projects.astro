@@ -1,8 +1,7 @@
 ---
 import { getCollection } from "astro:content";
 import { getImage } from "astro:assets"; 
-import ProjectCarousel from "./ProjectCarousel";
-import { slide } from "astro:transitions";
+import ProjectCarousel from "./ProjectCarousel.astro";
 
 const props = Astro.props;
 
@@ -44,7 +43,7 @@ const slides = await Promise.all(
     allProjects.map(async (project) => {
         const optimized = await getImage({
             src: project.data.info.slide_image as ImageMetadata,
-            width: project.data.info.slide_image.width,
+            width: 588,
             format: 'webp',
         });
         return {
@@ -68,5 +67,5 @@ while (slides.length < 2) {
 ---
 
 <div id="project_carousel">
-    <ProjectCarousel client:load slides={slides} />
+    <ProjectCarousel slides={slides} />
 </div>

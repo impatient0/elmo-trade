@@ -2,7 +2,7 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from "../../layouts/BaseLayout.astro";
 import DynamicGallery from "../../components/DynamicGallery";
-import Carousel from "../../components/Carousel";
+import Carousel from "../../components/Carousel.astro";
 
 import { getImage } from "astro:assets";
 import izmeronImage from "../../assets/images/projects/izmeron/izmeron.webp";
@@ -99,7 +99,7 @@ slides.sort(compareYears);
 
 <BaseLayout pageTitle={pageTitle}>
 	<div class="cover">
-		<Carousel client:load images={optimizedCarouselImages} />
+		<Carousel images={optimizedCarouselImages} />
 	</div>
     <div class="about">
         <p class="title1">Проекты</p>

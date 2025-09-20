@@ -1,6 +1,6 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
-import Carousel from "../components/Carousel";
+import Carousel from "../components/Carousel.astro";
 import Services from "../components/Services.astro";
 import Projects from "../components/Projects.astro";
 import Letters from "../components/Letters.astro";
@@ -76,7 +76,7 @@ const yearFilter = (x) => {
 
 <BaseLayout pageTitle={pageTitle} pageID={pageID}>
 	<div class="cover">
-		<Carousel client:load images={optimizedImages} />
+		<Carousel images={optimizedImages} />
 	</div>
 	<div class="about">
 		<p class="title1">Выполнен широкий спектр работ</p>
