@@ -17,7 +17,20 @@ function convertIntervals(intervals) {
     return numbers;
 }
 
-const years = [2024, 2023, 2022, 2021, 2020, 2019, 2018];
+const maxYearCount = 7; // Display only the latest 7 years
+
+// --- NEW DYNAMIC YEAR LOGIC ---
+// 1. Use a Set to store unique years.
+const allYears = new Set<number>();
+
+// 2. Loop through all slides and add their years to the Set.
+slides.forEach(slide => {
+    const projectYears = convertIntervals(slide.year);
+    projectYears.forEach(year => allYears.add(year));
+});
+
+// 3. Convert the Set to an array and sort it descending.
+const years = Array.from(allYears).sort((a, b) => b - a).slice(0, maxYearCount);
 ---
 
 <div class="dynamic-gallery-container">
@@ -37,7 +50,7 @@ const years = [2024, 2023, 2022, 2021, 2020, 2019, 2018];
             return (
                 <article class="project-card" data-years={JSON.stringify(projectYears)}>
                     <div class="image-wrapper">
-                        <img class="project-image" src={slide.optimizedSrc} alt={`Image of ${slide.title}`} style={`object-position: ${slide.offsets[0]}px ${slide.offsets[1]}px;`} loading="lazy" />
+                        <img class="project-image" src={slide.optimizedSrc} alt={`Image of ${slide.title}`} style={`--pos-x: ${slide.offsets[0]}px; --pos-y: ${slide.offsets[1]}px;`} loading="lazy" />
                     </div>
                     <div class="project-footer">
                         <p class="project-title">{slide.title}</p>
@@ -58,43 +71,85 @@ const years = [2024, 2023, 2022, 2021, 2020, 2019, 2018];
 <script define:vars={{ years }}>
     const container = document.querySelector('.dynamic-gallery-container');
     const filterButtons = container.querySelectorAll('.filter-button');
-    const projectCards = container.querySelectorAll('.project-card');
+    const gallery = container.querySelector('.dynamic-gallery');
+    const projectCards = Array.from(container.querySelectorAll('.project-card')); // Convert to Array for .filter
+
+    let activeFilter = 'all';
+
+    function updateLayout() {
+        const containerWidth = gallery.offsetWidth;
+        const cardStyle = getComputedStyle(projectCards[0]);
+        const cardWidth = parseFloat(cardStyle.width);
+        const cardMargin = parseFloat(cardStyle.marginLeft) + parseFloat(cardStyle.marginRight);
+        const galleryPadding = parseFloat(getComputedStyle(gallery).padding);
+              
+        const cardsPerRow = Math.max(Math.floor(containerWidth / (cardWidth + cardMargin)), 1);
+        
+        let visibleCards = [];
+        if (activeFilter === 'all') {
+            visibleCards = projectCards;
+        } else {
+            const filterYear = parseInt(activeFilter);
+            const isLastFilter = filterYear === years[years.length - 1];
+
+            visibleCards = projectCards.filter(card => {
+                const cardYears = JSON.parse(card.dataset.years);
+                return cardYears.includes(filterYear) || (isLastFilter && cardYears[0] <= filterYear);
+            });
+        }
+        
+        // Hide cards that are not visible
+        projectCards.forEach(card => {
+            if (!visibleCards.includes(card)) {
+                card.classList.add('is-collapsed');
+            } else {
+                card.classList.remove('is-collapsed');
+            }
+        });
+
+        // Position the visible cards
+        let x = 0;
+        let y = 0;
+        let col = 0;
+        let prevRowHeight = 0;
+        visibleCards.forEach((card, index) => {
+            const left = (col - cardsPerRow / 2) * (cardWidth + cardMargin) + x;
+            const top = y + galleryPadding;
+            card.style.transform = `translate(${left}px, ${top}px)`;
+            prevRowHeight = Math.max(prevRowHeight, parseFloat(getComputedStyle(card).height));
+
+            col++;
+            if (col >= cardsPerRow) {
+                console.log('prev row height: ' + prevRowHeight);
+                col = 0;
+                y += prevRowHeight + parseFloat(cardStyle.marginTop) + parseFloat(cardStyle.marginBottom);
+                prevRowHeight = 0;
+            }
+        });
+        
+        // Update the container height
+        const containerHeight = y + prevRowHeight + galleryPadding * 2;
+        gallery.style.height = `${containerHeight}px`;
+    }
 
     function handleFilterClick(event) {
         const clickedButton = event.currentTarget;
-        const filter = clickedButton.dataset.filter;
+        activeFilter = clickedButton.dataset.filter;
 
-        // Update active state on buttons
         filterButtons.forEach(btn => btn.classList.remove('is-active'));
         clickedButton.classList.add('is-active');
 
-        // Filter the project cards
-        projectCards.forEach(card => {
-            if (filter === 'all') {
-                card.classList.remove('is-collapsed');
-                return;
-            }
-
-            const filterYear = parseInt(filter);
-            const cardYears = JSON.parse(card.dataset.years);
-            const isLastFilter = filterYear === years[years.length - 1];
-
-            // Condition to show the card:
-            // - The card's years include the filter year.
-            // - OR it's the last filter ("2018 and earlier") and the card's year is less than or equal to it.
-            const shouldShow = cardYears.includes(filterYear) || (isLastFilter && cardYears[0] <= filterYear);
-
-            if (shouldShow) {
-                card.classList.remove('is-collapsed');
-            } else {
-                card.classList.add('is-collapsed');
-            }
-        });
+        // Trigger the layout update
+        updateLayout();
     }
 
     filterButtons.forEach(button => {
         button.addEventListener('click', handleFilterClick);
     });
+    
+    // Initial layout and listen for resizes
+    updateLayout();
+    window.addEventListener('resize', updateLayout);
 </script>
 
 
@@ -133,36 +188,37 @@ const years = [2024, 2023, 2022, 2021, 2020, 2019, 2018];
     .dynamic-gallery {
         width: 100%;
         background-color: var(--color-background-accent);
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
         padding: 40px;
+        position: relative; /* This is the key for absolute positioning of children */
+        transition: height 0.4s ease; /* Animate the container's height change */
     }
 
-    /* Card Styling (replaces .project-container) */
     .project-card {
-        width: 588px;
-        height: 360px;
-        display: flex;
-        flex-direction: column;
-        position: relative;
-        margin: 20px;
+        width: 588px; /* Or your desired card width */
+        height: fit-content;
+        margin: 10px; /* Use margin for spacing */
+        
         /* --- Animation --- */
-        transition: all 0.75s ease;
+        position: absolute; /* All cards are now positioned absolutely */
+        left: 50%;
+        top: 0;
+        transition: transform 0.6s ease, opacity 0.6s ease;
     }
+
     .project-card.is-collapsed {
-        /* This creates the shrinking/disappearing animation */
         opacity: 0;
-        width: 0;
-        height: 0;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
+        transform: scale(0.8);
+        pointer-events: none; /* Prevent interacting with hidden cards */
     }
 
     /* Reused styles for card content */
     .image-wrapper { width: 100%; height: 283px; overflow: hidden; }
-    .project-image { width: 100%; height: 100%; object-fit: cover; }
+    .project-image {
+        object-position: var(--pos-x) var(--pos-y);
+        width: calc(100% - var(--pos-x, 0px));
+        height: calc(100% - var(--pos-y, 0px));
+        object-fit: cover;
+    }
     .project-footer { background-color: var(--color-background-body); padding: 20px; }
     .project-footer > p { margin: 2px; }
     .project-title { font-size: 16px; font-weight: 500; text-transform: uppercase; }
@@ -180,4 +236,57 @@ const years = [2024, 2023, 2022, 2021, 2020, 2019, 2018];
     }
     .info-overlay:hover { opacity: 1; }
     .info-content > p { text-align: center; color: var(--color-text-on-primary); font-size: 14px; max-width: 456px; }
+
+    /* ==========================================================================
+       MOBILE STYLES
+       ========================================================================== */
+    @media (max-width: 768px) {
+        /* Adjust the main container's padding for mobile */
+        .dynamic-gallery {
+            padding: 20px 0; /* Less vertical, no horizontal padding */
+        }
+
+        /* --- 1. Adjust the project card size --- */
+        .project-card {
+            /* 
+                This calculation ensures there is always 14px of space on either side.
+                `100vw` is the full viewport width.
+                `28px` is 14px on the left + 14px on the right.
+            */
+
+            width: calc(100vw - 28px);
+            max-width: 440px;
+            margin: 8px 0; /* Adjust vertical margin for the new layout */
+        }
+        
+        /* Adjust the image wrapper height to match the new card proportions */
+        .image-wrapper {
+            height: 180px;
+        }
+
+        /* --- 2. Reduce padding in the footer --- */
+        .project-footer {
+            padding: 12px 14px;
+        }
+        
+        /* --- 3. Reduce padding in the year badge --- */
+        .project-year {
+            padding: 8px 12px; /* Swapped to match standard padding order (vertical horizontal) */
+        }
+
+        /* Optional: Style tweaks for filter buttons on mobile */
+        .filter-controls {
+            padding: 27px 32px 16px;
+            gap: 12px;
+            margin: 0;
+        }
+        .filter-button {
+            font-size: 14px;
+            padding: 7px;
+            font-size: 16px;
+        }
+        .filter-button:not(.is-active) {
+            font-weight: 350;
+        }
+    }
 </style>
