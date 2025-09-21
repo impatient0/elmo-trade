@@ -1,7 +1,7 @@
 ---
 import { getImage } from 'astro:assets';
 import BaseLayout from "./BaseLayout.astro";
-import Carousel from "../components/Carousel";
+import Carousel from "../components/Carousel.astro";
 import MultiGallery from "../components/MultiGallery";
 import Projects from "../components/Projects.astro";
 
@@ -11,13 +11,13 @@ const { frontmatter } = Astro.props;
 
 const optimizedTopImage = await getImage({
     src: frontmatter.info.cover_image,
-    width: 1920,
+    width: 1440,
     format: 'webp',
 });
 
 const optimizedCarouselImages = [
     {
-        optimizedSrc: optimizedTopImage.src,
+        optimizedImageSrc: optimizedTopImage.src,
         offsets: frontmatter.info.cover_image_offsets || [0, 0],
         size: [0, 0],
         description: {
@@ -71,7 +71,7 @@ const servicesFilter = (p) => {
 
 <BaseLayout pageTitle={frontmatter.title} pageID={frontmatter.pageID}>
 	<div class="cover">
-		<Carousel client:load images={optimizedCarouselImages} />
+		<Carousel images={optimizedCarouselImages} />
 	</div>
 	{optimizedSections.map((section, index) => (
 		<div class="about gallery-section-title" id={"gallery-section_"+index}>

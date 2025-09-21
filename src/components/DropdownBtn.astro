@@ -1,0 +1,80 @@
+---
+const { btnText, btnLink, menuTexts, menuLinks } = Astro.props;
+---
+
+<div class="dropdown-container">
+    <a class="dropdown-btn menu" href={`/${btnLink}`}>{btnText}</a>
+    <ul class="dropdown-menu">
+        {
+            menuTexts.map((menuText, index) => (
+                <li>
+                    <a class="dropdown-item menu" href={menuLinks[index]}>
+                        {menuText}
+                    </a>
+                </li>
+            ))
+        }
+    </ul>
+</div>
+
+<style>
+    .dropdown-container {
+        position: relative;
+    }
+
+    .dropdown-btn {
+        display: inline-block;
+        padding: 15px 8px;
+        cursor: pointer;
+        transition: transform 0.3s ease;
+    }
+
+    .dropdown-container:hover .dropdown-btn {
+        transform: translateY(-3px);
+    }
+    
+    .dropdown-menu {
+        position: absolute;
+        top: calc(100% + 5px); /* Position it right below the button with a small gap */
+        left: 0;
+        z-index: 10;
+        
+        background: white;
+        list-style: none;
+        padding: 10px 0;
+        margin: 0;
+        min-width: 100%;
+        border-radius: 4px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+        /* Hide by default */
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+    }
+
+    /* THE MAGIC: Show the menu when hovering the container */
+    
+    /* .dropdown-container:hover .dropdown-menu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    } */
+
+    .dropdown-item {
+        display: block;
+        padding: 8px 20px;
+        white-space: nowrap;
+        font-size: 12px;
+        font-weight: 600;
+        text-align: left;
+        text-transform: uppercase;
+        color: var(--color-text-secondary);
+        text-decoration: none;
+    }
+
+    .dropdown-item:hover {
+        background-color: #f1f5f9;
+    }
+</style>

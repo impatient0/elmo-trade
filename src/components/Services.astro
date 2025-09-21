@@ -1,7 +1,6 @@
 ---
 import { getImage } from 'astro:assets';
-import "../styles/services.css";
-import Service from "../components/Service";
+import Service from "../components/Service.astro";
 
 import serviceImage1 from "../assets/images/services/elektromontazhnye-raboty/tp-i-rtp/tp-i-rtp01.webp";
 import serviceImage2 from "../assets/images/services/service-2.webp";
@@ -80,16 +79,15 @@ const rawServicesData = [
 ];
 
 const optimizedServices = await Promise.all(
-    rawServicesData.map(async (service, index) => {
+    rawServicesData.map(async (service) => {
         const optimized = await getImage({
             src: service.image,
-            width: service.image.width,
+            width: 384,
             format: 'webp',
         });
         return {
             ...service,
-            optimizedSrc: optimized.src,
-            id: `service-${index}`,
+            optimizedImageSrc: optimized.src,
         };
     })
 );
@@ -102,16 +100,41 @@ const optimizedServices = await Promise.all(
                 <Service
                     title={service.title}
                     description={service.description}
-                    optimizedSrc={service.optimizedSrc}
+                    optimizedImageSrc={service.optimizedImageSrc}
                     offsets={service.offsets}
                     size={service.size}
                     link={service.link}
-                    id={service.id}
                 />
             ))
         }
     </div>
 </div>
-<script>
-    import '../scripts/Service';
-</script>
+
+<style>
+    /* --- DESKTOP STYLES (Default) --- */
+    .services {
+        background-color: var(--color-background-accent);
+        padding: 30px 110px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .services-gallery {
+        display: flex;
+        flex-direction: row;
+        align-items: flex-end;
+        justify-content: center;
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    /* --- MOBILE STYLES --- */
+    @media (max-width: 768px) {
+        .services {
+            /* Your requested mobile padding */
+            padding: 20px 14px;
+        }
+    }
+</style>

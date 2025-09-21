@@ -1,11 +1,41 @@
+/* src/styles/global.css */
+
+/* ==========================================================================
+   Global Design Tokens (Variables)
+   ========================================================================== */
+
+:root {
+  /* Brand Colors */
+  --color-primary: #0D7EE1;          /* The main interactive blue for buttons and links */
+  
+  /* Text Colors */
+  --color-text-primary: #000000;      /* Main text color (was 'black') */
+  --color-text-on-primary: #ffffff; /* Text used on top of the primary color (was 'white') */
+  --color-text-secondary: #333; /* Secondary text color for less emphasis */
+  
+  /* Background Colors */
+  --color-background-body: #ffffff;     /* The main page background */
+  --color-background-html: #f1f5f9;     /* The outer, off-white background */
+  --color-background-accent: #EFEFEF;  /* For specific sections like #made_on */
+
+  /* Fonts */
+  --font-family-main: 'Montserrat', sans-serif;
+}
+
+
+/* ==========================================================================
+   Base & Global Styles
+   ========================================================================== */
+
 html {
-    background-color: #f1f5f9;
-    font-family: sans-serif;
+    background-color: var(--color-background-html);
+    font-family: var(--font-family-main);
     height: 100%;
 }
 
 body {
-    background-color: #ffffff;
+    background-color: var(--color-background-body);
+    font-family: var(--font-family-main);
     margin: 0 auto;
     width: 100%;
     max-width: 1440px;
@@ -14,7 +44,6 @@ body {
     flex-direction: column;
     justify-content: flex-start;
     align-items: stretch;
-    font-family: 'Montserrat', sans-serif;
 }
 
 * {
@@ -22,82 +51,13 @@ body {
 }
 
 button {
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--font-family-main);
 }
 
-.elmo {
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
 
-.elmo p {
-    margin: 0;
-    color: #5E5E5E;
-    font-size: 12px;
-    font-weight: 500;
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-.vertical-line {
-    width: 1px;
-    height: 68px;
-    background-color: #5E5E5E;
-    margin: 0 19px;
-}
-
-/* .nav-links a {
-    display: block;
-    text-align: center;
-    padding: 10px 0px;
-    color: black;
-    font-family: 'Montserrat', sans-serif;
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: 500;
-    text-transform: uppercase;
-}
-
-.nav-links a:hover,
-.nav-links a:focus {
-    transition: 700ms;
-    background-color: #0D7EE1;
-    opacity: 75%;
-} */
-
-/* .expanded {
-    display: unset;
-}
-
-@media screen and (min-width: 636px) {
-    .nav-links {
-        margin-left: -1em;
-        height: 100%;
-        display: flex;
-        align-items: center;
-        position: static;
-        width: auto;
-        background: none;
-    }
-
-    .nav-links a {
-        display: inline-block;
-        padding: 15px 14px;
-    }
-
-    .hamburger {
-        display: none;
-    }
-} */
-
-.cover {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    max-height: 600px;
-    overflow: hidden;
-}
+/* ==========================================================================
+   Typography System
+   ========================================================================== */
 
 .title1 {
     font-size: 16px;
@@ -137,7 +97,7 @@ button {
 }
 
 .menu {
-    color: black;
+    color: var(--color-text-primary);
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
@@ -148,6 +108,19 @@ button {
     font-size: 16px;
     font-weight: 500;
     text-transform: uppercase;
+}
+
+
+/* ==========================================================================
+   Layout & Component Styles
+   ========================================================================== */
+
+.cover {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    max-height: 600px;
+    overflow: hidden;
 }
 
 .about {
@@ -182,11 +155,11 @@ button {
 .show-all-btn {
     width: auto;
     align-self: center;
-    background-color: #0D7EE1;
+    background-color: var(--color-primary);
     border: none;
     padding: 8px 16px;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
+    color: var(--color-text-on-primary);
+    font-family: var(--font-family-main);
     font-size: 12px;
     font-weight: 500;
     cursor: pointer;
@@ -204,7 +177,7 @@ button {
 }
 
 #made_on {
-    background-color: #EFEFEF;
+    background-color: var(--color-background-accent);
     padding-left: max(calc(50% - 588px), 20px);
     padding-top: 24px;
     &>p {
@@ -220,4 +193,44 @@ button {
 #gallery-section_0 {
     padding-top: 64px;
     padding-bottom: 48px;
+}
+
+@media (max-width: 768px) {
+
+    .about {
+        padding: 32px 5%;
+        background-color: var(--color-primary);
+        color: var(--color-text-on-primary);
+        align-items: flex-start;
+        background-image: url('/icons/lightning.svg');
+        background-repeat: no-repeat;
+        background-position: 80% 30%;
+    }
+
+    .about p {
+        max-width: 60%;
+        text-align: left;
+        font-weight: 450;
+    }
+
+    .about .body1 {
+        display: none;
+    }
+
+    #gallery-section_0 {
+        padding-top: 32px;
+    }
+
+    .gallery-section-title {
+        padding-top: 32px;
+    }
+
+    #partners {
+        min-height: 0;
+        padding: 32px 5%;
+    }
+
+    #contacts {
+        display: none;
+    }
 }

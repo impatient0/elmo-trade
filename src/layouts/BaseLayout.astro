@@ -4,6 +4,7 @@ import Footer from "../components/Footer.astro";
 import Map from "../components/Map.astro";
 import "../styles/global.css";
 const { pageTitle, pageID } = Astro.props;
+import { ClientRouter } from 'astro:transitions';
 ---
 
 <html lang="ru">
@@ -22,6 +23,7 @@ const { pageTitle, pageID } = Astro.props;
 		<script is:inline
 			src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
 		></script>
+		<!-- <ClientRouter /> -->
 	</head>
 	<body id={pageID}>
 		<Header />
@@ -35,7 +37,7 @@ const { pageTitle, pageID } = Astro.props;
 				приезжайте к нам в офис.
 			</p>
 		</div>
-		<Map width="1440" height="600" />
+		<Map />
 		<Footer />
 	</body>
 </html>

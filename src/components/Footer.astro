@@ -1,7 +1,50 @@
 ---
-import "../styles/footer.css";
+import ContactInfo from "./ContactInfo.astro";
 ---
 
 <footer>
-    <p class="menu">Copyright © 2013-2025 ООО «ЭЛМОТРЕЙД» </p>
+    <!-- Block #1: Desktop-only content -->
+    <div class="desktop-footer">
+        <p class="menu">Copyright © 2013-2025 ООО «ЭЛМОТРЕЙД»</p>
+    </div>
+
+    <!-- Block #2: Mobile-only content -->
+    <div class="mobile-footer">
+        <ContactInfo showIcons={false} variant="footer" />
+    </div>
 </footer>
+
+<style>
+    /* Default (Desktop) Styles */
+    footer {
+        /* You might want some default padding or background for the footer container */
+        background-color: var(--color-background-accent);
+    }
+    
+    .desktop-footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 34px 0;
+    }
+
+    /* By default, the mobile footer is hidden */
+    .mobile-footer {
+        display: none;
+    }
+
+    /* ==========================================================================
+       MOBILE STYLES
+       ========================================================================== */
+    @media (max-width: 768px) {
+        /* Hide the desktop footer on mobile */
+        .desktop-footer {
+            display: none;
+        }
+
+        /* Show the mobile footer on mobile */
+        .mobile-footer {
+            display: flex;
+        }
+    }
+</style>

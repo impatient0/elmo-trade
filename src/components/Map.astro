@@ -1,51 +1,44 @@
 ---
-const { width, height } = Astro.props;
-import "../styles/map.css";
-const info = [
-    {
-        label: "Наш телефон",
-        text: ["+7 (812) 370-14-10", "+7 (812) 370-22-61"],
-        icon: { path: "/icons/phone-solid.svg", width: 21, height: 28 },
-    },
-    {
-        label: "Email",
-        text: ["elmotreid@mail.ru"],
-        icon: { path: "/icons/envelope-solid.svg", width: 21, height: 21 },
-    },
-    {
-        label: "Офис",
-        text: ["Ленинский пр., 168, оф. 331"],
-        icon: { path: "/icons/location-dot-solid.svg", width: 21, height: 28 },
-    },
-];
+import ContactInfo from "./ContactInfo.astro";
 ---
 
-<div class="map">
-    <div class="contact-info-banner">
-        {
-            info.map((info) => (
-                <div class="contact-info-line">
-                    <img
-                        class="icon"
-                        src={info.icon.path}
-                        alt="Icon"
-                        width={info.icon.width}
-                        height={info.icon.height}
-                    />
-                    <div>
-                        <p class="title2">{info.label}</p>
-                        {info.text.map((text) => (
-                            <p class="contact-info-text">{text}</p>
-                        ))}
-                    </div>
-                </div>
-            ))
-        }
-    </div>
-    <script
-        type="text/javascript"
-        charset="utf-8"
-        async
-        src=`https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A753e8d8930b6b9ee79e78edc836c09ac776e3db1c768918e6a782f24fcbdaf32&width=${width}&height=${height}&lang=ru_RU&scroll=true`
-    ></script>
+<div id="map-container" class="map">
+    <ContactInfo />
 </div>
+
+<script>
+    function loadYandexMap() {
+        const mapContainer = document.getElementById('map-container');
+        if (!mapContainer) return;
+
+        const isMobile = window.innerWidth < 768;
+        const mapWidth = 1440;
+        const mapHeight = isMobile ? "400" : "600";
+
+        const existingScript = mapContainer.querySelector('script');
+        if (existingScript) {
+            existingScript.remove();
+        }
+        const existingMapElement = mapContainer.querySelector('ymaps');
+        if (existingMapElement) {
+            existingMapElement.remove();
+        }
+
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.charset = 'utf-8';
+        script.async = true;
+        script.src = `https://api-maps.yandex.ru/services/constructor/1.0/js/?um=constructor%3A753e8d8930b6b9ee79e78edc836c09ac776e3db1c768918e6a782f24fcbdaf32&width=${mapWidth}&height=${mapHeight}&lang=ru_RU&scroll=true`;
+        
+        mapContainer.appendChild(script);
+    }
+    
+    loadYandexMap();
+</script>
+
+<style>
+    .map {
+        position: relative;
+        display: flex;
+    }
+</style>

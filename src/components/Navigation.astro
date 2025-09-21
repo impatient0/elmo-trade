@@ -1,11 +1,11 @@
 ---
-import { map } from "astro/zod";
-import DropdownBtn from "./DropdownBtn";
+import ContactInfo from "./ContactInfo.astro";
+import DropdownBtn from "./DropdownBtn.astro";
 
 const menu = [
     {
         btnText: "Услуги",
-        btnLink: "services",
+        btnLink: "#services",
         menuTexts: [
             "электромонтажные работы",
             "СИСТЕМЫ ПРОТИВОПОЖАРНОЙ ЗАЩИТЫ И Автоматики",
@@ -37,30 +37,166 @@ const menu = [
     },
     {
         btnText: "Партнёры",
-        btnLink: "partners",
+        btnLink: "#partners",
         menuTexts: ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"],
         menuLinks: ["#", "#", "#", "#", "#", "#"],
     },
     {
         btnText: "Контакты",
-        btnLink: "contacts",
+        btnLink: "#contacts",
         menuTexts: ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"],
         menuLinks: ["#", "#", "#", "#", "#", "#"],
     },
 ];
 ---
 
-<script src="../scripts/NavButtons.js"></script>
 <div class="nav-links">
     {
-        menu.map((menu) => (
+        menu.map((item) => (
             <DropdownBtn
-                client:load
-                btnText={menu.btnText}
-                btnLink={menu.btnLink}
-                menuTexts={menu.menuTexts}
-                menuLinks={menu.menuLinks}
+                btnText={item.btnText}
+                btnLink={item.btnLink}
+                menuTexts={item.menuTexts}
+                menuLinks={item.menuLinks}
             />
         ))
     }
 </div>
+
+<div class="mobile-menu">
+    <div class="mobile-nav-links">
+        {
+            menu.map((item) => (
+                <a href={`${item.btnLink}`} class="mobile-nav-item">
+                    {item.btnText}
+                    <div class="arrow" />
+                </a>
+            ))
+        }
+    </div>
+
+    <!-- Re-use the Footer component inside the menu -->
+    <div class="mobile-menu-footer">
+        <ContactInfo  showIcons={false} variant="menu" />
+    </div>
+</div>
+
+<script>
+    function setupBurgerMenu() {
+        const burger = document.querySelector('.burger-menu');
+        const mobileMenu = document.querySelector('.mobile-menu');
+
+        if (burger && mobileMenu) {
+            burger.addEventListener('click', () => {
+                document.body.classList.toggle('menu-open');
+            });
+            mobileMenu.addEventListener('click', () => {
+                document.body.classList.toggle('menu-open');
+            });
+        }
+    }
+
+    setupBurgerMenu();
+
+    document.addEventListener('astro:page-load', setupBurgerMenu);
+</script>
+
+<style>
+    .nav-links {
+        display: flex;
+        align-items: center;
+        max-width: 480px;
+        margin: 0 12px;
+        flex: 1;
+        justify-content: space-around;
+    }
+
+     /* Hide desktop nav on tablets and smaller */
+    @media (max-width: 1100px) {
+        .nav-links {
+            display: none;
+        }
+    }
+
+    /* --- NEW: Mobile Menu Overlay Styles --- */
+    .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 56px; /* Start below the header */
+        left: 0;
+        width: 100%;
+        height: calc(100vh - 56px); /* Full viewport height minus header */
+        background-color: var(--color-background-accent);
+        z-index: 10;
+        
+        flex-direction: column;
+        justify-content: space-between; /* Pushes footer to the bottom */
+        padding: 14.5px 0 21.5px 0;
+
+        box-shadow: inset 0px 4px 8px rgba(0, 0, 0, 0.3);
+
+        /* Hide by default by pushing it off-screen */
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    
+    .mobile-nav-links {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .mobile-nav-item {
+        display: flex;
+        height: 73px;        
+        padding: 0px 33px 0px 37px;
+        margin: 0 12px;
+        justify-content: space-between;
+        align-items: center;
+        text-decoration: none;
+        color: var(--color-text-primary);
+        background-color: var(--color-background-body);
+        font-size: 28px;
+        font-weight: 400;
+        text-transform: uppercase;
+    }
+
+    .arrow {
+        position: relative;
+    }
+
+    .arrow::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 17px;
+        height: 17px;
+        border: solid var(--color-text-secondary);
+        border-width: 1px 1px 0 0;
+        transform: rotate(45deg) translate(-50%, calc(-50% + 8.5px));
+        transform-origin: 0 0;
+    }
+
+    .mobile-menu-footer {
+        height: calc(100% - 4 * (73px + 12px));
+    }
+    
+    @media (max-width: 768px) {
+        .mobile-menu {
+            display: flex;
+        }
+    }
+
+    /* --- State Management --- */
+    
+    /* When the menu is open, slide it into view */
+    body.menu-open .mobile-menu {
+        transform: translateX(0);
+    }
+    
+    /* When menu is open, prevent scrolling of the background content */
+    body.menu-open {
+        overflow: hidden;
+    }
+</style>
