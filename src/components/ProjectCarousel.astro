@@ -1,0 +1,368 @@
+---
+// This component now contains its own logic and styles.
+const { slides } = Astro.props;
+---
+
+<div class="carousel-wrapper">
+    <div class="carousel-viewport">
+        <div class="slides-container">
+            {slides.map((slide) => (
+                <article class="project-slide">
+                    <div class="image-wrapper">
+                        <img
+                            class="project-image"
+                            src={slide.optimizedSrc}
+                            alt={`Image of ${slide.title}`}
+                            style={`'--bg-pos-x': ${slide.offsets[0]}px; '--bg-pos-y': ${slide.offsets[1]}px;`}
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="project-footer">
+                        <p class="project-title">{slide.title}</p>
+                        <p class="subbody2">{slide.address}</p>
+                    </div>
+                    <div class="project-year">
+                        {slide.year.map((year) => (
+                            <p class="body2">{year != "0" ? year : "Выполнено"}</p>
+                        ))}
+                    </div>
+                    <a href={slide.link} class={"project-info-overlay" + (slide.title == "" ? " is-placeholder" : "")} aria-label={`View details for ${slide.title}`}>
+                        <div class={"info-content" + (slide.title == "" ? " is-placeholder" : "")}>
+                            <p>{slide.info}</p>
+                        </div>
+                    </a>
+                </article>
+            ))}
+        </div>
+        <button class="prev-btn" aria-label="Previous project"></button>        
+        <button class="next-btn" aria-label="Next project"></button>
+    </div>
+
+    <!-- Navigation buttons and dots -->
+    <div class="carousel-controls">
+        <div class="dots-container">
+            {slides.map((_, index) => (
+                <button class="dot" data-index={index} aria-label={`Go to project ${index + 1}`}></button>
+            ))}
+        </div>
+    </div>
+</div>
+
+
+<script>
+    // All interactivity is now handled by this small, modern script.
+    const wrapper = document.querySelector('.carousel-wrapper') as HTMLElement;
+    const slidesContainer = wrapper.querySelector('.slides-container') as HTMLElement;
+    const slides = wrapper.querySelectorAll('.project-slide') as NodeListOf<HTMLElement>;
+    const nextBtn = wrapper.querySelector('.next-btn') as HTMLButtonElement;
+    const prevBtn = wrapper.querySelector('.prev-btn') as HTMLButtonElement;
+    const dots = wrapper.querySelectorAll('.dot') as NodeListOf<HTMLButtonElement>;
+    
+    if (slides.length <= 2) {
+        // Hide controls if there aren't enough slides to paginate
+        (wrapper.querySelector('.carousel-controls') as HTMLElement).style.display = 'none';
+    }
+
+    let activeIndex = 0;
+    let autoplayInterval = null;
+
+    dots[slides.length - 1].classList.add('is-hidden'); // Hide the last dot
+
+    function goToSlide(index) {
+        // Calculate the new scroll position.
+        // This centers the active slide, showing half of the adjacent slides.
+        const scrollOffset = slides[index].offsetLeft - wrapper.offsetWidth / 2 + slides[index].offsetWidth + 40;
+        slidesContainer.style.transform = `translateX(-${scrollOffset}px)`;
+
+        // Update active classes for dots and slides
+        dots[activeIndex].classList.remove('is-active');
+        slides[activeIndex].classList.remove('is-active', 'left', 'right');
+        slides[(activeIndex + 1) % slides.length].classList.remove('is-active', 'left', 'right');
+        activeIndex = index;
+        dots[activeIndex].classList.add('is-active');
+        slides[activeIndex].classList.add('is-active', 'left');
+        slides[(activeIndex + 1) % slides.length].classList.add('is-active', 'right');
+    }
+
+    function startAutoplay() {
+        stopAutoplay(); // Prevent multiple timers
+        if (slides.length > 2) {
+            autoplayInterval = setInterval(() => {
+                const nextIndex = (activeIndex + 1) % (slides.length - 1);
+                goToSlide(nextIndex);
+            }, 4000);
+        }
+    }
+
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+
+    // Event Listeners
+    nextBtn.addEventListener('click', () => goToSlide((activeIndex + 1) % (slides.length - 1)));
+    prevBtn.addEventListener('click', () => goToSlide((activeIndex - 1 + slides.length) % (slides.length - 1)));
+    dots.forEach(dot => {
+        dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
+    });
+
+    // Pause on hover
+    wrapper.addEventListener('mouseenter', stopAutoplay);
+    wrapper.addEventListener('mouseleave', startAutoplay);
+
+    // Initialize
+    goToSlide(0);
+    startAutoplay();
+</script>
+
+<style>
+    .carousel-wrapper {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--color-background-accent);
+    }
+    .carousel-viewport {
+        padding: 10px 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        width: 100%;
+        min-height: 412px;
+        overflow: hidden; /* This hides the parts of the slides that are off-screen */
+    }
+    .slides-container {
+        display: flex;
+        align-items: center; /* Vertically align slides */
+        position: relative;
+        /* Add padding to allow first/last slides to center */
+        padding: 0 calc(50% - 588px / 2);
+        transition: transform 0.75s ease;
+    }
+
+    .project-slide {
+        width: 588px;
+        height: 360px;
+        margin: 0 40px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        flex-shrink: 0;
+        transition: transform 0.75s ease-out, opacity 0.5s ease-in-out;
+        transform: scale(0.9);
+    }
+    .project-slide.is-active {
+        transform: scale(1);
+        opacity: 1;
+    }
+    .project-slide.is-active.left {
+        transform: translateX(20px);
+    }
+    .project-slide.is-active.right {
+        transform: translateX(-20px);
+    }
+
+    .image-wrapper {
+        width: 100%;
+        height: 283px;
+        overflow: hidden;
+    }
+    .project-image {
+        width: 100%;
+        height: calc(100% - var(--bg-pos-y, 0px));
+
+        object-fit: cover; 
+        
+        object-position: calc(50% + var(--bg-pos-x)) var(--bg-pos-y);
+    }
+
+    .project-info-overlay {
+        cursor: pointer;
+        position: absolute;
+        inset: 0;
+        background-color: var(--color-primary);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: opacity 0.5s ease;
+        opacity: 0;
+        background-image: url('/icons/lightning.svg');
+        background-size: 175px 289px;
+        background-position: center;
+        background-repeat: no-repeat;
+        text-decoration: none;
+    }
+    .project-info-overlay:hover {
+        opacity: 1;
+    }
+
+    .is-placeholder.project-info-overlay {
+        cursor: auto;
+        opacity: 1;
+        background-color: #EFEFEF;;
+        border: 1px solid #AFAFAF;
+        background-image: url('/icons/lightning-grey.svg');
+    }
+
+    .info-content > p {
+        text-align: center;
+        color: var(--color-text-on-primary);
+        font-size: 14px;
+        font-weight: 400;
+        max-width: 456px;
+    }
+    .info-content.is-placeholder {
+        cursor: auto;
+        opacity: 1;
+        &>p {
+            color: #7E7B71;
+            font-weight: 500;
+        }
+    }
+
+    .project-footer, .project-year {
+        background-color: var(--color-background-body);
+    }
+    .project-footer {        
+        padding: 20px;
+
+        &>p {
+            margin: 2px;
+        }
+    }
+    .project-year {        
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 13px 20px;
+        max-width: 120px;
+        text-align: right;
+
+        &>p {
+            margin: 0;
+        }
+    }
+
+    .project-title {
+        margin: 12px 0 0 0;
+        text-transform: uppercase;
+        font-size: 16px;
+        font-weight: 500;
+    }
+    
+    .carousel-controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        padding: 0 0 30px;
+    }
+    .prev-btn, .next-btn {
+        position: absolute;
+        background: no-repeat center center;
+        width: 30px;
+        height: 30px;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+    .prev-btn {
+        left: 2%;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url("/icons/buttons/prev-btn.svg");
+    }
+    .next-btn {
+        right: 2%;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url("/icons/buttons/next-btn.svg");
+    }
+    .prev-btn:hover, .next-btn:hover {
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .dots-container {
+        position: relative;
+        display: flex;
+        margin: 0 40px;
+    }
+    .dot {
+        background-color: #CCCCCC;
+        width: 10px;
+        height: 10px;
+        margin: 0 10px;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: background-color 0.75s ease;
+    }
+    .dot.is-active {
+        background-color: var(--color-primary);
+    }
+    .dot.is-hidden {
+        display: none;
+    }
+
+    /* This media query makes it a single-slide carousel on smaller screens */
+    @media (max-width: 1200px) {
+        .slides-container {
+            padding: 0 calc(50% - 588px / 2);
+        }
+        .project-slide {
+            transform: scale(1); /* All slides are same size */
+        }
+    }
+
+    /* ==========================================================================
+       MOBILE STYLES
+       ========================================================================== */
+
+    @media (max-width: 768px) {
+        /* 1. Adjust the main wrapper's spacing */
+        .carousel-wrapper {
+            /* Use padding to create the 20px 14px "margin" you requested */
+            padding: 20px 14px;
+        }
+
+        /* 2. Remove the "viewport" constraints */
+        .carousel-viewport {
+            overflow: visible; /* Let the content flow naturally */
+            min-height: 0; /* Remove the fixed min-height */
+            padding: 0;
+        }
+
+        /* 3. Transform the slides container into a vertical stack */
+        .slides-container {
+            flex-direction: column; /* The key to the vertical layout */
+            gap: 16px; /* Your requested gap between tiles */
+            
+            /* Undo the desktop carousel styles */
+            padding: 0;
+            transform: none !important; /* Use !important to override the inline style from JS */
+        }
+
+        /* 4. Reset the individual slide styles */
+        .project-slide {
+            width: 100%; /* Make the slide fill the container width */
+            max-width: 500px; /* Optional: prevent it from becoming too wide on tablets */
+            margin: 0; /* Remove horizontal margins */
+            
+            /* Undo the desktop carousel styles */
+            transform: none !important; /* Use !important to override JS and other styles */
+            opacity: 1 !important;
+        }
+
+        /* 5. Hide all the carousel controls */
+        .carousel-controls,
+        .prev-btn,
+        .next-btn {
+            display: none;
+        }
+
+        .is-active.right:has(.is-placeholder) {
+            display: none;
+        }
+    }
+</style>

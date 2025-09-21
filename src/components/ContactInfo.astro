@@ -1,5 +1,4 @@
 ---
-import { Image } from "astro:assets";
 const { showIcons = true, variant } = Astro.props;
 
 const info = [
@@ -91,7 +90,7 @@ const bannerClass = ["contact-info-banner", variant && `${variant}-variant`].joi
     .contact-info-banner.footer-variant {
         position: relative;
         width: 100%;
-        padding-left: 50px;
+        padding: 20px 0 20px 11px;
         
         height: 280px;
         justify-content: space-between;
@@ -99,10 +98,10 @@ const bannerClass = ["contact-info-banner", variant && `${variant}-variant`].joi
 
     .footer-variant .contact-info-text {
         color: var(--color-text-secondary);
-    }
+    }    
 
     @media (max-width: 768px) {
-        .contact-info-banner {
+        .contact-info-banner:not(.menu-variant, .footer-variant) {
             display: none;
         }
     }

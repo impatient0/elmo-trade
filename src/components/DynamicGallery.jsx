@@ -1,4 +1,4 @@
-import { useState, useLayoutEffect } from 'preact/hooks';
+import { useState } from 'preact/hooks';
 import '../styles/project-carousel.css';
 import '../styles/dynamic-gallery.css';
 
