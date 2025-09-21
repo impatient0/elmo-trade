@@ -120,7 +120,6 @@ const years = Array.from(allYears).sort((a, b) => b - a).slice(0, maxYearCount);
 
             col++;
             if (col >= cardsPerRow) {
-                console.log('prev row height: ' + prevRowHeight);
                 col = 0;
                 y += prevRowHeight + parseFloat(cardStyle.marginTop) + parseFloat(cardStyle.marginBottom);
                 prevRowHeight = 0;
