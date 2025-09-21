@@ -201,18 +201,68 @@ function getShift(section_index, slide_index) {
         goToSlide(0);
     });
 
-    // --- Lightbox Logic ---
-    (document.querySelectorAll('[data-dialog-trigger]') as NodeListOf<HTMLElement>).forEach(trigger => {
-        const dialog = document.getElementById(trigger.dataset.dialogTrigger) as HTMLDialogElement;
-        if (dialog) {
-            trigger.addEventListener('click', () => dialog.showModal());
-        }
-    });
-    document.querySelectorAll('.lightbox-dialog').forEach(dialog => {
-        dialog.addEventListener('click', (event) => {
-            if (event.target === dialog) (dialog as HTMLDialogElement).close();
+    // --- Lightbox Logic (Now with a responsive check) ---
+    function initializeLightbox() {
+        (document.querySelectorAll('[data-dialog-trigger]') as NodeListOf<HTMLElement>).forEach(trigger => {
+            const dialog = document.getElementById(trigger.dataset.dialogTrigger) as HTMLDialogElement;
+            if (dialog) {
+                const openDialog = () => {
+                    dialog.showModal();
+                    document.body.classList.add('dialog-open');
+                }
+                trigger.addEventListener('click', openDialog);
+                
+                // Store the listener so we can remove it later
+                (trigger as any).__openDialog = openDialog; 
+            }
         });
-    });
+
+        document.querySelectorAll('.lightbox-dialog').forEach(dialog => {
+            const closeOnBackdropClick = (event) => {
+                if (event.target === dialog) {
+                    (dialog as HTMLDialogElement).close();
+                    document.body.classList.remove('dialog-open');
+                }
+            };
+            dialog.addEventListener('click', closeOnBackdropClick);
+
+            // Store the listener
+            (dialog as any).__closeDialog = closeOnBackdropClick;
+        });
+    }
+
+    function destroyLightbox() {
+        (document.querySelectorAll('[data-dialog-trigger]') as NodeListOf<HTMLElement>).forEach(trigger => {
+            if ((trigger as any).__openDialog) {
+                trigger.removeEventListener('click', (trigger as any).__openDialog);
+            }
+        });
+
+        document.querySelectorAll('.lightbox-dialog').forEach(dialog => {
+            if ((dialog as any).__closeDialog) {
+                dialog.removeEventListener('click', (dialog as any).__closeDialog);
+            }
+        });
+    }
+
+    // Create a media query object that matches our mobile breakpoint
+    const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
+
+    function handleScreenChange(event) {
+        if (event.matches) {
+            // Screen is mobile: destroy lightbox listeners
+            destroyLightbox();
+        } else {
+            // Screen is desktop: initialize lightbox listeners
+            initializeLightbox();
+        }
+    }
+
+    // Run the check once on page load
+    handleScreenChange(mobileMediaQuery);
+
+    // And listen for any future changes (like screen rotation)
+    mobileMediaQuery.addEventListener('change', handleScreenChange);
 </script>
 
 
@@ -298,6 +348,9 @@ function getShift(section_index, slide_index) {
     }
     .slide-media[data-dialog-trigger] {
         cursor: pointer;
+    }
+    body.dialog-open {
+        overflow: hidden;
     }
 
     /* Controls Styling */
