@@ -111,6 +111,7 @@ function getShift(section_index, slide_index) {
     // --- Carousel Logic ---
     // This script now handles multiple, independent carousels inside the accordions.
     document.querySelectorAll('.gallery-section').forEach(section => {
+        const viewport = section.querySelector('.carousel-viewport') as HTMLElement;
         const slidesContainer = section.querySelector('.slides-container') as HTMLElement;
         const slides = section.querySelectorAll('.slide') as NodeListOf<HTMLElement>;
         const dots = section.querySelectorAll('.dot') as NodeListOf<HTMLElement>;
@@ -139,6 +140,32 @@ function getShift(section_index, slide_index) {
         prevBtn.addEventListener('click', () => goToSlide((activeIndex - 1 + slides.length) % slides.length));
         dots.forEach(dot => {
             dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
+        });
+
+        // --- SWIPE NAVIGATION LOGIC ---
+        let touchStartX = 0;
+        let touchMoveX = 0;
+        const swipeThreshold = 50; // Min pixels to be considered a swipe
+
+        viewport.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+            touchMoveX = touchStartX; // Reset move position
+        }, { passive: true });
+
+        viewport.addEventListener('touchmove', (e) => {
+            touchMoveX = e.touches[0].clientX;
+        }, { passive: true });
+
+        viewport.addEventListener('touchend', () => {
+            const swipeDistance = touchMoveX - touchStartX;
+
+            if (swipeDistance < -swipeThreshold) {
+                // Swiped left
+                goToSlide((activeIndex + 1) % slides.length);
+            } else if (swipeDistance > swipeThreshold) {
+                // Swiped right
+                goToSlide((activeIndex - 1 + slides.length) % slides.length);
+            }
         });
 
         // Initialize first slide
@@ -309,5 +336,53 @@ function getShift(section_index, slide_index) {
     .lightbox-dialog::backdrop {
         background-color: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(5px);
+    }
+
+    /* ==========================================================================
+       MOBILE STYLES
+       ========================================================================== */
+    @media (max-width: 768px) {
+
+        .carousel-viewport {
+            /* A CSS best practice for swipeable areas to prevent page scroll conflicts */
+            touch-action: pan-y;
+        }
+
+        /* --- 2. Image Cropping --- */
+        .slide {
+            min-height: 0;
+            aspect-ratio: 3 / 5;
+        }
+        .slide-media {
+            min-height: 80%;
+            object-fit: cover;
+        }
+
+        /* --- 1. Button Readability --- */
+        .prev-btn, .next-btn {
+            /* Make them circular */
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+
+            /* Add a semi-transparent background */
+            background-color: rgba(255, 255, 255, 0.2);
+            
+            /* Make the arrow icon white and smaller */
+            background-size: 8px 14px;
+            filter: invert(1);
+            
+            /* Adjust positioning */
+            left: 1rem;
+        }
+        .next-btn {
+            left: auto;
+            right: 1rem;
+        }
+        .prev-btn:hover, .next-btn:hover {
+            /* Remove desktop-only transform and add a darker background for feedback */
+            transform: translateY(-50%) scale(1);
+            background-color: rgba(255, 255, 255, 0.4);
+        }
     }
 </style>
