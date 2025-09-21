@@ -127,45 +127,74 @@ function getShift(section_index, slide_index) {
         }
 
         let activeIndex = 0;
+        let isDragging = false;
+        let startPos = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
 
         function goToSlide(index) {
-            slidesContainer.style.transform = `translateX(-${index * 100}%)`;
+            // This logic is now simpler, as it just sets the final position
+            currentTranslate = index * -slides[0].offsetWidth;
+            prevTranslate = currentTranslate;
+            slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
             
+            // Update active classes
             dots[activeIndex]?.classList.remove('is-active');
             activeIndex = index;
             dots[activeIndex]?.classList.add('is-active');
         }
 
+        // --- NEW, INTERACTIVE SWIPE LOGIC ---
+        function touchStart(index) {
+            return function(event) {
+                isDragging = true;
+                startPos = event.type === 'touchstart' ? event.touches[0].clientX : event.clientX;
+                slidesContainer.style.transition = 'none'; // Turn off animations while dragging
+            }
+        }
+
+        function touchMove(event) {
+            if (isDragging) {
+                const currentPosition = event.type === 'touchmove' ? event.touches[0].clientX : event.clientX;
+                const deltaX = currentPosition - startPos;
+                currentTranslate = prevTranslate + deltaX;
+                slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
+            }
+        }
+
+        function touchEnd() {
+            isDragging = false;
+            const movedBy = currentTranslate - prevTranslate;
+
+            let index = activeIndex;
+            // Determine whether to snap to the next, previous, or current slide
+            if (movedBy < -100 && index < slides.length - 1) {
+                index += 1;
+            } else if (movedBy > 100 && index > 0) {
+                index -= 1;
+            }
+
+            slidesContainer.style.transition = 'transform 0.5s ease'; // Turn animations back on
+            goToSlide(index);
+        }
+
+        // Add event listeners for both mouse and touch
+        slidesContainer.addEventListener('mousedown', touchStart(activeIndex));
+        slidesContainer.addEventListener('touchstart', touchStart(activeIndex), { passive: true });
+        
+        slidesContainer.addEventListener('mousemove', touchMove);
+        slidesContainer.addEventListener('touchmove', touchMove, { passive: true });
+
+        slidesContainer.addEventListener('mouseup', touchEnd);
+        slidesContainer.addEventListener('mouseleave', () => isDragging = false);
+        slidesContainer.addEventListener('touchend', touchEnd);
+
+
+        // --- Button and Dot Click Listeners (simplified) ---
         nextBtn.addEventListener('click', () => goToSlide((activeIndex + 1) % slides.length));
         prevBtn.addEventListener('click', () => goToSlide((activeIndex - 1 + slides.length) % slides.length));
         dots.forEach(dot => {
             dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
-        });
-
-        // --- SWIPE NAVIGATION LOGIC ---
-        let touchStartX = 0;
-        let touchMoveX = 0;
-        const swipeThreshold = 50; // Min pixels to be considered a swipe
-
-        viewport.addEventListener('touchstart', (e) => {
-            touchStartX = e.touches[0].clientX;
-            touchMoveX = touchStartX; // Reset move position
-        }, { passive: true });
-
-        viewport.addEventListener('touchmove', (e) => {
-            touchMoveX = e.touches[0].clientX;
-        }, { passive: true });
-
-        viewport.addEventListener('touchend', () => {
-            const swipeDistance = touchMoveX - touchStartX;
-
-            if (swipeDistance < -swipeThreshold) {
-                // Swiped left
-                goToSlide((activeIndex + 1) % slides.length);
-            } else if (swipeDistance > swipeThreshold) {
-                // Swiped right
-                goToSlide((activeIndex - 1 + slides.length) % slides.length);
-            }
         });
 
         // Initialize first slide
@@ -202,12 +231,14 @@ function getShift(section_index, slide_index) {
         max-width: 1190px;
     }
     .gallery-tile {
+        position: relative;
         display: flex;
         justify-content: space-between;
         align-items: center;
         cursor: pointer;
         transition: all .5s ease;
         padding-left: 0;
+        padding-right: 24px;
         list-style: none; /* Remove default marker from summary */
     }
     .gallery-tile::-webkit-details-marker {
@@ -218,6 +249,9 @@ function getShift(section_index, slide_index) {
         padding-left: 8px;
     }
     .expand-btn {
+        position: absolute;
+        align-self: center;
+        right: 0;
         background-image: url("/icons/buttons/next-btn.svg");
         width: 10px;
         height: 18px;
@@ -354,8 +388,9 @@ function getShift(section_index, slide_index) {
             aspect-ratio: 3 / 5;
         }
         .slide-media {
-            min-height: 80%;
+            min-height: 95%;
             object-fit: cover;
+            margin-top: 0 !important;
         }
 
         /* --- 1. Button Readability --- */
@@ -373,16 +408,33 @@ function getShift(section_index, slide_index) {
             filter: invert(1);
             
             /* Adjust positioning */
-            left: 1rem;
+            left: 0;
         }
         .next-btn {
             left: auto;
-            right: 1rem;
+            right: 0;
         }
         .prev-btn:hover, .next-btn:hover {
             /* Remove desktop-only transform and add a darker background for feedback */
             transform: translateY(-50%) scale(1);
             background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* --- NEW: RESPONSIVE DOTS --- */
+        .dots-container {
+            /* Allow the dots to wrap to a new line if needed */
+            flex-wrap: wrap;
+            /* Center the dots, which looks better when they wrap */
+            justify-content: center;
+            /* Use gap for spacing, which works well with wrapping */
+            gap: 10px;
+            /* Remove fixed margin */
+            margin: 1rem 0 0 0;
+            padding: 0 1rem; /* Add some side padding to prevent touching edges */
+        }
+        .dot {
+            /* Remove fixed margin from the dots themselves */
+            margin: 0;
         }
     }
 </style>

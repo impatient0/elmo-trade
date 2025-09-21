@@ -190,11 +190,6 @@ button {
     padding-bottom: 48px;
 }
 
-#gallery-section_0 {
-    padding-top: 64px;
-    padding-bottom: 48px;
-}
-
 @media (max-width: 768px) {
 
     .about {
