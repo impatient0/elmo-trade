@@ -1,0 +1,183 @@
+---
+const { slides } = Astro.props;
+
+// This helper function can now live and run on the server.
+function convertIntervals(intervals) {
+    const numbers = [];
+    intervals.forEach(interval => {
+        const [start, end] = interval.split('-').map(Number);
+        if (end === undefined) {
+            numbers.push(...interval.split(', ').map(Number));
+        } else if (start <= end) {
+            for (let i = start; i <= end; i++) {
+                numbers.push(i);
+            }
+        }
+    });
+    return numbers;
+}
+
+const years = [2024, 2023, 2022, 2021, 2020, 2019, 2018];
+---
+
+<div class="dynamic-gallery-container">
+    <div class="filter-controls">
+        <button class="filter-button is-active" data-filter="all">Все проекты</button>
+        {years.map((year, index) => (
+            <button class="filter-button" data-filter={year}>
+                {year}{index === years.length - 1 ? " и ранее" : ""}
+            </button>
+        ))}
+    </div>
+    <div class="dynamic-gallery">
+        {slides.map((slide) => {
+            const projectYears = convertIntervals(slide.year);
+            // We add data attributes to each project card with its years.
+            // This allows our script to easily find and filter them.
+            return (
+                <article class="project-card" data-years={JSON.stringify(projectYears)}>
+                    <div class="image-wrapper">
+                        <img class="project-image" src={slide.optimizedSrc} alt={`Image of ${slide.title}`} style={`object-position: ${slide.offsets[0]}px ${slide.offsets[1]}px;`} loading="lazy" />
+                    </div>
+                    <div class="project-footer">
+                        <p class="project-title">{slide.title}</p>
+                        <p class="subbody2">{slide.address}</p>
+                    </div>
+                    <div class="project-year">
+                        {slide.year.map((y) => <p class="body2">{y !== "0" ? y : "Выполнено"}</p>)}
+                    </div>
+                    <a href={slide.link} class="info-overlay" aria-label={`View details for ${slide.title}`}>
+                        <div class="info-content"><p>{slide.info}</p></div>
+                    </a>
+                </article>
+            );
+        })}
+    </div>
+</div>
+
+<script define:vars={{ years }}>
+    const container = document.querySelector('.dynamic-gallery-container');
+    const filterButtons = container.querySelectorAll('.filter-button');
+    const projectCards = container.querySelectorAll('.project-card');
+
+    function handleFilterClick(event) {
+        const clickedButton = event.currentTarget;
+        const filter = clickedButton.dataset.filter;
+
+        // Update active state on buttons
+        filterButtons.forEach(btn => btn.classList.remove('is-active'));
+        clickedButton.classList.add('is-active');
+
+        // Filter the project cards
+        projectCards.forEach(card => {
+            if (filter === 'all') {
+                card.classList.remove('is-collapsed');
+                return;
+            }
+
+            const filterYear = parseInt(filter);
+            const cardYears = JSON.parse(card.dataset.years);
+            const isLastFilter = filterYear === years[years.length - 1];
+
+            // Condition to show the card:
+            // - The card's years include the filter year.
+            // - OR it's the last filter ("2018 and earlier") and the card's year is less than or equal to it.
+            const shouldShow = cardYears.includes(filterYear) || (isLastFilter && cardYears[0] <= filterYear);
+
+            if (shouldShow) {
+                card.classList.remove('is-collapsed');
+            } else {
+                card.classList.add('is-collapsed');
+            }
+        });
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', handleFilterClick);
+    });
+</script>
+
+
+<style>
+    /* All styles are now scoped and self-contained */
+    .dynamic-gallery-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    .filter-controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 2rem;
+    }
+    .filter-button {
+        border: 1px solid #D6D6D6;
+        border-radius: 3px;
+        background: none;
+        padding: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .filter-button.is-active {
+        background-color: var(--color-primary);
+        color: var(--color-text-on-primary);
+        border-color: var(--color-primary);
+    }
+    .filter-button:not(.is-active):hover {
+        background-color: #f0f0f0;
+    }
+
+    .dynamic-gallery {
+        width: 100%;
+        background-color: var(--color-background-accent);
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        padding: 40px;
+    }
+
+    /* Card Styling (replaces .project-container) */
+    .project-card {
+        width: 588px;
+        height: 360px;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin: 20px;
+        /* --- Animation --- */
+        transition: all 0.75s ease;
+    }
+    .project-card.is-collapsed {
+        /* This creates the shrinking/disappearing animation */
+        opacity: 0;
+        width: 0;
+        height: 0;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    /* Reused styles for card content */
+    .image-wrapper { width: 100%; height: 283px; overflow: hidden; }
+    .project-image { width: 100%; height: 100%; object-fit: cover; }
+    .project-footer { background-color: var(--color-background-body); padding: 20px; }
+    .project-footer > p { margin: 2px; }
+    .project-title { font-size: 16px; font-weight: 500; text-transform: uppercase; }
+    .project-year { position: absolute; top: 20px; right: 20px; padding: 13px 20px; background-color: var(--color-background-body); text-align: right; }
+    .project-year > p { margin: 0; }
+    
+    .info-overlay {
+        cursor: pointer; position: absolute; inset: 0;
+        background-color: var(--color-primary);
+        display: flex; justify-content: center; align-items: center;
+        transition: opacity 0.5s ease; opacity: 0;
+        background-image: url('/icons/lightning.svg');
+        background-size: 175px; background-position: center; background-repeat: no-repeat;
+        text-decoration: none;
+    }
+    .info-overlay:hover { opacity: 1; }
+    .info-content > p { text-align: center; color: var(--color-text-on-primary); font-size: 14px; max-width: 456px; }
+</style>

@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import Carousel from "../components/Carousel.astro";
-import MultiGallery from "../components/MultiGallery";
+import MultiGallery from "../components/MultiGallery.astro";
 import Projects from "../components/Projects.astro";
 
 import { getImage } from "astro:assets";
@@ -67,7 +67,6 @@ const serviceFilter = (p) => {
 		<p class="body1">{frontmatter.about.body}</p>
 	</div>
 	<MultiGallery
-		client:load
 		sections={optimizedMultiGallery}
 		shifts={"shifts" in frontmatter ? frontmatter.shifts : null}
 	/>

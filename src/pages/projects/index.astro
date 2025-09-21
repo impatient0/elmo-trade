@@ -1,7 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import DynamicGallery from "../../components/DynamicGallery";
+import DynamicGallery from "../../components/DynamicGallery.astro";
 import Carousel from "../../components/Carousel.astro";
 
 import { getImage } from "astro:assets";
@@ -106,5 +106,5 @@ slides.sort(compareYears);
         <p class="headline1">ознакомьтесь с нашей работой</p>
         <p class="body1">За более чем 20-ти летний период мы оборудовали инженерными системами большие количество объектов.</p>
     </div>
-    <DynamicGallery client:load slides={slides}/>
+    <DynamicGallery slides={slides}/>
 </BaseLayout>

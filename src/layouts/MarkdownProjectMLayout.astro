@@ -78,7 +78,7 @@ const servicesFilter = (p) => {
 			<p class="title1">{section.about.header}</p>
 			<p class="body1">{section.about.body}</p>
 		</div>
-		<MultiGallery client:load sections={section.multi_gallery} shifts={"shifts" in section ? section.shifts : null}/>
+		<MultiGallery sections={section.multi_gallery} shifts={"shifts" in section ? section.shifts : null}/>
 	))}
 	<div id="made_on">
 		<p class="body1">Другие проекты:</p>
