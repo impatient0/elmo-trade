@@ -43,7 +43,7 @@ const menu = [
     },
     {
         btnText: "Контакты",
-        btnLink: "#contacts",
+        btnLink: "#mobile-footer",
         menuTexts: ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"],
         menuLinks: ["#", "#", "#", "#", "#", "#"],
     },
@@ -67,7 +67,7 @@ const menu = [
     <div class="mobile-nav-links">
         {
             menu.map((item) => (
-                <a href={`${item.btnLink}`} class="mobile-nav-item">
+                <a href={`/${item.btnLink}`} class="mobile-nav-item">
                     {item.btnText}
                     <div class="arrow" />
                 </a>

@@ -223,7 +223,7 @@ button {
         padding: 32px 5%;
     }
 
-    #contacts {
+    #contacts.about {
         display: none;
     }
 }
