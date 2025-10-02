@@ -1,12 +1,20 @@
 ---
-const { title, description, optimizedImageSrc, offsets, size, link } = Astro.props;
+import { Image } from "astro:assets";
+const { title, description, image, offsets, size, link } = Astro.props;
 ---
 
 <a href={link} class="service-container">
-    <div
-        class="service-image"
-        style={`--bg-image: url('${optimizedImageSrc}'); --bg-pos: ${offsets[0]}px ${offsets[1]}px; --bg-size: ${size[0]}px ${size[1]}px;`}
-    />
+    <div class="image-wrapper">
+        <Image 
+            src={image}
+            class="service-image"
+            style={`--pos-x: ${offsets[0]}px; --pos-y: ${offsets[1]}px;`}
+            alt={`${title.join(' ')} service`}
+            width={size[0]}
+            height={size[1]}
+            quality="mid"
+        />
+    </div>
     <div class="service-title">
         {title.map((title_line) => (
             <p>{title_line}</p>
@@ -14,10 +22,16 @@ const { title, description, optimizedImageSrc, offsets, size, link } = Astro.pro
     </div>
 
     <div class="service-overlay">
-        <img class="service-icon" src='/icons/lightning.svg' width="115" height="191" alt="" />
+        <Image 
+            src="/icons/lightning.svg"
+            class="service-icon"
+            alt=""
+            width={115}
+            height={191}
+        />
         <p>{description}</p>
-        <div class="service-button">
-            <img src='/icons/buttons/service-button.svg' width="7.5" height="15" alt="View service" />
+        <div class="service-button" aria-label={`View service: ${title}`}>
+            <span class="arrow"></span>
         </div>
     </div>
 </a>
@@ -35,13 +49,18 @@ const { title, description, optimizedImageSrc, offsets, size, link } = Astro.pro
         flex-shrink: 0; /* Prevents shrinking in the flex container */
     }
 
+    .image-wrapper {
+        height: calc(222px - 62px);
+        overflow: hidden;
+    }
+
     .service-image {
-        width: 100%;
-        height: 160px;
         transition: filter 0.5s ease;
-        background-image: var(--bg-image);
-        background-position: var(--bg-pos);
-        background-size: var(--bg-size);
+        object-position: var(--pos-x) var(--pos-y);
+        width: calc(100% - var(--pos-x, 0px));
+        height: calc(100% - var(--pos-y, 0px));
+        object-fit: cover;
+        z-index: 0;
     }
 
     .service-title {
@@ -98,6 +117,23 @@ const { title, description, optimizedImageSrc, offsets, size, link } = Astro.pro
         right: 20px;
         bottom: 22px;
         transition: transform 0.2s ease;
+    }
+
+    .arrow {
+        position: relative;
+    }
+
+    .arrow::before {
+        content: '';
+        position: absolute;
+        right: 5px;
+        bottom: 8px;
+        width: 7px;
+        height: 7px;
+        border-style: solid;
+        border-color: var(--color-background-html);
+        border-width: 1.5px 1.5px 0 0;
+        transform: rotate(45deg);
     }
 
     /* HOVER EFFECTS */
