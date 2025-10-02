@@ -1,4 +1,5 @@
 ---
+import ProjectCard from "./ProjectCard.astro";
 const { slides } = Astro.props;
 
 // This helper function can now live and run on the server.
@@ -43,28 +44,12 @@ const years = Array.from(allYears).sort((a, b) => b - a).slice(0, maxYearCount);
         ))}
     </div>
     <div class="dynamic-gallery">
-        {slides.map((slide) => {
-            const projectYears = convertIntervals(slide.year);
-            // We add data attributes to each project card with its years.
-            // This allows our script to easily find and filter them.
-            return (
-                <article class="project-card" data-years={JSON.stringify(projectYears)}>
-                    <div class="image-wrapper">
-                        <img class="project-image" src={slide.optimizedSrc} alt={`Image of ${slide.title}`} style={`--pos-x: ${slide.offsets[0]}px; --pos-y: ${slide.offsets[1]}px;`} loading="lazy" />
-                    </div>
-                    <div class="project-footer">
-                        <p class="project-title">{slide.title}</p>
-                        <p class="subbody2">{slide.address}</p>
-                    </div>
-                    <div class="project-year">
-                        {slide.year.map((y) => <p class="body2">{y !== "0" ? y : "Выполнено"}</p>)}
-                    </div>
-                    <a href={slide.link} class="info-overlay" aria-label={`View details for ${slide.title}`}>
-                        <div class="info-content"><p>{slide.info}</p></div>
-                    </a>
-                </article>
-            );
-        })}
+        {slides.map((slide) => (
+            // Replace the old <article> with our new component
+            <div class="card-wrapper" data-years={JSON.stringify(convertIntervals(slide.year))}>
+                <ProjectCard slide={slide} />
+            </div>
+        ))}
     </div>
 </div>
 
@@ -72,7 +57,7 @@ const years = Array.from(allYears).sort((a, b) => b - a).slice(0, maxYearCount);
     const container = document.querySelector('.dynamic-gallery-container');
     const filterButtons = container.querySelectorAll('.filter-button');
     const gallery = container.querySelector('.dynamic-gallery');
-    const projectCards = Array.from(container.querySelectorAll('.project-card')); // Convert to Array for .filter
+    const projectCards = Array.from(container.querySelectorAll('.card-wrapper'));
 
     let activeFilter = 'all';
 
@@ -193,49 +178,18 @@ const years = Array.from(allYears).sort((a, b) => b - a).slice(0, maxYearCount);
         transition: height 0.4s ease; /* Animate the container's height change */
     }
 
-    .project-card {
-        width: 588px; /* Or your desired card width */
-        height: fit-content;
-        margin: 10px; /* Use margin for spacing */
-        
-        /* --- Animation --- */
-        position: absolute; /* All cards are now positioned absolutely */
+    .card-wrapper {
+        position: absolute;
         left: 50%;
         top: 0;
         transition: transform 0.6s ease, opacity 0.6s ease;
     }
 
-    .project-card.is-collapsed {
+    .card-wrapper.is-collapsed {
         opacity: 0;
         transform: scale(0.8);
-        pointer-events: none; /* Prevent interacting with hidden cards */
+        pointer-events: none;
     }
-
-    /* Reused styles for card content */
-    .image-wrapper { width: 100%; height: 283px; overflow: hidden; }
-    .project-image {
-        object-position: var(--pos-x) var(--pos-y);
-        width: calc(100% - var(--pos-x, 0px));
-        height: calc(100% - var(--pos-y, 0px));
-        object-fit: cover;
-    }
-    .project-footer { background-color: var(--color-background-body); padding: 20px; }
-    .project-footer > p { margin: 2px; }
-    .project-title { font-size: 16px; font-weight: 500; text-transform: uppercase; }
-    .project-year { position: absolute; top: 20px; right: 20px; padding: 13px 20px; background-color: var(--color-background-body); text-align: right; }
-    .project-year > p { margin: 0; }
-    
-    .info-overlay {
-        cursor: pointer; position: absolute; inset: 0;
-        background-color: var(--color-primary);
-        display: flex; justify-content: center; align-items: center;
-        transition: opacity 0.5s ease; opacity: 0;
-        background-image: url('/icons/lightning.svg');
-        background-size: 175px; background-position: center; background-repeat: no-repeat;
-        text-decoration: none;
-    }
-    .info-overlay:hover { opacity: 1; }
-    .info-content > p { text-align: center; color: var(--color-text-on-primary); font-size: 14px; max-width: 456px; }
 
     /* ==========================================================================
        MOBILE STYLES
@@ -246,35 +200,7 @@ const years = Array.from(allYears).sort((a, b) => b - a).slice(0, maxYearCount);
             padding: 20px 0; /* Less vertical, no horizontal padding */
         }
 
-        /* --- 1. Adjust the project card size --- */
-        .project-card {
-            /* 
-                This calculation ensures there is always 14px of space on either side.
-                `100vw` is the full viewport width.
-                `28px` is 14px on the left + 14px on the right.
-            */
-
-            width: calc(100vw - 28px);
-            max-width: 440px;
-            margin: 8px 0; /* Adjust vertical margin for the new layout */
-        }
-        
-        /* Adjust the image wrapper height to match the new card proportions */
-        .image-wrapper {
-            height: 180px;
-        }
-
-        /* --- 2. Reduce padding in the footer --- */
-        .project-footer {
-            padding: 12px 14px;
-        }
-        
-        /* --- 3. Reduce padding in the year badge --- */
-        .project-year {
-            padding: 8px 12px; /* Swapped to match standard padding order (vertical horizontal) */
-        }
-
-        /* Optional: Style tweaks for filter buttons on mobile */
+        /* Style tweaks for filter buttons on mobile */
         .filter-controls {
             padding: 27px 32px 16px;
             gap: 12px;
