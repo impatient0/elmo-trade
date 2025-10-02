@@ -60,6 +60,7 @@ button {
 .title1 {
     font-size: 16px;
     font-weight: 500;
+    line-height: 125%;
 }
 
 .title2 {
@@ -188,6 +189,11 @@ button {
     padding-bottom: 48px;
 }
 
+.mobile-content {
+    position: relative;
+    display: none;
+}
+
 @media (max-width: 768px) {
 
     .about {
@@ -201,13 +207,17 @@ button {
     }
 
     .about p {
-        max-width: 60%;
+        max-width: 63%;
         text-align: left;
-        font-weight: 450;
+        font-weight: 400;
     }
 
     .about .body1 {
         display: none;
+    }
+
+    .about .headline1 {
+        max-width: 100%;
     }
 
     #gallery-section_0 {
@@ -225,5 +235,13 @@ button {
 
     #contacts.about {
         display: none;
+    }
+
+    .desktop-content {
+        display: none;
+    }
+
+    .mobile-content {
+        display: block;
     }
 }

@@ -98,13 +98,19 @@ slides.sort(compareYears);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<div class="cover">
+	<div class="cover desktop-content">
 		<Carousel images={optimizedCarouselImages} />
 	</div>
     <div class="about">
-        <p class="title1">Проекты</p>
-        <p class="headline1">ознакомьтесь с нашей работой</p>
-        <p class="body1">За более чем 20-ти летний период мы оборудовали инженерными системами большое количество объектов.</p>
-    </div>
+		<div class="desktop-content">
+			<p class="title1">Проекты</p>
+			<p class="headline1">ознакомьтесь с нашей работой</p>
+			<p class="body1">За более чем 20-ти летний период мы оборудовали инженерными системами большое количество объектов.</p>
+		</div>
+		<div class="mobile-content">
+			<p class="title1">За более чем 20-ти летний период мы оборудовали инженерными системами большое количество объектов.</p>
+			<p class="headline1">наши проекты</p>
+		</div>
+	</div>
     <DynamicGallery slides={slides}/>
 </BaseLayout>
