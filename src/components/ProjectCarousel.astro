@@ -35,40 +35,69 @@ const { slides } = Astro.props;
     const nextBtn = wrapper.querySelector('.next-btn') as HTMLButtonElement;
     const prevBtn = wrapper.querySelector('.prev-btn') as HTMLButtonElement;
     const dots = wrapper.querySelectorAll('.dot') as NodeListOf<HTMLButtonElement>;
+
+    const mediaQuery = window.matchMedia('(max-width: 1200px)');
+    let isSingleSlideView = mediaQuery.matches;
     
     if (slides.length <= 2) {
         // Hide controls if there aren't enough slides to paginate
         (wrapper.querySelector('.carousel-controls') as HTMLElement).style.display = 'none';
-        (wrapper.querySelector('.prev-btn') as HTMLElement).style.display = 'none';
-        (wrapper.querySelector('.next-btn') as HTMLElement).style.display = 'none';
+        prevBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
+    }
+    
+    if (dots.length > 0) {
+        dots[slides.length - 1].style.display = isSingleSlideView ? 'block' : 'none';
     }
 
     let activeIndex = 0;
     let autoplayInterval = null;
 
-    dots[slides.length - 1].classList.add('is-hidden'); // Hide the last dot
-
+    // --- MODIFIED: The core goToSlide function is now responsive ---
     function goToSlide(index) {
-        // Calculate the new scroll position.
-        // This centers the active slide, showing half of the adjacent slides.
-        const scrollOffset = slides[index].offsetLeft - wrapper.offsetWidth / 2 + slides[index].offsetWidth + 40;
-        slidesContainer.style.transform = `translateX(-${scrollOffset}px)`;
+        let scrollOffset = 0;
 
-        // Update active classes for dots and slides
-        dots[activeIndex].classList.remove('is-active');
-        slides[activeIndex].classList.remove('is-active', 'left', 'right');
-        slides[(activeIndex + 1) % slides.length].classList.remove('is-active', 'left', 'right');
-        activeIndex = index;
-        dots[activeIndex].classList.add('is-active');
-        slides[activeIndex].classList.add('is-active', 'left');
-        slides[(activeIndex + 1) % slides.length].classList.add('is-active', 'right');
+        if (isSingleSlideView) {
+            // --- Single-Slide Logic (for screens < 1200px) ---
+            // Simple calculation to center the active slide
+            scrollOffset = slides[index].offsetLeft - wrapper.offsetWidth / 2 + slides[index].offsetWidth / 2;
+            
+            // Update active classes for dots and a single slide
+            if (dots.length > 0) dots[activeIndex]?.classList.remove('is-active');
+            slides[activeIndex]?.classList.remove('is-active');
+            
+            activeIndex = index;
+            
+            if (dots.length > 0) dots[activeIndex]?.classList.add('is-active');
+            slides[activeIndex]?.classList.add('is-active');
+
+        } else {
+            // --- Two-Slide Logic (for screens > 1200px) ---
+            // Your original calculation to show two slides
+            scrollOffset = slides[index].offsetLeft - wrapper.offsetWidth / 2 + slides[index].offsetWidth + 40;
+
+            // Your original logic for managing active classes on two slides
+            slides[activeIndex]?.classList.remove('is-active', 'left', 'right');
+            slides[(activeIndex + 1) % slides.length]?.classList.remove('is-active', 'left', 'right');
+            
+            activeIndex = index;
+
+            slides[activeIndex]?.classList.add('is-active', 'left');
+            slides[(activeIndex + 1) % slides.length]?.classList.add('is-active', 'right');
+        }
+        
+        // This part is the same for both modes
+        if (dots.length > 0) dots.forEach((d, i) => d.classList.toggle('is-active', i === activeIndex));
+        slidesContainer.style.transform = `translateX(-${scrollOffset}px)`;
     }
 
+    // --- Autoplay is also slightly modified ---
     function startAutoplay() {
-        stopAutoplay(); // Prevent multiple timers
-        if (slides.length > 2) {
+        stopAutoplay();
+        const limit = isSingleSlideView ? slides.length : slides.length - 1;
+        if (slides.length > (isSingleSlideView ? 1 : 2)) {
             autoplayInterval = setInterval(() => {
-                const nextIndex = (activeIndex + 1) % (slides.length - 1);
+                const nextIndex = (activeIndex + 1) % limit;
                 goToSlide(nextIndex);
             }, 4000);
         }
@@ -78,16 +107,35 @@ const { slides } = Astro.props;
         clearInterval(autoplayInterval);
     }
 
-    // Event Listeners
-    nextBtn.addEventListener('click', () => goToSlide((activeIndex + 1) % (slides.length - 1)));
-    prevBtn.addEventListener('click', () => goToSlide((activeIndex - 1 + slides.length) % (slides.length - 1)));
+    // --- Event Listeners now use the correct limit ---
+    function updateAndGoTo(newIndex) {
+        const limit = isSingleSlideView ? slides.length : slides.length - 1;
+        goToSlide((newIndex + limit) % limit);
+    }
+
+    nextBtn.addEventListener('click', () => updateAndGoTo(activeIndex + 1));
+    prevBtn.addEventListener('click', () => updateAndGoTo(activeIndex - 1));
     dots.forEach(dot => {
         dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
     });
 
-    // Pause on hover
     wrapper.addEventListener('mouseenter', stopAutoplay);
     wrapper.addEventListener('mouseleave', startAutoplay);
+
+    // --- NEW: Handle screen resizing ---
+    function handleResize() {
+        isSingleSlideView = mediaQuery.matches;
+        // Re-hide the last dot if needed
+        if (dots.length > 0) {
+            dots[slides.length - 1].style.display = isSingleSlideView ? 'block' : 'none';
+        }
+        // Re-calculate the current slide's position for the new view
+        goToSlide(activeIndex);
+        // Restart autoplay with the correct logic
+        startAutoplay();
+    }
+
+    mediaQuery.addEventListener('change', handleResize);
 
     // Initialize
     goToSlide(0);
@@ -203,6 +251,13 @@ const { slides } = Astro.props;
         }
         .project-slide {
             transform: scale(1); /* All slides are same size */
+            margin: 0 140px;
+        }
+        .project-slide.is-active.left {
+            transform: none;
+        }
+        .project-slide.is-active.right {
+            transform: none;
         }
     }
 
