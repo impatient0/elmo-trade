@@ -1,13 +1,13 @@
 ---
 import ProjectCard from "./ProjectCard.astro";
-const { slides } = Astro.props;
+const { slides, maxSlidesOnMobile = 999 } = Astro.props;
 ---
 
 <div class="carousel-wrapper">
     <div class="carousel-viewport">
         <div class="slides-container">
-            {slides.map((slide) => (
-                <div class="project-slide">
+            {slides.map((slide, index) => (
+                <div class={"project-slide" + (index >= maxSlidesOnMobile ? " hide-on-mobile" : "")}>
                     <ProjectCard slide={slide} />
                 </div>
             ))}
@@ -296,6 +296,10 @@ const { slides } = Astro.props;
             /* Undo the desktop carousel styles */
             transform: none !important; /* Use !important to override JS and other styles */
             opacity: 1 !important;
+        }
+
+        .project-slide.hide-on-mobile {
+            display: none;
         }
 
         /* 5. Hide all the carousel controls */
