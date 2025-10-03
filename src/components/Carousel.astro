@@ -1,4 +1,6 @@
 ---
+import { Image } from "astro:assets";
+
 const { images, showDots = false, showNavButtons = false, autoplay = true } = Astro.props;
 ---
 
@@ -6,12 +8,11 @@ const { images, showDots = false, showNavButtons = false, autoplay = true } = As
     <div class="slides-container">
         {images.map((image, index) => (
             <div class="slide" data-index={index}>
-                <img
+                <Image
+                    src={image.src}
                     class="carousel-img"
-                    src={image.optimizedImageSrc}
-                    style={`'--bg-pos-x': ${image.offsets[0]}px; '--bg-pos-y': ${image.offsets[1]}px;`}
-                    loading={index === 0 ? 'eager' : 'lazy'}
-                    decoding="async"
+                    style={`--bg-pos-x: ${image.offsets[0]}px; --bg-pos-y: ${image.offsets[1]}px;`}
+                    width={1440}
                     alt={image.description.headline}
                 />
                 <div class="carousel-banner">
@@ -138,10 +139,8 @@ const { images, showDots = false, showNavButtons = false, autoplay = true } = As
 
     .carousel-img {
         width: 100%;
-        height: calc(100% - var(--bg-pos-y, 0px));
-
-        object-fit: cover; 
-        
+        height: 100%;
+        object-fit: cover;        
         object-position: calc(50% + var(--bg-pos-x)) var(--bg-pos-y);
     }
 

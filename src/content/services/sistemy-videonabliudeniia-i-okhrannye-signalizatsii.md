@@ -5,7 +5,7 @@ pageID: "sistemy-videonabliudeniia"
 carousel: { 
     images: [
         {
-            image: "../../assets/images/services/service-5_upscaled.webp",
+            src: "../../assets/images/services/service-5_upscaled.webp",
             offsets: [0, -500],
             size: [0, 0],
             description: {

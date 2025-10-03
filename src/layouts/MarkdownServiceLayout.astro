@@ -10,20 +10,6 @@ const allServiceImages = import.meta.glob('/src/assets/images/services/**/*.{web
 
 const { frontmatter } = Astro.props;
 
-const optimizedCarouselImages = await Promise.all(
-    frontmatter.carousel.images.map(async (imgData) => {
-        const optimized = await getImage({
-            src: imgData.image,
-            width: 1440,
-            format: 'webp',
-        });
-        return {
-            ...imgData,
-            optimizedImageSrc: optimized.src,
-        };
-    })
-);
-
 const optimizedMultiGallery = await Promise.all(
     frontmatter.multi_gallery.map(async (gallery) => {
         const optimizedImages = await Promise.all(
@@ -60,7 +46,7 @@ const serviceFilter = (p) => {
 
 <BaseLayout pageTitle={frontmatter.title} pageID={frontmatter.pageID}>
 	<div class="cover">
-		<Carousel images={optimizedCarouselImages} />
+		<Carousel images={frontmatter.carousel.images} />
 	</div>
 	<div class="about gallery-section-title" id="gallery-section_0">
 		<p class="title1">{frontmatter.about.header}</p>

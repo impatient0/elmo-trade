@@ -40,7 +40,7 @@ const servicesCollection = defineCollection({
     pageID: z.string(),
     carousel: z.object({
       images: z.array(z.object({
-        image: image(),
+        src: image(),
         offsets: z.array(z.number()).optional(),
         size: z.array(z.number()).optional(),
         description: z.object({

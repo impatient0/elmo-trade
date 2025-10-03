@@ -5,7 +5,6 @@ import Services from "../components/Services.astro";
 import Projects from "../components/Projects.astro";
 import Letters from "../components/Letters.astro";
 
-import { getImage } from "astro:assets";
 import izmeronImage from "../assets/images/projects/izmeron/izmeron.webp";
 import spguImage from "../assets/images/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp";
 import mtsImage from "../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp";
@@ -13,9 +12,9 @@ import mtsImage from "../assets/images/projects/stroitelnaia-ploshchadka-tsod-mt
 const pageTitle = "Элмо Трейд";
 const pageID = "home";
 
-const rawImagesData = [
+const carouselImages = [
 	{
-		image: izmeronImage,
+		src: izmeronImage,
 		offsets: [0, -150],
 		size: [0, 0], // Use 0,0 to signify 'cover'
 		description: {
@@ -27,7 +26,7 @@ const rawImagesData = [
 		link: "/projects/zavod-izmeron",
 	},
 	{
-		image: spguImage,
+		src: spguImage,
 		offsets: [0, -175],
 		size: [0, 0],
 		description: {
@@ -39,7 +38,7 @@ const rawImagesData = [
 		link: "/projects/obshchezhitie-spgu-gornyi-universitet",
 	},
 	{
-		image: mtsImage,
+		src: mtsImage,
 		offsets: [0, -200],
 		size: [0, 0],
 		description: {
@@ -52,22 +51,6 @@ const rawImagesData = [
 	},
 ];
 
-const optimizedImages = await Promise.all(
-    rawImagesData.map(async (imgData) => {
-        const optimizedImageObject = await getImage({
-            src: imgData.image,
-            width: 1440,
-            format: 'webp',
-        });
-
-
-        return {
-            ...imgData,
-            optimizedImageSrc: optimizedImageObject.src,
-        };
-    })
-);
-
 const yearFilter = (x) => {
 	let currentYear = new Date().getFullYear();
 	return Number(x.year[x.year.length - 1].slice(-4)) >= currentYear - 1;
@@ -76,7 +59,7 @@ const yearFilter = (x) => {
 
 <BaseLayout pageTitle={pageTitle} pageID={pageID}>
 	<div class="cover">
-		<Carousel images={optimizedImages} />
+		<Carousel images={carouselImages} />
 	</div>
 	<div class="about">
 		<p class="title1">Выполнен широкий спектр работ</p>

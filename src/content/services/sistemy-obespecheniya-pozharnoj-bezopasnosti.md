@@ -5,7 +5,7 @@ pageID: "sistemy-obespecheniya-pozharnoj-bezopasnosti"
 carousel: { 
     images: [
         {
-            image: "../../assets/images/services/service-2_upscaled.webp",
+            src: "../../assets/images/services/service-2_upscaled.webp",
             offsets: [0, -200],
             size: [0, 0],
             description: {

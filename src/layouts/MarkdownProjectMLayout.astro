@@ -9,15 +9,9 @@ const allGalleryImages = import.meta.glob('/src/assets/images/projects/**/*.{web
 
 const { frontmatter } = Astro.props;
 
-const optimizedTopImage = await getImage({
-    src: frontmatter.info.cover_image,
-    width: 1440,
-    format: 'webp',
-});
-
-const optimizedCarouselImages = [
+const carouselImages = [
     {
-        optimizedImageSrc: optimizedTopImage.src,
+        src: frontmatter.info.cover_image,
         offsets: frontmatter.info.cover_image_offsets || [0, 0],
         size: [0, 0],
         description: {
@@ -71,7 +65,7 @@ const servicesFilter = (p) => {
 
 <BaseLayout pageTitle={frontmatter.title} pageID={frontmatter.pageID}>
 	<div class="cover">
-		<Carousel images={optimizedCarouselImages} />
+		<Carousel images={carouselImages} />
 	</div>
 	{optimizedSections.map((section, index) => (
 		<div class="about gallery-section-title" id={"gallery-section_"+index}>

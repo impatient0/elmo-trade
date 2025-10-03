@@ -5,7 +5,7 @@ pageID: "sistemy-kontrolia-i-upravleniia-dostupom"
 carousel: { 
     images: [
         {
-            image: "../../assets/images/services/service-4_upscaled.webp",
+            src: "../../assets/images/services/service-4_upscaled.webp",
             offsets: [0, -100],
             size: [0, 0],
             description: {

@@ -5,7 +5,7 @@ pageID: "teplosnabzhenie"
 carousel: { 
     images: [
         {
-            image: "../../assets/images/services/service-8_upscaled.webp",
+            src: "../../assets/images/services/service-8_upscaled.webp",
             offsets: [0, -600],
             size: [0, 0],
             description: {
