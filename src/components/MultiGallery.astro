@@ -1,4 +1,6 @@
 ---
+import Image from "astro/components/Image.astro";
+
 const { sections, shifts } = Astro.props;
 const uniqueId = crypto.randomUUID().slice(0, 8);
 
@@ -32,13 +34,15 @@ function getShift(section_index, slide_index) {
                             {section.images.map((image, slide_index) => (
                                 <div class="slide">
                                     {image.type === 'image' ? (
-                                        <img 
+                                        <Image 
                                             src={image.src} 
                                             class="slide-media" 
-                                            alt={`Image ${slide_index + 1} for ${section.title}`} 
-                                            data-dialog-trigger={`dialog-${uniqueId}-${section_index}-${slide_index}`} 
-                                            
+                                            alt={`Image ${slide_index + 1} for ${section.title}`}
+                                            height={Math.min(600, (image.src.height)) + getShift(section_index, slide_index)}
+                                            width={Math.min(928, image.src.width) + getShift(section_index, slide_index)}
+                                            data-dialog-trigger={`dialog-${uniqueId}-${section_index}-${slide_index}`}
                                             style={`margin-top: ${getShift(section_index, slide_index)}px;`}
+                                            draggable="false"
                                         />
                                     ) : (
                                         <video controls controlslist="nodownload" autoplay muted loop class="slide-media">
@@ -68,7 +72,10 @@ function getShift(section_index, slide_index) {
     section.images.map((image, slide_index) => (
         image.type === 'image' && (
             <dialog id={`dialog-${uniqueId}-${section_index}-${slide_index}`} class="lightbox-dialog">
-                <img src={image.src} alt={`Full view of image ${slide_index + 1} for ${section.title}`} />
+                <Image
+                    src={image.src}
+                    alt={`Full view of slide ${slide_index + 1} for ${section.title}`}
+                />
             </dialog>
         )
     ))

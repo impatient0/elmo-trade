@@ -1,5 +1,4 @@
 ---
-import { getImage } from 'astro:assets';
 import BaseLayout from "./BaseLayout.astro";
 import Carousel from "../components/Carousel.astro";
 import MultiGallery from "../components/MultiGallery.astro";
@@ -36,19 +35,12 @@ const optimizedSections = await Promise.all(
                         const globKey = `${imagePath.replace('../..', '/src')}`;
 
                         if (allGalleryImages[globKey]) {
-                            try {
-                                const imageModule = await allGalleryImages[globKey]();
-                                const optimized = await getImage({ src: (imageModule as Record<string, any>).default, width: 1200, format: 'webp' });
-								
-                                return { src: optimized.src, type: 'image' };
-                            } catch (e) {
-                                console.error(`Failed to process image from glob: ${globKey}`, e);
-                                return { src: imagePath, type: 'error' };
-                            }
-                        } else {
-                            console.warn(`Image not found in glob: ${globKey}`);
-                            return { src: imagePath, type: 'error' };
+                            const imageModule = await allGalleryImages[globKey]();
+                            return { src: (imageModule as Record<string, any>).default, type: 'image' };
                         }
+                        
+                        console.warn(`Image not found in glob: ${globKey}`);
+                        return { src: imagePath, type: 'error' };
                     })
                 );
                 return { ...gallery, images: optimizedImages };
