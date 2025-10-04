@@ -15,6 +15,7 @@ const lettersData = [
         image: "arteks_letter.png",
         pdf: "/img/partners/arteks_letter.pdf",
         logo_scale: 1.25,
+        strip_scale: 0.7,
     },
     {
         logo: "vtb.svg",
@@ -27,6 +28,7 @@ const lettersData = [
         image: "vtb_letter.png",
         pdf: "/img/partners/vtb_letter.pdf",
         logo_scale: 0.9,
+        strip_scale: 0.9,
     },
     {
         logo: "spb.svg",
@@ -40,6 +42,7 @@ const lettersData = [
         image: "spb_letter.png",
         pdf: "/img/partners/spb_letter.pdf",
         logo_scale: 0.5,
+        strip_scale: 1.0,
     },
     {
         logo: "lenenergo.png",
@@ -53,6 +56,7 @@ const lettersData = [
         image: "lenenergo_letter.png",
         pdf: "/img/partners/lenenergo_letter.pdf",
         logo_scale: 1.35,
+        strip_scale: 1.2,
     },
     {
         logo: "fortgroup.png",
@@ -65,6 +69,7 @@ const lettersData = [
         image: "fortgroup_letter.png",
         pdf: "/img/partners/fortgroup_letter.pdf",
         logo_scale: 0.9,
+        strip_scale: 1.0,
     },
     {
         logo: "telemaks.png",
@@ -78,6 +83,7 @@ const lettersData = [
         image: "telemaks_letter.png",
         pdf: "/img/partners/telemaks_letter.pdf",
         logo_scale: 1.3,
+        strip_scale: 1.2,
     },
 ];
 
@@ -100,9 +106,11 @@ const letters = lettersData.map(letter => {
             <Image
                 src={letter.logoSrc}
                 class="logo"
-                height={40}
+                height={60 * letter.strip_scale}
                 data-index={index}
                 alt={`${letter.signature.split('—')[0].trim()} logo`}
+                style={`--logo-scale: ${letter.strip_scale};`}
+                id={`logo-${letter.logo.substring(0, letter.logo.lastIndexOf('.'))}`}
             />
         ))}
     </div>
@@ -321,6 +329,7 @@ const letters = lettersData.map(letter => {
         width: 100%;
         max-width: 900px; /* Set a max-width instead of a fixed percentage */
         display: flex;
+        align-items: center;
         justify-content: center; /* Center logos */
         gap: 2rem; /* Use gap for spacing */
         flex-wrap: wrap;
@@ -328,7 +337,7 @@ const letters = lettersData.map(letter => {
     }
 
     .logo {
-        height: 40px; /* Use a consistent height for alignment */
+        height: calc(40px * var(--logo-scale)); /* Use a consistent height for alignment */
         width: auto;
         object-fit: contain;
         transition: transform 0.5s ease;
@@ -450,6 +459,14 @@ const letters = lettersData.map(letter => {
         transform: scale(1.15);
     }
 
+    /* ====================
+       FIXES FOR DIANOCHKA
+       ==================== */
+    
+    #logo-spb {
+        margin-left: 10px;
+    }
+
     /* ==========================================================================
        TABLET & RESPONSIVE STYLES
        ========================================================================== */
@@ -520,7 +537,7 @@ const letters = lettersData.map(letter => {
 
         .logo.is-active {
             /* Make the active logo larger and fully opaque */
-            transform: scale(1.2) translateY(-5px);
+            transform: scale(1.2);
             opacity: 1;
         }
 
@@ -552,6 +569,10 @@ const letters = lettersData.map(letter => {
 
         .letter.is-active {
             display: block; /* Only show the active letter */
+        }
+
+        .letter-text {
+            background-color: var(--color-background-body);
         }
 
         .letter-text {
