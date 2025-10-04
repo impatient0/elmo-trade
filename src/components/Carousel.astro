@@ -14,6 +14,7 @@ const { images, showDots = false, showNavButtons = false, autoplay = true } = As
                     style={`--bg-pos-x: ${image.offsets[0]}px; --bg-pos-y: ${image.offsets[1]}px;`}
                     width={1440}
                     alt={image.description.headline}
+                    loading={index === 0 ? 'eager' : 'lazy'}
                 />
                 <div class="carousel-banner">
                     <div class="banner-text">
