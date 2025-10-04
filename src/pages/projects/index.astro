@@ -4,7 +4,6 @@ import BaseLayout from "../../layouts/BaseLayout.astro";
 import DynamicGallery from "../../components/DynamicGallery.astro";
 import Carousel from "../../components/Carousel.astro";
 
-import { getImage } from "astro:assets";
 import izmeronImage from "../../assets/images/projects/izmeron/izmeron.webp";
 import spguImage from "../../assets/images/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp";
 import mtsImage from "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp";
@@ -63,27 +62,17 @@ const compareYears = (a, b) => {
 
 const allProjects = await getCollection('projects');
 
-const slides = await Promise.all(
-    allProjects.map(async (project) => {
-        const optimized = await getImage({
-            src: project.data.info.slide_image as ImageMetadata,
-			width: project.data.info.slide_image.width,
-			format: 'webp'
-        });
-
-        return {
-            year: project.data.info.year, 
-            title: project.data.title,
-            link: `/projects/${project.id}`, 
-            address: project.data.info.address, 
-            info: project.data.info.description,
-            optimizedSrc: optimized.src,
-            offsets: project.data.info.slide_image_offsets || [0, 0],
-        };
-    })
-);
-
-slides.sort(compareYears);
+const slides = allProjects.map((project) => {
+	return {
+		src: project.data.info.slide_image,
+		year: project.data.info.year, 
+		title: project.data.title,
+		link: `/projects/${project.id}`, 
+		address: project.data.info.address, 
+		info: project.data.info.description,
+		offsets: project.data.info.slide_image_offsets || [0, 0],
+	};
+}).sort(compareYears);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
