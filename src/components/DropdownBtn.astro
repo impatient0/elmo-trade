@@ -4,17 +4,19 @@ const { btnText, btnLink, menuTexts, menuLinks } = Astro.props;
 
 <div class="dropdown-container">
     <a class="dropdown-btn menu" href={`/${btnLink}`}>{btnText}</a>
-    <ul class="dropdown-menu">
-        {
-            menuTexts.map((menuText, index) => (
-                <li>
-                    <a class="dropdown-item menu" href={menuLinks[index]}>
-                        {menuText}
-                    </a>
-                </li>
-            ))
-        }
-    </ul>
+    {menuTexts.size && (
+        <ul class="dropdown-menu">
+            {
+                menuTexts.map((menuText, index) => (
+                    <li>
+                        <a class="dropdown-item menu" href={menuLinks[index]}>
+                            {menuText}
+                        </a>
+                    </li>
+                ))
+            }
+        </ul>
+    )}
 </div>
 
 <style>
@@ -56,11 +58,11 @@ const { btnText, btnLink, menuTexts, menuLinks } = Astro.props;
 
     /* THE MAGIC: Show the menu when hovering the container */
     
-    /* .dropdown-container:hover .dropdown-menu {
+    .dropdown-container:hover .dropdown-menu {
         opacity: 1;
         visibility: visible;
         transform: translateY(0);
-    } */
+    }
 
     .dropdown-item {
         display: block;
