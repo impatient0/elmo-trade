@@ -1,5 +1,5 @@
 ---
-import Image from "astro/components/Image.astro";
+import { Image } from "astro:assets";
 
 const { sections, shifts } = Astro.props;
 const uniqueId = crypto.randomUUID().slice(0, 8);

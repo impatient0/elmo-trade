@@ -1,5 +1,5 @@
 ---
-import Image from "astro/components/Image.astro";
+import { Image } from "astro:assets";
 
 const partnerImages = await import.meta.glob('/src/assets/images/partners/*.{png,svg}', { eager: true });
 
