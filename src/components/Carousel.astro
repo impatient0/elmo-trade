@@ -230,11 +230,11 @@ const { images, showDots = false, showNavButtons = false, autoplay = true } = As
 
     .dots-container {
         position: absolute;
-        top: 24px;
+        bottom: 24px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 4;
-        display: flex;
+        display: none;
         gap: 12px;
     }
 
@@ -323,6 +323,11 @@ const { images, showDots = false, showNavButtons = false, autoplay = true } = As
 
         .view-project-btn:hover {
             transform: translate(10px, -50%);
+        }
+
+        .dots-container {
+            top: 24px;
+            display: flex;
         }
     }
 </style>
