@@ -4,7 +4,12 @@ on:
   push:
     branches:
       - master # This workflow runs every a push to the master branch occurs
-  workflow_dispatch: # Allows manual triggering
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'The branch to build and deploy from'
+        required: true
+        default: 'master' # The default branch to use if not specified
 
 jobs:
   build:
