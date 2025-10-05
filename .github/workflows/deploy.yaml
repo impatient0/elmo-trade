@@ -19,7 +19,16 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'npm' 
+          cache: 'npm'
+
+      - name: Cache Astro Build
+        id: cache-astro
+        uses: actions/cache@v4
+        with:
+          path: .astro/cache
+          key: astro-build-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}-${{ github.sha }}
+          restore-keys: |
+            astro-build-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}-
 
       - name: Install dependencies
         run: npm install
