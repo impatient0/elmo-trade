@@ -11,8 +11,6 @@
     "deploy": "astro build && C:\\tools\\msys64\\usr\\bin\\bash.exe -l -c 'rsync -rlgoDzvc --delete /d/dev/elmo-trade/dist/ majordomo-vps:elmotreidru/www'"
   },
   "dependencies": {
-    "@astrojs/preact": "^4.1.0",
-    "astro": "^5.13.4",
-    "preact": "^10.22.1"
+    "astro": "^5.13.4"
   }
 }
