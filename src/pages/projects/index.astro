@@ -1,19 +1,18 @@
 ---
 import { getCollection } from 'astro:content';
 import BaseLayout from "../../layouts/BaseLayout.astro";
-import DynamicGallery from "../../components/DynamicGallery";
+import DynamicGallery from "../../components/DynamicGallery.astro";
 import Carousel from "../../components/Carousel.astro";
 
-import { getImage } from "astro:assets";
 import izmeronImage from "../../assets/images/projects/izmeron/izmeron.webp";
 import spguImage from "../../assets/images/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp";
 import mtsImage from "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp";
 
 const pageTitle = "Проекты";
 
-const rawCarouselData = [
+const carouselImages = [
 	{
-		image: izmeronImage,
+		src: izmeronImage,
 		offsets: [0, -150],
 		size: [0, 0],
 		description: {
@@ -25,7 +24,7 @@ const rawCarouselData = [
 		link: "/projects/zavod-izmeron",
 	},
 	{
-		image: spguImage,
+		src: spguImage,
 		offsets: [0, -175],
 		size: [0, 0],
 		description: {
@@ -34,10 +33,10 @@ const rawCarouselData = [
 			subbody: "г. Санкт-Петербург, 14-я линия В.О., д. 77, литер А.",
 			body: "Разработка РД и выполнение работ по монтажу внутренних инженерных систем.",
 		},
-		link: "/projects/obshchezhitie-spgu-(gornyi-universitet)",
+		link: "/projects/obshchezhitie-spgu-gornyi-universitet",
 	},
 	{
-		image: mtsImage,
+		src: mtsImage,
 		offsets: [0, -200],
 		size: [0, 0],
 		description: {
@@ -49,17 +48,6 @@ const rawCarouselData = [
 		link: "/projects/tsod-mts",
 	},
 ];
-
-const optimizedCarouselImages = await Promise.all(
-    rawCarouselData.map(async (imgData) => {
-        const optimized = await getImage({
-            src: imgData.image,
-            width: imgData.size[0],
-            format: 'webp',
-        });
-        return { ...imgData, optimizedImageSrc: optimized.src };
-    })
-);
 
 const compareYears = (a, b) => {
     let a_1 = a.year[a.year.length - 1].slice(-4);
@@ -74,37 +62,33 @@ const compareYears = (a, b) => {
 
 const allProjects = await getCollection('projects');
 
-const slides = await Promise.all(
-    allProjects.map(async (project) => {
-        const optimized = await getImage({
-            src: project.data.info.slide_image as ImageMetadata,
-			width: project.data.info.slide_image.width,
-			format: 'webp'
-        });
-
-        return {
-            year: project.data.info.year, 
-            title: project.data.title,
-            link: `/projects/${project.id}`, 
-            address: project.data.info.address, 
-            info: project.data.info.description,
-            optimizedSrc: optimized.src,
-            offsets: project.data.info.slide_image_offsets || [0, 0],
-        };
-    })
-);
-
-slides.sort(compareYears);
+const slides = allProjects.map((project) => {
+	return {
+		src: project.data.info.slide_image,
+		year: project.data.info.year, 
+		title: project.data.title,
+		link: `/projects/${project.id}`, 
+		address: project.data.info.address, 
+		info: project.data.info.description,
+		offsets: project.data.info.slide_image_offsets || [0, 0],
+	};
+}).sort(compareYears);
 ---
 
 <BaseLayout pageTitle={pageTitle}>
-	<div class="cover">
-		<Carousel images={optimizedCarouselImages} />
+	<div class="cover desktop-content">
+		<Carousel images={carouselImages}, showDots={true} />
 	</div>
     <div class="about">
-        <p class="title1">Проекты</p>
-        <p class="headline1">ознакомьтесь с нашей работой</p>
-        <p class="body1">За более чем 20-ти летний период мы оборудовали инженерными системами большие количество объектов.</p>
-    </div>
-    <DynamicGallery client:load slides={slides}/>
+		<div class="desktop-content">
+			<p class="title1">Проекты</p>
+			<p class="headline1">ознакомьтесь с нашей работой</p>
+			<p class="body1">За более чем 20-ти летний период мы оборудовали инженерными системами большое количество объектов.</p>
+		</div>
+		<div class="mobile-content">
+			<p class="title1">За более чем 20-ти летний период мы оборудовали инженерными системами большое количество объектов.</p>
+			<p class="headline1">наши проекты</p>
+		</div>
+	</div>
+    <DynamicGallery slides={slides}/>
 </BaseLayout>

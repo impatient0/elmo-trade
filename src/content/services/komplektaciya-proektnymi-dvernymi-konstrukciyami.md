@@ -5,7 +5,7 @@ pageID: "komplektaciya-proektnymi-dvernymi-konstrukciyami"
 carousel: { 
     images: [
         {
-            image: "../../assets/images/services/service-9_upscaled.webp",
+            src: "../../assets/images/services/service-9_upscaled.webp",
             offsets: [0, -600],
             size: [0, 0],
             description: {

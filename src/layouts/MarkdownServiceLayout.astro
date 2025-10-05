@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "./BaseLayout.astro";
 import Carousel from "../components/Carousel.astro";
-import MultiGallery from "../components/MultiGallery";
+import MultiGallery from "../components/MultiGallery.astro";
 import Projects from "../components/Projects.astro";
 
 import { getImage } from "astro:assets";
@@ -9,20 +9,6 @@ import { getImage } from "astro:assets";
 const allServiceImages = import.meta.glob('/src/assets/images/services/**/*.{webp,jpg,jpeg,png,gif,svg,avif}');
 
 const { frontmatter } = Astro.props;
-
-const optimizedCarouselImages = await Promise.all(
-    frontmatter.carousel.images.map(async (imgData) => {
-        const optimized = await getImage({
-            src: imgData.image,
-            width: 1440,
-            format: 'webp',
-        });
-        return {
-            ...imgData,
-            optimizedImageSrc: optimized.src,
-        };
-    })
-);
 
 const optimizedMultiGallery = await Promise.all(
     frontmatter.multi_gallery.map(async (gallery) => {
@@ -35,18 +21,12 @@ const optimizedMultiGallery = await Promise.all(
                 const globKey = `${imagePath.replace('../..', '/src')}`;
 
                 if (allServiceImages[globKey]) {
-                    try {
-                        const imageModule = await allServiceImages[globKey]();
-                        const optimized = await getImage({ src: (imageModule as Record<string, any>).default, width: 1200, format: 'webp' });
-                        return { src: optimized.src, type: 'image' };
-                    } catch (e) {
-                        console.error(`Failed to process service image from glob: ${globKey}`, e);
-                        return { src: imagePath, type: 'error' };
-                    }
-                } else {
-                    console.warn(`Service image not found in glob: ${globKey}`);
-                    return { src: imagePath, type: 'error' };
+                    const imageModule = await allServiceImages[globKey]();
+                    return { src: (imageModule as Record<string, any>).default, type: 'image' };
                 }
+                
+                console.warn(`Image not found in glob: ${globKey}`);
+                return { src: imagePath, type: 'error' };
             })
         );
         return { ...gallery, images: optimizedImages };
@@ -60,14 +40,13 @@ const serviceFilter = (p) => {
 
 <BaseLayout pageTitle={frontmatter.title} pageID={frontmatter.pageID}>
 	<div class="cover">
-		<Carousel images={optimizedCarouselImages} />
+		<Carousel images={frontmatter.carousel.images} />
 	</div>
 	<div class="about gallery-section-title" id="gallery-section_0">
 		<p class="title1">{frontmatter.about.header}</p>
 		<p class="body1">{frontmatter.about.body}</p>
 	</div>
 	<MultiGallery
-		client:load
 		sections={optimizedMultiGallery}
 		shifts={"shifts" in frontmatter ? frontmatter.shifts : null}
 	/>
@@ -75,9 +54,17 @@ const serviceFilter = (p) => {
 		<p class="body1">Выполнено на:</p>
 	</div>
 	<Projects filter={serviceFilter} />
-	<script
-		is:inline
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-	></script>
-	<script src="../scripts/ServicePage.js"></script>
+
+    <style>
+        #gallery-section_0 {
+            padding-top: 64px;
+            padding-bottom: 48px;
+        }
+        
+        @media (max-width: 768px) {
+            #gallery-section_0 {
+                padding: 32px 5%;
+            }
+        }
+    </style>
 </BaseLayout>

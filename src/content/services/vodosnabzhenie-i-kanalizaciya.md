@@ -5,7 +5,7 @@ pageID: "vodosnabzhenie-i-kanalizaciya"
 carousel: { 
     images: [
         {
-            image: "../../assets/images/services/service-7_upscaled.webp",
+            src: "../../assets/images/services/service-7_upscaled.webp",
             offsets: [0, -300],
             size: [0, 0],
             description: {

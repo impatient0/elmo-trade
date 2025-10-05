@@ -5,7 +5,6 @@ import Services from "../components/Services.astro";
 import Projects from "../components/Projects.astro";
 import Letters from "../components/Letters.astro";
 
-import { getImage } from "astro:assets";
 import izmeronImage from "../assets/images/projects/izmeron/izmeron.webp";
 import spguImage from "../assets/images/projects/obshchezhitie-spgu-(gornyi-universitet)/obshchezhitie-spgu-(gornyi-universitet).webp";
 import mtsImage from "../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/stroitelnaia-ploshchadka-tsod-mts.webp";
@@ -13,9 +12,9 @@ import mtsImage from "../assets/images/projects/stroitelnaia-ploshchadka-tsod-mt
 const pageTitle = "Элмо Трейд";
 const pageID = "home";
 
-const rawImagesData = [
+const carouselImages = [
 	{
-		image: izmeronImage,
+		src: izmeronImage,
 		offsets: [0, -150],
 		size: [0, 0], // Use 0,0 to signify 'cover'
 		description: {
@@ -27,7 +26,7 @@ const rawImagesData = [
 		link: "/projects/zavod-izmeron",
 	},
 	{
-		image: spguImage,
+		src: spguImage,
 		offsets: [0, -175],
 		size: [0, 0],
 		description: {
@@ -36,10 +35,10 @@ const rawImagesData = [
 			subbody: "г. Санкт-Петербург, 14-я линия В.О., д. 77, литер А.",
 			body: "Разработка РД и выполнение работ по монтажу внутренних инженерных систем.",
 		},
-		link: "/projects/obshchezhitie-spgu-(gornyi-universitet)",
+		link: "/projects/obshchezhitie-spgu-gornyi-universitet",
 	},
 	{
-		image: mtsImage,
+		src: mtsImage,
 		offsets: [0, -200],
 		size: [0, 0],
 		description: {
@@ -52,22 +51,6 @@ const rawImagesData = [
 	},
 ];
 
-const optimizedImages = await Promise.all(
-    rawImagesData.map(async (imgData) => {
-        const optimizedImageObject = await getImage({
-            src: imgData.image,
-            width: 1440,
-            format: 'webp',
-        });
-
-
-        return {
-            ...imgData,
-            optimizedImageSrc: optimizedImageObject.src,
-        };
-    })
-);
-
 const yearFilter = (x) => {
 	let currentYear = new Date().getFullYear();
 	return Number(x.year[x.year.length - 1].slice(-4)) >= currentYear - 1;
@@ -76,7 +59,7 @@ const yearFilter = (x) => {
 
 <BaseLayout pageTitle={pageTitle} pageID={pageID}>
 	<div class="cover">
-		<Carousel images={optimizedImages} />
+		<Carousel images={carouselImages} showDots={true} />
 	</div>
 	<div class="about">
 		<p class="title1">Выполнен широкий спектр работ</p>
@@ -91,12 +74,18 @@ const yearFilter = (x) => {
 	</div>
 	<Services />
 	<div class="about" id="projects">
-		<p class="title1">Проекты</p>
-		<p class="headline1">ознакомьтесь с нашей работой</p>
-		<p class="body1">
-			За более чем 20-ти летний период мы оборудовали инженерными
-			системами большие количество объектов.
-		</p>
+		<div class="desktop-content">
+			<p class="title1">Проекты</p>
+			<p class="headline1">ознакомьтесь с нашей работой</p>
+			<p class="body1">За более чем 20-ти летний период мы оборудовали инженерными системами большое количество объектов.</p>
+		</div>
+		<div class="mobile-content">
+			<p class="title1">За более чем 20-ти летний период мы оборудовали инженерными системами большое количество объектов.</p>
+			<p class="headline1">наши проекты</p>
+			<a href="/projects" class="view-project-btn" aria-label={`View projects`}>
+				<span class="arrow"></span>
+			</a>
+		</div>
 	</div>
 	<Projects filter={yearFilter} />
 	<div class="about" id="partners">
@@ -109,3 +98,46 @@ const yearFilter = (x) => {
 	</div>
 	<Letters />
 </BaseLayout>
+
+<style>	
+	.view-project-btn {
+		flex-shrink: 0; /* Prevents the button from shrinking */
+		position: absolute;
+		top: 86%;
+		right: 0;
+		left: auto;
+		transform: translateY(-50%);
+		cursor: pointer;
+		width: 60px;
+		height: 60px;
+		border-radius: 50%;
+		background-color: rgba(0, 0, 0, 0.0);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		transition: transform 0.3s ease;        
+	}
+
+	.view-project-btn:hover {
+		transform: translate(10px, -50%);
+	}
+
+    .arrow {
+        position: relative;
+        width: 17px;
+        height: 17px;
+    }
+
+    .arrow::before {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 17px;
+        height: 17px;
+        border-style: solid;
+        border-color: var(--color-background-html);
+        border-width: 2px 2px 0 0;
+        transform: translate(-65%, -50%) rotate(45deg);
+    }
+</style>

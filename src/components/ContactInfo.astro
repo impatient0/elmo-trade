@@ -4,17 +4,24 @@ const { showIcons = true, variant } = Astro.props;
 const info = [
     {
         label: "Наш телефон",
-        text: ["+7 (812) 370-14-10", "+7 (812) 370-22-61"],
+        items: [
+            { text: "+7 (812) 370-14-10", link: "tel:+78123701410" },
+            { text: "+7 (812) 370-22-61", link: "tel:+78123702261" },
+        ],
         icon: { path: "/icons/phone-solid.svg", width: 21, height: 28 },
     },
     {
         label: "Email",
-        text: ["elmotreid@mail.ru"],
+        items: [
+            { text: "elmotreid@mail.ru", link: "mailto:elmotreid@mail.ru" },
+        ],
         icon: { path: "/icons/envelope-solid.svg", width: 21, height: 21 },
     },
     {
         label: "Офис",
-        text: ["Ленинский пр., 168, оф. 331"],
+        items: [
+            { text: "Ленинский пр., 168, оф. 331", link: "https://yandex.ru/maps/?text=Санкт-Петербург, Ленинский пр., 168, оф. 331", target: "_blank" },
+        ],
         icon: { path: "/icons/location-dot-solid.svg", width: 21, height: 28 },
     },
 ];
@@ -33,12 +40,20 @@ const bannerClass = ["contact-info-banner", variant && `${variant}-variant`].joi
                         alt="Icon"
                         width={infoItem.icon.width}
                         height={infoItem.icon.height}
+                        loading="lazy"
                     />
                 )}
                 <div>
                     <p class="title2">{infoItem.label}</p>
-                    {infoItem.text.map((text) => (
-                        <p class="contact-info-text">{text}</p>
+                    {infoItem.items.map((item) => (
+                        <a 
+                            class="contact-info-text" 
+                            href={item.link}
+                            target={item.target}
+                            rel={item.target === '_blank' ? 'noopener noreferrer' : null}
+                        >
+                            {item.text}
+                        </a>
                     ))}
                 </div>
             </div>
@@ -68,13 +83,20 @@ const bannerClass = ["contact-info-banner", variant && `${variant}-variant`].joi
     .contact-info-text {
         font-size: 20px;
         font-weight: 500;
+        text-decoration: none;
+        color: inherit;
+        transition: opacity 0.2s ease;
     }
 
-    .contact-info-line>div>p {
+    .contact-info-text:hover {
+        opacity: 0.8;
+    }
+
+    .contact-info-line>div>* {
         margin: .25em 24px;
         color: white;
         max-width: 325px;
-        display: flexbox;
+        display: block;
     }
 
     .contact-info-banner.menu-variant {

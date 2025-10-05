@@ -1,5 +1,4 @@
 ---
-import { getImage } from 'astro:assets';
 import Service from "../components/Service.astro";
 
 import serviceImage1 from "../assets/images/services/elektromontazhnye-raboty/tp-i-rtp/tp-i-rtp01.webp";
@@ -37,7 +36,7 @@ const rawServicesData = [
     {
         title: ["Система контроля", "и управления доступом"],
         description:
-            "Установка турникетов, металлодетекторов, шлакбаумов, пропускных пунктов, систем контроля и разблокировки дверей.",
+            "Установка турникетов, металлодетекторов, шлагбаумов, пропускных пунктов, систем контроля и разблокировки дверей.",
         image: serviceImage4, offsets: [-203, -17], size: [636, 477],
         link: "/services/sistemy-kontrolia-i-upravleniia-dostupom",
     },
@@ -45,7 +44,7 @@ const rawServicesData = [
         title: ["Системы видеонаблюдения", "и охранные сигнализации"],
         description:
             "Проектирование и монтаж систем видеонаблюдения, охранных сигнализаций, систем охраны периметра.",
-        image: serviceImage5, offsets: [-52, -237], size: [543, 724],
+        image: serviceImage5, offsets: [-52, -167], size: [543, 724],
         link: "/services/sistemy-videonabliudeniia-i-okhrannye-signalizatsii",
     },
     {
@@ -77,36 +76,20 @@ const rawServicesData = [
         link: "/services/komplektaciya-proektnymi-dvernymi-konstrukciyami",
     },
 ];
-
-const optimizedServices = await Promise.all(
-    rawServicesData.map(async (service) => {
-        const optimized = await getImage({
-            src: service.image,
-            width: 384,
-            format: 'webp',
-        });
-        return {
-            ...service,
-            optimizedImageSrc: optimized.src,
-        };
-    })
-);
 ---
 
 <div class="services" id="services">
     <div class="services-gallery">
-        {
-            optimizedServices.map((service) => (
-                <Service
-                    title={service.title}
-                    description={service.description}
-                    optimizedImageSrc={service.optimizedImageSrc}
-                    offsets={service.offsets}
-                    size={service.size}
-                    link={service.link}
-                />
-            ))
-        }
+        {rawServicesData.map((service) => (
+            <Service
+                title={service.title}
+                description={service.description}
+                image={service.image}
+                offsets={service.offsets}
+                size={service.size}
+                link={service.link}
+            />
+        ))}
     </div>
 </div>
 

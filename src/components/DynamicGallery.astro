@@ -1,0 +1,218 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+const { slides } = Astro.props;
+
+// This helper function can now live and run on the server.
+function convertIntervals(intervals) {
+    const numbers = [];
+    intervals.forEach(interval => {
+        const [start, end] = interval.split('-').map(Number);
+        if (end === undefined) {
+            numbers.push(...interval.split(', ').map(Number));
+        } else if (start <= end) {
+            for (let i = start; i <= end; i++) {
+                numbers.push(i);
+            }
+        }
+    });
+    return numbers;
+}
+
+const maxYearCount = 7; // Display only the latest 7 years
+
+// --- NEW DYNAMIC YEAR LOGIC ---
+// 1. Use a Set to store unique years.
+const allYears = new Set<number>();
+
+// 2. Loop through all slides and add their years to the Set.
+slides.forEach(slide => {
+    const projectYears = convertIntervals(slide.year);
+    projectYears.forEach(year => allYears.add(year));
+});
+
+// 3. Convert the Set to an array and sort it descending.
+const years = Array.from(allYears).sort((a, b) => b - a).slice(0, maxYearCount);
+---
+
+<div class="dynamic-gallery-container">
+    <div class="filter-controls">
+        <button class="filter-button is-active" data-filter="all">Все проекты</button>
+        {years.map((year, index) => (
+            <button class="filter-button" data-filter={year}>
+                {year}{index === years.length - 1 ? " и ранее" : ""}
+            </button>
+        ))}
+    </div>
+    <div class="dynamic-gallery">
+        {slides.map((slide) => (
+            // Replace the old <article> with our new component
+            <div class="card-wrapper" data-years={JSON.stringify(convertIntervals(slide.year))}>
+                <ProjectCard slide={slide} />
+            </div>
+        ))}
+    </div>
+</div>
+
+<script define:vars={{ years }}>
+    const container = document.querySelector('.dynamic-gallery-container');
+    const filterButtons = container.querySelectorAll('.filter-button');
+    const gallery = container.querySelector('.dynamic-gallery');
+    const projectCards = Array.from(container.querySelectorAll('.card-wrapper'));
+
+    let activeFilter = 'all';
+
+    function updateLayout() {
+        const containerWidth = gallery.offsetWidth;
+        const cardStyle = getComputedStyle(projectCards[0]);
+        const cardWidth = parseFloat(cardStyle.width);
+        const cardMargin = parseFloat(cardStyle.marginLeft) + parseFloat(cardStyle.marginRight);
+        const galleryPadding = parseFloat(getComputedStyle(gallery).padding);
+              
+        const cardsPerRow = Math.max(Math.floor(containerWidth / (cardWidth + cardMargin)), 1);
+        
+        let visibleCards = [];
+        if (activeFilter === 'all') {
+            visibleCards = projectCards;
+        } else {
+            const filterYear = parseInt(activeFilter);
+            const isLastFilter = filterYear === years[years.length - 1];
+
+            visibleCards = projectCards.filter(card => {
+                const cardYears = JSON.parse(card.dataset.years);
+                return cardYears.includes(filterYear) || (isLastFilter && cardYears[0] <= filterYear);
+            });
+        }
+        
+        // Hide cards that are not visible
+        projectCards.forEach(card => {
+            if (!visibleCards.includes(card)) {
+                card.classList.add('is-collapsed');
+            } else {
+                card.classList.remove('is-collapsed');
+            }
+        });
+
+        // Position the visible cards
+        let x = 0;
+        let y = 0;
+        let col = 0;
+        let prevRowHeight = 0;
+        visibleCards.forEach((card, index) => {
+            const left = (col - cardsPerRow / 2) * (cardWidth + cardMargin) + x;
+            const top = y + galleryPadding;
+            card.style.transform = `translate(${left}px, ${top}px)`;
+            prevRowHeight = Math.max(prevRowHeight, parseFloat(getComputedStyle(card).height));
+
+            col++;
+            if (col >= cardsPerRow) {
+                col = 0;
+                y += prevRowHeight + parseFloat(cardStyle.marginTop) + parseFloat(cardStyle.marginBottom);
+                prevRowHeight = 0;
+            }
+        });
+        
+        // Update the container height
+        const containerHeight = y + prevRowHeight + galleryPadding * 2;
+        gallery.style.height = `${containerHeight}px`;
+    }
+
+    function handleFilterClick(event) {
+        const clickedButton = event.currentTarget;
+        activeFilter = clickedButton.dataset.filter;
+
+        filterButtons.forEach(btn => btn.classList.remove('is-active'));
+        clickedButton.classList.add('is-active');
+
+        // Trigger the layout update
+        updateLayout();
+    }
+
+    filterButtons.forEach(button => {
+        button.addEventListener('click', handleFilterClick);
+    });
+    
+    // Initial layout and listen for resizes
+    updateLayout();
+    window.addEventListener('resize', updateLayout);
+</script>
+
+
+<style>
+    /* All styles are now scoped and self-contained */
+    .dynamic-gallery-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        overflow: hidden;
+    }
+    .filter-controls {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+        margin-bottom: 2rem;
+    }
+    .filter-button {
+        border: 1px solid #D6D6D6;
+        border-radius: 3px;
+        background: none;
+        padding: 8px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    .filter-button.is-active {
+        background-color: var(--color-primary);
+        color: var(--color-text-on-primary);
+        border-color: var(--color-primary);
+    }
+    .filter-button:not(.is-active):hover {
+        background-color: #f0f0f0;
+    }
+
+    .dynamic-gallery {
+        width: 100%;
+        background-color: var(--color-background-accent);
+        padding: 40px;
+        position: relative; /* This is the key for absolute positioning of children */
+        transition: height 0.4s ease; /* Animate the container's height change */
+    }
+
+    .card-wrapper {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        transition: transform 0.6s ease, opacity 0.6s ease;
+    }
+
+    .card-wrapper.is-collapsed {
+        opacity: 0;
+        transform: scale(0.8);
+        pointer-events: none;
+    }
+
+    /* ==========================================================================
+       MOBILE STYLES
+       ========================================================================== */
+    @media (max-width: 768px) {
+        /* Adjust the main container's padding for mobile */
+        .dynamic-gallery {
+            padding: 20px 0; /* Less vertical, no horizontal padding */
+        }
+
+        /* Style tweaks for filter buttons on mobile */
+        .filter-controls {
+            padding: 27px 32px 16px;
+            gap: 12px;
+            margin: 0;
+        }
+        .filter-button {
+            font-size: 14px;
+            padding: 7px;
+            font-size: 16px;
+        }
+        .filter-button:not(.is-active) {
+            font-weight: 350;
+        }
+    }
+</style>

@@ -6,46 +6,26 @@ const menu = [
     {
         btnText: "Услуги",
         btnLink: "#services",
-        menuTexts: [
-            "электромонтажные работы",
-            "СИСТЕМЫ ПРОТИВОПОЖАРНОЙ ЗАЩИТЫ И Автоматики",
-            "системы контроля и управления доступом",
-            "структурированные кабельные сети",
-            "системы отопления и теплоснабжения",
-            "системы вентиляции и кондиционирование воздуха",
-            "система охранного телевидения",
-            "водоснабжение и канализация",
-            "системы сигнализаций и охраны периметра",
-        ],
-        menuLinks: [
-            "/services/elektromontazhnye-raboty",
-            "#",
-            "#",
-            "#",
-            "#",
-            "#",
-            "#",
-            "#",
-            "#",
-        ],
+        menuTexts: [],
+        menuLinks: [],
     },
     {
         btnText: "Проекты",
         btnLink: "projects",
-        menuTexts: ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"],
-        menuLinks: ["#", "#", "#", "#", "#", "#"],
+        menuTexts: [],
+        menuLinks: [],
     },
     {
         btnText: "Партнёры",
         btnLink: "#partners",
-        menuTexts: ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"],
-        menuLinks: ["#", "#", "#", "#", "#", "#"],
+        menuTexts: [],
+        menuLinks: [],
     },
     {
         btnText: "Контакты",
         btnLink: "#contacts",
-        menuTexts: ["2023", "2022", "2021", "2020", "2019", "ЕЩЁ"],
-        menuLinks: ["#", "#", "#", "#", "#", "#"],
+        menuTexts: [],
+        menuLinks: [],
     },
 ];
 ---
@@ -67,7 +47,7 @@ const menu = [
     <div class="mobile-nav-links">
         {
             menu.map((item) => (
-                <a href={`${item.btnLink}`} class="mobile-nav-item">
+                <a href={`/${item.btnLink.replace("contacts", "mobile-footer")}`} class="mobile-nav-item">
                     {item.btnText}
                     <div class="arrow" />
                 </a>

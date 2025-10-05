@@ -27,7 +27,7 @@ sections: [
                 "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_107.webp",
                 "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_108.webp",
                 "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_109.webp",
-                "../videos/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_104.MOV",
+                "/videos/projects/stroitelnaia-ploshchadka-tsod-mts/eom_1/eom_104.MOV",
             ] },
         ]
     },
@@ -80,7 +80,7 @@ sections: [
                 "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os14.webp",
                 "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os15.webp",
                 "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/os/os16.webp",
-                "../videos/projects/stroitelnaia-ploshchadka-tsod-mts/os/os10.MOV",
+                "/videos/projects/stroitelnaia-ploshchadka-tsod-mts/os/os10.MOV",
             ] },
             { title: "СКС", images: [
                 "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sks_/sks_01.webp",
@@ -113,7 +113,7 @@ sections: [
                 "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sps/sps08.webp",
                 "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sps/sps09.webp",
                 "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/sps/sps10.webp",
-                "../videos/projects/stroitelnaia-ploshchadka-tsod-mts/sps/sps07.MOV",
+                "/videos/projects/stroitelnaia-ploshchadka-tsod-mts/sps/sps07.MOV",
             ] },
             { title: "Фасадное Освещение", images: [
                 "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/fasadnoe-osveshchenie/fasadnoe-osveshchenie07.webp",
@@ -148,8 +148,8 @@ sections: [
                 "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_221.webp",
                 "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_222.webp",
                 "../../assets/images/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_223.webp",
-                "../videos/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_215.MOV",
-                "../videos/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_216.MOV",
+                "/videos/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_215.MOV",
+                "/videos/projects/stroitelnaia-ploshchadka-tsod-mts/eom_2/eom_216.MOV",
             ] },
         ],
         shifts: {"0_4": 150, "1_2": -350, "1_3": 200, "2_3": -200, "3_3": 250, "5_0": -300, "5_4": 100, "5_8": 350, "6_2": -300, "7_1": 200, "7_2": 200, }

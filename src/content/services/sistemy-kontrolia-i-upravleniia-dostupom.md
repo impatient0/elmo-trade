@@ -5,14 +5,14 @@ pageID: "sistemy-kontrolia-i-upravleniia-dostupom"
 carousel: { 
     images: [
         {
-            image: "../../assets/images/services/service-4_upscaled.webp",
+            src: "../../assets/images/services/service-4_upscaled.webp",
             offsets: [0, -100],
             size: [0, 0],
             description: {
                 title: "Услуги",
                 headline: "Системы контроля и управления доступом",
                 subbody: "",
-                body: "Установка турникетов, металлодетекторов, шлакбаумов, пропускных пунктов, систем контроля и разблокировки дверей.",
+                body: "Установка турникетов, металлодетекторов, шлагбаумов, пропускных пунктов, систем контроля и разблокировки дверей.",
             },
         },
     ],

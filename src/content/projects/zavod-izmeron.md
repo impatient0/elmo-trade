@@ -85,8 +85,8 @@ sections: [
                 "../../assets/images/projects/izmeron/abk-2/ar---otdelochnye-raboty/ar---otdelochnye-raboty13.webp",
                 "../../assets/images/projects/izmeron/abk-2/ar---otdelochnye-raboty/ar---otdelochnye-raboty14.webp",
                 "../../assets/images/projects/izmeron/abk-2/ar---otdelochnye-raboty/ar---otdelochnye-raboty15.webp",
-                "../videos/projects/izmeron/abk-2/ar---otdelochnye-raboty/ar---otdelochnye-raboty06.MOV",
-                "../videos/projects/izmeron/abk-2/ar---otdelochnye-raboty/ar---otdelochnye-raboty07.MOV",
+                "/videos/projects/izmeron/abk-2/ar---otdelochnye-raboty/ar---otdelochnye-raboty06.MOV",
+                "/videos/projects/izmeron/abk-2/ar---otdelochnye-raboty/ar---otdelochnye-raboty07.MOV",
             ] },
             { title: "АР – Стяжка", images: [
                 "../../assets/images/projects/izmeron/abk-2/ar---styazhka/ar---styazhka01.webp",

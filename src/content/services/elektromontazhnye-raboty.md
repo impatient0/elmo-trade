@@ -5,7 +5,7 @@ pageID: "elektromontazhnye-raboty"
 carousel: { 
     images: [
         {
-            image: "../../assets/images/services/tp-i-rtp01_upscaled.webp",
+            src: "../../assets/images/services/tp-i-rtp01_upscaled.webp",
             offsets: [0, -300],
             size: [0, 0],
             description: {

@@ -1,0 +1,504 @@
+---
+import { Image } from "astro:assets";
+
+const { sections, shifts } = Astro.props;
+const uniqueId = crypto.randomUUID().slice(0, 8);
+
+function getShift(section_index, slide_index) {
+    if (!shifts) {
+        return 0;
+    }
+    const key = `${section_index}_${slide_index}`;
+
+    if (key in shifts) {
+        return shifts[key];
+    }
+    return 0;
+}
+---
+
+<div class="multi-gallery">
+    {sections.map((section, section_index) => (
+        section.images && section.images.length > 0 && (
+            // 1. THE ACCORDION: Using the native <details> element
+            <details class="gallery-section" open={section_index === 0}>
+                <summary class="gallery-tile">
+                    <p class="division">{section.title}</p>
+                    <div class="expand-btn"></div>
+                </summary>
+
+                {/* This is the content that expands/collapses */}
+                <div class="section-container">
+                    <div class="carousel-viewport">
+                        <div class="slides-container">
+                            {section.images.map((image, slide_index) => (
+                                <div class="slide">
+                                    {image.type === 'image' ? (
+                                        <Image 
+                                            src={image.src} 
+                                            class="slide-media" 
+                                            alt={`Image ${slide_index + 1} for ${section.title}`}
+                                            height={Math.min(600, (image.src.height)) + getShift(section_index, slide_index)}
+                                            width={Math.min(928, image.src.width) + getShift(section_index, slide_index)}
+                                            data-dialog-trigger={`dialog-${uniqueId}-${section_index}-${slide_index}`}
+                                            style={`margin-top: ${getShift(section_index, slide_index)}px;`}
+                                            draggable="false"
+                                        />
+                                    ) : (
+                                        <video controls controlslist="nodownload" autoplay muted loop class="slide-media">
+                                            <source src={image.src} />
+                                        </video>
+                                    )}
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                    <button class="prev-btn" aria-label="Previous"></button>
+                    <button class="next-btn" aria-label="Next"></button>
+                    <div class="dots-container">
+                        {section.images.map((_, slide_index) => (
+                            <button class="dot" data-index={slide_index}></button>
+                        ))}
+                    </div>
+                </div>
+            </details>
+            <div class="divider"></div>
+        )
+    ))}
+</div>
+
+<!-- 2. THE LIGHTBOX: Using native <dialog> elements, one for each image -->
+{sections.map((section, section_index) => (
+    section.images.map((image, slide_index) => (
+        image.type === 'image' && (
+            <dialog id={`dialog-${uniqueId}-${section_index}-${slide_index}`} class="lightbox-dialog">
+                <Image
+                    src={image.src}
+                    alt={`Full view of slide ${slide_index + 1} for ${section.title}`}
+                />
+            </dialog>
+        )
+    ))
+))}
+
+
+<script>
+    // --- Accordion Animation Logic ---
+    (document.querySelectorAll('.gallery-section') as NodeListOf<HTMLDetailsElement>).forEach(details => {
+        const summary = details.querySelector('summary');
+        const contentWrapper = details.querySelector('.section-container'); // The element to animate
+
+        summary.addEventListener('click', (e) => {
+            // Prevent the default instant toggle
+            e.preventDefault();
+
+            if (details.open) {
+                // Closing animation
+                const animation = details.animate(
+                    { height: [`${details.offsetHeight}px`, `${summary.offsetHeight}px`] },
+                    { duration: 400, easing: 'ease-out' }
+                );
+
+                animation.onfinish = () => {
+                    details.removeAttribute('open');
+                };
+            } else {
+                // Opening animation
+                details.setAttribute('open', '');
+                const targetHeight = details.offsetHeight;
+
+                const animation = details.animate(
+                    { height: [`${summary.offsetHeight}px`, `${targetHeight}px`] },
+                    { duration: 400, easing: 'ease-out' }
+                );
+            }
+        });
+    });
+
+    // --- Carousel Logic ---
+    // This script now handles multiple, independent carousels inside the accordions.
+    document.querySelectorAll('.gallery-section').forEach(section => {
+        const viewport = section.querySelector('.carousel-viewport') as HTMLElement;
+        const slidesContainer = section.querySelector('.slides-container') as HTMLElement;
+        const slides = section.querySelectorAll('.slide') as NodeListOf<HTMLElement>;
+        const dots = section.querySelectorAll('.dot') as NodeListOf<HTMLElement>;
+        const nextBtn = section.querySelector('.next-btn') as HTMLElement;
+        const prevBtn = section.querySelector('.prev-btn') as HTMLElement;
+
+        if (!slidesContainer || slides.length <= 1) {
+            // Hide controls if there's only one slide
+            if (nextBtn) nextBtn.style.display = 'none';
+            if (prevBtn) prevBtn.style.display = 'none';
+            if (dots.length > 0) dots[0].parentElement.style.display = 'none';
+            return;
+        }
+
+        let activeIndex = 0;
+        let isDragging = false;
+        let startPos = 0;
+        let currentTranslate = 0;
+        let prevTranslate = 0;
+
+        function goToSlide(index) {
+            // This logic is now simpler, as it just sets the final position
+            currentTranslate = index * -slides[0].offsetWidth;
+            prevTranslate = currentTranslate;
+            slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
+            
+            // Update active classes
+            dots[activeIndex]?.classList.remove('is-active');
+            activeIndex = index;
+            dots[activeIndex]?.classList.add('is-active');
+        }
+
+        // --- NEW, INTERACTIVE SWIPE LOGIC ---
+        function touchStart(index) {
+            return function(event) {
+                isDragging = true;
+                startPos = event.type === 'touchstart' ? event.touches[0].clientX : event.clientX;
+                slidesContainer.style.transition = 'none'; // Turn off animations while dragging
+            }
+        }
+
+        function touchMove(event) {
+            if (isDragging) {
+                const currentPosition = event.type === 'touchmove' ? event.touches[0].clientX : event.clientX;
+                const deltaX = currentPosition - startPos;
+                currentTranslate = prevTranslate + deltaX;
+                slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
+            }
+        }
+
+        function touchEnd() {
+            isDragging = false;
+            const movedBy = currentTranslate - prevTranslate;
+
+            let index = activeIndex;
+            // Determine whether to snap to the next, previous, or current slide
+            if (movedBy < -100 && index < slides.length - 1) {
+                index += 1;
+            } else if (movedBy > 100 && index > 0) {
+                index -= 1;
+            }
+
+            slidesContainer.style.transition = 'transform 0.5s ease'; // Turn animations back on
+            goToSlide(index);
+        }
+
+        // Add event listeners for both mouse and touch
+        slidesContainer.addEventListener('mousedown', touchStart(activeIndex));
+        slidesContainer.addEventListener('touchstart', touchStart(activeIndex), { passive: true });
+        
+        slidesContainer.addEventListener('mousemove', touchMove);
+        slidesContainer.addEventListener('touchmove', touchMove, { passive: true });
+
+        slidesContainer.addEventListener('mouseup', touchEnd);
+        slidesContainer.addEventListener('mouseleave', () => isDragging = false);
+        slidesContainer.addEventListener('touchend', touchEnd);
+
+
+        // --- Button and Dot Click Listeners (simplified) ---
+        nextBtn.addEventListener('click', () => goToSlide((activeIndex + 1) % slides.length));
+        prevBtn.addEventListener('click', () => goToSlide((activeIndex - 1 + slides.length) % slides.length));
+        dots.forEach(dot => {
+            dot.addEventListener('click', () => goToSlide(parseInt(dot.dataset.index)));
+        });
+
+        // Initialize first slide
+        goToSlide(0);
+    });
+
+    // --- Lightbox Logic (Now with a responsive check) ---
+    function initializeLightbox() {
+        (document.querySelectorAll('[data-dialog-trigger]') as NodeListOf<HTMLElement>).forEach(trigger => {
+            const dialog = document.getElementById(trigger.dataset.dialogTrigger) as HTMLDialogElement;
+            if (dialog) {
+                const openDialog = () => {
+                    dialog.showModal();
+                    document.body.classList.add('dialog-open');
+                }
+                trigger.addEventListener('click', openDialog);
+                
+                // Store the listener so we can remove it later
+                (trigger as any).__openDialog = openDialog; 
+            }
+        });
+
+        document.querySelectorAll('.lightbox-dialog').forEach(dialog => {
+            const closeOnBackdropClick = (event) => {
+                if (event.target === dialog) {
+                    (dialog as HTMLDialogElement).close();
+                    document.body.classList.remove('dialog-open');
+                }
+            };
+            dialog.addEventListener('click', closeOnBackdropClick);
+
+            // Store the listener
+            (dialog as any).__closeDialog = closeOnBackdropClick;
+        });
+    }
+
+    function destroyLightbox() {
+        (document.querySelectorAll('[data-dialog-trigger]') as NodeListOf<HTMLElement>).forEach(trigger => {
+            if ((trigger as any).__openDialog) {
+                trigger.removeEventListener('click', (trigger as any).__openDialog);
+            }
+        });
+
+        document.querySelectorAll('.lightbox-dialog').forEach(dialog => {
+            if ((dialog as any).__closeDialog) {
+                dialog.removeEventListener('click', (dialog as any).__closeDialog);
+            }
+        });
+    }
+
+    // Create a media query object that matches our mobile breakpoint
+    const mobileMediaQuery = window.matchMedia('(max-width: 768px)');
+
+    function handleScreenChange(event) {
+        if (event.matches) {
+            // Screen is mobile: destroy lightbox listeners
+            destroyLightbox();
+        } else {
+            // Screen is desktop: initialize lightbox listeners
+            initializeLightbox();
+        }
+    }
+
+    // Run the check once on page load
+    handleScreenChange(mobileMediaQuery);
+
+    // And listen for any future changes (like screen rotation)
+    mobileMediaQuery.addEventListener('change', handleScreenChange);
+</script>
+
+
+<style>
+    /* All styles are now scoped and self-contained */
+    .multi-gallery {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        padding: 12px 30px;
+    }
+    .gallery-section {
+        overflow: hidden;
+        width: 100%;
+        max-width: 1190px;
+    }
+    .gallery-tile {
+        position: relative;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: all .5s ease;
+        padding-left: 0;
+        padding-right: 24px;
+        list-style: none; /* Remove default marker from summary */
+    }
+    .gallery-tile::-webkit-details-marker {
+        display: none; /* Remove default marker for Safari */
+    }
+    .gallery-tile:hover {
+        transition-timing-function: cubic-bezier(.5,2,.5,1);
+        padding-left: 8px;
+    }
+    .expand-btn {
+        position: absolute;
+        align-self: center;
+        right: 0;
+        background-image: url("/icons/buttons/next-btn.svg");
+        width: 10px;
+        height: 18px;
+        transition: transform 0.5s ease;
+        margin-right: 10px;
+        transform: rotate(0deg); /* Pointing down by default */
+    }
+
+    /* Animate the content and arrow when the accordion is opened */
+    .gallery-section[open] > .gallery-tile > .expand-btn {
+        transform: rotate(90deg); /* Pointing down when open */
+    }
+    .section-container {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding-bottom: 1rem;
+    }
+    .carousel-viewport {
+        position: relative;
+        width: 100%;
+        max-width: 960px; /* Max width of the content */
+        overflow: hidden;
+    }
+    .slides-container {
+        width: 100%;
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+    .slide {
+        width: 100%;
+        height: 100%;
+        flex-shrink: 0;
+        padding: 0 1rem; /* Space between slides if needed */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 600px;
+    }
+    .slide-media {
+        max-width: 100%;
+        object-fit: cover;
+    }
+    video.slide-media {
+        max-height: 100%;
+        object-fit: contain;
+    }
+    .slide-media[data-dialog-trigger] {
+        cursor: pointer;
+    }
+    body.dialog-open {
+        overflow: hidden;
+    }
+
+    /* Controls Styling */
+    .dots-container { display: flex; margin-top: 1rem; }
+    .dot {
+        background-color: #CCCCCC;
+        width: 10px;
+        height: 10px;
+        margin: 0 10px;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        transition: background-color 0.75s ease;
+    }
+    .dot.is-active {
+        background-color: var(--color-primary);
+    }
+    .dot.is-hidden {
+        display: none;
+    }
+    .prev-btn, .next-btn {
+        position: absolute;
+        align-self: center;
+        background: no-repeat center center;
+        width: 30px;
+        height: 30px;
+        border: none;
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+    .prev-btn {
+        left: 2%;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url("/icons/buttons/prev-btn.svg");
+    }
+    .next-btn {
+        right: 2%;
+        top: 50%;
+        transform: translateY(-50%);
+        background-image: url("/icons/buttons/next-btn.svg");
+    }
+    .prev-btn:hover, .next-btn:hover {
+        transform: translateY(-50%) scale(1.1);
+    }
+
+    .divider {
+        background-color: #D9D9D9;
+        height: 1px;
+        margin: 4.5px 0;
+        width: 100%;
+        max-width: 1190px;
+    }
+
+    /* Lightbox Styles */
+    .lightbox-dialog {
+        border: none;
+        padding: 0;
+        background: transparent;
+        max-width: 75vw;
+        max-height: 90vh;
+        
+        overflow: auto;
+    }
+    .lightbox-dialog img {
+        width: 100%;
+        max-height: 80vh; /* Limit height to prevent image from being too tall */
+        display: block; /* Removes any extra space below the image */
+    }
+    .lightbox-dialog::backdrop {
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+    }
+
+    /* ==========================================================================
+       MOBILE STYLES
+       ========================================================================== */
+    @media (max-width: 768px) {
+
+        .carousel-viewport {
+            /* A CSS best practice for swipeable areas to prevent page scroll conflicts */
+            touch-action: pan-y;
+        }
+
+        /* --- 2. Image Cropping --- */
+        .slide {
+            min-height: 0;
+            aspect-ratio: 3 / 5;
+        }
+        .slide-media {
+            min-height: 95%;
+            object-fit: cover;
+            margin-top: 0 !important;
+        }
+
+        /* --- 1. Button Readability --- */
+        .prev-btn, .next-btn {
+            /* Make them circular */
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+
+            /* Add a semi-transparent background */
+            background-color: rgba(255, 255, 255, 0.2);
+            
+            /* Make the arrow icon white and smaller */
+            background-size: 8px 14px;
+            filter: invert(1);
+            
+            /* Adjust positioning */
+            left: 0;
+        }
+        .next-btn {
+            left: auto;
+            right: 0;
+        }
+        .prev-btn:hover, .next-btn:hover {
+            /* Remove desktop-only transform and add a darker background for feedback */
+            transform: translateY(-50%) scale(1);
+            background-color: rgba(255, 255, 255, 0.4);
+        }
+
+        /* --- NEW: RESPONSIVE DOTS --- */
+        .dots-container {
+            /* Allow the dots to wrap to a new line if needed */
+            flex-wrap: wrap;
+            /* Center the dots, which looks better when they wrap */
+            justify-content: center;
+            /* Use gap for spacing, which works well with wrapping */
+            gap: 10px;
+            /* Remove fixed margin */
+            margin: 1rem 0 0 0;
+            padding: 0 1rem; /* Add some side padding to prevent touching edges */
+        }
+        .dot {
+            /* Remove fixed margin from the dots themselves */
+            margin: 0;
+        }
+    }
+</style>

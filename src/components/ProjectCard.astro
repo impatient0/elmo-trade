@@ -1,0 +1,90 @@
+---
+// This component represents a single, reusable project card.
+import { Image } from "astro:assets";
+
+const {
+    slide,
+} = Astro.props;
+---
+
+<article class="project-card">
+    <div class="image-wrapper">
+        <Image
+            src={slide.src}
+            class="project-image"
+            alt={`Project ${slide.title}`}
+            style={`--pos-x: ${slide.offsets[0]}px; --pos-y: ${slide.offsets[1]}px;`}
+        />
+    </div>
+    <div class="project-footer">
+        <p class="project-title">{slide.title}</p>
+        <p class="subbody2">{slide.address}</p>
+    </div>
+    <div class="project-year">
+        {slide.year.map((y) => <p class="body2">{y !== "0" ? y : "Выполнено"}</p>)}
+    </div>
+    <a href={slide.link} class={"info-overlay" + (slide.title === "" ? " is-placeholder" : "")} aria-label={`View details for ${slide.title}`}>
+        <div class={"info-content" + (slide.title === "" ? " is-placeholder" : "")}>
+            <p>{slide.info}</p>
+        </div>
+    </a>
+</article>
+
+<style>
+    /* All the styles that define a single card now live here. */
+    .project-card {
+        width: 588px;
+        height: fit-content;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+        margin: 10px;
+    }
+
+    .image-wrapper { width: 100%; height: 283px; overflow: hidden; }
+    .project-image {
+        object-position: var(--pos-x) var(--pos-y);
+        width: calc(100% - var(--pos-x, 0px));
+        height: calc(100% - var(--pos-y, 0px));
+        object-fit: cover;
+    }
+    .project-footer { background-color: var(--color-background-body); padding: 20px; }
+    .project-footer > p { margin: 2px; }
+    .project-title { font-size: 16px; font-weight: 500; text-transform: uppercase; }
+    .project-year { position: absolute; top: 20px; right: 20px; padding: 13px 20px; background-color: var(--color-background-body); text-align: right; }
+    .project-year > p { margin: 0; }
+    
+    .info-overlay {
+        cursor: pointer; position: absolute; inset: 0;
+        background-color: var(--color-primary);
+        display: flex; justify-content: center; align-items: center;
+        transition: opacity 0.5s ease; opacity: 0;
+        background-image: url('/icons/lightning.svg');
+        background-size: 175px; background-position: center; background-repeat: no-repeat;
+        text-decoration: none;
+    }
+    .info-overlay:hover { opacity: 1; }
+    .info-content > p { text-align: center; color: var(--color-text-on-primary); font-size: 14px; max-width: 456px; }
+
+    .is-placeholder.info-overlay {
+        cursor: auto; opacity: 1;
+        background-color: #EFEFEF;
+        border: 1px solid #AFAFAF;
+        background-image: url('/icons/lightning-grey.svg');
+    }
+    .is-placeholder > .info-content > p { color: #7E7B71; font-weight: 500; }
+
+    /* ==================================================
+       MOBILE STYLES FOR THE CARD
+       ================================================== */
+    @media (max-width: 768px) {
+        .project-card {
+            width: calc(100vw - 28px);
+            max-width: 440px;
+            margin: 8px 0;
+        }
+        .image-wrapper { height: 180px; }
+        .project-footer { padding: 12px 14px; }
+        .project-year { padding: 8px 12px; }
+    }
+</style>

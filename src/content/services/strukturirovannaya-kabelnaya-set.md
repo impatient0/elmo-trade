@@ -5,7 +5,7 @@ pageID: "strukturirovannaya-kabelnaya-set"
 carousel: { 
     images: [
         {
-            image: "../../assets/images/services/01_upscaled.webp",
+            src: "../../assets/images/services/01_upscaled.webp",
             offsets: [0, -300],
             size: [0, 0],
             description: {

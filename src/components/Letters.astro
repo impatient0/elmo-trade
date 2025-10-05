@@ -1,31 +1,37 @@
 ---
-const letters = [
+import { Image } from "astro:assets";
+
+const partnerImages = await import.meta.glob('/src/assets/images/partners/*.{png,svg}', { eager: true });
+
+const lettersData = [
     {
-        logo: "/img/partners/arteks.png",
+        logo: "arteks.png",
         title: "“Система противопожарной защиты предъявлена контролирующим органам и принята в эксплуатацию.”",
         text: [
             "В период с 16 апреля 2016 года по 28 февраля 2017 года ООО НИИ “ЭЛМО трейд” на объекте: «Строительство фабрики обоев АРТЕКС».",
             "Все работы по оснащению фабрики противопожарными системами были выполнены в соответствии техническими заданиями и требованиями нормативных документов, с минимальными затратами, с высоким качеством и в установленный договором срок.",
         ],
         signature: "Генеральный директор — Латышев С.В.",
-        image: "/img/partners/arteks_letter.png",
+        image: "arteks_letter.png",
         pdf: "/img/partners/arteks_letter.pdf",
         logo_scale: 1.25,
+        strip_scale: 0.7,
     },
     {
-        logo: "/img/partners/vtb.svg",
+        logo: "vtb.svg",
         title: "“РАБОТЫ БЫЛИ ВЫПОЛНЕНЫ С ВЫСОКИМ КАЧЕСТВОМ И В ДОГОВОРНЫЕ СРОКИ.”",
         text: [
             "ЗАО НПП «ЭЛМО трейд» проводило проектные и электромонтажные работы по устройству и внешнего электроснабжение филиалы «Василеостровский» и «Центра пересчета наличности» ОАО «Банк ВТБ Северо-Запад».",
         ],
         signature:
             "Руководитель Службы эксплуатации объктов Банка ОАО «Банк ВТБ Северо-Запад» — Акбулатов Р.И.",
-        image: "/img/partners/vtb_letter.png",
+        image: "vtb_letter.png",
         pdf: "/img/partners/vtb_letter.pdf",
         logo_scale: 0.9,
+        strip_scale: 0.9,
     },
     {
-        logo: "/img/partners/spb.svg",
+        logo: "spb.svg",
         title: "“Все работы были выполнены с высоким качеством.”",
         text: [
             "В период с 2005 г. по настоящее время ЗАО НПП «ЭЛМО трейд», являясь поставщиком продукции для государственных нужд Санкт-Петербурга, выполнило более десяти государственных контрактов по проектным и электромонтажным работам в интересах Комитета по молодежной политике и взаимодействию с общественными организациями правительства Санкт-Петербурга».",
@@ -33,12 +39,13 @@ const letters = [
         ],
         signature:
             "Директор — Буянова В.А. ",
-        image: "/img/partners/spb_letter.png",
+        image: "spb_letter.png",
         pdf: "/img/partners/spb_letter.pdf",
         logo_scale: 0.5,
+        strip_scale: 1.0,
     },
     {
-        logo: "/img/partners/lenenergo.png",
+        logo: "lenenergo.png",
         title: "“надежный Подрядчик, способный решать сложные задачи с высоким качеством и в установленные сроки.”",
         text: [
             "ЗАО НПП «ЭЛМО трейд» является электромонтажной организацией аккредитованной для производства работ в Кабельной Сети ОАО «Ленэнерго»",
@@ -46,24 +53,26 @@ const letters = [
         ],
         signature:
             "Начальник Северного района  филиала ОАО «Ленэнерго» «Кабельная сеть» — Кругляков А.А.",
-        image: "/img/partners/lenenergo_letter.png",
+        image: "lenenergo_letter.png",
         pdf: "/img/partners/lenenergo_letter.pdf",
         logo_scale: 1.35,
+        strip_scale: 1.2,
     },
     {
-        logo: "/img/partners/fortgroup.png",
+        logo: "fortgroup.png",
         title: "“Все работы, проводимые в сложных условиях реконструкции существующего объекта, были выполнены.”",
         text: [
             "В период с октября 2017г. по август 2018 г. 000 НПП “ЭЛМО трейд” выполнило полный комплекс проектных, электромонтажных и пусконаладочных работ систем электроснабжения, вентиляции и кондиционирования, дымоудаления в шестизальном кинотеатре 000 “Синема 78” в Торгово-развлекательном комплексе “Южный полюс” по адресу Санкт-Петербург, ул. Пражская, 448/50, лит.А.",
         ],
         signature:
             "Генеральный директор ООО «Синема 78» — Мунасипов А.Ф. Генеральный директор  «Fort Group» — Стерехова А.С.",
-        image: "/img/partners/fortgroup_letter.png",
+        image: "fortgroup_letter.png",
         pdf: "/img/partners/fortgroup_letter.pdf",
         logo_scale: 0.9,
+        strip_scale: 1.0,
     },
     {
-        logo: "/img/partners/telemaks.png",
+        logo: "telemaks.png",
         title: "“ЗАдачи решаются на высоком профессиональном уровне в установленные сроки.”",
         text: [
             "Закрытое Акционерное Общество Научно-производственное предприятие «ЭЛМО трейд» является Подрядчиком по проведению электромонтажных работ внутреннего и знешнего электроснабжения на объектах нашей компании.",
@@ -71,22 +80,37 @@ const letters = [
         ],
         signature:
             "Директор по устройству и эксплуатации — Латышев С.В.",
-        image: "/img/partners/telemaks_letter.png",
+        image: "telemaks_letter.png",
         pdf: "/img/partners/telemaks_letter.pdf",
         logo_scale: 1.3,
+        strip_scale: 1.2,
     },
 ];
+
+const letters = lettersData.map(letter => {
+    const logoPath = `/src/assets/images/partners/${letter.logo}`;
+    const imagePath = `/src/assets/images/partners/${letter.image}`;
+
+    return {
+        ...letter,
+        logoSrc: (partnerImages[logoPath] as Record<string, any>)?.default as ImageMetadata,
+        imageSrc: (partnerImages[imagePath] as Record<string, any>)?.default as ImageMetadata,
+    };
+});
 ---
 
 <div class="letters-container">
     <!-- 1. The Logo Bar -->
     <div class="logos">
         {letters.map((letter, index) => (
-            <img
-                src={letter.logo}
+            <Image
+                src={letter.logoSrc}
                 class="logo"
+                height={60 * letter.strip_scale}
                 data-index={index}
                 alt={`${letter.signature.split('—')[0].trim()} logo`}
+                style={`--logo-scale: ${letter.strip_scale};`}
+                id={`logo-${letter.logo.substring(0, letter.logo.lastIndexOf('.'))}`}
             />
         ))}
     </div>
@@ -99,11 +123,22 @@ const letters = [
                     <p class="title2">Рекомендательное письмо</p>
                     <p class="headline2">{letter.title}</p>
                     {letter.text.map((line) => <p>{line}</p>)}
-                    <img src={letter.logo} class="letter-logo" alt="" style={`width: ${letter.logo_scale * 25}%`} />
+                    <Image
+                        src={letter.logoSrc}
+                        class="letter-logo"
+                        alt=""
+                        width={letter.logo_scale * 140}
+                    />
                     <p class="title1">{letter.signature}</p>
                 </div>
                 <!-- This image will trigger the lightbox -->
-                <img src={letter.image} class="letter-image" data-dialog-trigger={`letter-dialog-${index}`} alt={`Благодарственное письмо от ${letter.signature.split('—')[0].trim()}`} />
+                <Image
+                    src={letter.imageSrc}
+                    class="letter-image"
+                    height={500}
+                    data-dialog-trigger={`letter-dialog-${index}`}
+                    alt={`Благодарственное письмо от ${letter.signature.split('—')[0].trim()}`}
+                />
             </div>
         ))}
     </div>
@@ -113,7 +148,10 @@ const letters = [
 {letters.map((letter, index) => (
     <dialog id={`letter-dialog-${index}`} class="letter-dialog">
         <button class="close-button" aria-label="Close dialog">&times;</button>
-        <img src={letter.image} alt={`Full view of letter from ${letter.signature.split('—')[0].trim()}`} />
+        <Image
+            src={letter.imageSrc}
+            alt={`Full view of letter from ${letter.signature.split('—')[0].trim()}`}
+        />
     </dialog>
 ))}
 
@@ -291,6 +329,7 @@ const letters = [
         width: 100%;
         max-width: 900px; /* Set a max-width instead of a fixed percentage */
         display: flex;
+        align-items: center;
         justify-content: center; /* Center logos */
         gap: 2rem; /* Use gap for spacing */
         flex-wrap: wrap;
@@ -298,7 +337,7 @@ const letters = [
     }
 
     .logo {
-        height: 40px; /* Use a consistent height for alignment */
+        height: calc(40px * var(--logo-scale)); /* Use a consistent height for alignment */
         width: auto;
         object-fit: contain;
         transition: transform 0.5s ease;
@@ -346,6 +385,7 @@ const letters = [
     .letter-text {
         max-width: 560px;
         flex: 1 1 400px; /* Allow text to grow and shrink */
+        background-color: var(--color-background-accent);
     }
 
     .letter-logo {
@@ -419,6 +459,14 @@ const letters = [
         transform: scale(1.15);
     }
 
+    /* ====================
+       FIXES FOR DIANOCHKA
+       ==================== */
+    
+    #logo-spb {
+        margin-left: 10px;
+    }
+
     /* ==========================================================================
        TABLET & RESPONSIVE STYLES
        ========================================================================== */
@@ -489,7 +537,7 @@ const letters = [
 
         .logo.is-active {
             /* Make the active logo larger and fully opaque */
-            transform: scale(1.2) translateY(-5px);
+            transform: scale(1.2);
             opacity: 1;
         }
 
@@ -521,6 +569,10 @@ const letters = [
 
         .letter.is-active {
             display: block; /* Only show the active letter */
+        }
+
+        .letter-text {
+            background-color: var(--color-background-body);
         }
 
         .letter-text {

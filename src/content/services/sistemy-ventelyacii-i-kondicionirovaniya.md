@@ -5,7 +5,7 @@ pageID: "sistemy-ventelyacii-i-kondicionirovaniya"
 carousel: { 
     images: [
         {
-            image: "../../assets/images/services/service-3_upscaled.webp",
+            src: "../../assets/images/services/service-3_upscaled.webp",
             offsets: [0, -300],
             size: [0, 0],
             description: {

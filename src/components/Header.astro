@@ -1,11 +1,12 @@
 ---
 import Navigation from "./Navigation.astro";
+import Logo from "../../public/img/logo.svg"
 ---
 
 <header>
     <nav>
         <a href="/" class="elmo">
-            <img src="/img/logo.svg" class="logo" alt="Элмо Трейд Лого" />
+            <Logo class="logo" />
             <div class="vertical-line"></div>
             <div>
                 <p>научно</p>
@@ -116,6 +117,7 @@ import Navigation from "./Navigation.astro";
 
         .elmo .logo {
             height: 83px; /* Adjust logo size */
+            width: 74.5px;
         }
 
         .elmo .vertical-line {
