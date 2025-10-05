@@ -4,7 +4,12 @@ on:
   push:
     branches:
       - master # This workflow runs every a push to the master branch occurs
-  workflow_dispatch: # Allows manual triggering
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'The branch to build and deploy from'
+        required: true
+        default: 'master' # The default branch to use if not specified
 
 jobs:
   build:
@@ -13,6 +18,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.inputs.branch || github.ref }}
           lfs: true
 
       - name: Set up Node.js
@@ -37,7 +43,7 @@ jobs:
         run: npm run build
 
       - name: Cache dist directory
-        uses: actions/cache@v.4
+        uses: actions/cache@v4
         with:
           path: dist
           key: dist-cache-${{ github.sha }} # Keyed to the exact commit
