@@ -30,7 +30,7 @@ sections: [
                     "../../assets/images/projects/romanovka/07.webp",
                     "../../assets/images/projects/romanovka/09.webp",
                     "../../assets/images/projects/romanovka/10.webp",
-                    "../videos/projects/romanovka/05.MOV",
+                    "/videos/projects/romanovka/05.MOV",
                 ]
             },
         ],

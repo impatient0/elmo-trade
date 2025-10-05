@@ -33,7 +33,7 @@ const carouselImages = [
 			subbody: "г. Санкт-Петербург, 14-я линия В.О., д. 77, литер А.",
 			body: "Разработка РД и выполнение работ по монтажу внутренних инженерных систем.",
 		},
-		link: "/projects/obshchezhitie-spgu-(gornyi-universitet)",
+		link: "/projects/obshchezhitie-spgu-gornyi-universitet",
 	},
 	{
 		src: mtsImage,
@@ -77,7 +77,7 @@ const slides = allProjects.map((project) => {
 
 <BaseLayout pageTitle={pageTitle}>
 	<div class="cover desktop-content">
-		<Carousel images={carouselImages} />
+		<Carousel images={carouselImages}, showDots={true} />
 	</div>
     <div class="about">
 		<div class="desktop-content">

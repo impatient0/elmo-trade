@@ -34,13 +34,13 @@ sections: [
             ] },
             { title: "АУГПТ технологического оборудования обоепечатных машин", images: [
                 "../../assets/images/projects/oboinaya-fabrika-arteks/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin01.webp",
-                "../videos/projects/oboinaya-fabrika-arteks/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin02.MP4",
+                "/videos/projects/oboinaya-fabrika-arteks/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin02.MP4",
                 "../../assets/images/projects/oboinaya-fabrika-arteks/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin03.webp",
                 "../../assets/images/projects/oboinaya-fabrika-arteks/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin04.webp",
                 "../../assets/images/projects/oboinaya-fabrika-arteks/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin05.webp",
                 "../../assets/images/projects/oboinaya-fabrika-arteks/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin06.webp",
                 "../../assets/images/projects/oboinaya-fabrika-arteks/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin08.webp",
-                "../videos/projects/oboinaya-fabrika-arteks/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin07.mp4",
+                "/videos/projects/oboinaya-fabrika-arteks/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin/augpt-tekhnologicheskogo-oborudovaniya-oboepechatnykh-mashin07.mp4",
             ] },
             { title: "Монтаж сплинкерного узла", images: [
                 "../../assets/images/projects/oboinaya-fabrika-arteks/montazh-splinkernogo-uzla/montazh-splinkernogo-uzla01.webp",
@@ -87,8 +87,8 @@ sections: [
                 "../../assets/images/projects/oboinaya-fabrika-arteks-(sklad-syrya)/13.webp",
                 "../../assets/images/projects/oboinaya-fabrika-arteks-(sklad-syrya)/14.webp",
                 "../../assets/images/projects/oboinaya-fabrika-arteks-(sklad-syrya)/15.webp",
-                "../videos/projects/oboinaya-fabrika-arteks-(sklad-syrya)/05.MOV",
-                "../videos/projects/oboinaya-fabrika-arteks-(sklad-syrya)/06.MOV",
+                "/videos/projects/oboinaya-fabrika-arteks-(sklad-syrya)/05.MOV",
+                "/videos/projects/oboinaya-fabrika-arteks-(sklad-syrya)/06.MOV",
             ] },
         ],
         shifts: {"0_5": 400, }
