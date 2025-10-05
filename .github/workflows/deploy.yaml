@@ -25,7 +25,7 @@ jobs:
         id: cache-astro
         uses: actions/cache@v4
         with:
-          path: .astro/cache
+          path: node_modules/.astro
           key: astro-build-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}-${{ github.sha }}
           restore-keys: |
             astro-build-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}-
