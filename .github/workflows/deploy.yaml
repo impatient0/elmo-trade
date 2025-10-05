@@ -36,20 +36,21 @@ jobs:
       - name: Build Astro site
         run: npm run build
 
-      - name: Upload build artifact
-        uses: actions/upload-artifact@v4
+      - name: Cache dist directory
+        uses: actions/cache@v.4
         with:
-          name: astro-build-output
-          path: dist/
+          path: dist
+          key: dist-cache-${{ github.sha }} # Keyed to the exact commit
   
   deploy:
       needs: build
       runs-on: ubuntu-latest
       steps:
-      - name: Download build artifact
-        uses: actions/download-artifact@v4
+      - name: Restore dist directory from cache
+        uses: actions/cache@v4
         with:
-          name: astro-build-output
+          path: dist
+          key: dist-cache-${{ github.sha }} # Use the exact same key to restore
 
       - name: Deploy with Rsync
         env:
