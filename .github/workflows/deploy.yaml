@@ -4,33 +4,44 @@ on:
   push:
     branches:
       - master # This workflow runs every a push to the master branch occurs
+  workflow_dispatch: # Allows manual triggering
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
         with:
           lfs: true
 
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '22.14.0'
+          node-version: '20'
+          cache: 'npm' 
+
       - name: Install dependencies
         run: npm install
 
       - name: Build Astro site
         run: npm run build
 
-      - name: Deploy with rsync
-        uses: easingthemes/ssh-deploy@v2.2.11
-        with:
+      - name: Deploy with Rsync
+        env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc -i --delete"
-          SOURCE: "dist/"
           REMOTE_HOST: ${{ secrets.HOST }}
           REMOTE_USER: ${{ secrets.USERNAME }}
-          REMOTE_PORT: ${{ secrets.PORT }}
-          TARGET: ${{ secrets.REMOTE_PATH }}
+          REMOTE_PORT: ${{ secrets.PORT }} 
+          TARGET_DIR: elmotreidru/www/
+        run: |
+          echo "$SSH_PRIVATE_KEY" > deploy_key
+          chmod 600 deploy_key
+
+          SSH_CMD="ssh -i ./deploy_key -p $REMOTE_PORT -o StrictHostKeyChecking=no"
+          
+          rsync -rlgoDzvc --delete \
+            -e "$SSH_CMD" \
+            --rsync-path=/usr/bin/rsync \
+            ./dist/ \
+            $REMOTE_USER@$REMOTE_HOST:$TARGET_DIR
