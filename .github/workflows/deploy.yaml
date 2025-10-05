@@ -7,7 +7,7 @@ on:
   workflow_dispatch: # Allows manual triggering
 
 jobs:
-  deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
@@ -25,16 +25,31 @@ jobs:
         id: cache-astro
         uses: actions/cache@v4
         with:
-          path: node_modules/.astro
+          path: .astro/cache
           key: astro-build-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}-${{ github.sha }}
           restore-keys: |
             astro-build-${{ runner.os }}-${{ hashFiles('**/package-lock.json') }}-
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Astro site
         run: npm run build
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: astro-build-output
+          path: dist/
+  
+  deploy:
+      needs: build
+      runs-on: ubuntu-latest
+      steps:
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: astro-build-output
 
       - name: Deploy with Rsync
         env:
@@ -42,7 +57,7 @@ jobs:
           REMOTE_HOST: ${{ secrets.HOST }}
           REMOTE_USER: ${{ secrets.USERNAME }}
           REMOTE_PORT: ${{ secrets.PORT }} 
-          TARGET_DIR: elmotreidru/www/
+          TARGET_DIR: ${{ secrets.REMOTE_PATH }}
         run: |
           echo "$SSH_PRIVATE_KEY" > deploy_key
           chmod 600 deploy_key
