@@ -20,7 +20,6 @@ sections: [
         },
         multi_gallery: [
             { title: "", images: [
-                "../../assets/images/projects/tsod-megafon/01.webp",
                 "../../assets/images/projects/tsod-megafon/02.webp",
                 "../../assets/images/projects/tsod-megafon/03.webp",
                 "../../assets/images/projects/tsod-megafon/04.webp",
