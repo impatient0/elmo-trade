@@ -53,7 +53,9 @@ const carouselImages = [
 
 const yearFilter = (x) => {
 	let currentYear = new Date().getFullYear();
-	return Number(x.year[x.year.length - 1].slice(-4)) >= currentYear - 1;
+	return Number(x.year[x.year.length - 1].slice(-4)) >= 2023;
+	// TODO: update when more projects are available
+	// return Number(x.year[x.year.length - 1].slice(-4)) >= currentYear - 1;
 };
 ---
 
